@@ -3,16 +3,6 @@
   <img src="Logo.png" alt="CitePrism Logo" width="40%">
 </p>
 
-
-<p align="center">
-  <img src="CitePrism.png" alt="CitePrism Graphical Abstract" width="85%">
-</p>
-
-<h1 align="center">CitePrism</h1>
-<h3 align="center">LLM-Driven Audit of Citation Relevance & Self-Citation Transparency</h3>
-
----
-
 ## 🔍 Overview
 
 **CitePrism** is a transparent, scalable system for auditing academic manuscripts with a focus on:
@@ -26,6 +16,16 @@
 It is designed to support ethical and evidence-based citation practices in scholarly work.
 
 ---
+
+<p align="center">
+  <img src="CitePrism.png" alt="CitePrism Graphical Abstract" width="85%">
+</p>
+
+<h1 align="center">CitePrism</h1>
+<h3 align="center">LLM-Driven Audit of Citation Relevance & Self-Citation Transparency</h3>
+
+---
+
 
 ## ✨ Key Features
 

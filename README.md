@@ -1,3 +1,9 @@
+
+<p align="center">
+  <img src="Logo.png" alt="CitePrism Logo" width="40%">
+</p>
+
+
 <p align="center">
   <img src="CitePrism.png" alt="CitePrism Graphical Abstract" width="85%">
 </p>

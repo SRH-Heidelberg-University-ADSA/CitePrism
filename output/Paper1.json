@@ -1,0 +1,697 @@
+{
+  "metadata": {
+    "source": "input\\Paper1.pdf",
+    "doi": "10.1016/j.mtcomm.2024.109764",
+    "title": "Novel base predictive model of resilient modulus of compacted subgrade soils by using interpretable approaches with graphical user interface",
+    "authors": [
+      {
+        "name": "Loai Alkhattabi",
+        "affiliation": "Department of Civil and Environmental Engineering, College of Engineering, University of Jeddah, Jeddah 23890, Saudi Arabia"
+      },
+      {
+        "name": "Kiran Arif",
+        "affiliation": "Department of Computer Science, COMSATS University Islamabad, Wah Campus, Islamabad 47040, Pakistan"
+      }
+    ],
+    "keywords": [
+      "Resilient modulus",
+      "Subgrade",
+      "Graphical user interface",
+      "Machine learning",
+      "Statistical measures"
+    ],
+    "publication_date": "2024",
+    "processing_time": 288.46,
+    "llm_provider": "openai"
+  },
+  "content": {
+    "abstract": "The flexible pavement system consists of layers that are made up of a blend of aggregates and bitumen. To design flexible pavement systems that are both safe and environmentally sustainable, it is essential to have an accurate understanding of the resilient modulus (Mr) of the compacted subgrade soil. Mr refers to the ability of the soil to resist deformation under repeated loads. Thus, a critical parameter affects the performance and longevity of pavement systems. This study employs machine learning (ML) algorithms such as individual and ensemble learners using an extensive database of 2813 data points. These include dry unit weight, weighted plasticity index, confining stress, deviator stress, moisture content, and the number of freeze-thaw cycles (FT). The individual or weak learners were incorporated to create strong and robust ensemble learners by employing techniques such as bagging, adaptive boosting, and random forest (RF). Ensemble learning methods were used to improve the performance of individual learners, such as support vector machine (SVM) and decision tree (DT), by combining their predictions. To achieve the highest R2 value, a total of twenty bagging and boosting sub-models were trained and optimized. The validation of the test data was carried out through K-Fold cross-validation, utilizing metrics such as R2, MAE, and RMSE. The developed models were rigorously tested using statistical indices (MAE, MSE, RMSE, and RMLSE) to verify their predictive accuracy, reliability, and trustworthiness. The findings indicate that the integration of bagging and boosting techniques improves the efficiency of individual machine learning (ML) models. The combination of RF and DT utilizing bagging resulted in the most reliable performance, achieving an R2 value of 0.9 and demonstrating minimum errors. In general, the implementation of the ensemble algorithm in ML improved the overall prediction accuracy of the model. Sensitivity analysis reveals that the prediction of the resilient modulus (Mr) of the subgrade is primarily influenced by dry density, confining stress, and deviator stress. Moreover, a graphical user interface (GUI) is developed for practical implantation.",
+    "full_text_length": 89412
+  },
+  "references": [
+    {
+      "raw_text": "[18] T. Lin, T. Ishikawa, J. Yang, T. Tokoro, Evaluation of climate effect on resilient modulus of granular subgrade material, Cold Reg. Sci. Technol. 194 (2022), https://doi.org/10.1016/j.coldregions.2021.103452.",
+      "title": "Evaluation of climate effect on resilient modulus of granular subgrade material",
+      "authors": "T. Lin, T. Ishikawa, J. Yang, T. Tokoro",
+      "year": 2022,
+      "journal": "Cold Reg. Sci. Technol.",
+      "doi": "10.1016/j.coldregions.2021.103452"
+    },
+    {
+      "raw_text": "[19] S.Y. Kim, D.J. Kim, J.S. Lee, T.H.K. Kang, Y.H. Byun, Resilient modulus estimation using in-situ modulus detector: performance and factors, Int. J. Pavement Eng. (2022), https://doi.org/10.1080/10298436.2022.2096883.",
+      "title": "Resilient modulus estimation using in-situ modulus detector: performance and factors",
+      "authors": "S.Y. Kim, D.J. Kim, J.S. Lee, T.H.K. Kang, Y.H. Byun",
+      "year": 2022,
+      "journal": "Int. J. Pavement Eng.",
+      "doi": "10.1080/10298436.2022.2096883"
+    },
+    {
+      "raw_text": "[20] C.C. Ikeagwuani, D.C. Nwonu, C.C. Nweke, Resilient modulus descriptive analysis and estimation for fine-grained soils using multivariate and machine learning methods, Int. J. Pavement Eng. 23 (2022) 3409–3424, https://doi.org/10.1080/10298436.2021.1895993.",
+      "title": "Resilient modulus descriptive analysis and estimation for fine-grained soils using multivariate and machine learning methods",
+      "authors": "C.C. Ikeagwuani, D.C. Nwonu, C.C. Nweke",
+      "year": 2022,
+      "journal": "Int. J. Pavement Eng.",
+      "doi": "10.1080/10298436.2021.1895993"
+    },
+    {
+      "raw_text": "[21] X. Liu, X. Zhang, H. Wang, B. Jiang, Laboratory testing and analysis of dynamic and static resilient modulus of subgrade soil under various influencing factors, Constr. Build. Mater. 195 (2019) 178–186, https://doi.org/10.1016/j.conbuildmat.2018.11.061.",
+      "title": "Laboratory testing and analysis of dynamic and static resilient modulus of subgrade soil under various influencing factors",
+      "authors": "X. Liu, X. Zhang, H. Wang, B. Jiang",
+      "year": 2019,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2018.11.061"
+    },
+    {
+      "raw_text": "[22] J. Peng, J. Zhang, J. Li, Y. Yao, A. Zhang, Modeling humidity and stress-dependent subgrade soils in flexible pavements, Comput. Geotech. 120 (2020), https://doi.org/10.1016/j.compgeo.2019.103413.",
+      "title": "Modeling humidity and stress-dependent subgrade soils in flexible pavements",
+      "authors": "J. Peng, J. Zhang, J. Li, Y. Yao, A. Zhang",
+      "year": 2020,
+      "journal": "Comput. Geotech.",
+      "doi": "10.1016/j.compgeo.2019.103413"
+    },
+    {
+      "raw_text": "[23] J. Zhang, J. Peng, L. Zeng, J. Li, F. Li, Rapid estimation of resilient modulus of subgrade soils using performance-related soil properties, Int. J. Pavement Eng. 22 (2021) 732–739, https://doi.org/10.1080/10298436.2019.1643022.",
+      "title": "Rapid estimation of resilient modulus of subgrade soils using performance-related soil properties",
+      "authors": "J. Zhang, J. Peng, L. Zeng, J. Li, F. Li",
+      "year": 2021,
+      "journal": "Int. J. Pavement Eng.",
+      "doi": "10.1080/10298436.2019.1643022"
+    },
+    {
+      "raw_text": "[24] J. Zhang, A. Zhang, C. Huang, H. Yu, C. Zhou, Characterising the resilient behaviour of pavement subgrade with construction and demolition waste under Freeze–Thaw cycles, J. Clean. Prod. 300 (2021), https://doi.org/10.1016/j.jclepro.2021.126702.",
+      "title": "Characterising the resilient behaviour of pavement subgrade with construction and demolition waste under Freeze–Thaw cycles",
+      "authors": "J. Zhang, A. Zhang, C. Huang, H. Yu, C. Zhou",
+      "year": 2021,
+      "journal": "J. Clean. Prod.",
+      "doi": "10.1016/j.jclepro.2021.126702"
+    },
+    {
+      "raw_text": "[25] T. Ishikawa, T. Lin, S. Kawabata, S. Kameyama, T. Tokoro, Effect evaluation of freeze-thaw on resilient modulus of unsaturated granular base course material in pavement, Transp. Geotech. 21 (2019), https://doi.org/10.1016/j.trgeo.2019.100284.",
+      "title": "Effect evaluation of freeze-thaw on resilient modulus of unsaturated granular base course material in pavement",
+      "authors": "T. Ishikawa, T. Lin, S. Kawabata, S. Kameyama, T. Tokoro",
+      "year": 2019,
+      "journal": "Transp. Geotech.",
+      "doi": "10.1016/j.trgeo.2019.100284"
+    },
+    {
+      "raw_text": "[26] A.M. Al-Mahbashi, M. Al-Shamrani, Long-term and immediate effects of freeze–thaw cycles on the resilient modulus of treated expansive subgrades, Road. Mater. Pavement Des. 24 (2023) 2411–2424, https://doi.org/10.1080/14680629.2022.2146603.",
+      "title": "Long-term and immediate effects of freeze–thaw cycles on the resilient modulus of treated expansive subgrades",
+      "authors": "A.M. Al-Mahbashi, M. Al-Shamrani",
+      "year": 2023,
+      "journal": "Road. Mater. Pavement Des.",
+      "doi": "10.1080/14680629.2022.2146603"
+    },
+    {
+      "raw_text": "[27] A.J. Puppala, L.R. Hoyos, A.K. Potturi, Resilient Moduli Response of Moderately Cement-Treated Reclaimed Asphalt Pavement Aggregates, J. Mater. Civ. Eng. 23 (2011) 990–998, https://doi.org/10.1061/(asce)mt.1943-5533.0000268.",
+      "title": "Resilient Moduli Response of Moderately Cement-Treated Reclaimed Asphalt Pavement Aggregates",
+      "authors": "A.J. Puppala, L.R. Hoyos, A.K. Potturi",
+      "year": 2011,
+      "journal": "J. Mater. Civ. Eng.",
+      "doi": "10.1061/(asce)mt.1943-5533.0000268"
+    },
+    {
+      "raw_text": "[28] X. Hu, T. Tang, L. Tan, H. Zhang, Fault Detection for Point Machines: A Review, Challenges, and Perspectives, Vol. 12, Page 391. 12, Actuators 2023 (2023) 391, https://doi.org/10.3390/ACT12100391.",
+      "title": "Fault Detection for Point Machines: A Review, Challenges, and Perspectives",
+      "authors": "X. Hu, T. Tang, L. Tan, H. Zhang",
+      "year": 2023,
+      "journal": "Actuators",
+      "doi": "10.3390/ACT12100391"
+    },
+    {
+      "raw_text": "[29] J. Cao, S.-T. Quek, H. Xiong, Z. Yang, Comparison of Constrained Unscented and Cubature Kalman Filters for Nonlinear System Parameter Identification, J. Eng. Mech. 149 (2023), https://doi.org/10.1061/jenmdt.emeng-7091.",
+      "title": "Comparison of Constrained Unscented and Cubature Kalman Filters for Nonlinear System Parameter Identification",
+      "authors": "J. Cao, S.-T. Quek, H. Xiong, Z. Yang",
+      "year": 2023,
+      "journal": "J. Eng. Mech.",
+      "doi": "10.1061/jenmdt.emeng-7091"
+    },
+    {
+      "raw_text": "[30] U. Asif, M.F. Javed, M. Abuhussain, M. Ali, W.A. Khan, A. Mohamed, Predicting the mechanical properties of plastic concrete: An optimization method by using genetic programming and ensemble learners, Case Stud. Constr. Mater. 20 (2024) e03135, https://doi.org/10.1016/j.cscm.2024.e03135.",
+      "title": "Predicting the mechanical properties of plastic concrete: An optimization method by using genetic programming and ensemble learners",
+      "authors": "U. Asif, M.F. Javed, M. Abuhussain, M. Ali, W.A. Khan, A. Mohamed",
+      "year": 2024,
+      "journal": "Case Stud. Constr. Mater.",
+      "doi": "10.1016/j.cscm.2024.e03135"
+    },
+    {
+      "raw_text": "[31] S.Q. Yang, J.Z. Tang, S.S. Wang, D.Sen Yang, W.T. Zheng, An Experimental and Modeling Investigation on Creep Mechanical Behavior of Granite Under Triaxial Cyclic Loading and Unloading, Rock. Mech. Rock. Eng. 55 (2022) 5577–5597, https://doi.org/10.1007/s00603-022-02920-w.",
+      "title": "An Experimental and Modeling Investigation on Creep Mechanical Behavior of Granite Under Triaxial Cyclic Loading and Unloading",
+      "authors": "S.Q. Yang, J.Z. Tang, S.S. Wang, D.Sen Yang, W.T. Zheng",
+      "year": 2022,
+      "journal": "Rock. Mech. Rock. Eng.",
+      "doi": "10.1007/s00603-022-02920-w"
+    },
+    {
+      "raw_text": "[32] Y. Wang, T. Mao, Y. Xia, X. Li, X. Yi, Macro-meso fatigue failure of bimrocks with various block content subjected to multistage fatigue triaxial loads, Int. J. Fatigue 163 (2022), https://doi.org/10.1016/j.ijfatigue.2022.107014.",
+      "title": "Macro-meso fatigue failure of bimrocks with various block content subjected to multistage fatigue triaxial loads",
+      "authors": "Y. Wang, T. Mao, Y. Xia, X. Li, X. Yi",
+      "year": 2022,
+      "journal": "Int. J. Fatigue",
+      "doi": "10.1016/j.ijfatigue.2022.107014"
+    },
+    {
+      "raw_text": "[33] K.M. Islam, S.L. Gassman, Effect of the Field-Stress State on the Subgrade Resilient Modulus for Pavement Rutting and IRI, Geotechnics 3 (2023) 360–374, https://doi.org/10.3390/geotechnics3020021.",
+      "title": "Effect of the Field-Stress State on the Subgrade Resilient Modulus for Pavement Rutting and IRI",
+      "authors": "K.M. Islam, S.L. Gassman",
+      "year": 2023,
+      "journal": "Geotechnics",
+      "doi": "10.3390/geotechnics3020021"
+    },
+    {
+      "raw_text": "[34] M. Dong-Gyou Kim, DEVELOPMENT OF A CONSTITUTIVE MODEL FOR RESILIENT MODULUS, 2004. 〈https://search.proquest.com/openview/2ab4e5c12c5e4375da7d320542623efe/1?pq-origsite=gscholar&cbl=18750&diss=y〉 (accessed October 25, 2023).",
+      "title": "DEVELOPMENT OF A CONSTITUTIVE MODEL FOR RESILIENT MODULUS",
+      "authors": "M. Dong-Gyou Kim",
+      "year": 2004,
+      "journal": null,
+      "doi": null
+    },
+    {
+      "raw_text": "[35] A.L. Smart, D.N. Humphrey, Determination of resilient modulus for Maine roadway soils, (1999). 〈https://trid.trb.org/view/647964〉 (accessed October 25, 2023).",
+      "title": "Determination of resilient modulus for Maine roadway soils",
+      "authors": "A.L. Smart, D.N. Humphrey",
+      "year": 1999,
+      "journal": null,
+      "doi": null
+    },
+    {
+      "raw_text": "[36] R. Pezo, W.R. Hudson, Prediction models of resilient modulus for nongranular materials, Geotech. Test. J. 17 (1994), https://doi.org/10.1520/gtj10109j.",
+      "title": "Prediction models of resilient modulus for nongranular materials",
+      "authors": "R. Pezo, W.R. Hudson",
+      "year": 1994,
+      "journal": "Geotech. Test. J.",
+      "doi": "10.1520/gtj10109j"
+    },
+    {
+      "raw_text": "[37] Z. Han, S.K. Vanapalli, J. ping Ren, W. lie Zou, Characterizing cyclic and static moduli and strength of compacted pavement subgrade soils considering moisture variation, Soils Found. 58 (2018) 1187–1199, https://doi.org/10.1016/j.sandf.2018.06.003.",
+      "title": "Characterizing cyclic and static moduli and strength of compacted pavement subgrade soils considering moisture variation",
+      "authors": "Z. Han, S.K. Vanapalli, J. ping Ren, W. lie Zou",
+      "year": 2018,
+      "journal": "Soils Found.",
+      "doi": "10.1016/j.sandf.2018.06.003"
+    },
+    {
+      "raw_text": "[38] H. Huang, Y. Yuan, W. Zhang, M. Li, Seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint, Eng. Struct. 245 (2021), https://doi.org/10.1016/j.engstruct.2021.112848.",
+      "title": "Seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint",
+      "authors": "H. Huang, Y. Yuan, W. Zhang, M. Li",
+      "year": 2021,
+      "journal": "Eng. Struct.",
+      "doi": "10.1016/j.engstruct.2021.112848"
+    },
+    {
+      "raw_text": "[39] Y. Su, J. Wang, D. Li, X. Wang, L. Hu, Y. Yao, Y. Kang, End-to-end deep learning model for underground utilities localization using GPR, Autom. Constr. 149 (2023), https://doi.org/10.1016/j.autcon.2023.104776.",
+      "title": "End-to-end deep learning model for underground utilities localization using GPR",
+      "authors": "Y. Su, J. Wang, D. Li, X. Wang, L. Hu, Y. Yao, Y. Kang",
+      "year": 2023,
+      "journal": "Autom. Constr.",
+      "doi": "10.1016/j.autcon.2023.104776"
+    },
+    {
+      "raw_text": "[40] M. Alzara, M.F. Rehman, F. Farooq, M. Ali, A.A.A. Beshr, A.M. Yosri, S.B. A El Sayed, Prediction of building energy performance using mathematical gene-expression programming for a selected region of dry-summer climate, Eng. Appl. Artif. Intell. 126 (2023) 106958, https://doi.org/10.1016/j.engappai.2023.106958.",
+      "title": "Prediction of building energy performance using mathematical gene-expression programming for a selected region of dry-summer climate",
+      "authors": "M. Alzara, M.F. Rehman, F. Farooq, M. Ali, A.A.A. Beshr, A.M. Yosri, S.B. A El Sayed",
+      "year": 2023,
+      "journal": "Eng. Appl. Artif. Intell.",
+      "doi": "10.1016/j.engappai.2023.106958"
+    },
+    {
+      "raw_text": "[41] H. Huang, M. Guo, W. Zhang, M. Huang, Seismic Behavior of Strengthened RC Columns under Combined Loadings, J. Bridg. Eng. 27 (2022) 05022005, https://doi.org/10.1061/(asce)be.1943-5592.0001871.",
+      "title": "Seismic Behavior of Strengthened RC Columns under Combined Loadings",
+      "authors": "H. Huang, M. Guo, W. Zhang, M. Huang",
+      "year": 2022,
+      "journal": "J. Bridg. Eng.",
+      "doi": "10.1061/(asce)be.1943-5592.0001871"
+    },
+    {
+      "raw_text": "[42] D. Lu, J. Liang, X. Du, C. Ma, Z. Gao, Fractional elastoplastic constitutive model for soils based on a novel 3D fractional plastic flow rule, Comput. Geotech. 105 (2019) 277–290, https://doi.org/10.1016/j.compgeo.2018.10.004.",
+      "title": "Fractional elastoplastic constitutive model for soils based on a novel 3D fractional plastic flow rule",
+      "authors": "D. Lu, J. Liang, X. Du, C. Ma, Z. Gao",
+      "year": 2019,
+      "journal": "Comput. Geotech.",
+      "doi": "10.1016/j.compgeo.2018.10.004"
+    },
+    {
+      "raw_text": "[43] M.A. Khan, F. Farooq, M.F. Javed, A. Zafar, K.A. Ostrowski, F. Aslam, S. Malazdrewicz, M. Ma´slak, Simulation of depth of wear of eco-friendly concrete using machine learning based computational approaches, Mater. (Basel) 15",
+      "title": "Simulation of depth of wear of eco-friendly concrete using machine learning based computational approaches",
+      "authors": "Khan, M.A., Farooq, F., Javed, M.F., Zafar, A., Ostrowski, K.A., Aslam, F., Malazdrewicz, S., Ma´slak, M.",
+      "year": null,
+      "journal": "Mater. (Basel)",
+      "doi": null
+    },
+    {
+      "raw_text": "[44] F. Farooq, S.K.U. Rahman, A. Akbar, R.A. Khushnood, M.F. Javed, R. alyousef, H. Alabduljabbar, F. aslam, A comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar, Alex. Eng. J. 59 (2020) 369–379, https://doi.org/10.1016/j.aej.2019.12.048.",
+      "title": "A comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar",
+      "authors": "Farooq, F., Rahman, S.K.U., Akbar, A., Khushnood, R.A., Javed, M.F., alyousef, R., Alabduljabbar, H., aslam, F.",
+      "year": 2020,
+      "journal": "Alex. Eng. J.",
+      "doi": "10.1016/j.aej.2019.12.048"
+    },
+    {
+      "raw_text": "[45] J. Xin, W. Xu, B. Cao, T. Wang, S. Zhang, A deep-learning-based MAC for integrating channel access, rate adaptation and channel switch, (2024). http://arxiv.org/abs/2406.02291 (accessed July 13, 2024).",
+      "title": "A deep-learning-based MAC for integrating channel access, rate adaptation and channel switch",
+      "authors": "Xin, J., Xu, W., Cao, B., Wang, T., Zhang, S.",
+      "year": 2024,
+      "journal": null,
+      "doi": null
+    },
+    {
+      "raw_text": "[46] F. Aslam, F. Farooq, M.N. Amin, K. Khan, A. Waheed, A. Akbar, M.F. Javed, R. Alyousef, H. Alabdulijabbar, Applications of Gene Expression Programming for Estimating Compressive Strength of High-Strength Concrete, Adv. Civ. Eng. 2020 (2020) 1–23, https://doi.org/10.1155/2020/8850535.",
+      "title": "Applications of Gene Expression Programming for Estimating Compressive Strength of High-Strength Concrete",
+      "authors": "Aslam, F., Farooq, F., Amin, M.N., Khan, K., Waheed, A., Akbar, A., Javed, M.F., Alyousef, R., Alabdulijabbar, H.",
+      "year": 2020,
+      "journal": "Adv. Civ. Eng.",
+      "doi": "10.1155/2020/8850535"
+    },
+    {
+      "raw_text": "[47] M.F. Javed, M.N. Amin, M.I. Shah, K. Khan, B. Iftikhar, F. Farooq, F. Aslam, R. Alyousef, H. Alabduljabbar, Applications of gene expression programming and regression techniques for estimating compressive strength of bagasse ash based concrete, Crystals 10 (2020) 737, https://doi.org/10.3390/cryst10090737.",
+      "title": "Applications of gene expression programming and regression techniques for estimating compressive strength of bagasse ash based concrete",
+      "authors": "Javed, M.F., Amin, M.N., Shah, M.I., Khan, K., Iftikhar, B., Farooq, F., Aslam, F., Alyousef, R., Alabduljabbar, H.",
+      "year": 2020,
+      "journal": "Crystals",
+      "doi": "10.3390/cryst10090737"
+    },
+    {
+      "raw_text": "[48] F. Abbassi, F. Ahmad, Behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation, J. Clean. Prod. 274 (2020) 123074, https://doi.org/10.1016/j.jclepro.2020.123074.",
+      "title": "Behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation",
+      "authors": "Abbassi, F., Ahmad, F.",
+      "year": 2020,
+      "journal": "J. Clean. Prod.",
+      "doi": "10.1016/j.jclepro.2020.123074"
+    },
+    {
+      "raw_text": "[49] F. Farooq, S. Czarnecki, P. Niewiadomski, F. Aslam, H. Alabduljabbar, K. A. Ostrowski, K. Sliwa-Wieczorek, T. Nowobilski, S. Malazdrewicz, A comparative study for the prediction of the compressive strength of self-compacting concrete modified with fly ash, Mater. (Basel) 14 (2021) 4934, https://doi.org/10.3390/",
+      "title": "A comparative study for the prediction of the compressive strength of self-compacting concrete modified with fly ash",
+      "authors": "Farooq, F., Czarnecki, S., Niewiadomski, P., Aslam, F., Alabduljabbar, H., Ostrowski, K.A., Sliwa-Wieczorek, K., Nowobilski, T., Malazdrewicz, S.",
+      "year": 2021,
+      "journal": "Mater. (Basel)",
+      "doi": null
+    },
+    {
+      "raw_text": "[51] M.N. Amin, K. Khan, A.M. Abu Arab, F. Farooq, S.M. Eldin, M.F. Javed, Prediction of sustainable concrete utilizing rice husk ash (RHA) as supplementary cementitious material (SCM): Optimization and hyper-tuning, J. Mater. Res. Technol. 25 (2023) 1495–1536, https://doi.org/10.1016/j.jmrt.2023.06.006.",
+      "title": "Prediction of sustainable concrete utilizing rice husk ash (RHA) as supplementary cementitious material (SCM): Optimization and hyper-tuning",
+      "authors": "Amin, M.N., Khan, K., Abu Arab, A.M., Farooq, F., Eldin, S.M., Javed, M.F.",
+      "year": 2023,
+      "journal": "J. Mater. Res. Technol.",
+      "doi": "10.1016/j.jmrt.2023.06.006"
+    },
+    {
+      "raw_text": "[52] C. Chen, D. Han, C.C. Chang, MPCCT: Multimodal vision-language learning paradigm with context-based compact Transformer, Pattern Recognit. 147 (2024), https://doi.org/10.1016/j.patcog.2023.110084.",
+      "title": "MPCCT: Multimodal vision-language learning paradigm with context-based compact Transformer",
+      "authors": "Chen, C., Han, D., Chang, C.C.",
+      "year": 2024,
+      "journal": "Pattern Recognit.",
+      "doi": "10.1016/j.patcog.2023.110084"
+    },
+    {
+      "raw_text": "[53] H. Jiao, Y. Wang, L. Li, K. Arif, F. Farooq, A. Alaskar, A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials, Mater. Today Commun. 35 (2023) 106335, https://doi.org/10.1016/j.mtcomm.2023.106335.",
+      "title": "A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials",
+      "authors": "Jiao, H., Wang, Y., Li, L., Arif, K., Farooq, F., Alaskar, A.",
+      "year": 2023,
+      "journal": "Mater. Today Commun.",
+      "doi": "10.1016/j.mtcomm.2023.106335"
+    },
+    {
+      "raw_text": "[54] G. Xu, G. Zhou, F. Althoey, H.M. Hadidi, A. Alaskar, A.M. Hassan, F. Farooq, Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning, J. Mater. Res. Technol. 25 (2023) 1421–1446, https://doi.org/10.1016/j.jmrt.2023.06.007.",
+      "title": "Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning",
+      "authors": "Xu, G., Zhou, G., Althoey, F., Hadidi, H.M., Alaskar, A., Hassan, A.M., Farooq, F.",
+      "year": 2023,
+      "journal": "J. Mater. Res. Technol.",
+      "doi": "10.1016/j.jmrt.2023.06.007"
+    },
+    {
+      "raw_text": "[55] Y. Hu, A.A. Alaskar, F. Althoey, M.A. Abuhussain, G. Alfalah, F. Farooq, Strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms: Optimization and hyper tuning, Mater. Today Commun. 36 (2023) 106467, https://doi.org/10.1016/j.mtcomm.2023.106467.",
+      "title": "Strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms: Optimization and hyper tuning",
+      "authors": "Hu, Y., Alaskar, A.A., Althoey, F., Abuhussain, M.A., Alfalah, G., Farooq, F.",
+      "year": 2023,
+      "journal": "Mater. Today Commun.",
+      "doi": "10.1016/j.mtcomm.2023.106467"
+    },
+    {
+      "raw_text": "[56] A. Zaman, R.U.D. Nassar, M. Alyami, S. Shah, M.F. Rehman, I.Y. Hakeem, F. Farooq, Forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches, Mater. Today Commun. 37 (2023) 107066, https://doi.org/10.1016/j.mtcomm.2023.107066.",
+      "title": "Forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches",
+      "authors": "Zaman, A., Nassar, R.U.D., Alyami, M., Shah, S., Rehman, M.F., Hakeem, I.Y., Farooq, F.",
+      "year": 2023,
+      "journal": "Mater. Today Commun.",
+      "doi": "10.1016/j.mtcomm.2023.107066"
+    },
+    {
+      "raw_text": "[57] Z. Liu, X. Gu, H. Ren, Rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing, Constr. Build. Mater. 375 (2023), https://doi.org/10.1016/j.conbuildmat.2023.130903.",
+      "title": "Rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing",
+      "authors": "Liu, Z., Gu, X., Ren, H.",
+      "year": 2023,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2023.130903"
+    },
+    {
+      "raw_text": "[58] Y. Zhang, M. Ling, F. Kaseer, E. Arambula, R.L. Lytton, A.E. Martin, Prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures, J. Clean. Prod. 333 (2022), https://doi.org/10.1016/j.jclepro.2021.129980.",
+      "title": "Prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures",
+      "authors": "Zhang, Y., Ling, M., Kaseer, F., Arambula, E., Lytton, R.L., Martin, A.E.",
+      "year": 2022,
+      "journal": "J. Clean. Prod.",
+      "doi": "10.1016/j.jclepro.2021.129980"
+    },
+    {
+      "raw_text": "[59] C. Chen, D. Han, X. Shen, CLVIN: Complete language-vision interaction network for visual question answering, Knowl. -Based Syst. 275 (2023), https://doi.org/10.1016/j.knosys.2023.110706.",
+      "title": "CLVIN: Complete language-vision interaction network for visual question answering",
+      "authors": "Chen, C., Han, D., Shen, X.",
+      "year": 2023,
+      "journal": "Knowl. -Based Syst.",
+      "doi": "10.1016/j.knosys.2023.110706"
+    },
+    {
+      "raw_text": "[60] R. Fei, Y. Guo, J. Li, B. Hu, L. Yang, An Improved BPNN Method Based on Probability Density for Indoor Location, IEICE Trans. Inf. Syst. E106.D (2023) 773–785, https://doi.org/10.1587/transinf.2022DLP0073.",
+      "title": "An Improved BPNN Method Based on Probability Density for Indoor Location",
+      "authors": "Fei, R., Guo, Y., Li, J., Hu, B., Yang, L.",
+      "year": 2023,
+      "journal": "IEICE Trans. Inf. Syst.",
+      "doi": "10.1587/transinf.2022DLP0073"
+    },
+    {
+      "raw_text": "[61] Y. Zhao, J. Wang, G. Cao, Y. Yuan, X. Yao, L. Qi, Intelligent Control of Multilegged Robot Smooth Motion: A Review, IEEE Access 11 (2023) 86645–86685, https://doi.org/10.1109/ACCESS.2023.3304992.",
+      "title": "Intelligent Control of Multilegged Robot Smooth Motion: A Review",
+      "authors": "Zhao, Y., Wang, J., Cao, G., Yuan, Y., Yao, X., Qi, L.",
+      "year": 2023,
+      "journal": "IEEE Access",
+      "doi": "10.1109/ACCESS.2023.3304992"
+    },
+    {
+      "raw_text": "[62] D.L. Chen, J.W. Zhao, S.R. Qin, SVM strategy and analysis of a three-phase quasi-Z-source inverter with high voltage transmission ratio, Sci. China Technol. Sci. 66 (2023) 2996–3010, https://doi.org/10.1007/s11431-022-2394-4.",
+      "title": "SVM strategy and analysis of a three-phase quasi-Z-source inverter with high voltage transmission ratio",
+      "authors": "Chen, D.L., Zhao, J.W., Qin, S.R.",
+      "year": 2023,
+      "journal": "Sci. China Technol. Sci.",
+      "doi": "10.1007/s11431-022-2394-4"
+    },
+    {
+      "raw_text": "[63] S. Meng, F. Meng, H. Chi, H. Chen, A. Pang, A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries, J. Frankl. Inst. 360 (2023) 11397–11413, https://doi.org/10.1016/j.jfranklin.2023.08.037.",
+      "title": "A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries",
+      "authors": "Meng, S., Meng, F., Chi, H., Chen, H., Pang, A.",
+      "year": 2023,
+      "journal": "J. Frankl. Inst.",
+      "doi": "10.1016/j.jfranklin.2023.08.037"
+    },
+    {
+      "raw_text": "[64] M. Shi, W. Hu, M. Li, J. Zhang, X. Song, W. Sun, Ensemble regression based on polynomial regression-based decision tree and its application in the in-situ data of tunnel boring machine, Mech. Syst. Signal Process. 188 (2023), https://doi.org/10.1016/j.ymssp.2022.110022.",
+      "title": "Ensemble regression based on polynomial regression-based decision tree and its application in the in-situ data of tunnel boring machine",
+      "authors": "Shi, M., Hu, W., Li, M., Zhang, J., Song, X., Sun, W.",
+      "year": 2023,
+      "journal": "Mech. Syst. Signal Process.",
+      "doi": "10.1016/j.ymssp.2022.110022"
+    },
+    {
+      "raw_text": "[65] X. Zhou, D. Lu, Y. Zhang, X. Du, T. Rabczuk, An open-source unconstrained stress updating algorithm for the modified Cam-clay model, Comput. Methods Appl. Mech. Eng. 390 (2022), https://doi.org/10.1016/j.cma.2021.114356.",
+      "title": "An open-source unconstrained stress updating algorithm for the modified Cam-clay model",
+      "authors": "Zhou, X., Lu, D., Zhang, Y., Du, X., Rabczuk, T.",
+      "year": 2022,
+      "journal": "Comput. Methods Appl. Mech. Eng.",
+      "doi": "10.1016/j.cma.2021.114356"
+    },
+    {
+      "raw_text": "[66] D. Lu, X. Zhou, X. Du, G. Wang, 3D Dynamic Elastoplastic Constitutive Model of Concrete within the Framework of Rate-Dependent Consistency Condition, J. Eng. Mech. 146 (2020), https://doi.org/10.1061/(asce)em.1943-",
+      "title": "3D Dynamic Elastoplastic Constitutive Model of Concrete within the Framework of Rate-Dependent Consistency Condition",
+      "authors": "Lu, D., Zhou, X., Du, X., Wang, G.",
+      "year": 2020,
+      "journal": "J. Eng. Mech.",
+      "doi": null
+    },
+    {
+      "raw_text": "[67] S. Shi, D. Han, M. Cui, A multimodal hybrid parallel network intrusion detection model, Conn. Sci. 35 (2023), https://doi.org/10.1080/09540091.2023.2227780.",
+      "title": "A multimodal hybrid parallel network intrusion detection model",
+      "authors": "S. Shi, D. Han, M. Cui",
+      "year": 2023,
+      "journal": "Conn. Sci.",
+      "doi": "10.1080/09540091.2023.2227780"
+    },
+    {
+      "raw_text": "[68] J. Hong, L. Gui, J. Cao, Analysis and Experimental Verification of the Tangential Force Effect on Electromagnetic Vibration of PM Motor, IEEE Trans. Energy Convers. 38 (2023) 1893–1902, https://doi.org/10.1109/TEC.2023.3241082.",
+      "title": "Analysis and Experimental Verification of the Tangential Force Effect on Electromagnetic Vibration of PM Motor",
+      "authors": "J. Hong, L. Gui, J. Cao",
+      "year": 2023,
+      "journal": "IEEE Trans. Energy Convers.",
+      "doi": "10.1109/TEC.2023.3241082"
+    },
+    {
+      "raw_text": "[69] D. Van Dao, H.-B.B. Ly, H.-L.L.T. Vu, T.-T.T. Le, B.T. Pham, Investigation and optimization of the C-ANN structure in predicting the compressive strength of foamed concrete, Mater. (Basel) 13 (2020) 1072, https://doi.org/10.3390/",
+      "title": "Investigation and optimization of the C-ANN structure in predicting the compressive strength of foamed concrete",
+      "authors": "D. Van Dao, H.-B.B. Ly, H.-L.L.T. Vu, T.-T.T. Le, B.T. Pham",
+      "year": 2020,
+      "journal": "Mater. (Basel)",
+      "doi": null
+    },
+    {
+      "raw_text": "[70] M. Zaman, P. Solanki, A. Ebrahimi, L. White, Neural Network Modeling of Resilient Modulus Using Routine Subgrade Soil Properties, Int. J. Geomech. 10 (2010) 1–12, https://doi.org/10.1061/(asce)1532-3641(2010)10:1(1).",
+      "title": "Neural Network Modeling of Resilient Modulus Using Routine Subgrade Soil Properties",
+      "authors": "M. Zaman, P. Solanki, A. Ebrahimi, L. White",
+      "year": 2010,
+      "journal": "Int. J. Geomech.",
+      "doi": "10.1061/(asce)1532-3641(2010)10:1(1)"
+    },
+    {
+      "raw_text": "[71] W. lie Zou, Z. Han, L. qiang Ding, X. qun Wang, Predicting resilient modulus of compacted subgrade soils under influences of freeze–thaw cycles and moisture using gene expression programming and artificial neural network approaches, Transp. Geotech. 28 (2021) 100520, https://doi.org/10.1016/j.trgeo.2021.100520.",
+      "title": "Predicting resilient modulus of compacted subgrade soils under influences of freeze–thaw cycles and moisture using gene expression programming and artificial neural network approaches",
+      "authors": "W. lie Zou, Z. Han, L. qiang Ding, X. qun Wang",
+      "year": 2021,
+      "journal": "Transp. Geotech.",
+      "doi": "10.1016/j.trgeo.2021.100520"
+    },
+    {
+      "raw_text": "[72] M. Pal, S. Deswal, Extreme Learning Machine Based Modeling of Resilient Modulus of Subgrade Soils, Geotech. Geol. Eng. 32 (2014) 287–296, https://doi.org/10.1007/s10706-013-9710-y.",
+      "title": "Extreme Learning Machine Based Modeling of Resilient Modulus of Subgrade Soils",
+      "authors": "M. Pal, S. Deswal",
+      "year": 2014,
+      "journal": "Geotech. Geol. Eng.",
+      "doi": "10.1007/s10706-013-9710-y"
+    },
+    {
+      "raw_text": "[73] E. Sadrossadat, A. Heidaripanah, S. Osouli, Prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems, Constr. Build. Mater. 123 (2016) 235–247, https://doi.org/10.1016/j.conbuildmat.2016.07.008.",
+      "title": "Prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems",
+      "authors": "E. Sadrossadat, A. Heidaripanah, S. Osouli",
+      "year": 2016,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2016.07.008"
+    },
+    {
+      "raw_text": "[74] N. Kardani, M. Aminpour, M. Nouman Amjad Raja, G. Kumar, A. Bardhan, Compressive Strength of Fly-Ash-Based Geopolymer Concrete by Gene Expression Programming and Random Forest, Adv. Civ. Eng. 2021 (2021), https://doi.org/10.1155/2021/6618407.",
+      "title": "Compressive Strength of Fly-Ash-Based Geopolymer Concrete by Gene Expression Programming and Random Forest",
+      "authors": "N. Kardani, M. Aminpour, M. Nouman Amjad Raja, G. Kumar, A. Bardhan",
+      "year": 2021,
+      "journal": "Adv. Civ. Eng.",
+      "doi": "10.1155/2021/6618407"
+    },
+    {
+      "raw_text": "[75] D.C. Feng, Z.T. Liu, X.D. Wang, Z.M. Jiang, S.X. Liang, Failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm, Adv. Eng. Inform. 45 (2020) 101126, https://doi.org/10.1016/j.aei.2020.101126.",
+      "title": "Failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm",
+      "authors": "D.C. Feng, Z.T. Liu, X.D. Wang, Z.M. Jiang, S.X. Liang",
+      "year": 2020,
+      "journal": "Adv. Eng. Inform.",
+      "doi": "10.1016/j.aei.2020.101126"
+    },
+    {
+      "raw_text": "[76] D.K. Bui, T. Nguyen, J.S. Chou, H. Nguyen-Xuan, T.D. Ngo, A modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete, Constr. Build. Mater. 180 (2018) 320–333, https://doi.org/10.1016/j.conbuildmat.2018.05.201.",
+      "title": "A modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete",
+      "authors": "D.K. Bui, T. Nguyen, J.S. Chou, H. Nguyen-Xuan, T.D. Ngo",
+      "year": 2018,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2018.05.201"
+    },
+    {
+      "raw_text": "[77] B.A. Salami, S.M. Rahman, T.A. Oyehan, M. Maslehuddin, S.U. Al Dulaijan, Ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete, Meas. J. Int. Meas. Confed. 165 (2020) 108141, https://doi.org/10.1016/j.measurement.2020.108141.",
+      "title": "Ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete",
+      "authors": "B.A. Salami, S.M. Rahman, T.A. Oyehan, M. Maslehuddin, S.U. Al Dulaijan",
+      "year": 2020,
+      "journal": "Meas. J. Int. Meas. Confed.",
+      "doi": "10.1016/j.measurement.2020.108141"
+    },
+    {
+      "raw_text": "[78] R. Cai, T. Han, W. Liao, J. Huang, D. Li, A. Kumar, H. Ma, Prediction of surface chloride concentration of marine concrete using ensemble machine learning, Cem. Concr. Res. 136 (2020) 106164, https://doi.org/10.1016/j.cemconres.2020.106164.",
+      "title": "Prediction of surface chloride concentration of marine concrete using ensemble machine learning",
+      "authors": "R. Cai, T. Han, W. Liao, J. Huang, D. Li, A. Kumar, H. Ma",
+      "year": 2020,
+      "journal": "Cem. Concr. Res.",
+      "doi": "10.1016/j.cemconres.2020.106164"
+    },
+    {
+      "raw_text": "[79] J.S. Chou, C.F. Tsai, A.D. Pham, Y.H. Lu, Machine learning in concrete strength simulations: Multi-nation data analytics, Constr. Build. Mater. 73 (2014) 771–780, https://doi.org/10.1016/j.conbuildmat.2014.09.054.",
+      "title": "Machine learning in concrete strength simulations: Multi-nation data analytics",
+      "authors": "J.S. Chou, C.F. Tsai, A.D. Pham, Y.H. Lu",
+      "year": 2014,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2014.09.054"
+    },
+    {
+      "raw_text": "[80] A. Upadhya, M.S. Thakur, P. Sihag, R. Kumar, S. Kumar, A. Afeeza, A. Afzal, C. Ahamed Saleel, Modelling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete, Alex. Eng. J. 65 (2023) 131–149, https://doi.org/10.1016/j.aej.2022.09.055.",
+      "title": "Modelling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete",
+      "authors": "A. Upadhya, M.S. Thakur, P. Sihag, R. Kumar, S. Kumar, A. Afeeza, A. Afzal, C. Ahamed Saleel",
+      "year": 2023,
+      "journal": "Alex. Eng. J.",
+      "doi": "10.1016/j.aej.2022.09.055"
+    },
+    {
+      "raw_text": "[81] X. Wang, P. Pan, J. Li, Real-time measurement on dynamic temperature variation of asphalt pavement using machine learning, Meas. J. Int. Meas. Confed. 207 (2023), https://doi.org/10.1016/j.measurement.2022.112413.",
+      "title": "Real-time measurement on dynamic temperature variation of asphalt pavement using machine learning",
+      "authors": "X. Wang, P. Pan, J. Li",
+      "year": 2023,
+      "journal": "Meas. J. Int. Meas. Confed.",
+      "doi": "10.1016/j.measurement.2022.112413"
+    },
+    {
+      "raw_text": "[82] Q.A.T. Bui, D.D. Nguyen, M. Iqbal, F.E. Jalal, I. Prakash, B.T. Pham, Prediction of Interface Shear Stiffness Modulus of Asphalt Pavement using Bagging Ensemble-based Hybrid Machine Learning Model, Arab. J. Sci. Eng. (2023), https://doi.org/10.1007/s13369-023-08014-1.",
+      "title": "Prediction of Interface Shear Stiffness Modulus of Asphalt Pavement using Bagging Ensemble-based Hybrid Machine Learning Model",
+      "authors": "Q.A.T. Bui, D.D. Nguyen, M. Iqbal, F.E. Jalal, I. Prakash, B.T. Pham",
+      "year": 2023,
+      "journal": "Arab. J. Sci. Eng.",
+      "doi": "10.1007/s13369-023-08014-1"
+    },
+    {
+      "raw_text": "[83] J. Zhao, H. Wang, Machine learning based pavement performance prediction for data-driven decision of asphalt pavement overlay, Struct. Infrastruct. Eng. (2023), https://doi.org/10.1080/15732479.2023.2258498.",
+      "title": "Machine learning based pavement performance prediction for data-driven decision of asphalt pavement overlay",
+      "authors": "J. Zhao, H. Wang",
+      "year": 2023,
+      "journal": "Struct. Infrastruct. Eng.",
+      "doi": "10.1080/15732479.2023.2258498"
+    },
+    {
+      "raw_text": "[84] J. Zhao, H. Wang, P. Lu, Machine learning analysis of overweight traffic impact on survival life of asphalt pavement, Struct. Infrastruct. Eng. 19 (2023) 606–616, https://doi.org/10.1080/15732479.2021.1961827.",
+      "title": "Machine learning analysis of overweight traffic impact on survival life of asphalt pavement",
+      "authors": "J. Zhao, H. Wang, P. Lu",
+      "year": 2023,
+      "journal": "Struct. Infrastruct. Eng.",
+      "doi": "10.1080/15732479.2021.1961827"
+    },
+    {
+      "raw_text": "[85] B. Kalpana, A.K. Reshmy, S. Senthil Pandi, S. Dhanasekaran, OESV-KRF: Optimal ensemble support vector kernel random forest based early detection and classification of skin diseases, Biomed. Signal Process. Control. 85 (2023) 104779, https://doi.org/10.1016/j.bspc.2023.104779.",
+      "title": "OESV-KRF: Optimal ensemble support vector kernel random forest based early detection and classification of skin diseases",
+      "authors": "B. Kalpana, A.K. Reshmy, S. Senthil Pandi, S. Dhanasekaran",
+      "year": 2023,
+      "journal": "Biomed. Signal Process. Control.",
+      "doi": "10.1016/j.bspc.2023.104779"
+    },
+    {
+      "raw_text": "[86] J. Tu, L. Hu, K.J. Mohammed, B.N. Le, P. Chen, E. Ali, H.E. Ali, L. Sun, Application of logistic regression, support vector machine and random forest on the effects of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries, Environ. Res. 220 (2023) 115167, https://doi.org/10.1016/j.envres.2022.115167.",
+      "title": "Application of logistic regression, support vector machine and random forest on the effects of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries",
+      "authors": "J. Tu, L. Hu, K.J. Mohammed, B.N. Le, P. Chen, E. Ali, H.E. Ali, L. Sun",
+      "year": 2023,
+      "journal": "Environ. Res.",
+      "doi": "10.1016/j.envres.2022.115167"
+    },
+    {
+      "raw_text": "[90] A.S. Ahmad, M.Y. Hassan, M.P. Abdullah, H.A. Rahman, F. Hussin, H. Abdullah, R. Saidur, A review on applications of ANN and SVM for building electrical energy consumption forecasting, Renew. Sustain. Energy Rev. 33 (2014) 102–109, https://doi.org/10.1016/J.RSER.2014.01.069.",
+      "title": "A review on applications of ANN and SVM for building electrical energy consumption forecasting",
+      "authors": "A.S. Ahmad, M.Y. Hassan, M.P. Abdullah, H.A. Rahman, F. Hussin, H. Abdullah, R. Saidur",
+      "year": 2014,
+      "journal": "Renew. Sustain. Energy Rev.",
+      "doi": "10.1016/J.RSER.2014.01.069"
+    },
+    {
+      "raw_text": "[91] A. Seifi, M. Ehteram, V.P. Singh, A. Mosavi, Modeling and uncertainty analysis of groundwater level using six evolutionary optimization algorithms hybridized with ANFIS, SVM, and ANN, Sustain 12 (2020) 4023, https://doi.org/10.3390/",
+      "title": "Modeling and uncertainty analysis of groundwater level using six evolutionary optimization algorithms hybridized with ANFIS, SVM, and ANN",
+      "authors": "Seifi, A., Ehteram, M., Singh, V.P., Mosavi, A.",
+      "year": 2020,
+      "journal": "Sustain",
+      "doi": null
+    },
+    {
+      "raw_text": "[92] M. Azimi-Pour, H. Eskandari-Naddaf, A. Pakzad, Linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete, Constr. Build. Mater. 230 (2020) 117021, https://doi.org/10.1016/j.conbuildmat.2019.117021.",
+      "title": "Linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete",
+      "authors": "Azimi-Pour, M., Eskandari-Naddaf, H., Pakzad, A.",
+      "year": 2020,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2019.117021"
+    },
+    {
+      "raw_text": "[93] J. Zeng, P.C. Roussis, A.S. Mohammed, C. Maraveas, S.A. Fatemi, D.J. Armaghani, P.G. Asteris, Prediction of peak particle velocity caused by blasting through the combinations of boosted-chaid and svm models with various kernels, Appl. Sci. 11 (2021) 3705, https://doi.org/10.3390/app11083705.",
+      "title": "Prediction of peak particle velocity caused by blasting through the combinations of boosted-chaid and svm models with various kernels",
+      "authors": "Zeng, J., Roussis, P.C., Mohammed, A.S., Maraveas, C., Fatemi, S.A., Armaghani, D.J., Asteris, P.G.",
+      "year": 2021,
+      "journal": "Appl. Sci.",
+      "doi": "10.3390/app11083705"
+    },
+    {
+      "raw_text": "[94] N. Dahiya, B. Saini, H.D. Chalak, Gradient boosting-based regression modelling for estimating the time period of the irregular precast concrete structural system with cross bracing, J. King Saud. Univ. - Eng. Sci. (2021), https://doi.org/10.1016/j.jksues.2021.08.004.",
+      "title": "Gradient boosting-based regression modelling for estimating the time period of the irregular precast concrete structural system with cross bracing",
+      "authors": "Dahiya, N., Saini, B., Chalak, H.D.",
+      "year": 2021,
+      "journal": "J. King Saud. Univ. - Eng. Sci.",
+      "doi": "10.1016/j.jksues.2021.08.004"
+    },
+    {
+      "raw_text": "[95] T. Han, A. Siddique, K. Khayat, J. Huang, A. Kumar, An ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete, Constr. Build. Mater. 244 (2020) 118271, https://doi.org/10.1016/j.conbuildmat.2020.118271.",
+      "title": "An ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete",
+      "authors": "Han, T., Siddique, A., Khayat, K., Huang, J., Kumar, A.",
+      "year": 2020,
+      "journal": "Constr. Build. Mater.",
+      "doi": "10.1016/j.conbuildmat.2020.118271"
+    },
+    {
+      "raw_text": "[96] S.S. Rizvon, K. Jayakumar, Strength prediction models for recycled aggregate concrete using Random Forests, ANN and LASSO, J. Build. Pathol. Rehabil. 7 (2022), https://doi.org/10.1007/s41024-021-00145-y.",
+      "title": "Strength prediction models for recycled aggregate concrete using Random Forests, ANN and LASSO",
+      "authors": "Rizvon, S.S., Jayakumar, K.",
+      "year": 2022,
+      "journal": "J. Build. Pathol. Rehabil.",
+      "doi": "10.1007/s41024-021-00145-y"
+    },
+    {
+      "raw_text": "[98] M. Subramanian, K. Shanmugavadivel, P.S. Nandhini, On fine-tuning deep learning models using transfer learning and hyper-parameters optimization for disease identification in maize leaves, Neural Comput. Appl. 34 (2022) 13951–13968, https://doi.org/10.1007/s00521-022-07246-w.",
+      "title": "On fine-tuning deep learning models using transfer learning and hyper-parameters optimization for disease identification in maize leaves",
+      "authors": "Subramanian, M., Shanmugavadivel, K., Nandhini, P.S.",
+      "year": 2022,
+      "journal": "Neural Comput. Appl.",
+      "doi": "10.1007/s00521-022-07246-w"
+    },
+    {
+      "raw_text": "[99] D. Kolar, D. Lisjak, M. Pajak?, M. Gudlin, Intelligent fault diagnosis of rotary machinery by convolutional neural network with automatic hyper-parameters tuning using bayesian optimization, Sensors 21 (2021) 2411, https://doi.org/10.3390/s21072411.",
+      "title": "Intelligent fault diagnosis of rotary machinery by convolutional neural network with automatic hyper-parameters tuning using bayesian optimization",
+      "authors": "Kolar, D., Lisjak, D., Pajak, M., Gudlin, M.",
+      "year": 2021,
+      "journal": "Sensors",
+      "doi": "10.3390/s21072411"
+    },
+    {
+      "raw_text": "[100] T.D. Nguyen, T.H. Tran, N.D. Hoang, Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach, Adv. Eng. Inform. 44 (2020) 101057, https://doi.org/10.1016/j.aei.2020.101057.",
+      "title": "Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach",
+      "authors": "Nguyen, T.D., Tran, T.H., Hoang, N.D.",
+      "year": 2020,
+      "journal": "Adv. Eng. Inform.",
+      "doi": "10.1016/j.aei.2020.101057"
+    },
+    {
+      "raw_text": "[101] F. Bagherzadeh, T. Shafighfard, Ensemble Machine Learning approach for evaluating the material characterization of carbon nanotube-reinforced cementitious composites, Case Stud. Constr. Mater. 17 (2022) e01537, https://doi.org/10.1016/j.cscm.2022.e01537.",
+      "title": "Ensemble Machine Learning approach for evaluating the material characterization of carbon nanotube-reinforced cementitious composites",
+      "authors": "Bagherzadeh, F., Shafighfard, T.",
+      "year": 2022,
+      "journal": "Case Stud. Constr. Mater.",
+      "doi": "10.1016/j.cscm.2022.e01537"
+    },
+    {
+      "raw_text": "[102] W. Dong, Y. Huang, B. Lehane, G. Ma, Multi-objective design optimization for nondestructive assessment of mass moisture content of brick walls in historic buildings, Autom. Constr. 149 (2023) 104793, https://doi.org/10.1016/j.autcon.2023.104793.",
+      "title": "Multi-objective design optimization for nondestructive assessment of mass moisture content of brick walls in historic buildings",
+      "authors": "Dong, W., Huang, Y., Lehane, B., Ma, G.",
+      "year": 2023,
+      "journal": "Autom. Constr.",
+      "doi": "10.1016/j.autcon.2023.104793"
+    },
+    {
+      "raw_text": "[103] M.F. Iqbal, M.F. Javed, M. Rauf, I. Azim, M. Ashraf, J. Yang, Q. feng Liu, R. Alyousef, A.A. Hk, materials Prediction of Compressive Strength of Fly Ash Based Concrete Using Individual and Ensemble Algorithm Prediction of Compressive Strength of Fly Ash Based Concrete Using Individual and Ensemble Algorithm, Mdpi. Com. (2021), https://doi.org/10.3390/ma14040794.",
+      "title": "Prediction of Compressive Strength of Fly Ash Based Concrete Using Individual and Ensemble Algorithm",
+      "authors": "Iqbal, M.F., Javed, M.F., Rauf, M., Azim, I., Ashraf, M., Yang, J., Liu, Q. feng, Alyousef, R., Hk, A.A.",
+      "year": 2021,
+      "journal": "Mdpi. Com.",
+      "doi": "10.3390/ma14040794"
+    },
+    {
+      "raw_text": "[104] D.N. Moriasi, J.G. Arnold, M.W. Van Liew, R.L. Bingner, R.D. Harmel, T.L. Veith, Model evaluation guidelines for systematic quantification of accuracy in watershed simulations, Trans. ASABE. 50 (2007) 885–900. 〈https://elibrary.as abe.org/abstract.asp?aid=23153〉 (accessed October 9, 2023).",
+      "title": "Model evaluation guidelines for systematic quantification of accuracy in watershed simulations",
+      "authors": "Moriasi, D.N., Arnold, J.G., Van Liew, M.W., Bingner, R.L., Harmel, R.D., Veith, T.L.",
+      "year": 2007,
+      "journal": "Trans. ASABE.",
+      "doi": null
+    }
+  ],
+  "extraction_quality": {
+    "total": 82,
+    "structured_ratio": 1.0,
+    "with_doi": 73,
+    "with_title": 82,
+    "with_authors": 82,
+    "with_year": 81
+  }
+}

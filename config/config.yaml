@@ -1,0 +1,97 @@
+project_name: "Research Paper Extractor v2"
+
+# LLM Configuration
+llm:
+  provider: "openai"  # or "gemini", "huggingface"
+  
+  openai:
+    model: "gpt-4o-mini"
+    max_new_tokens: 8192  # Increased for better handling
+    temperature: 0.1
+    timeout: 120  # Increased timeout
+    debug_llm: true  # Keep enabled for troubleshooting
+    llm_dump_dir: "./llm_dumps"
+
+  gemini:
+    model: "gemini-2.0-flash"
+    max_new_tokens: 8192
+    temperature: 0.1
+    timeout: 120
+
+  huggingface:
+    model: "Qwen/Qwen2.5-7B-Instruct"
+    max_new_tokens: 8192
+    temperature: 0.1
+
+# PDF Processing
+pdf_processing:
+  timeout_seconds: 300
+  use_layout_extraction: true  # Better text quality
+  fallback_to_pdfminer: true  # Use multiple libraries
+  quality_check_enabled: true  # Validate text quality
+
+# Extraction Settings
+extraction:
+  # General
+  enabled_sections:
+    - doi
+    - title
+    - authors
+    - abstract
+    - references
+  
+  # Reference Extraction
+  reference_extraction:
+    chunk_size: 6000  # Larger chunks for better context
+    min_references: 5  # Quality threshold
+    min_structured_ratio: 0.3  # 30% should have structure
+    max_retries: 3
+    enable_fallback: true
+    
+    # Detection strategies (tried in order)
+    detection_methods:
+      - page_scan  # Scan for "References" heading
+      - numbered  # Look for [1], [2] patterns
+      - keyword  # Find section with reference keywords
+      - fallback  # Last 20% of document
+    
+    # Segmentation
+    segmentation:
+      primary_patterns:
+        - "\\[\\d+\\]"  # [1], [2]
+        - "^\\d+\\."    # 1., 2.
+        - "\\(\\d+\\)"  # (1), (2)
+      
+      min_reference_length: 50  # Characters
+      max_reference_length: 2000
+
+# Quality Control
+quality_control:
+  validate_extractions: true
+  log_quality_metrics: true
+  
+  # Thresholds for retrying
+  retry_if:
+    references_below: 5
+    structured_ratio_below: 0.2
+    no_doi_found: false
+    no_title_found: false
+
+# Logging
+logging:
+  level: "INFO"  # Change to DEBUG for detailed logs
+  log_file: "extractor.log"
+  max_log_size_mb: 50
+  console_output: true
+
+# Output
+output:
+  directory: "./output"
+  format: "json"
+  include_quality_metrics: true
+  pretty_print: true
+  
+# Performance
+performance:
+  max_parallel_pdfs: 1  # Process one at a time for stability
+  cache_llm_responses: false

@@ -1,0 +1,2697 @@
+{
+  "metadata": {
+    "title": "Machine learning approaches to predict the strength of graphene nanoplatelets concrete: Optimization and hyper tuning with graphical user interface",
+    "doi": "10.1016/j.mtcomm.2024.109946",
+    "authors": [
+      "Turki S. Alahmari",
+      "Kiran Arif"
+    ],
+    "abstract": "This paper focuses on the need to consider the use of multipurpose cement composite (CC) in the construction industry to give superior performance. Therefore, incorporating nanomaterials (NMs) can improve the perfor-mance and characteristics of CC. Hence, the use of graphene nanoplatelets (GNPs) in the composite matrix can be a viable way to address the challenges towards achieving a sustainable, with superior properties. In addition, forecasting the properties of NMs is a challenging task due to nature of ambiguity between parameters, complex nature, and non-linear response to strength. In addition, strength evaluation is time consuming process. Thus, there is a needs for predictive models to estimate strength of NMs. This study employee four machine learning (ML) approaches namely as light gradient boosting (LGB), artificial neural network (ANN), gradient boosting (GB), and k-nearest neighbor (KNN) with hyper-tuning, and optimization. In addition, model evaluation is judge by statistical measures, uncertainty analysis, and tenfold approach is applied for validation of the model. Moreover, graphical user interface (GUI) is developed for practical implementation to estimate strength. The result reveals that XGB, and ANN model shows robust analysis with greater R2 > 0.90 for both train and test sets with XGB perform better as compared to ANN and other models. XGB depicts lesser statistical index, and un-certainty analysis demonstrates all model with less level of ambiguity for train and test set. The train and test set for XGB, LGB, KNN, and ANN models demonstrate 7.668 %, 8.9 %, 8.9 %, 17.18 %, 9.85 %, 20.61, and 5 %, 14.74 %, respectively. Shapley analysis reveals that GNP thickness, diameter and curing have major contribution to strength."
+  },
+  "citations_in_text": [
+    {
+      "marker": "[1 – 3]",
+      "context_window": "Concrete is utilized in the construction industry as one of the most prominent and well-known building materials in the world [1 – 3] ."
+    },
+    {
+      "marker": "[4 – 6]",
+      "context_window": "Consequently, it is imperative to acknowledge that the environmental consequences of the manufacturing process of concrete are detrimental [4 – 6] ."
+    },
+    {
+      "marker": "[7 – 10]",
+      "context_window": "The production of concrete, which is primarily composed of Portland cement (PC), results in the consumption of nonrenewable materials such as sand, gravel, and freshwater, as well as the emission of carbon dioxide (CO2) [7 – 10] ."
+    },
+    {
+      "marker": "[11]",
+      "context_window": "The global estimated annual depletion of cement is 4 billion tons, with each ton of cement emitting an equivalent amount of CO2 [11] ."
+    },
+    {
+      "marker": "[12]",
+      "context_window": "Concrete, a cementitious composite is considered one of the main sources of CO2 in the atmosphere. Thus, approximately considered for about seven percent of CO2 emissions around the entire globe [12] ."
+    },
+    {
+      "marker": "[13,14]",
+      "context_window": "Additionally, its demand is increasing as a result of the advancements in modern construction projects such as dams, long bridges, etc [13,14] ."
+    },
+    {
+      "marker": "[15]",
+      "context_window": "In addition, concrete is characterized by a low strain capacity and a relatively low strength at initial load. However, there exists porous media inside the matrix, and increasing the load causes cracks [15] ."
+    },
+    {
+      "marker": "[16]",
+      "context_window": "Therefore, the mechanical aspect of the composite matrix is significantly diminished leading to reduced strength. Consequently, their inclusion in the composite medium enhances the strength and provides an adamant hindrance to cracking [16] ."
+    },
+    {
+      "marker": "[17 – 20]",
+      "context_window": "The exceptional performance of nanotechnology in various domains has garnered global interest [17 – 20] ."
+    },
+    {
+      "marker": "[21 – 23]",
+      "context_window": "Nanoparticles (NPs) are characterized by dimensions ranging from 1 to 100 nm. Nanomaterials (NMs) boost the strength and longevity of the material, while also improving hydration processes and reducing pressure on formwork [21 – 23] ."
+    },
+    {
+      "marker": "[24 – 27]",
+      "context_window": "Furthermore, the process of hydration involves a chemical reaction between NPs and calcium hydroxide, known as the pozzolanic reaction. This reaction leads to the expansion of CSH hydration products that leads to fills of the available voids due to dense structure [24 – 27] ."
+    },
+    {
+      "marker": "[28 – 30]",
+      "context_window": "A structure with reduced porosity and increased density is formed, resulting in enhanced mechanical strength and durability [28 – 30] ."
+    },
+    {
+      "marker": "[31 – 33]",
+      "context_window": "Thus, reinforcement nanoparticles such as Graphene nanoplatelets (GNPs) and nanomaterials in cementitious composites have received significant attention for this reason. GNPs have attracted significant attention because of the distinct features associated with their tiny structure [31 – 33] ."
+    },
+    {
+      "marker": "[34 – 36]",
+      "context_window": "A wide range of nanoparticles has been incorporated in cementitious matrix (CM) since the advent of nanotechnology. Nanomaterials have the strength and ability to enhance the resilience and efficacy with durability of concrete [34 – 36] ."
+    },
+    {
+      "marker": "[37 – 39]",
+      "context_window": "Nanoparticles enhance the bulk characteristics of concrete by optimizing the packing model structure. Ultra or Nanoparticles can enhance the filler effect by improving the intersectional zone (ITZ) in cement and increasing the density of concrete [37 – 39] ."
+    },
+    {
+      "marker": "[40,41]",
+      "context_window": "Their manipulation or alteration in the cement matrix system occurs to create a new nanoscale structure by serving as an effective filler. NMs transform as they shoulder the role of novel binding agents that are smaller in size compared to cement particles [40,41] ."
+    },
+    {
+      "marker": "[42 – 44]",
+      "context_window": "This enhances the configuration of the hydration gel, resulting in a tidy and cohesive hydration framework [42 – 44] ."
+    },
+    {
+      "marker": "[45 – 51]",
+      "context_window": "Furthermore, researchers have successfully created a novel type of concrete known as Nano concrete due to by incorporation of NPs that act as fillers and additional chemical reactions inside the hydration system [45 – 51] ."
+    },
+    {
+      "marker": "[52 – 54]",
+      "context_window": "This innovative material exhibits improved durability and enhanced performance. In addition, the advancement of nanotechnology has generated significant research interest in the use of nano-materials in concrete over the past few decades [52 – 54] ."
+    },
+    {
+      "marker": "[55]",
+      "context_window": "Yang et al. [55] reported that the addition of nano-CaCO3 to concrete significantly enhanced its compressive strength, impermeability, and resistance to carbonization after curing and de-moulding."
+    },
+    {
+      "marker": "[56]",
+      "context_window": "The presence of nano-CaCO3 in the cement hydration process resulted in its reaction with tri-calcium aluminate (C3A), leading to the formation of hydrated calcium carbon aluminate. Shiho et al. [56] examined the microstructural characteristics of concrete samples containing NPs by conducting chloride diffusion tests and employing conventional scanning electron microscopy (SEM) methods."
+    },
+    {
+      "marker": "[57]",
+      "context_window": "The SEM analysis demonstrates that the presence of NPs leads to a denser matrix, which in turn hinders the propagation of cracks. In addition, utilizing these NPs can enhance the performance and durability of concrete infrastructures [57] ."
+    },
+    {
+      "marker": "[58]",
+      "context_window": "Meng et al. [58] demonstrated that the characteristics of cement paste were significantly affected by the diameters of the particles."
+    },
+    {
+      "marker": "[59]",
+      "context_window": "Moreover, increasing size leads to strength enhanced as compared to control specimens. Ramezani et al. [59] discovered that multi-walled carbon nanotubes (MWCNTs) had a higher level of compressive strength compared to flexural strength."
+    },
+    {
+      "marker": "[60]",
+      "context_window": "In addition, Ramezani et al. [59] discovered that multi-walled carbon nanotubes (MWCNTs) had a higher level of compressive strength compared to flexural strength. In addition, Narasimman et al. [60] studied the effect of carbon nanotubes (CNTs), and nano-silica (NS) on the compressive strength of lightweight concrete (LWC)."
+    },
+    {
+      "marker": "[61]",
+      "context_window": "The author revealed that the incorporation of these nanofillers leads to a drastic increase in strength. Gunasekara et al. [61] investigated the influence of NS on the compressive strength of blended concrete."
+    },
+    {
+      "marker": "[29]",
+      "context_window": "The author reveals that the addition of NS acts as a filler and increases the overall strength of the matrix. Sedaghatdoost et al. [29] assessed the flexural strengths of PC mortars by including MWCNTs at various concentrations ranging from 0 % to 0.15 %."
+    },
+    {
+      "marker": "[62]",
+      "context_window": "The result shows that all configurations using CNTs exhibited greater flexural strengths after 28 days. Nili et al. [62] examined the effect of NS and silica fume (SF) on concrete and cement paste strength."
+    },
+    {
+      "marker": "[63]",
+      "context_window": "The author used various concentration of both NPs and depicted that increasing their ranges, particularly the inclusion of 3 % or 5 % by weight of binder enhances the strength of both cementitious composites. Moreover, Oltulu et al. [63] investigated the impact of NPs on the compressive strength of cement mortar having fly ash (FA)."
+    },
+    {
+      "marker": "[64 – 71]",
+      "context_window": "The author utilized three NPs namely aluminum oxide (Al2O3), silica oxide (SiO2), and ferric oxide (Fe2O3), and showed that their intrusion in the matrix enhances the overall strength of the composite. In addition, the overall effect of NPs on the cement matrix is depicted in Table 1 [64 – 71] ."
+    },
+    {
+      "marker": "[72 – 75]",
+      "context_window": "Concrete is widely used worldwide as a construction material due to its notable advantages, such as cost-effectiveness, consistency, versatility, and durability [72 – 75] ."
+    },
+    {
+      "marker": "[76 – 78]",
+      "context_window": "Moreover, evaluating the mechanical characteristics of concrete is crucial for determining effective design strategies and the durability of structures against external forces. Also, the timely availability of experimental test findings is essential for the goal of minimizing costs and saving time [76 – 78] ."
+    },
+    {
+      "marker": "[79]",
+      "context_window": "To carry out studies, whether on-site or in a laboratory, advanced equipment must be used. As a result, a significant amount of work is required, making it economically impractical [79] ."
+    },
+    {
+      "marker": "[80]",
+      "context_window": "Therefore, leading to a rise in its financial ramifications. Furthermore, a substantial amount of time is required to perform a thorough analysis of the impact of certain components of concrete, such as the composition of the mixture, the materials used for aggregates, and the duration of the curing process, on the compressive strength (CS) property of the matrix [80] ."
+    },
+    {
+      "marker": "[81 – 83]",
+      "context_window": "Thus, the distribution of these elements within the concrete mixture is random [81 – 83] ."
+    },
+    {
+      "marker": "[84 – 86]",
+      "context_window": "The introduction of artificial intelligence (AI) and its application in the field of civil engineering can assist researchers in addressing many complex problems in the composite matrix. Unlike previous regression techniques, machine learning (ML) yields exceptionally precise outcomes [84 – 86] ."
+    },
+    {
+      "marker": "[78]",
+      "context_window": "ML approaches have a significant effect on the concrete mechanical properties, like CS, durability, and flexural strength (FS). Asif et al. [78] forecast the CS, and FS of plastic concrete by employing various approaches."
+    },
+    {
+      "marker": "[87]",
+      "context_window": "The author used gene expression programming (GEP), support vector machine (SVM), multilayer perceptron neural network (MLPNN), decision tree (DT), and ensemble approaches, and reveals that the ensemble approach on SVM depicts robust performance. Nashat et al. [87] utilized nine different ML approaches including an ensemble, and revealed that gradient-boosted trees (GBT) give a strong correlation by showing greater R2 and fewer errors."
+    },
+    {
+      "marker": "[88]",
+      "context_window": "Mahdi et al. [88] employ five distant approaches including DT, SVM, k-nearest neighbors (KNN), random forest (RF), and artificial neural network (ANN) to predict CS of supplementary cementitious materials (SCMs)."
+    },
+    {
+      "marker": "[89]",
+      "context_window": "The author demonstrated that DT shows good performance with R2 = 0.96 as compared to other models. Jiao el at. [89] predicted the CS of the concrete composite containing CNTs as nanomaterials with different algorithms including ensemble methods."
+    },
+    {
+      "marker": "[90]",
+      "context_window": "The author concluded that the AdaBoost ensemble approach gives the best performance. Zhang et al. [90] employed ML algorithms like SVM, KNN, and ANN for forecasting the chloride diffusion of concrete."
+    },
+    {
+      "marker": "[91]",
+      "context_window": "The author reported that the SVM model shows greater accuracy as compared to other approaches. Furqan et al. [91] utilized various approaches with bagging and boosting to forecast the CS of high-performance concrete (HPC), and reported that bagging approaches with DT, and RF depict significant and robust correlation."
+    },
+    {
+      "marker": "[92 – 97]",
+      "context_window": "MLA is a computer-based algorithm that is useful in cementitious composite matrix for the prediction of properties [92 – 97] ."
+    },
+    {
+      "marker": "[98 – 102]",
+      "context_window": "Hence, regression and classification-based problems can be easily solved to achieve the desired results. Such methods are more prevalent in the concrete industry because ML approaches can analyze the behavior of materials from the training set, and make accurate forecasts from the test set [98 – 102] ."
+    },
+    {
+      "marker": "[103 – 107]",
+      "context_window": "Moreover, the criteria for choosing these prominent approaches are based on their extraordinary predictive accuracy, model-complex nature, and robustness to overfitting. This makes them ideal for forecasting the strength of the matrix [103 – 107] ."
+    },
+    {
+      "marker": "[108,109]",
+      "context_window": "Machine learning is commonly used to predict the behavior of materials and other properties in the concrete matrix [108,109] ."
+    },
+    {
+      "marker": "[110 – 112]",
+      "context_window": "The strength of a nanocomposite (GNPs) is predicted by using four algorithms namely XGB, LGB, KNN, and ANN. These techniques are well acknowledged for their outstanding performance and ability to precisely identify the attributes of properties [110 – 112] ."
+    },
+    {
+      "marker": "[113 – 115]",
+      "context_window": "Furthermore, XGB, KNN, LGB, and ANN possess unique benefits when it comes to managing difficult datasets and collecting complex patterns. XGB and LGB were selected due to their outstanding performance in handling big datasets with high-dimensional features, their capacity to address overfitting, and their efficiency in managing missing data [113 – 115] ."
+    },
+    {
+      "marker": "[116 – 118]",
+      "context_window": "KNN was chosen for its simplicity and robustness in analyzing local data structures, making it a useful benchmark for comparison [116 – 118] ."
+    },
+    {
+      "marker": "[119 – 121]",
+      "context_window": "ANN was chosen for its robust ability to simulate non-linear connections and capture intricate patterns. By utilizing this varied range of models, our objective was to exploit their unique capabilities to attain strong predicted accuracy and obtain a full understanding of the data, guaranteeing that our research was meticulous and trustworthy [119 – 121] ."
+    },
+    {
+      "marker": "[122]",
+      "context_window": "XGB model was created as an extension of Friedman ’ s original \"Gradient Boosting Machine\" model [122] ."
+    },
+    {
+      "marker": "[123 – 125]",
+      "context_window": "The fundamental issue of this algorithm is to maximize the value of the objective function (OF). Moreover, it applies ML methods within a framework that is strengthened by gradient techniques. Consequently, XGB can efficiently and precisely address numerous challenges by utilizing parallel boost trees. The XGB algorithm employs a particular technique known as gradient boosting (GB) with regularization, which tackles problems to mitigate overfitting [123 – 125] ."
+    },
+    {
+      "marker": "[126 – 128]",
+      "context_window": "Light GBM is a kind of Gradient Boosting Decision Tree that is based on a decision-tree algorithm developed by Microsoft Research [126 – 128] ."
+    },
+    {
+      "marker": "[129]",
+      "context_window": "Light GBM is a robust method for addressing regression, classification, and other machine-learning problems. It utilizes less memory and surpasses in terms of prediction accuracy. The objective is to enhance computational performance to more efficiently tackle complex data prediction issues [129] ."
+    },
+    {
+      "marker": "[130 – 132]",
+      "context_window": "The necessary statistics (sum of gradients and count of samples in each bin) are obtained from the histogram during the initial examination of the data. The optimal segmentation point can be ascertained by analyzing the discrete value of the histogram [130 – 132] ."
+    },
+    {
+      "marker": "[133]",
+      "context_window": "In addition, the leaves on the same layer are thoroughly processed, even though they possess distinct information acquisition. The information gain quantifies the expected reduction in entropy that occurs when the nodes are divided based on properties that may be inferred [133] ."
+    },
+    {
+      "marker": "[133]",
+      "context_window": "Moreover, by employing this method, it is possible to generate trees with a significant level of complexity; however, to prevent the model from becoming too specialized for the training data, a maximum depth restriction is enforced throughout the construction of the tree [133] ."
+    },
+    {
+      "marker": "[134]",
+      "context_window": "Both regression and classification techniques in machine learning can be utilized. The K-nearest neighbors (KNN) algorithm assumes that observations that are proximate in the attribute space (i.e., concrete mix) are also proximate in the output value space [134] ."
+    },
+    {
+      "marker": "[135]",
+      "context_window": "Assign equal weighting to all characteristics by assuming that all normalized attributes hold equal significance; 3. Employ Euclidean distances to compute the distance [135] ."
+    },
+    {
+      "marker": "[136 – 138]",
+      "context_window": "ANNs are complex systems consisting of interconnected components that function in parallel to solve complex issues by deploying artificial neurons [136 – 138] ."
+    },
+    {
+      "marker": "[139]",
+      "context_window": "An artificial neural network (ANN) is a statistical learning system that draws inspiration from biological neural networks. The Artificial Neural Network (ANN) model is comprised of a multitude of intricately linked neurons. The architecture of artificial neural networks (ANNs) is based on the structure and operation of biological neural networks [139] ."
+    },
+    {
+      "marker": "[140]",
+      "context_window": "An Artificial Neural Network (ANN) consists of neurons that are structured into numerous layers, mirroring the organization of neurons in the human brain. The feedforward neural network is a commonly encountered type of neural network that comprises three layers: an input layer for receiving external data necessary for pattern recognition, an output layer for producing the response, and a hidden layer that connects the other layers [140] ."
+    },
+    {
+      "marker": "[141]",
+      "context_window": "Acyclic arcs connect neighboring neurons in the input and output layers. The Artificial Neural Network (ANN) employs a training technique to acquire information from datasets [141] ."
+    },
+    {
+      "marker": "[142]",
+      "context_window": "Hyperparameter fine-tuning is essential in ML as it directly affects the performance and efficiency of models [142] ."
+    },
+    {
+      "marker": "[143]",
+      "context_window": "They include settings like learning rate, batch size, hidden layers, learning rate, etc. Optimizing hyper-parameters can greatly improve a model ’ s capacity to accurately predict outcomes, generalize to new data, and train more efficiently. In contrast, inadequately selected hyper-parameters might result in unsatisfactory performance, overfitting, or under-fitting [143] ."
+    },
+    {
+      "marker": "[144]",
+      "context_window": "R2 = ∑ni = 1 ( Yi X i )2 ∑ni = 1 ( Yi X i )2 Close to 1 [144]"
+    },
+    {
+      "marker": "[145]",
+      "context_window": "RMSE = √∑ni = 1 ( Pi E i )2 N MAE < RMSE [145]"
+    },
+    {
+      "marker": "[146]",
+      "context_window": "MAE = 1n ∑ni = 1 | E i P i | [146]"
+    },
+    {
+      "marker": "[147]",
+      "context_window": "Uncertainty analysis (UA) is a useful technique that is used to evaluate and compute the ambiguity related with the forecasting accuracy of hybrid machine learning models. When forecasting CS of nano-composite, it is crucial to acknowledge and handle the uncertainties that occur in prediction algorithms. These uncertainties include those related to experimental data, input predictors, and model results [147] ."
+    },
+    {
+      "marker": "[148]",
+      "context_window": "The high R2 values indicate a robust connection between the anticipated and actual values, implying that the model accurately reflects the underlying patterns in the data. The strong correlation between the anticipated results and empirical benchmarks highlights the efficacy of the model. Chen et al. [148] emphasized the exceptional performance of XGBoost in both regression and classification tasks, attributing its success to unique system and algorithmic optimizations."
+    },
+    {
+      "marker": "[149]",
+      "context_window": "The model demonstrates a commendable level of prediction accuracy, as demonstrated by its correlation score of 0.88. The significant correlation indicates that the model can efficiently apply its knowledge to new data, retaining a high level of accuracy even outside of the training set. Ke et al. [149] emphasized that LightGBM outperforms other boosting methods in terms of managing large-scale data and delivering faster training speeds ."
+    },
+    {
+      "marker": "[150]",
+      "context_window": "The train and test set for XGB, LGB, KNN, and ANN models demonstrate 7.668 %, 8.9 %, 8.9 %, 17.18 %, 9.85 %, 20.61, and 5 %, 14.74 %, respectively. This is due to the robust performance of XGB as it prevents noise, and overfitting of the entire data. Amir et al. [150] reveals that the models uncertainty falls below the 35 % threshold."
+    }
+  ],
+  "references_list": [
+    {
+      "ref_id": "[1]",
+      "parsed": {
+        "title": "Effects of low temperatures and cryogenic freeze-thaw cycles on concrete mechanical properties: a literature review",
+        "authors": [
+          "H. Lin",
+          "Y. Han",
+          "S. Liang",
+          "F. Gong",
+          "S. Han",
+          "C. Shi",
+          "P. Feng"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.128287"
+      }
+    },
+    {
+      "ref_id": "[2]",
+      "parsed": {
+        "title": "3D path planning in threat environment based on fuzzy logic",
+        "authors": [
+          "Z. Liu",
+          "Z. Xu",
+          "X. Zheng",
+          "Y. Zhao",
+          "J. Wang"
+        ],
+        "year": 2024,
+        "venue": "J. Intell. Fuzzy Syst.",
+        "doi": "10.3233/JIFS-232076"
+      }
+    },
+    {
+      "ref_id": "[3]",
+      "parsed": {
+        "title": "Processing of laboratory concrete demolition waste using ball mill",
+        "authors": [
+          "R. Rakesh Kumar Reddy",
+          "S.C. Yaragal",
+          "V.K. Sanjay"
+        ],
+        "year": 2023,
+        "venue": "Mater. Today Proc.",
+        "doi": "10.1016/j.matpr.2023.03.193"
+      }
+    },
+    {
+      "ref_id": "[4]",
+      "parsed": {
+        "title": "Study of chloride penetration in concretes exposed to high-mountain weather conditions with presence of deicing salts",
+        "authors": [
+          "J. Bernal",
+          "M. Fenaux",
+          "A. Moragues",
+          "E. Reyes",
+          "J.C. G´alvez"
+        ],
+        "year": 2016,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2016.09.148"
+      }
+    },
+    {
+      "ref_id": "[5]",
+      "parsed": {
+        "title": "Seismic performance of concrete-filled steel tubular composite columns with ultra high performance concrete plates",
+        "authors": [
+          "J. Wei",
+          "H. Ying",
+          "Y. Yang",
+          "W. Zhang",
+          "H. Yuan",
+          "J. Zhou"
+        ],
+        "year": 2023,
+        "venue": "Eng. Struct.",
+        "doi": "10.1016/j.engstruct.2022.115500"
+      }
+    },
+    {
+      "ref_id": "[6]",
+      "parsed": {
+        "title": "Experimental investigation on the bond performance of sea sand coral concrete with FRP bar reinforcement for marine environments",
+        "authors": [
+          "L. Sun",
+          "C. Wang",
+          "C. Zhang",
+          "Z. Yang",
+          "C. Li",
+          "P. Qiao"
+        ],
+        "year": 2022,
+        "venue": "Adv. Struct. Eng.",
+        "doi": "10.1177/13694332221131153"
+      }
+    },
+    {
+      "ref_id": "[7]",
+      "parsed": {
+        "title": "Sugarcane bagasse ash-based engineered geopolymer mortar incorporating propylene fibers",
+        "authors": [
+          "A. Akbar",
+          "F. Farooq",
+          "M. Shafique",
+          "F. Aslam",
+          "R. Alyousef",
+          "H. Alabduljabbar"
+        ],
+        "year": 2021,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2020.101492"
+      }
+    },
+    {
+      "ref_id": "[8]",
+      "parsed": {
+        "title": "Predictive modeling for sustainable high-performance concrete from industrial wastes: a comparison and optimization of models using ensemble learners",
+        "authors": [
+          "F. Farooq",
+          "W. Ahmed",
+          "A. Akbar",
+          "F. Aslam",
+          "R. Alyousef"
+        ],
+        "year": 2021,
+        "venue": "J. Clean. Prod.",
+        "doi": "10.1016/j.jclepro.2021.126032"
+      }
+    },
+    {
+      "ref_id": "[9]",
+      "parsed": {
+        "title": "Deciphering size-induced influence of carbon dots on mechanical performance of cement composites",
+        "authors": [
+          "H. He",
+          "E. Shuang",
+          "D. Lu",
+          "Y. Hu",
+          "C. Yan",
+          "H. Shan",
+          "C. He"
+        ],
+        "year": 2024,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2024.136030"
+      }
+    },
+    {
+      "ref_id": "[10]",
+      "parsed": {
+        "title": "MPCCT: multimodal vision-language learning paradigm with context-based compact Transformer",
+        "authors": [
+          "C. Chen",
+          "D. Han",
+          "C.C. Chang"
+        ],
+        "year": 2024,
+        "venue": "Pattern Recognit.",
+        "doi": "10.1016/j.patcog.2023.110084"
+      }
+    },
+    {
+      "ref_id": "[11]",
+      "parsed": {
+        "title": "Is net-zero feasible: systematic review of cement and concrete decarbonization technologies",
+        "authors": [
+          "M.L. Nehdi",
+          "A. Marani",
+          "L. Zhang"
+        ],
+        "year": 2024,
+        "venue": "Renew. Sustain. Energy Rev.",
+        "doi": "10.1016/j.rser.2023.114169"
+      }
+    },
+    {
+      "ref_id": "[12]",
+      "parsed": {
+        "title": "Partial replacement of cement and fine aggregate in mortar material by using carbon sequestration technique",
+        "authors": [
+          "B. Joshi",
+          "P. Sudhakaran",
+          "M. Varma",
+          "A. Saxena"
+        ],
+        "year": 2023,
+        "venue": "Mater. Today Proc.",
+        "doi": "10.1016/j.matpr.2023.03.649"
+      }
+    },
+    {
+      "ref_id": "[13]",
+      "parsed": {
+        "title": "Experimental investigation of behavior of reinforced high-strength concrete walls under standard fire",
+        "authors": [
+          "J. Chen",
+          "Y. Ji",
+          "Y. Xu",
+          "G. Wang",
+          "K. Hu"
+        ],
+        "year": 2024,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2024.109052"
+      }
+    },
+    {
+      "ref_id": "[14]",
+      "parsed": {
+        "title": "CLVIN: Complete language-vision interaction network for visual question answering",
+        "authors": [
+          "C. Chen",
+          "D. Han",
+          "X. Shen"
+        ],
+        "year": 2023,
+        "venue": "Knowl. -Based Syst.",
+        "doi": "10.1016/j.knosys.2023.110706"
+      }
+    },
+    {
+      "ref_id": "[15]",
+      "parsed": {
+        "title": "Effect of using available metakaoline and nano materials on the behavior of reactive powder concrete",
+        "authors": [
+          "Y.R. Alharbi",
+          "A.A. Abadel",
+          "O.A. Mayhoub",
+          "M. Kohail"
+        ],
+        "year": 2021,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2020.121344"
+      }
+    },
+    {
+      "ref_id": "[16]",
+      "parsed": {
+        "title": "Hybrid effect of GNPs, GOs, and CNTs on the flexural and compressive strengths of cement paste",
+        "authors": [
+          "M.O. Mohsen",
+          "M.M. Al-Diseet",
+          "M.O. Aburumman",
+          "M. Abdel-Jaber",
+          "R. Taha",
+          "M. S. Al Ansari",
+          "A.A. Taqa"
+        ],
+        "year": 2023,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2023.106679"
+      }
+    },
+    {
+      "ref_id": "[17]",
+      "parsed": {
+        "title": "Synthesis, characterization and applications of nano/micro carbonaceous inerts: a review",
+        "authors": [
+          "A. Khalid",
+          "R.A. Khushnood",
+          "A. Mahmood",
+          "G.A. Ferro",
+          "S. Ahmad"
+        ],
+        "year": 2018,
+        "venue": "Procedia Struct. Integr., Elsevier",
+        "doi": "10.1016/j.prostr.2018.06.019"
+      }
+    },
+    {
+      "ref_id": "[18]",
+      "parsed": {
+        "title": "Antimicrobial potential of ZnO, TiO2 and SiO2 nanoparticles in protecting building materials from biodegradation",
+        "authors": [
+          "L. Dyshlyuk",
+          "O. Babich",
+          "S. Ivanova",
+          "N. Vasilchenco",
+          "V. Atuchin",
+          "I. Korolkov",
+          "D. Russakov",
+          "A. Prosekov"
+        ],
+        "year": 2020,
+        "venue": "Int. Biodeterior. Biodegrad.",
+        "doi": "10.1016/j.ibiod.2019.104821"
+      }
+    },
+    {
+      "ref_id": "[19]",
+      "parsed": {
+        "title": "Experimental Investigation on Rehabilitation of Corroded RC Columns with BSP and HPFL under Combined Loadings",
+        "authors": [
+          "H. Huang",
+          "M. Huang",
+          "W. Zhang",
+          "S. Pospisil",
+          "T. Wu"
+        ],
+        "year": 2020,
+        "venue": "J. Struct. Eng.",
+        "doi": "10.1061/(asce)st.1943-541x.0002725"
+      }
+    },
+    {
+      "ref_id": "[20]",
+      "parsed": {
+        "title": "Numerical investigation on the bearing capacity of RC columns strengthened by HPFL-BSP under combined loadings",
+        "authors": [
+          "H. Huang",
+          "M. Guo",
+          "W. Zhang",
+          "J. Zeng",
+          "K. Yang",
+          "H. Bai"
+        ],
+        "year": 2021,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2021.102266"
+      }
+    },
+    {
+      "ref_id": "[21]",
+      "parsed": {
+        "title": "Effect of hybrid carbon nanotubes/graphite nano platelets on mechanical properties of cementitious composite",
+        "authors": [
+          "F. Farooq",
+          "A. Akbar",
+          "R.A. Khushnood"
+        ],
+        "year": 2019,
+        "venue": "Proc. of the First Conf. Sustain. Civ. Eng.",
+        "doi": null
+      }
+    },
+    {
+      "ref_id": "[22]",
+      "parsed": {
+        "title": "Seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint",
+        "authors": [
+          "H. Huang",
+          "Y. Yuan",
+          "W. Zhang",
+          "M. Li"
+        ],
+        "year": 2021,
+        "venue": "Eng. Struct.",
+        "doi": "10.1016/j.engstruct.2021.112848"
+      }
+    },
+    {
+      "ref_id": "[23]",
+      "parsed": {
+        "title": "A nonlinear dynamic uniaxial strength criterion that considers the ultimate dynamic strength of concrete",
+        "authors": [
+          "D. Lu",
+          "G. Wang",
+          "X. Du",
+          "Y. Wang"
+        ],
+        "year": 2017,
+        "venue": "Int. J. Impact Eng.",
+        "doi": "10.1016/j.ijimpeng.2017.01.011"
+      }
+    },
+    {
+      "ref_id": "[24]",
+      "parsed": {
+        "title": "Compressive strength and microstructural characteristics of natural zeolite-based geopolymer",
+        "authors": [
+          "S. ¨Ozen",
+          "B. Alam"
+        ],
+        "year": 2018,
+        "venue": "Period. Polytech. Civ. Eng.",
+        "doi": "10.3311/PPci.10848"
+      }
+    },
+    {
+      "ref_id": "[25]",
+      "parsed": {
+        "title": "Dynamic Splitting Performance and Energy Dissipation of Fiber-Reinforced Concrete under Impact Loading",
+        "authors": [
+          "D. Cui",
+          "L. Wang",
+          "C. Zhang",
+          "H. Xue",
+          "D. Gao",
+          "F. Chen"
+        ],
+        "year": 2024,
+        "venue": "Mater. (Basel)",
+        "doi": "10.3390/ma17020421"
+      }
+    },
+    {
+      "ref_id": "[26]",
+      "parsed": {
+        "title": "A 3D fractional elastoplastic constitutive model for concrete material",
+        "authors": [
+          "D. Lu",
+          "X. Zhou",
+          "X. Du",
+          "G. Wang"
+        ],
+        "year": 2019,
+        "venue": "Int. J. Solids Struct.",
+        "doi": "10.1016/j.ijsolstr.2019.02.004"
+      }
+    },
+    {
+      "ref_id": "[27]",
+      "parsed": {
+        "title": "Advances in modeling surface chloride concentrations in concrete serving in the marine environment: a mini review",
+        "authors": [
+          "R. Zhao",
+          "C. Li",
+          "X. Guan"
+        ],
+        "year": 2024,
+        "venue": "Buildings",
+        "doi": "10.3390/buildings14061879"
+      }
+    },
+    {
+      "ref_id": "[28]",
+      "parsed": {
+        "title": "Mechanical properties of ultra-high-performance concrete enhanced with graphite nanoplatelets and carbon nanofibers",
+        "authors": [
+          "W. Meng",
+          "K.H. Khayat"
+        ],
+        "year": 2016,
+        "venue": "Compos. Part B Eng.",
+        "doi": "10.1016/j.compositesb.2016.09.069"
+      }
+    },
+    {
+      "ref_id": "[29]",
+      "parsed": {
+        "title": "Mechanical properties of Portland cement mortar containing multi-walled carbon nanotubes at elevated temperatures",
+        "authors": [
+          "A. Sedaghatdoost",
+          "K. Behfarnia"
+        ],
+        "year": 2018,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2018.05.095"
+      }
+    },
+    {
+      "ref_id": "[30]",
+      "parsed": {
+        "title": "Effect of nano-reinforcing phase on the early hydration of cement paste: a review",
+        "authors": [
+          "S. He",
+          "J. Chai",
+          "Y. Yang",
+          "J. Cao",
+          "Y. Qin",
+          "Z. Xu"
+        ],
+        "year": 2023,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.130147"
+      }
+    },
+    {
+      "ref_id": "[31]",
+      "parsed": {
+        "title": "Graphene nanoplatelets impact on concrete in improving freeze-thaw resistance",
+        "authors": [
+          "G. Chen",
+          "M. Yang",
+          "L. Xu",
+          "Y. Zhang",
+          "Y. Wang"
+        ],
+        "year": 2019,
+        "venue": "Appl. Sci.",
+        "doi": "10.3390/app9173582"
+      }
+    },
+    {
+      "ref_id": "[32]",
+      "parsed": {
+        "title": "Preparation and properties of graphene/carbon nanotube hybrid reinforced mortar composites",
+        "authors": [
+          "Y.-H. Chen",
+          "S.-C. Lin",
+          "J.-A. Wang",
+          "S.-Y. Hsu",
+          "C.-C.M. Ma"
+        ],
+        "year": 2018,
+        "venue": "Mag. Concr. Res.",
+        "doi": "10.1680/jmacr.18.00070"
+      }
+    },
+    {
+      "ref_id": "[33]",
+      "parsed": {
+        "title": "Investigating the synergistic effect of graphene nanoplatelets and fly ash on the mechanical properties and microstructure of calcium aluminate cement composites",
+        "authors": [
+          "T.T. Win",
+          "L. Prasittisopin",
+          "P. Jongvivatsakul",
+          "S. Likitlersuang"
+        ],
+        "year": 2023,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2023.107710"
+      }
+    },
+    {
+      "ref_id": "[34]",
+      "parsed": {
+        "title": "Combined effect of recycled tire rubber and carbon nanotubes on the mechanical properties and microstructure of concrete",
+        "authors": [
+          "J. Shao",
+          "H. Zhu",
+          "B. Zhao",
+          "S.I. Haruna",
+          "G. Xue",
+          "W. Jiang",
+          "K. Wu",
+          "J. Yang"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.126493"
+      }
+    },
+    {
+      "ref_id": "[35]",
+      "parsed": {
+        "title": "Pore structure characteristics of concrete composites with surface-modified carbon nanotubes",
+        "authors": [
+          "J. Wang",
+          "S. Dong",
+          "S.D. Pang",
+          "C. Zhou",
+          "B. Han"
+        ],
+        "year": 2022,
+        "venue": "Cem. Concr. Compos.",
+        "doi": "10.1016/j.cemconcomp.2022.104453"
+      }
+    },
+    {
+      "ref_id": "[36]",
+      "parsed": {
+        "title": "Particle size distribution of aggregate effects on the reinforcing roles of carbon nanotubes in enhancing concrete ITZ",
+        "authors": [
+          "Y. Gao",
+          "H. Jing",
+          "Z. Yu",
+          "L. Li",
+          "J. Wu",
+          "W. Chen"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.126964"
+      }
+    },
+    {
+      "ref_id": "[37]",
+      "parsed": {
+        "title": "Five-phase modelling for effective diffusion coefficient of chlorides in recycled concrete",
+        "authors": [
+          "Z. Hu",
+          "L. Mao",
+          "J. Xia",
+          "J. Liu",
+          "J. Gao",
+          "J. Yang",
+          "Q. Liu"
+        ],
+        "year": 2018,
+        "venue": "Mag. Concr. Res.",
+        "doi": "10.1680/jmacr.17.00194"
+      }
+    },
+    {
+      "ref_id": "[38]",
+      "parsed": {
+        "title": "Examining the Influence of Recycled Concrete Aggregate on the Hardened Properties of Self-compacting Concrete",
+        "authors": [
+          "K.H. Mo",
+          "T.C. Ling",
+          "Q. Cheng"
+        ],
+        "year": 2021,
+        "venue": "Waste Biomass-.-. Valoriz.",
+        "doi": "10.1007/s12649-020-01045-x"
+      }
+    },
+    {
+      "ref_id": "[39]",
+      "parsed": {
+        "title": "Crumb rubber as partial replacement for fine aggregate in concrete: an overview",
+        "authors": [
+          "F. Ren",
+          "J. Mo",
+          "Q. Wang",
+          "J.C.M. Ho"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.128049"
+      }
+    },
+    {
+      "ref_id": "[40]",
+      "parsed": {
+        "title": "Experimental investigations on mechanical strength of concrete using nano-alumina and nano-clay",
+        "authors": [
+          "K. Sargunan",
+          "M. Venkata Rao",
+          "A. Alex Rajesh",
+          "R. Babu",
+          "P. Prasanthni",
+          "K. Jagadeep",
+          "M.L. Rinawa"
+        ],
+        "year": 2022,
+        "venue": "Mater. Today Proc.",
+        "doi": "10.1016/j.matpr.2022.03.703"
+      }
+    },
+    {
+      "ref_id": "[41]",
+      "parsed": {
+        "title": "Reliability-based analysis of the flexural strength of concrete beams reinforced with hybrid BFRP and steel rebars",
+        "authors": [
+          "W. Zhang",
+          "X. Liu",
+          "Y. Huang",
+          "M.N. Tong"
+        ],
+        "year": 2022,
+        "venue": "Arch. Civ. Mech. Eng.",
+        "doi": "10.1007/s43452-022-00493-7"
+      }
+    },
+    {
+      "ref_id": "[42]",
+      "parsed": {
+        "title": "Combined effect of microstructure, surface energy, and adhesion force on the friction of PVA/ferrite spinel nanocomposites",
+        "authors": [
+          "M.A. Darwish",
+          "T.I. Zubar",
+          "O.D. Kanafyev",
+          "D. Zhou",
+          "E.L. Trukhanova",
+          "S. V. Trukhanov",
+          "A.V. Trukhanov",
+          "A. Maher Henaish"
+        ],
+        "year": 2022,
+        "venue": "Mdpi. Com.",
+        "doi": "10.3390/nano12121998"
+      }
+    },
+    {
+      "ref_id": "[43]",
+      "parsed": {
+        "title": "Method of surface energy investigation by lateral AFM: application to control growth mechanism of nanostructured NiFe films",
+        "authors": [
+          "T.I. Zubar",
+          "V.M. Fedosyuk",
+          "S.V. Trukhanov",
+          "D.I. Tishkevich",
+          "D. Michels",
+          "D. Lyakhov",
+          "A.V. Trukhanov"
+        ],
+        "year": 2020,
+        "venue": "Sci. Rep.",
+        "doi": "10.1038/s41598-020-71416-w"
+      }
+    },
+    {
+      "ref_id": "[44]",
+      "parsed": {
+        "title": "Influence of different types of nano-SiO2 particles on properties of high-performance concrete",
+        "authors": [
+          "A. Khaloo",
+          "M.H. Mobini",
+          "P. Hosseini"
+        ],
+        "year": 2016,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2016.03.041"
+      }
+    },
+    {
+      "ref_id": "[45]",
+      "parsed": {
+        "title": "Effectiveness of nanoparticles-based ultrahydrophobic coating for concrete materials",
+        "authors": [
+          "S.S. Ray",
+          "P.R.T. Peddinti",
+          "R. Soni",
+          "B. Kim",
+          "Y.I. Park",
+          "I.C. Kim",
+          "C.Y. Lee",
+          "Y.N. Kwon"
+        ],
+        "year": 2023,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2022.105799"
+      }
+    },
+    {
+      "ref_id": "[46]",
+      "parsed": {
+        "title": "Effect of nanoparticles and surfactants on properties and microstructures of foam and foamed concrete",
+        "authors": [
+          "L. Jiang",
+          "Z. Wang",
+          "X. Gao",
+          "M. Cui",
+          "Q. Yang",
+          "J. Qin"
+        ],
+        "year": 2024,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2023.134444"
+      }
+    },
+    {
+      "ref_id": "[47]",
+      "parsed": {
+        "title": "Innovative modeling techniques including MEP, ANN and FQ to forecast the compressive strength of geopolymer concrete modified with nanoparticles",
+        "authors": [
+          "H.U. Ahmed",
+          "A.S. Mohammed",
+          "R.H. Faraj",
+          "A.A. Abdalla",
+          "S.M.A. Qaidi",
+          "N.H. Sor",
+          "A.A. Mohammed"
+        ],
+        "year": 2023,
+        "venue": "Neural Comput. Appl.",
+        "doi": "10.1007/s00521-023-08378-3"
+      }
+    },
+    {
+      "ref_id": "[48]",
+      "parsed": {
+        "title": "Technological challenges in nanoparticle-modified geopolymer concrete: A comprehensive review on nanomaterial dispersion, characterization techniques and its mechanical properties",
+        "authors": [
+          "K. Kishore",
+          "A. Pandey",
+          "N.K. Wagri",
+          "A. Saxena",
+          "J. Patel",
+          "A. Al-Fakih"
+        ],
+        "year": 2023,
+        "venue": "Case Stud. Constr. Mater.",
+        "doi": "10.1016/j.cscm.2023.e02265"
+      }
+    },
+    {
+      "ref_id": "[49]",
+      "parsed": {
+        "title": "Use of calcium carbonate nanoparticles in production of nano-engineered foamed concrete",
+        "authors": [
+          "M.A. Othuman Mydin",
+          "P. Jagadesh",
+          "A. Bahrami",
+          "A. Dulaimi",
+          "Y.O. ¨Ozkılıç",
+          "M.M. Al Bakri Abdullah",
+          "R.P. Jaya"
+        ],
+        "year": 2023,
+        "venue": "J. Mater. Res. Technol.",
+        "doi": "10.1016/j.jmrt.2023.08.106"
+      }
+    },
+    {
+      "ref_id": "[50]",
+      "parsed": {
+        "title": "Use of Clay and Titanium Dioxide Nanoparticles in Mortar and Concrete — A State-of-the-Art Analysis",
+        "authors": [
+          "G. Bunea",
+          "S.M. Alexa-Stratulat",
+          "P. Mihai",
+          "I.O. Toma"
+        ],
+        "year": 2023,
+        "venue": "Coatings",
+        "doi": "10.3390/coatings13030506"
+      }
+    },
+    {
+      "ref_id": "[51]",
+      "parsed": {
+        "title": "A Review on Concrete Composites Modified with Nanoparticles",
+        "authors": [
+          "G.F. Huseien"
+        ],
+        "year": 2023,
+        "venue": "J. Compos. Sci.",
+        "doi": "10.3390/jcs7020067"
+      }
+    },
+    {
+      "ref_id": "[52]",
+      "parsed": {
+        "title": "Evaluation of the performance of concrete by adding silica nanoparticles and zeolite: a method deviation tolerance study",
+        "authors": [
+          "S. Ghorbanzadeh",
+          "M. Chamack",
+          "A.M. Mohammadi",
+          "N. Zoghi"
+        ],
+        "year": 2024,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2024.134962"
+      }
+    },
+    {
+      "ref_id": "[53]",
+      "parsed": {
+        "title": "Durability of marine concrete doped with nanoparticles under joint action of Cl- erosion and carbonation",
+        "authors": [
+          "M. Zhang",
+          "L. Du",
+          "Z. Li",
+          "R. Xu"
+        ],
+        "year": 2023,
+        "venue": "Case Stud. Constr. Mater.",
+        "doi": "10.1016/j.cscm.2023.e01982"
+      }
+    },
+    {
+      "ref_id": "[54]",
+      "parsed": {
+        "title": "Experimental study of the effects of adding silica nanoparticles on the durability of geopolymer concrete",
+        "authors": [
+          "M. Mansourghanaei",
+          "M. Biklaryan",
+          "A. Mardookhpour"
+        ],
+        "year": 2024,
+        "venue": "Aust. J. Civ. Eng.",
+        "doi": "10.1080/14488353.2022.2120247"
+      }
+    },
+    {
+      "ref_id": "[55]",
+      "parsed": {
+        "title": "EATN: An Efficient Adaptive Transfer Network for Aspect-Level Sentiment Analysis",
+        "authors": [
+          "K. Zhang",
+          "Q. Liu",
+          "H. Qian",
+          "B. Xiang",
+          "Q. Cui",
+          "J. Zhou",
+          "E. Chen"
+        ],
+        "year": 2023,
+        "venue": "IEEE Trans. Knowl. Data Eng.",
+        "doi": "10.1109/TKDE.2021.3075238"
+      }
+    },
+    {
+      "ref_id": "[56]",
+      "parsed": {
+        "title": "Modification of cement-based materials with nanoparticles",
+        "authors": [
+          "S. Kawashima",
+          "P. Hou",
+          "D.J. Corr",
+          "S.P. Shah"
+        ],
+        "year": 2013,
+        "venue": "Cem. Concr. Compos.",
+        "doi": "10.1016/j.cemconcomp.2012.06.012"
+      }
+    },
+    {
+      "ref_id": "[57]",
+      "parsed": {
+        "title": "Use of nano-silica to reduce setting time and increase early strength of concretes with high volumes of fly ash or slag",
+        "authors": [
+          "M.H. Zhang",
+          "J. Islam"
+        ],
+        "year": 2012,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2011.11.013"
+      }
+    },
+    {
+      "ref_id": "[58]",
+      "parsed": {
+        "title": "Effect of different particle sizes of nano-SiO2on the properties and microstructure of cement paste",
+        "authors": [
+          "T. Meng",
+          "K. Ying",
+          "Y. Hong",
+          "Q. Xu"
+        ],
+        "year": 2020,
+        "venue": "Nanotechnol. Rev.",
+        "doi": "10.1515/ntrev-2020-0066"
+      }
+    },
+    {
+      "ref_id": "[59]",
+      "parsed": {
+        "title": "Mechanical properties of carbon-nanotube-reinforced cementitious materials: database and statistical analysis",
+        "authors": [
+          "M. Ramezani",
+          "Y.H. Kim",
+          "Z. Sun"
+        ],
+        "year": 2020,
+        "venue": "Mag. Concr. Res.",
+        "doi": "10.1680/jmacr.19.00093"
+      }
+    },
+    {
+      "ref_id": "[60]",
+      "parsed": {
+        "title": "The synergic influence of carbon nanotube and nanosilica on the compressive strength of lightweight concrete",
+        "authors": [
+          "K. Narasimman",
+          "T.M. Jassam",
+          "T.S. Velayutham",
+          "M.M.M. Yaseer",
+          "R. Ruzaimah"
+        ],
+        "year": 2020,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2020.101719"
+      }
+    },
+    {
+      "ref_id": "[61]",
+      "parsed": {
+        "title": "Effect of nano-silica addition into high volume fly ash – hydrated lime blended concrete",
+        "authors": [
+          "C. Gunasekara",
+          "M. Sandanayake",
+          "Z. Zhou",
+          "D.W. Law",
+          "S. Setunge"
+        ],
+        "year": 2020,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2020.119205"
+      }
+    },
+    {
+      "ref_id": "[62]",
+      "parsed": {
+        "title": "Investigating the effect of the cement paste and transition zone on strength development of concrete containing nanosilica and silica fume",
+        "authors": [
+          "M. Nili",
+          "A. Ehsani"
+        ],
+        "year": 2015,
+        "venue": "Mater. Des.",
+        "doi": "10.1016/j.matdes.2015.03.024"
+      }
+    },
+    {
+      "ref_id": "[63]",
+      "parsed": {
+        "title": "Effect of nano-SiO2, nano-Al2O3 and nano-Fe2O3 powders on compressive strengths and capillary water absorption of cement mortar containing fly ash: A comparative study",
+        "authors": [
+          "M. Oltulu",
+          "R. S ¸ ahin"
+        ],
+        "year": 2013,
+        "venue": "Energy Build.",
+        "doi": "10.1016/j.enbuild.2012.12.014"
+      }
+    },
+    {
+      "ref_id": "[64]",
+      "parsed": {
+        "title": "Influence of carbon nanotube on properties of concrete: a review",
+        "authors": [
+          "P. Zhang",
+          "J. Su",
+          "J. Guo",
+          "S. Hu"
+        ],
+        "year": 2023,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2023.130388"
+      }
+    },
+    {
+      "ref_id": "[65]",
+      "parsed": {
+        "title": "The effect of nano-SiO2 on concrete properties: a review",
+        "authors": [
+          "C. Zhuang",
+          "Y. Chen"
+        ],
+        "year": 2019,
+        "venue": "Nanotechnol. Rev.",
+        "doi": "10.1515/ntrev-2019-0050"
+      }
+    },
+    {
+      "ref_id": "[66]",
+      "parsed": {
+        "title": "Use of clay and titanium dioxide nanoparticles in mortar and concrete — a state-of-the-art analysis",
+        "authors": [
+          "G. Bunea",
+          "S.M. Alexa-Stratulat",
+          "P. Mihai",
+          "I.O. Toma"
+        ],
+        "year": 2023,
+        "venue": "Coatings",
+        "doi": "10.3390/coatings13030506"
+      }
+    },
+    {
+      "ref_id": "[67]",
+      "parsed": {
+        "title": "Stabilization of Chromium Waste by Solidification into Cement Composites",
+        "authors": [
+          "C. Belebchouche",
+          "S.E. Bensebti",
+          "C. Ould-Said",
+          "K. Moussaceb",
+          "S. Czarnecki",
+          "L. Sadowski"
+        ],
+        "year": 2023,
+        "venue": "Materials",
+        "doi": "10.3390/ma16186295"
+      }
+    },
+    {
+      "ref_id": "[68]",
+      "parsed": {
+        "title": "Effect of Zinc oxide and Al-Zinc oxide nanoparticles on the rheological properties of cement paste",
+        "authors": [
+          "E. Ghafari",
+          "S.A. Ghahari",
+          "Y. Feng",
+          "F. Severgnini",
+          "N. Lu"
+        ],
+        "year": 2016,
+        "venue": "Compos. Part B Eng.",
+        "doi": "10.1016/j.compositesb.2016.08.040"
+      }
+    },
+    {
+      "ref_id": "[69]",
+      "parsed": {
+        "title": "Effect of zirconium oxide nanofiber on the strength and chloride ion penetration coefficient of concrete",
+        "authors": [
+          "Y. Zarea",
+          "S. Parhoodeh",
+          "L. Shahryari",
+          "A. Karbakhsh"
+        ],
+        "year": 2023,
+        "venue": "SN Appl. Sci.",
+        "doi": "10.1007/s42452-023-05471-z"
+      }
+    },
+    {
+      "ref_id": "[70]",
+      "parsed": {
+        "title": "Impact of microporous γ -Al2O3 on the thermal stability of pre-cast cementitious composite containing glass waste",
+        "authors": [
+          "O.A. Mohamed",
+          "M.M. Hazem",
+          "A. Mohsen",
+          ""
+        ],
+        "year": 2023,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2023.131186"
+      }
+    },
+    {
+      "ref_id": "[71]",
+      "parsed": {
+        "title": "Mechanical properties of lightweight green concrete including nano calcium carbonate",
+        "authors": [
+          "R.J.A. Sldozian",
+          "A.J. Hamad",
+          "H.S. Al-Rawe"
+        ],
+        "year": 2023,
+        "venue": "J. Build. Pathol. Rehabil.",
+        "doi": "10.1007/s41024-022-00247-1"
+      }
+    },
+    {
+      "ref_id": "[72]",
+      "parsed": {
+        "title": "A state-of-the-art review on the durability of geopolymer concrete for sustainable structures and infrastructure",
+        "authors": [
+          "M. Wasim",
+          "T.D. Ngo",
+          "D. Law"
+        ],
+        "year": 2021,
+        "venue": "Elsevier",
+        "doi": "10.1016/j.conbuildmat.2021.123381"
+      }
+    },
+    {
+      "ref_id": "[73]",
+      "parsed": {
+        "title": "A recycled aggregate concrete high-rise building: structural performance and embodied carbon footprint",
+        "authors": [
+          "J. Xiao",
+          "C. Wang",
+          "T. Ding",
+          "A. Akbarnezhad"
+        ],
+        "year": 2018,
+        "venue": "J. Clean. Prod.",
+        "doi": "10.1016/j.jclepro.2018.07.210"
+      }
+    },
+    {
+      "ref_id": "[74]",
+      "parsed": {
+        "title": "Performance of geopolymer concrete containing recycled rubber",
+        "authors": [
+          "A.M. Aly",
+          "M.S. El-Feky",
+          "M. Kohail",
+          "E.S.A.R. Nasr"
+        ],
+        "year": 2019,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2019.02.121"
+      }
+    },
+    {
+      "ref_id": "[75]",
+      "parsed": {
+        "title": "ANN-based swarm intelligence for predicting expansive soil swell pressure and compression strength",
+        "authors": [
+          "F.E. Jalal",
+          "M. Iqbal",
+          "W.A. Khan",
+          "A. Jamal",
+          "K. Onyelowe",
+          "Lekhraj"
+        ],
+        "year": 2024,
+        "venue": "Sci. Rep.",
+        "doi": "10.1038/s41598-024-65547-7"
+      }
+    },
+    {
+      "ref_id": "[76]",
+      "parsed": {
+        "title": "Predicting the compressive strength of concrete with fly ash admixture using machine learning algorithms",
+        "authors": [
+          "H. Song",
+          "A. Ahmad",
+          "F. Farooq",
+          "K.A. Ostrowski",
+          "M. Ma ´slak",
+          "S. Czarnecki",
+          "F. Aslam"
+        ],
+        "year": 2021,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2021.125021"
+      }
+    },
+    {
+      "ref_id": "[77]",
+      "parsed": {
+        "title": "An adaptive agent decision model based on deep reinforcement learning and autonomous learning",
+        "authors": [
+          "C. Zhu"
+        ],
+        "year": 2023,
+        "venue": "J. Logist. Inform. Serv. Sci.",
+        "doi": "10.33168/JLISS.2023.0309"
+      }
+    },
+    {
+      "ref_id": "[78]",
+      "parsed": {
+        "title": "Predicting the mechanical properties of plastic concrete: an optimization method by using genetic programming and ensemble learners",
+        "authors": [
+          "U. Asif",
+          "M.F. Javed",
+          "M. Abuhussain",
+          "M. Ali",
+          "W.A. Khan",
+          "A. Mohamed"
+        ],
+        "year": 2024,
+        "venue": "Case Stud. Constr. Mater.",
+        "doi": "10.1016/j.cscm.2024.e03135"
+      }
+    },
+    {
+      "ref_id": "[79]",
+      "parsed": {
+        "title": "Predictive modeling of mechanical properties of silica fume-based green concrete using artificial intelligence approaches: MLPNN, ANFIS, and GEP",
+        "authors": [
+          "A. Nafees",
+          "M.F. Javed",
+          "S. Khan",
+          "K. Nazir",
+          "F. Farooq",
+          "F. Aslam",
+          "M.A. Musarat",
+          "N. I. Vatin"
+        ],
+        "year": 2021,
+        "venue": "Materials",
+        "doi": "10.3390/ma14247531"
+      }
+    },
+    {
+      "ref_id": "[80]",
+      "parsed": {
+        "title": "Prediction of compressive strength of fly ash based concrete using individual and ensemble algorithm",
+        "authors": [
+          "A. Ahmad",
+          "F. Farooq",
+          "P. Niewiadomski",
+          "K. Ostrowski",
+          "A. Akbar",
+          "F. Aslam",
+          "R. Alyousef"
+        ],
+        "year": 2021,
+        "venue": "Materials",
+        "doi": "10.3390/ma14040794"
+      }
+    },
+    {
+      "ref_id": "[81]",
+      "parsed": {
+        "title": "Utilisation of recycled concrete aggregates for sustainable highway pavement applications; a review",
+        "authors": [
+          "C. Maduabuchukwu Nwakaire",
+          "S. Poh Yap",
+          "C. Chuen Onn",
+          "C. Wah Yuen",
+          "H. Adebayo Ibrahim"
+        ],
+        "year": 2020,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2019.117444"
+      }
+    },
+    {
+      "ref_id": "[82]",
+      "parsed": {
+        "title": "Single-objective and multi-objective flood interval forecasting considering interval fitting coefficients",
+        "authors": [
+          "X. Chang",
+          "J. Guo",
+          "H. Qin",
+          "J. Huang",
+          "X. Wang",
+          "P. Ren"
+        ],
+        "year": 2024,
+        "venue": "Water Resour. Manag.",
+        "doi": "10.1007/s11269-024-03848-2"
+      }
+    },
+    {
+      "ref_id": "[83]",
+      "parsed": {
+        "title": "Online Pareto optimal control of mean-field stochastic multi-player systems using policy iteration",
+        "authors": [
+          "X. Jiang",
+          "Y. Wang",
+          "D. Zhao",
+          "L. Shi"
+        ],
+        "year": 2024,
+        "venue": "Sci. China Inf. Sci.",
+        "doi": "10.1007/s11432-023-3982-y"
+      }
+    },
+    {
+      "ref_id": "[84]",
+      "parsed": {
+        "title": "Prediction of Compressive Strength of Sustainable Foam Concrete Using Individual and Ensemble Machine Learning Approaches",
+        "authors": [
+          "H.S. Ullah",
+          "R.A. Khushnood",
+          "F. Farooq",
+          "J. Ahmad",
+          "N.I. Vatin",
+          "D.Y.Z. Ewais"
+        ],
+        "year": 2022,
+        "venue": "Materials (Basel)",
+        "doi": "10.3390/ma15093166"
+      }
+    },
+    {
+      "ref_id": "[85]",
+      "parsed": {
+        "title": "Application of novel machine learning techniques for predicting the surface chloride concentration in concrete containing waste material",
+        "authors": [
+          "A. Ahmad",
+          "F. Farooq",
+          "K.A. Ostrowski",
+          "K. ´Sliwa-Wieczorek",
+          "S. Czarnecki"
+        ],
+        "year": 2021,
+        "venue": "Materials",
+        "doi": "10.3390/ma14092297"
+      }
+    },
+    {
+      "ref_id": "[86]",
+      "parsed": {
+        "title": "New prediction model for the ultimate axial capacity of concrete-filled steel tubes: an evolutionary approach",
+        "authors": [
+          "M.F. Javed",
+          "F. Farooq",
+          "S.A. Memon",
+          "A. Akbar",
+          "M.A. Khan",
+          "F. Aslam",
+          "R. Alyousef",
+          "H. Alabduljabbar",
+          "S.K. Ur Rehman"
+        ],
+        "year": 2020,
+        "venue": "Crystals",
+        "doi": "10.3390/cryst10090741"
+      }
+    },
+    {
+      "ref_id": "[87]",
+      "parsed": {
+        "title": "Machine learning-based compressive strength estimation in nanomaterial-modified lightweight concrete",
+        "authors": [
+          "N.S. Alghrairi",
+          "F.N. Aziz",
+          "S.A. Rashid",
+          "M.Z. Mohamed",
+          "M. Ibrahim"
+        ],
+        "year": 2024,
+        "venue": "Open Eng.",
+        "doi": "10.1515/eng-2022-0604"
+      }
+    },
+    {
+      "ref_id": "[88]",
+      "parsed": {
+        "title": "Compressive strength of concrete containing furnace blast slag; optimized machine learning-based models",
+        "authors": [
+          "M. Kioumarsi",
+          "H. Dabiri",
+          "A. Kandiri",
+          "V. Farhangi"
+        ],
+        "year": 2023,
+        "venue": "Clean. Eng. Technol.",
+        "doi": "10.1016/j.clet.2023.100604"
+      }
+    },
+    {
+      "ref_id": "[89]",
+      "parsed": {
+        "title": "A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials",
+        "authors": [
+          "H. Jiao",
+          "Y. Wang",
+          "L. Li",
+          "K. Arif",
+          "F. Farooq",
+          "A. Alaskar"
+        ],
+        "year": 2023,
+        "venue": "Mater. Today Commun.",
+        "doi": "10.1016/j.mtcomm.2023.106335"
+      }
+    },
+    {
+      "ref_id": "[90]",
+      "parsed": {
+        "title": "Analyzing chloride diffusion for durability predictions of concrete using contemporary machine learning strategies",
+        "authors": [
+          "H.P. Zhang",
+          "X.C. Li",
+          "M.N. Amin",
+          "A.A. Alawi Al-Naghi",
+          "S.U. Arifeen",
+          "F. Althoey",
+          "A. Ahmad"
+        ],
+        "year": 2024,
+        "venue": "Mater. Today Commun.",
+        "doi": "10.1016/j.mtcomm.2024.108543"
+      }
+    },
+    {
+      "ref_id": "[91]",
+      "parsed": {
+        "title": "Predictive modeling for sustainable high-performance concrete from industrial wastes: a comparison and optimization of models using ensemble learners",
+        "authors": [
+          "F. Farooq",
+          "W. Ahmed",
+          "A. Akbar",
+          "F. Aslam",
+          "R. Alyousef"
+        ],
+        "year": 2021,
+        "venue": "J. Clean. Prod.",
+        "doi": "10.1016/j.jclepro.2021.126032"
+      }
+    },
+    {
+      "ref_id": "[92]",
+      "parsed": {
+        "title": "Intelligent lung cancer MRI prediction analysis based on cluster prominence and posterior probabilities utilizing intelligent Bayesian methods on extracted gray-level co-occurrence (GLCM) features",
+        "authors": [
+          "J. Yang",
+          "P.L. Yee",
+          "A.A. Khan",
+          "H. Karamti",
+          "E.T. Eldin",
+          "A. Aldweesh",
+          "A.El Jery",
+          "L. Hussain",
+          "A. Omar"
+        ],
+        "year": 2023,
+        "venue": "Digit. Heal.",
+        "doi": "10.1177/20552076231172632"
+      }
+    },
+    {
+      "ref_id": "[93]",
+      "parsed": {
+        "title": "A water cycle-based error minimization technique in predicting the bearing capacity of shallow foundation",
+        "authors": [
+          "H. Moayedi",
+          "A. Mosavi"
+        ],
+        "year": 2022,
+        "venue": "Eng. Comput.",
+        "doi": "10.1007/s00366-021-01289-8"
+      }
+    },
+    {
+      "ref_id": "[94]",
+      "parsed": {
+        "title": "Revealing the nature of metakaolin-based concrete materials using artificial intelligence techniques",
+        "authors": [
+          "P.G. Asteris",
+          "P.B. Lourenço",
+          "P.C. Roussis",
+          "C. Elpida Adami",
+          "D.J. Armaghani",
+          "L. Cavaleri",
+          "C.E. Chalioris",
+          "M. Hajihassani",
+          "M.E. Lemonis",
+          "A.S. Mohammed",
+          "K. Pilakoutas"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.126500"
+      }
+    },
+    {
+      "ref_id": "[95]",
+      "parsed": {
+        "title": "Inclusive multiple model using hybrid artificial neural networks for predicting evaporation",
+        "authors": [
+          "M. Ehteram",
+          "F. Panahi",
+          "A.N. Ahmed",
+          "A.H. Mosavi",
+          "A. El-Shafie"
+        ],
+        "year": 2022,
+        "venue": "Front. Environ. Sci.",
+        "doi": "10.3389/fenvs.2021.789995"
+      }
+    },
+    {
+      "ref_id": "[96]",
+      "parsed": {
+        "title": "Application of gene expression programming to predict the compressive strength of quaternary-blended concrete",
+        "authors": [
+          "M. Raheel",
+          "M. Iqbal",
+          "R. Khan",
+          "M. Alam",
+          "M. Azab",
+          "S.M. Eldin"
+        ],
+        "year": 2023,
+        "venue": "Asian J. Civ. Eng.",
+        "doi": "10.1007/s42107-023-00573-w"
+      }
+    },
+    {
+      "ref_id": "[97]",
+      "parsed": {
+        "title": "A multimodal hybrid parallel network intrusion detection model",
+        "authors": [
+          "S. Shi",
+          "D. Han",
+          "M. Cui"
+        ],
+        "year": 2023,
+        "venue": "Conn. Sci.",
+        "doi": "10.1080/09540091.2023.2227780"
+      }
+    },
+    {
+      "ref_id": "[98]",
+      "parsed": {
+        "title": "Optimized type-2 fuzzy frequency control for multi-area power systems",
+        "authors": [
+          "A.D. Shakibjoo",
+          "M. Moradzadeh",
+          "S.U. Din",
+          "A. Mohammadzadeh",
+          "A.H. Mosavi",
+          "L. Vandevelde"
+        ],
+        "year": 2022,
+        "venue": "IEEE Access",
+        "doi": "10.1109/ACCESS.2021.3139259"
+      }
+    },
+    {
+      "ref_id": "[99]",
+      "parsed": {
+        "title": "Sustainable predictive model of concrete utilizing waste ingredient: individual alogrithms with optimized ensemble approaches",
+        "authors": [
+          "W. Zheng",
+          "A. Zaman",
+          "F. Farooq",
+          "F. Althoey",
+          "A. Alaskar",
+          "A. Akbar"
+        ],
+        "year": 2023,
+        "venue": "Mater. Today Commun.",
+        "doi": "10.1016/j.mtcomm.2023.105901"
+      }
+    },
+    {
+      "ref_id": "[100]",
+      "parsed": {
+        "title": "New prediction model for the ultimate axial capacity of concrete-filled steel tubes: an evolutionary approach",
+        "authors": [
+          "M.F. Javed",
+          "F. Farooq",
+          "S.A. Memon",
+          "A. Akbar",
+          "M.A. Khan",
+          "F. Aslam",
+          "R. Alyousef",
+          "H. Alabduljabbar",
+          "S.K.U. Rehman"
+        ],
+        "year": 2020,
+        "venue": "Crystals",
+        "doi": "10.3390/cryst10090741"
+      }
+    },
+    {
+      "ref_id": "[101]",
+      "parsed": {
+        "title": "Geopolymer concrete compressive strength via artificial neural network, adaptive neuro fuzzy interface system, and gene expression programming With K-fold cross validation",
+        "authors": [
+          "M.A. Khan",
+          "A. Zafar",
+          "F. Farooq",
+          "M.F. Javed",
+          "R. Alyousef",
+          "H. Alabduljabbar",
+          "M. I. Khan"
+        ],
+        "year": 2021,
+        "venue": "Front. Mater.",
+        "doi": "10.3389/fmats.2021.621163"
+      }
+    },
+    {
+      "ref_id": "[102]",
+      "parsed": {
+        "title": "NAS-YOLOX: a SAR ship detection using neural architecture search and multi-scale attention",
+        "authors": [
+          "H. Wang",
+          "D. Han",
+          "M. Cui",
+          "C. Chen"
+        ],
+        "year": 2023,
+        "venue": "Conn. Sci.",
+        "doi": "10.1080/09540091.2023.2257399"
+      }
+    },
+    {
+      "ref_id": "[103]",
+      "parsed": {
+        "title": "Gradient tree boosting machine learning on predicting the failure modes of the RC panels under impact loads",
+        "authors": [
+          "D.K. Thai",
+          "T.M. Tu",
+          "T.Q. Bui",
+          "T.T. Bui"
+        ],
+        "year": 2019,
+        "venue": "Eng. Comput.",
+        "doi": "10.1007/s00366-019-00842-w"
+      }
+    },
+    {
+      "ref_id": "[104]",
+      "parsed": {
+        "title": "Interpretable Ensemble-Machine-Learning models for predicting creep behavior of concrete",
+        "authors": [
+          "M. Liang",
+          "Z. Chang",
+          "Z. Wan",
+          "Y. Gan",
+          "E. Schlangen",
+          "B. ˇSavija"
+        ],
+        "year": 2022,
+        "venue": "Cem. Concr. Compos.",
+        "doi": "10.1016/j.cemconcomp.2021.104295"
+      }
+    },
+    {
+      "ref_id": "[105]",
+      "parsed": {
+        "title": "Novel Soft Computing Model for Predicting Blast-Induced Ground Vibration in Open-Pit Mines Based on the Bagging and Sibling of Extra Trees Models",
+        "authors": [
+          "Q.H. Tran",
+          "H. Nguyen",
+          "X.N. Bui"
+        ],
+        "year": 2023,
+        "venue": "C. - Comput. Model. Eng. Sci.",
+        "doi": "10.32604/cmes.2022.021893"
+      }
+    },
+    {
+      "ref_id": "[106]",
+      "parsed": {
+        "title": "Development of artificial neural network to predict the concrete strength",
+        "authors": [
+          "Y. Parasher",
+          "G. Kaur",
+          "P. Tomar",
+          "A. Kaushik"
+        ],
+        "year": 2020,
+        "venue": "Smart Innov. Syst. Technol., Springer",
+        "doi": "10.1007/978-981-13-8406-6_36"
+      }
+    },
+    {
+      "ref_id": "[107]",
+      "parsed": {
+        "title": "LMCA: a lightweight anomaly network traffic detection model integrating adjusted mobilenet and coordinate attention mechanism for IoT",
+        "authors": [
+          "D. Han",
+          "H.X. Zhou",
+          "T.H. Weng",
+          "Z. Wu",
+          "B. Han",
+          "K.C. Li",
+          "A.S.K. Pathan"
+        ],
+        "year": 2023,
+        "venue": "Telecommun. Syst.",
+        "doi": "10.1007/S11235-023-01059-5"
+      }
+    },
+    {
+      "ref_id": "[108]",
+      "parsed": {
+        "title": "Machine learning-aided design and prediction of cementitious composites containing graphite and slag powder",
+        "authors": [
+          "J. Sun",
+          "Y. Ma",
+          "J. Li",
+          "J. Zhang",
+          "Z. Ren",
+          "X. Wang"
+        ],
+        "year": 2021,
+        "venue": "J. Build. Eng.",
+        "doi": "10.1016/j.jobe.2021.102544"
+      }
+    },
+    {
+      "ref_id": "[109]",
+      "parsed": {
+        "title": "SVM strategy and analysis of a three-phase quasi-Z-source inverter with high voltage transmission ratio",
+        "authors": [
+          "D.L. Chen",
+          "J.W. Zhao",
+          "S.R. Qin"
+        ],
+        "year": 2023,
+        "venue": "Sci. China Technol. Sci.",
+        "doi": "10.1007/S11431-022-2394-4"
+      }
+    },
+    {
+      "ref_id": "[110]",
+      "parsed": {
+        "title": "Machine learning prediction models to evaluate the strength of recycled aggregate concrete",
+        "authors": [
+          "X. Yuan",
+          "Y. Tian",
+          "W. Ahmad",
+          "A. Ahmad",
+          "K.I. Usanova",
+          "A.M. Mohamed",
+          "R. Khallaf"
+        ],
+        "year": 2022,
+        "venue": "Materials",
+        "doi": "10.3390/ma15082823"
+      }
+    },
+    {
+      "ref_id": "[111]",
+      "parsed": {
+        "title": "Modeling of mechanical properties of silica fume-based green concrete using machine learning techniques",
+        "authors": [
+          "A. Nafees",
+          "M.N. Amin",
+          "K. Khan",
+          "K. Nazir",
+          "M. Ali",
+          "M.F. Javed",
+          "F. Aslam",
+          "M. A. Musarat",
+          "N.I. Vatin"
+        ],
+        "year": 2022,
+        "venue": "Polymers",
+        "doi": "10.3390/polym14010030"
+      }
+    },
+    {
+      "ref_id": "[112]",
+      "parsed": {
+        "title": "Toward intelligent construction: Prediction of mechanical properties of manufactured-sand concrete using tree-based models",
+        "authors": [
+          "J. Zhang",
+          "D. Li",
+          "Y. Wang"
+        ],
+        "year": 2020,
+        "venue": "J. Clean. Prod.",
+        "doi": "10.1016/j.jclepro.2020.120665"
+      }
+    },
+    {
+      "ref_id": "[113]",
+      "parsed": {
+        "title": "Interpretable machine learning model for predicting freeze-thaw damage of dune sand and fiber reinforced concrete",
+        "authors": [
+          "L. Qiao",
+          "P. Miao",
+          "G. Xing",
+          "X. Luo",
+          "J. Ma",
+          "M.A. Farooq"
+        ],
+        "year": 2023,
+        "venue": "Case Stud. Constr. Mater.",
+        "doi": "10.1016/j.cscm.2023.e02453"
+      }
+    },
+    {
+      "ref_id": "[114]",
+      "parsed": {
+        "title": "Machine learning approach for investigating chloride diffusion coefficient of concrete containing supplementary cementitious materials",
+        "authors": [
+          "V. Quan Tran"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.127103"
+      }
+    },
+    {
+      "ref_id": "[115]",
+      "parsed": {
+        "title": "Explainable machine learning model and reliability analysis for flexural capacity prediction of RC beams strengthened in flexure with FRCM",
+        "authors": [
+          "T.G. Wakjira",
+          "M. Ibrahim",
+          "U. Ebead",
+          "M.S. Alam"
+        ],
+        "year": 2022,
+        "venue": "Eng. Struct.",
+        "doi": "10.1016/j.engstruct.2022.113903"
+      }
+    },
+    {
+      "ref_id": "[116]",
+      "parsed": {
+        "title": "A novel explainable AI-based approach to estimate the natural period of vibration of masonry infill reinforced concrete frame structures using different machine learning techniques",
+        "authors": [
+          "P. Thisovithan",
+          "H. Aththanayake",
+          "D.P.P. Meddage",
+          "I.U. Ekanayake",
+          "U. Rathnayake"
+        ],
+        "year": 2023,
+        "venue": "Results Eng.",
+        "doi": "10.1016/J.RINENG.2023.101388"
+      }
+    },
+    {
+      "ref_id": "[117]",
+      "parsed": {
+        "title": "Supplementary cementitious materials in blended cement concrete: Advancements in predicting compressive strength through machine learning",
+        "authors": [
+          "F. Aslam",
+          "M. Zubair"
+        ],
+        "year": 2024,
+        "venue": "Mater. Today Commun.",
+        "doi": "10.1016/j.mtcomm.2023.107725"
+      }
+    },
+    {
+      "ref_id": "[118]",
+      "parsed": {
+        "title": "A comparative study of prediction models for alkali-activated materials to promote quick and economical adaptability in the building sector",
+        "authors": [
+          "S. Ul Arifeen",
+          "M. Nasir Amin",
+          "W. Ahmad",
+          "F. Althoey",
+          "M. Ali",
+          "B. Saad Alotaibi",
+          "M. Awad Abuhussain"
+        ],
+        "year": 2023,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2023.133485"
+      }
+    },
+    {
+      "ref_id": "[119]",
+      "parsed": {
+        "title": "Implementation of soft-computing models for prediction of flexural strength of pervious concrete hybridized with rice husk ash and calcium carbide waste",
+        "authors": [
+          "S.I. Malami",
+          "A.A. Musa",
+          "S.I. Haruna",
+          "U.U. Aliyu",
+          "A.G. Usman",
+          "M.I. Abdurrahman",
+          "A. Bashir",
+          "S.I. Abba"
+        ],
+        "year": 2022,
+        "venue": "Model. Earth Syst. Environ.",
+        "doi": "10.1007/s40808-021-01195-4"
+      }
+    },
+    {
+      "ref_id": "[120]",
+      "parsed": {
+        "title": "Surface activity, wetting, and aggregation of a perfluoropolyether quaternary ammonium salt surfactant with a hydroxyethyl group",
+        "authors": [
+          "J. Dou",
+          "J. Liu",
+          "Y. Wang",
+          "L. Zhi",
+          "J. Shen",
+          "G. Wang"
+        ],
+        "year": 2023,
+        "venue": "Molecules",
+        "doi": "10.3390/molecules28207151"
+      }
+    },
+    {
+      "ref_id": "[121]",
+      "parsed": {
+        "title": "An improved BPNN method based on probability density for indoor location",
+        "authors": [
+          "R. Fei",
+          "Y. Guo",
+          "J. Li",
+          "B. Hu",
+          "L. Yang"
+        ],
+        "year": 2023,
+        "venue": "IEICE Trans. Inf. Syst. E106.D",
+        "doi": "10.1587/transinf.2022DLP0073"
+      }
+    },
+    {
+      "ref_id": "[122]",
+      "parsed": {
+        "title": "Greedy function approximation: a gradient boosting machine",
+        "authors": [
+          "J.H. Friedman"
+        ],
+        "year": 2001,
+        "venue": "Ann. Stat.",
+        "doi": "10.1214/aos/1013203451"
+      }
+    },
+    {
+      "ref_id": "[123]",
+      "parsed": {
+        "title": "Trees vs Neurons: Comparison between random forest and ANN for high-resolution prediction of building energy consumption",
+        "authors": [
+          "M.W. Ahmad",
+          "M. Mourshed",
+          "Y. Rezgui"
+        ],
+        "year": 2017,
+        "venue": "Energy Build.",
+        "doi": "10.1016/j.enbuild.2017.04.038"
+      }
+    },
+    {
+      "ref_id": "[124]",
+      "parsed": {
+        "title": "Intelligent control of multilegged robot smooth motion: a review",
+        "authors": [
+          "Y. Zhao",
+          "J. Wang",
+          "G. Cao",
+          "Y. Yuan",
+          "X. Yao",
+          "L. Qi"
+        ],
+        "year": 2023,
+        "venue": "IEEE Access",
+        "doi": "10.1109/ACCESS.2023.3304992"
+      }
+    },
+    {
+      "ref_id": "[125]",
+      "parsed": {
+        "title": "A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries",
+        "authors": [
+          "S. Meng",
+          "F. Meng",
+          "H. Chi",
+          "H. Chen",
+          "A. Pang"
+        ],
+        "year": 2023,
+        "venue": "J. Frankl. Inst.",
+        "doi": "10.1016/j.jfranklin.2023.08.037"
+      }
+    },
+    {
+      "ref_id": "[126]",
+      "parsed": {
+        "title": "Applying a meta-heuristic algorithm to predict and optimize compressive strength of concrete samples",
+        "authors": [
+          "L. Sun",
+          "M. Koopialipoor",
+          "D. Jahed Armaghani",
+          "R. Tarinejad",
+          "M.M. Tahir"
+        ],
+        "year": 2021,
+        "venue": "Eng. Comput.",
+        "doi": "10.1007/s00366-019-00875-1"
+      }
+    },
+    {
+      "ref_id": "[127]",
+      "parsed": {
+        "title": "LEF-YOLO: a lightweight method for intelligent detection of four extreme wildfires based on the YOLO framework",
+        "authors": [
+          "J. Li",
+          "H. Tang",
+          "X. Li",
+          "H. Dou",
+          "R. Li"
+        ],
+        "year": 2023,
+        "venue": "Int. J. Wildl. Fire",
+        "doi": "10.1071/WF23044"
+      }
+    },
+    {
+      "ref_id": "[128]",
+      "parsed": {
+        "title": "Study on optimization and combination strategy of multiple daily runoff prediction models coupled with physical mechanism and LSTM",
+        "authors": [
+          "J. Guo",
+          "Y. Liu",
+          "Q. Zou",
+          "L. Ye",
+          "S. Zhu",
+          "H. Zhang"
+        ],
+        "year": 2023,
+        "venue": "J. Hydrol.",
+        "doi": "10.1016/j.jhydrol.2023.129969"
+      }
+    },
+    {
+      "ref_id": "[129]",
+      "parsed": {
+        "title": "Predicting hard rock pillar stability using GBDT, XGBoost, and LightGBM algorithms",
+        "authors": [
+          "W. Liang",
+          "S. Luo",
+          "G. Zhao",
+          "H. Wu"
+        ],
+        "year": 2020,
+        "venue": "Mathematics",
+        "doi": "10.3390/MATH8050765"
+      }
+    },
+    {
+      "ref_id": "[130]",
+      "parsed": {
+        "title": "A lightgbm-based eeg analysis method for driver mental states classification",
+        "authors": [
+          "H. Zeng",
+          "C. Yang",
+          "H. Zhang",
+          "Z. Wu",
+          "J. Zhang",
+          "G. Dai",
+          "F. Babiloni",
+          "W. Kong",
+          "L. Chuang"
+        ],
+        "year": 2019,
+        "venue": "Comput. Intell. Neurosci.",
+        "doi": "10.1155/2019/3761203"
+      }
+    },
+    {
+      "ref_id": "[131]",
+      "parsed": {
+        "title": "Deep learning-based coseismic deformation estimation from insar interferograms",
+        "authors": [
+          "C. Zhu",
+          "X. Li",
+          "C. Wang",
+          "B. Zhang",
+          "B. Li"
+        ],
+        "year": 2024,
+        "venue": "IEEE Trans. Geosci. Remote Sens.",
+        "doi": "10.1109/TGRS.2024.3357190"
+      }
+    },
+    {
+      "ref_id": "[132]",
+      "parsed": {
+        "title": "A deep-learning-based MAC for integrating channel access, rate adaptation and channel switch",
+        "authors": [
+          "J. Xin",
+          "W. Xu",
+          "B. Cao",
+          "T. Wang",
+          "S. Zhang"
+        ],
+        "year": 2024,
+        "venue": null,
+        "doi": null
+      }
+    },
+    {
+      "ref_id": "[133]",
+      "parsed": {
+        "title": "Medical application of information gain based artificial immune recognition system (AIRS): diagnosis of thyroid disease",
+        "authors": [
+          "H. Kodaz",
+          "S. ¨Ozs ¸ en",
+          "A. Arslan",
+          "S. Günes ¸"
+        ],
+        "year": 2009,
+        "venue": "Expert Syst. Appl.",
+        "doi": "10.1016/j.eswa.2008.01.026"
+      }
+    },
+    {
+      "ref_id": "[134]",
+      "parsed": {
+        "title": "Prediction of concrete compressive strength with GGBFS and fly ash using multilayer perceptron algorithm, random forest regression and k-nearest neighbor regression",
+        "authors": [
+          "D. Ghunimat",
+          "A.E. Alzoubi",
+          "A. Alzboon",
+          "S. Hanandeh"
+        ],
+        "year": 2023,
+        "venue": "Asian J. Civ. Eng.",
+        "doi": "10.1007/s42107-022-00495-z"
+      }
+    },
+    {
+      "ref_id": "[135]",
+      "parsed": {
+        "title": "Estimation and mapping of forest stand density, volume, and cover type using the k-nearest neighbors method",
+        "authors": [
+          "H. Franco-Lopez",
+          "A.R. Ek",
+          "M.E. Bauer"
+        ],
+        "year": 2001,
+        "venue": "Remote Sens. Environ.",
+        "doi": "10.1016/S0034-4257(01)00209-7"
+      }
+    },
+    {
+      "ref_id": "[136]",
+      "parsed": {
+        "title": "Artificial neural network (ANN), M5P-tree, and regression analyses to predict the early age compression strength of concrete modified with DBC-21 and VK-98 polymers",
+        "authors": [
+          "A. Mohammed",
+          "L. Burhan",
+          "K. Ghafor",
+          "W. Sarwar",
+          "W. Mahmood"
+        ],
+        "year": 2021,
+        "venue": "Neural Comput. Appl.",
+        "doi": "10.1007/s00521-020-05525-y"
+      }
+    },
+    {
+      "ref_id": "[137]",
+      "parsed": {
+        "title": "Innovative modeling techniques including MEP, ANN and FQ to forecast the compressive strength of geopolymer concrete modified with nanoparticles",
+        "authors": [
+          "H.U. Ahmed",
+          "A.A.S.A.A. Mohammed",
+          "R.H. Faraj",
+          "A.A. Abdalla",
+          "S.M.A. Qaidi",
+          "N.H. Sor",
+          "A.A.S.A.A. Mohammed"
+        ],
+        "year": 2023,
+        "venue": "Neural Comput. Appl.",
+        "doi": "10.1007/s00521-023-08378-3"
+      }
+    },
+    {
+      "ref_id": "[138]",
+      "parsed": {
+        "title": "Analyzing the compressive strength of clinker mortars using approximate reasoning approaches - ANN vs MLR",
+        "authors": [
+          "A. Beycio ʇ lu",
+          "M. Emiro ʇ lu",
+          "Y. Kocak",
+          "S. Subas ¸ i"
+        ],
+        "year": 2015,
+        "venue": "Comput. Concr.",
+        "doi": "10.12989/cac.2015.15.1.089"
+      }
+    },
+    {
+      "ref_id": "[139]",
+      "parsed": {
+        "title": "Strength prediction models for recycled aggregate concrete using Random Forests, ANN and LASSO",
+        "authors": [
+          "S.S. Rizvon",
+          "K. Jayakumar"
+        ],
+        "year": 2022,
+        "venue": "J. Build. Pathol. Rehabil.",
+        "doi": "10.1007/s41024-021-00145-y"
+      }
+    },
+    {
+      "ref_id": "[140]",
+      "parsed": {
+        "title": "A comparative study on prediction models for strength properties of lwa concrete using artificial neural network",
+        "authors": [
+          "D. Nagarajan",
+          "T. Rajagopal",
+          "N. Meyappan"
+        ],
+        "year": 2020,
+        "venue": "Rev. La Constr.",
+        "doi": "10.7764/RDLC.19.1.103-111"
+      }
+    },
+    {
+      "ref_id": "[141]",
+      "parsed": {
+        "title": "Innovative modeling techniques including MEP, ANN and FQ to forecast the compressive strength of geopolymer concrete modified with nanoparticles",
+        "authors": [
+          "H.U. Ahmed",
+          "A.S. Mohammed",
+          "R.H. Faraj",
+          "A.A. Abdalla",
+          "S.M.A. Qaidi",
+          "N.H. Sor",
+          "A.A. Mohammed"
+        ],
+        "year": 2023,
+        "venue": "Neural Comput. Appl.",
+        "doi": "10.1007/s00521-023-08378-3"
+      }
+    },
+    {
+      "ref_id": "[142]",
+      "parsed": {
+        "title": "Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach",
+        "authors": [
+          "T.D. Nguyen",
+          "T.H. Tran",
+          "N.D. Hoang"
+        ],
+        "year": 2020,
+        "venue": "Adv. Eng. Inform.",
+        "doi": "10.1016/j.aei.2020.101057"
+      }
+    },
+    {
+      "ref_id": "[143]",
+      "parsed": {
+        "title": "Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning",
+        "authors": [
+          "G. Xu",
+          "G. Zhou",
+          "F. Althoey",
+          "H.M. Hadidi",
+          "A. Alaskar",
+          "A.M. Hassan",
+          "F. Farooq"
+        ],
+        "year": 2023,
+        "venue": "J. Mater. Res. Technol.",
+        "doi": "10.1016/j.jmrt.2023.06.007"
+      }
+    },
+    {
+      "ref_id": "[144]",
+      "parsed": {
+        "title": "Multi-objective design optimization for graphite-based nanomaterials reinforced cementitious composites: a data-driven method with machine learning and NSGA-II",
+        "authors": [
+          "W. Dong",
+          "Y. Huang",
+          "B. Lehane",
+          "G. Ma"
+        ],
+        "year": 2022,
+        "venue": "Constr. Build. Mater.",
+        "doi": "10.1016/j.conbuildmat.2022.127198"
+      }
+    },
+    {
+      "ref_id": "[145]",
+      "parsed": {
+        "title": "Sustainable utilization of foundry waste: forecasting mechanical properties of foundry sand based concrete using multi-expression programming",
+        "authors": [
+          "M.F. Iqbal",
+          "M.F. Javed",
+          "M. Rauf",
+          "I. Azim",
+          "M. Ashraf",
+          "J. Yang",
+          "Q. feng Liu"
+        ],
+        "year": 2021,
+        "venue": "Sci. Total Environ.",
+        "doi": "10.1016/j.scitotenv.2021.146524"
+      }
+    },
+    {
+      "ref_id": "[146]",
+      "parsed": {
+        "title": "Model evaluation guidelines for systematic quantification of accuracy in watershed simulations",
+        "authors": [
+          "D.N. Moriasi",
+          "J.G. Arnold",
+          "M.W. Van Liew",
+          "R.L. Bingner",
+          "R.D. Harmel",
+          "T.L. Veith"
+        ],
+        "year": 2007,
+        "venue": "Trans. ASABE",
+        "doi": null
+      }
+    },
+    {
+      "ref_id": "[147]",
+      "parsed": {
+        "title": "Hybrid BO-XGBoost and BO-RF models for the strength prediction of self-compacting mortars with parametric analysis",
+        "authors": [
+          "A. Ahmed",
+          "W. Song",
+          "Y. Zhang",
+          "M.A. Haque",
+          "X. Liu"
+        ],
+        "year": 2023,
+        "venue": "Materials",
+        "doi": "10.3390/ma16124366"
+      }
+    },
+    {
+      "ref_id": "[148]",
+      "parsed": {
+        "title": "XGBoost: a scalable tree boosting system",
+        "authors": [
+          "T. Chen",
+          "C. Guestrin"
+        ],
+        "year": 2016,
+        "venue": "Proc. ACM SIGKDD Int. Conf. Knowl. Discov. Data Min.",
+        "doi": "10.1145/2939672.2939785"
+      }
+    },
+    {
+      "ref_id": "[149]",
+      "parsed": {
+        "title": "LightGBM: a highly efficient gradient boosting decision tree",
+        "authors": [
+          "G. Ke",
+          "Q. Meng",
+          "T. Finley",
+          "T. Wang",
+          "W. Chen",
+          "W. Ma",
+          "Q. Ye",
+          "T.Y. Liu"
+        ],
+        "year": 2017,
+        "venue": "Adv. Neural Inf. Process. Syst.",
+        "doi": null
+      }
+    },
+    {
+      "ref_id": "[150]",
+      "parsed": {
+        "title": "Application of computational intelligence and statistical approaches for auto-estimating the compressive strength of plastic concrete",
+        "authors": [
+          "A.T. Amlashi",
+          "P. Alidoust",
+          "A.R. Ghanizadeh",
+          "S. Khabiri",
+          "M. Pazhouhi",
+          "M. S. Monabati"
+        ],
+        "year": 2022,
+        "venue": "Eur. J. Environ. Civ. Eng.",
+        "doi": "10.1080/19648189.2020.1803144"
+      }
+    }
+  ]
+}

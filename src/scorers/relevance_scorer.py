@@ -4,7 +4,7 @@ CitePrism Relevance Scorer - Complete Scoring Pipeline
 Combines embedding similarity, LLM judgment, and self-citation detection
 to produce final relevance scores for all references.
 
-Updated to use HuggingFace Inference API for batch processing.
+Includes deep debugging for LLM rationale and evidence extraction.
 
 Author: CitePrism Team
 """
@@ -12,9 +12,10 @@ Author: CitePrism Team
 import json
 import logging
 import time
+import re
+import os
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
-from difflib import SequenceMatcher
 
 # Embedding libraries
 try:
@@ -51,14 +52,16 @@ class SelfCitationDetector:
         self.author_threshold = getattr(config, 'AUTHOR_SIMILARITY_THRESHOLD', 85)
         logger.info(f"Self-citation detector initialized (threshold: {self.author_threshold}%)")
     
-    def detect(self, manuscript_authors: List[str], reference_authors: List[str]) -> Dict:
-        """Detect self-citation based on author overlap."""
+    def detect(self, manuscript_authors: List[str], reference_authors: List[str], 
+               ms_venue: str = "", ref_venue: str = "") -> Dict:
+        """Detect self-citation based on author overlap and venue check."""
         if not manuscript_authors or not reference_authors:
             return {
                 "is_self_cite": False,
                 "overlap_type": "none",
                 "matching_authors": [],
-                "overlap_percentage": 0.0
+                "overlap_percentage": 0.0,
+                "venue_overlap": False
             }
         
         # Normalize author names
@@ -72,20 +75,15 @@ class SelfCitationDetector:
                 if fuzz:
                     similarity = fuzz.ratio(ms_author, ref_author)
                     if similarity >= self.author_threshold:
-                        matches.append((ms_author, ref_author, similarity))
+                        matches.append(ms_author)
                 else:
                     if ms_author == ref_author:
-                        matches.append((ms_author, ref_author, 100))
+                        matches.append(ms_author)
         
-        if not matches:
-            return {
-                "is_self_cite": False,
-                "overlap_type": "none",
-                "matching_authors": [],
-                "overlap_percentage": 0.0
-            }
+        # Deduplicate matches
+        matches = list(set(matches))
         
-        overlap_pct = (len(matches) / len(ms_authors_norm)) * 100
+        overlap_pct = (len(matches) / len(ms_authors_norm)) * 100 if ms_authors_norm else 0
         
         if len(matches) == len(ms_authors_norm):
             overlap_type = "full_team"
@@ -93,12 +91,20 @@ class SelfCitationDetector:
             overlap_type = "partial_team"
         else:
             overlap_type = "single_author"
+
+        # Add Venue Check
+        venue_overlap = False
+        if ms_venue and ref_venue:
+            # Matches "Journal of Machine Learning" with "J. Mach. Learn."
+            if fuzz and fuzz.token_set_ratio(ms_venue.lower(), ref_venue.lower()) >= 90:
+                venue_overlap = True
         
         return {
-            "is_self_cite": True,
-            "overlap_type": overlap_type,
-            "matching_authors": [m[0] for m in matches],
-            "overlap_percentage": round(overlap_pct, 1)
+            "is_self_cite": len(matches) > 0,
+            "overlap_type": overlap_type if len(matches) > 0 else "none",
+            "matching_authors": matches,
+            "overlap_percentage": round(overlap_pct, 1),
+            "venue_overlap": venue_overlap 
         }
     
     def _normalize_name(self, name: str) -> str:
@@ -150,7 +156,7 @@ class EmbeddingScorer:
 
 
 # ============================================================================
-# HF LLM BATCH SCORER
+# HF LLM BATCH SCORER (UPDATED WITH DEEP DEBUGGING)
 # ============================================================================
 
 class HFBatchScorer:
@@ -162,6 +168,10 @@ class HFBatchScorer:
         self.model = getattr(config, 'HF_MODEL', 'meta-llama/Llama-3.1-8B-Instruct')
         self.batch_size = getattr(config, 'HF_BATCH_SIZE', 5)
         
+        # Setup debug directory
+        self.debug_dir = Path("data/debug")
+        self.debug_dir.mkdir(parents=True, exist_ok=True)
+        
         if not self.api_token:
             raise ValueError("HF_API_TOKEN not set in configuration")
         
@@ -172,11 +182,12 @@ class HFBatchScorer:
         logger.info(f"HF Batch Scorer initialized: {self.model} (batch size: {self.batch_size})")
     
     def judge_batch(self, manuscript_context: str, batch_data: List[Dict]) -> List[Dict]:
-        """Score a batch of references using HF API."""
+        """Score a batch of references using HF API with raw result saving."""
         if not batch_data:
             return []
         
         prompt = self._build_batch_prompt(manuscript_context, batch_data)
+        batch_ids = [str(r.get('ref_id', 'unknown')) for r in batch_data]
         
         try:
             response = self.client.chat_completion(
@@ -184,92 +195,76 @@ class HFBatchScorer:
                 messages=[
                     {
                         "role": "system", 
-                        "content": "You are an expert academic reviewer. You MUST return ONLY a valid JSON array. No markdown, no explanation, no preamble. Start with [ and end with ]."
+                        "content": "You are an expert academic reviewer. You MUST return ONLY a valid JSON array of objects. Keys: ref_id, relevance_score, label, rationale, evidence."
                     },
                     {"role": "user", "content": prompt}
                 ],
-                max_tokens=3000,  # Increased for longer responses
+                max_tokens=3000,
                 temperature=0.1
             )
             
             response_text = response.choices[0].message.content.strip()
             
-            # Aggressive cleaning
-            # 1. Remove markdown code blocks
+            # --- DEBUG BLOCK: Save Raw Response ---
+            safe_id = re.sub(r'[^a-zA-Z0-9]', '_', batch_ids[0])
+            debug_file = self.debug_dir / f"llm_raw_{safe_id}.txt"
+            with open(debug_file, "w", encoding="utf-8") as f:
+                f.write(f"PROMPT:\n{prompt}\n\nRESPONSE:\n{response_text}")
+            logger.info(f"  --> Raw LLM response saved to {debug_file}")
+            # --- END DEBUG BLOCK ---
+
+            # Cleaning markdown
             if "```" in response_text:
-                # Extract content between first and last ```
                 parts = response_text.split("```")
                 if len(parts) >= 3:
                     response_text = parts[1]
-                    # Remove 'json' language identifier
                     if response_text.startswith("json"):
                         response_text = response_text[4:]
                     response_text = response_text.strip()
             
-            # 2. Find JSON array boundaries
+            # Find JSON boundaries
             start_idx = response_text.find('[')
             end_idx = response_text.rfind(']')
             
             if start_idx == -1 or end_idx == -1:
-                logger.error("No JSON array found in response")
-                logger.debug(f"Response: {response_text[:200]}")
+                logger.error(f"No JSON array in response for batch {batch_ids}")
                 return self._default_batch_response(batch_data)
             
             response_text = response_text[start_idx:end_idx + 1]
             
-            # 3. Fix common JSON issues
-            # Remove trailing commas before ] or }
-            import re
-            response_text = re.sub(r',(\s*[}\]])', r'\1', response_text)
-            
-            # 4. Try parsing
             try:
                 results = json.loads(response_text)
-            except json.JSONDecodeError as e:
-                logger.error(f"JSON parse error: {e}")
-                logger.debug(f"Cleaned text: {response_text[:500]}")
-                
-                # Last resort: try json-repair
+            except json.JSONDecodeError:
                 try:
                     import json_repair
                     results = json_repair.loads(response_text)
-                    logger.info("Successfully repaired JSON")
+                    logger.info("JSON repaired successfully")
                 except:
+                    logger.error("JSON repair failed")
                     return self._default_batch_response(batch_data)
             
-            # 5. Validate it's a list
             if not isinstance(results, list):
-                logger.error(f"Response is not a list: {type(results)}")
                 return self._default_batch_response(batch_data)
             
-            # 6. Normalize results
             normalized_results = []
             for i, result in enumerate(results):
                 if i >= len(batch_data):
-                    break  # Don't process more than we requested
+                    break
                 
-                try:
-                    score = result.get('relevance_score', 50)
-                    score = max(0, min(100, int(score)))  # Convert to int first
-                    
-                    normalized_results.append({
-                        "ref_id": result.get('ref_id', batch_data[i]['ref_id']),
-                        "relevance_score_llm": score,
-                        "label": result.get('label', 'borderline'),
-                        "rationale": result.get('rationale', 'No rationale')[:500],  # Limit length
-                        "evidence": result.get('evidence', [])[:3]  # Limit to 3 pieces
-                    })
-                except Exception as e:
-                    logger.error(f"Error normalizing result {i}: {e}")
-                    normalized_results.append({
-                        "ref_id": batch_data[i]['ref_id'],
-                        "relevance_score_llm": 50,
-                        "label": "borderline",
-                        "rationale": "Parse error",
-                        "evidence": []
-                    })
+                # Check for key variations (e.g., if LLM used "reason" instead of "rationale")
+                rationale = result.get('rationale') or result.get('reason') or "No rationale provided by LLM"
+                evidence = result.get('evidence') or result.get('quotes') or []
+                
+                # IMPORTANT: Map LLM result keys to consistent internal keys used by RelevanceScorer
+                normalized_results.append({
+                    "ref_id": result.get('ref_id', batch_data[i]['ref_id']),
+                    "relevance_score_llm": int(result.get('relevance_score', 50)),
+                    "label": result.get('label', 'borderline'),
+                    "rationale": rationale,
+                    "evidence": evidence
+                })
             
-            # Fill missing refs with defaults
+            # Pad if LLM missed items
             while len(normalized_results) < len(batch_data):
                 idx = len(normalized_results)
                 normalized_results.append({
@@ -284,37 +279,36 @@ class HFBatchScorer:
             return normalized_results
         
         except Exception as e:
-            logger.error(f"HF batch scoring failed: {e}")
-            import traceback
-            logger.debug(traceback.format_exc())
+            logger.error(f"HF batch scoring failed for {batch_ids}: {e}")
             return self._default_batch_response(batch_data)
     
     def _build_batch_prompt(self, manuscript_context: str, batch_data: List[Dict]) -> str:
         """Build prompt for batch scoring."""
         refs_text = []
         for i, ref in enumerate(batch_data, 1):
-            citation_text = "\n".join([f"    - {ctx[:200]}" for ctx in ref['contexts'][:3]]) if ref['contexts'] else "    No contexts"
+            citation_text = "\n".join([f"    - {ctx[:1000]}" for ctx in ref['contexts'][:3]]) if ref['contexts'] else "    No contexts"
             
             refs_text.append(f"""
 Reference {i}:
   ID: {ref['ref_id']}
   Title: {ref['title']}
-  Abstract: {ref['abstract'][:400] if ref['abstract'] else 'No abstract'}
+  Abstract: {ref['abstract'][:5000] if ref['abstract'] else 'No abstract available'}
   Citations: {citation_text}
 """)
         
-        return f"""Judge relevance of these references to the manuscript.
+        return f"""Judge relevance of these references to the manuscript. 
+Evaluate how strongly the reference supports the manuscript's claims based on the title, abstract, and citation contexts.
 
-Manuscript: {manuscript_context[:800]}
+Manuscript: {manuscript_context[:2500]}
 
 References:
 {''.join(refs_text)}
 
-Score 80-100 = relevant, 40-79 = borderline, 0-39 = irrelevant
+Score 80-100 = relevant (strong thematic/methodological overlap), 40-79 = borderline, 0-39 = irrelevant
 
-Return JSON array:
+Return ONLY a JSON array:
 [
-  {{"ref_id": "<ID>", "relevance_score": <0-100>, "label": "<relevant|borderline|irrelevant>", "rationale": "<why>", "evidence": ["<quote>"]}},
+  {{"ref_id": "<ID>", "relevance_score": <0-100>, "label": "<relevant|borderline|irrelevant>", "rationale": "<specific reason based on context>", "evidence": ["<brief snippet from citation or abstract>"]}},
   ...
 ]"""
     
@@ -325,7 +319,7 @@ Return JSON array:
                 "ref_id": ref['ref_id'],
                 "relevance_score_llm": 50,
                 "label": "borderline",
-                "rationale": "LLM unavailable",
+                "rationale": "LLM judgment failed or returned invalid format",
                 "evidence": []
             }
             for ref in batch_data
@@ -365,6 +359,8 @@ class RelevanceScorer:
         manuscript_meta = enriched_data.get("manuscript_metadata", {})
         manuscript_profile = self._build_manuscript_profile(manuscript_meta)
         manuscript_authors = manuscript_meta.get("authors", [])
+        # Extract manuscript venue for Phase 4
+        manuscript_venue = manuscript_meta.get("venue", "") 
         manuscript_context = f"{manuscript_meta.get('title', '')} {manuscript_meta.get('abstract', '')}"[:1500]
         
         references = enriched_data.get("enriched_references", [])
@@ -377,39 +373,53 @@ class RelevanceScorer:
         
         # Step 1: Embeddings (fast, local)
         logger.info("Step 1: Computing embeddings...")
-        ref_embeddings = self._compute_all_embeddings(references, manuscript_profile, citations_in_text)
+        ref_embeddings = self._compute_all_embeddings(references, manuscript_profile)
         
         # Step 2: Batch LLM (5-10 refs per API call)
         logger.info(f"Step 2: Batch LLM scoring ({self.batch_size} refs/call)...")
         llm_results = self._batch_process_llm(references, manuscript_context, citations_in_text)
         
         # Step 3: Combine
-        logger.info("Step 3: Computing final scores...")
+        logger.info("Step 3: Computing final scores and synthesizing results...")
         scored_refs = []
         self_cite_count = 0
         low_relevance_count = 0
         
         for i, ref in enumerate(references):
-            ref_id = ref.get('ref_id', f'ref_{i+1}')
+            # 1. Get the original ID from the manuscript (e.g., "[1]")
+            original_ref_id = ref.get('ref_id', f'ref_{i+1}')
             
-            # Get scores
-            embed_data = ref_embeddings.get(ref_id, {})
-            llm_data = llm_results.get(ref_id, {})
+            # 2. CREATE NORMALIZED VARIANTS FOR MATCHING
+            clean_id = str(original_ref_id).replace("[", "").replace("]", "").strip()
             
-            # Self-citation
-            original_data = ref.get("original_data", {})
-            external_meta = ref.get("external_metadata", {})
-            ref_authors = external_meta.get("authors", [])
-            ref_author_names = [a.get("display_name", "") for a in ref_authors if isinstance(a, dict)]
+            # 3. ROBUST LOOKUP
+            llm_data = llm_results.get(original_ref_id) or llm_results.get(clean_id) or {}
+            embed_data = ref_embeddings.get(original_ref_id) or ref_embeddings.get(clean_id) or {}
             
-            self_cite_result = self.self_cite_detector.detect(manuscript_authors, ref_author_names)
-            
-            # Hybrid score
-            rs_embed = embed_data.get('score', 0.0)
+            # 4. EXTRACT DATA
             rs_llm = llm_data.get('relevance_score_llm', 50)
+            llm_rationale = llm_data.get('rationale', 'Rationale not captured from LLM')
+            llm_evidence = llm_data.get('evidence', [])
+            
+            # Author & Venue Self-citation check (Phase 4)
+            external_meta = ref.get("external_metadata", {})
+            ref_authors_raw = external_meta.get("authors", [])
+            ref_author_names = [a.get("display_name", "") for a in ref_authors_raw if isinstance(a, dict)]
+            # Extract reference venue
+            ref_venue = ref.get("original_data", {}).get("parsed", {}).get("venue", "")
+            
+            self_cite_result = self.self_cite_detector.detect(
+                manuscript_authors, 
+                ref_author_names,
+                ms_venue=manuscript_venue,
+                ref_venue=ref_venue
+            )
+            
+            # Scoring logic
+            rs_embed = embed_data.get('score', 0.0)
             rs_final = round((self.llm_weight * rs_llm) + (self.embedding_weight * rs_embed), 2)
             
-            # Label
+            # Label Assignment
             if rs_final >= self.relevant_threshold:
                 final_label = "relevant"
             elif rs_final >= self.borderline_threshold:
@@ -417,7 +427,7 @@ class RelevanceScorer:
             else:
                 final_label = "irrelevant"
             
-            # Flags
+            # Quality Flags
             flags = []
             if rs_final < self.borderline_threshold:
                 flags.append("low_relevance")
@@ -430,6 +440,7 @@ class RelevanceScorer:
             if external_meta.get("is_retracted"):
                 flags.append("RETRACTED")
             
+            # 5. ASSEMBLE FINAL OBJECT
             scored_ref = {
                 **ref,
                 "self_citation": self_cite_result,
@@ -437,8 +448,8 @@ class RelevanceScorer:
                 "RS_llm": rs_llm,
                 "RS_final": rs_final,
                 "label": final_label,
-                "llm_rationale": llm_data.get('rationale', ''),
-                "llm_evidence": llm_data.get('evidence', []),
+                "llm_rationale": llm_rationale,
+                "llm_evidence": llm_evidence,
                 "quality_flags": flags
             }
             
@@ -461,34 +472,21 @@ class RelevanceScorer:
             }
         }
         
-        logger.info("")
         logger.info("=" * 80)
-        logger.info("Scoring Summary:")
-        logger.info(f"  Total: {len(references)}")
-        logger.info(f"  Self-citations: {self_cite_count}")
-        logger.info(f"  Low relevance: {low_relevance_count}")
-        logger.info("=" * 80)
-        
+        logger.info(f"Relevance Scoring Complete. Results saved.")
         return result
     
-    def _compute_all_embeddings(self, references, manuscript_profile, citations_in_text):
+    def _compute_all_embeddings(self, references, manuscript_profile):
         """Compute embedding scores for all references."""
         results = {}
-        
         for i, ref in enumerate(references, 1):
             ref_id = ref.get('ref_id', f'ref_{i}')
-            original_data = ref.get("original_data", {})
-            parsed = original_data.get("parsed", {})
-            external_meta = ref.get("external_metadata", {})
+            parsed = ref.get("original_data", {}).get("parsed", {})
+            ext = ref.get("external_metadata", {})
             
-            ref_title = parsed.get("title", "")
-            ref_abstract = external_meta.get("abstract", "")
-            ref_profile = self._build_reference_profile(ref_title, ref_abstract)
-            
+            ref_profile = f"{parsed.get('title', '')} {ext.get('abstract', '')}"
             score = self.embedding_scorer.compute_similarity(manuscript_profile, ref_profile)
             results[ref_id] = {'score': score}
-        
-        logger.info(f"  Computed {len(results)} embeddings")
         return results
     
     def _batch_process_llm(self, references, manuscript_context, citations_in_text):
@@ -502,68 +500,71 @@ class RelevanceScorer:
             end_idx = min(start_idx + self.batch_size, total_refs)
             batch_refs = references[start_idx:end_idx]
             
-            logger.info(f"  Batch {batch_idx + 1}/{num_batches} (refs {start_idx + 1}-{end_idx})")
+            logger.info(f"  Processing LLM Batch {batch_idx + 1}/{num_batches}")
             
-            # Prepare batch
             batch_data = []
             for ref in batch_refs:
                 ref_id = ref.get('ref_id', '')
-                original_data = ref.get("original_data", {})
-                parsed = original_data.get("parsed", {})
-                external_meta = ref.get("external_metadata", {})
+                parsed = ref.get("original_data", {}).get("parsed", {})
+                ext = ref.get("external_metadata", {})
                 
                 batch_data.append({
                     'ref_id': ref_id,
                     'title': parsed.get("title", ""),
-                    'abstract': external_meta.get("abstract", ""),
+                    'abstract': ext.get("abstract", ""),
                     'contexts': self._find_citation_contexts(ref_id, citations_in_text)
                 })
             
-            # Call HF API
             batch_results = self.llm_scorer.judge_batch(manuscript_context, batch_data)
+            for res in batch_results:
+                results[res['ref_id']] = res
             
-            for result in batch_results:
-                results[result['ref_id']] = result
-            
-            # Rate limiting
             if batch_idx < num_batches - 1:
                 time.sleep(1)
-        
-        logger.info(f"  Completed LLM scoring for {len(results)} references")
+                
         return results
     
     def _build_manuscript_profile(self, metadata):
-        """Build manuscript profile."""
         title = metadata.get("title", "")
         abstract = metadata.get("abstract", "")
-        return f"{title} {title} {title} {abstract}"
-    
-    def _build_reference_profile(self, title, abstract):
-        """Build reference profile."""
-        profile = f"{title} {title}"
-        if abstract:
-            profile += f" {abstract}"
-        return profile
+        return f"{title} {title} {abstract}"
     
     def _find_citation_contexts(self, ref_id, citations):
-        """Find citation contexts for reference."""
+        """
+        Find citation contexts by intelligently matching IDs inside complex markers.
+        Handles: [34], [34,35], [18-20], and [18 – 20]
+        """
         contexts = []
+        
+        # 1. Normalize the target ID to just the number (e.g., "[34]" -> 34)
+        try:
+            target_str = str(ref_id).strip("[] ")
+            target_num = int(re.sub(r'\D', '', target_str))
+        except (ValueError, TypeError):
+            return []
+
         for citation in citations:
             marker = citation.get("marker", "")
-            if ref_id in marker or marker in ref_id:
+            
+            # A. Check for Range matches: [18-20]
+            range_match = re.search(r'(\d+)\s*[\-\–\—]\s*(\d+)', marker)
+            if range_match:
+                start, end = int(range_match.group(1)), int(range_match.group(2))
+                if start <= target_num <= end:
+                    contexts.append(citation.get("context_window", ""))
+                    continue
+
+            # B. Check for List/Standalone matches using word boundaries: [34,35] or [34]
+            # Regex \b ensures 3 doesn't match 34, but 34 matches [34,35]
+            if re.search(r'\b' + re.escape(str(target_num)) + r'\b', marker):
                 contexts.append(citation.get("context_window", ""))
+                
         return contexts
     
     def _empty_result(self, enriched_data):
-        """Empty result."""
         return {
             "manuscript_metadata": enriched_data.get("manuscript_metadata", {}),
             "citations_in_text": enriched_data.get("citations_in_text", []),
             "scored_references": [],
-            "scoring_summary": {
-                "total_references": 0,
-                "self_citations": 0,
-                "low_relevance": 0,
-                "self_citation_rate": "0%"
-            }
+            "scoring_summary": {"total_references": 0, "self_citations": 0, "low_relevance": 0, "self_citation_rate": "0%"}
         }

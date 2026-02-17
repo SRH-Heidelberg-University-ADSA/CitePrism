@@ -1,19 +1,17 @@
 """
-Gemini Extractor - Wrapped for CitePrism Pipeline
-Wraps the existing extractor logic into a class interface.
+CitePrism Gemini Extractor - Pipeline Integration
+==================================================
+Self-contained extractor with all logic from extractor_new_2.py
+Provides a clean interface for the pipeline orchestrator.
 """
 
 import os
 import json
 import logging
-from pathlib import Path
 import re
+from pathlib import Path
 from typing import Dict, List, Optional, Literal
 from pydantic import BaseModel, Field
-from dotenv import load_dotenv  
-
-# Load environment variables from .env file immediately
-load_dotenv() 
 
 # PDF extraction libraries
 try:
@@ -33,24 +31,11 @@ except ImportError:
     OpenAI = None
 
 try:
-    from google import genai
-    from google.genai import types
+    import google.generativeai as genai
 except ImportError:
     genai = None
-    types = None
 
-# JSON repair library (optional but recommended)
-try:
-    from json_repair import repair_json
-    HAS_JSON_REPAIR = True
-except ImportError:
-    HAS_JSON_REPAIR = False
-
-# Configure logging
 logger = logging.getLogger(__name__)
-
-if not HAS_JSON_REPAIR:
-    logger.warning("json-repair not installed. For better JSON parsing, install with: pip install json-repair")
 
 
 # ============================================================================
@@ -94,7 +79,7 @@ class ManuscriptStructure(BaseModel):
 
 
 # ============================================================================
-# SYSTEM PROMPT
+# SYSTEM PROMPT (EXACTLY AS SPECIFIED IN ORIGINAL)
 # ============================================================================
 
 SYSTEM_PROMPT = """You are an expert academic editor and parser. Your goal is to convert raw manuscript text into a structured JSON format.
@@ -142,6 +127,7 @@ Output Format: Return ONLY valid JSON adhering to this schema:
     }
   ]
 }
+
 ```
 
 Do not truncate text. If the text is too long, summarize section content but KEEP citations and reference lists exact.
@@ -149,19 +135,11 @@ Do not truncate text. If the text is too long, summarize section content but KEE
 
 
 # ============================================================================
-# HELPER FUNCTIONS
+# PDF EXTRACTION (FROM ORIGINAL)
 # ============================================================================
 
 def extract_text_from_pdf(pdf_path: Path, method: str = "pypdf") -> str:
     """Extract raw text from a PDF file using specified method."""
-    # Check if file exists
-    if not pdf_path.exists():
-        raise FileNotFoundError(f"PDF file not found: {pdf_path}")
-    
-    # Check if file is readable
-    if not os.access(pdf_path, os.R_OK):
-        raise PermissionError(f"Cannot read PDF file: {pdf_path}")
-    
     logger.info(f"Extracting text from PDF: {pdf_path}")
 
     if method == "pypdf":
@@ -171,47 +149,21 @@ def extract_text_from_pdf(pdf_path: Path, method: str = "pypdf") -> str:
         try:
             text_parts = []
             with open(pdf_path, 'rb') as file:
-                try:
-                    pdf_reader = pypdf.PdfReader(file)
-                except pypdf.errors.PdfReadError as e:
-                    raise ValueError(f"Invalid or corrupted PDF file: {e}")
-                except Exception as e:
-                    raise ValueError(f"Failed to read PDF file: {e}")
-                
+                pdf_reader = pypdf.PdfReader(file)
                 total_pages = len(pdf_reader.pages)
-                
-                if total_pages == 0:
-                    raise ValueError("PDF file has no pages")
-                
                 logger.info(f"PDF has {total_pages} pages")
 
                 for page_num, page in enumerate(pdf_reader.pages, 1):
-                    try:
-                        logger.debug(f"Extracting page {page_num}/{total_pages}")
-                        page_text = page.extract_text()
-                        
-                        if page_text:
-                            text_parts.append(page_text)
-                        else:
-                            logger.warning(f"Page {page_num} appears to be empty or unreadable")
-                    
-                    except Exception as e:
-                        logger.error(f"Failed to extract text from page {page_num}: {e}")
-                        continue
+                    logger.debug(f"Extracting page {page_num}/{total_pages}")
+                    text_parts.append(page.extract_text())
 
-            if not text_parts:
-                raise ValueError("No text could be extracted from any page in the PDF")
-            
             full_text = "\n\n".join(text_parts)
-            logger.info(f"Extracted {len(full_text)} characters from {len(text_parts)} pages")
-            
+            logger.info(f"Extracted {len(full_text)} characters")
             return full_text
 
-        except ValueError:
-            raise
         except Exception as e:
             logger.error(f"pypdf extraction failed: {e}")
-            raise Exception(f"PDF extraction error: {e}")
+            raise
 
     elif method == "pdfminer":
         if pdfminer_extract is None:
@@ -219,400 +171,361 @@ def extract_text_from_pdf(pdf_path: Path, method: str = "pypdf") -> str:
 
         try:
             full_text = pdfminer_extract(str(pdf_path))
-            
-            if not full_text or len(full_text.strip()) < 10:
-                raise ValueError("Extracted text is empty or too short")
-            
             logger.info(f"Extracted {len(full_text)} characters")
             return full_text
 
-        except ValueError:
-            raise
         except Exception as e:
             logger.error(f"pdfminer extraction failed: {e}")
-            raise Exception(f"PDF extraction error: {e}")
+            raise
 
     else:
-        raise ValueError(f"Unknown extraction method: {method}. Use 'pypdf' or 'pdfminer'")
-
-
-def extract_doi_from_text(text: str) -> Optional[str]:
-    """Extract the first DOI found in the given text using regex."""
-    try:
-        doi_pattern = re.compile(
-            r'\b10\.\d{4,9}/[-._;()/:A-Z0-9]+\b',
-            re.IGNORECASE
-        )
-
-        match = doi_pattern.search(text)
-        doi = match.group(0) if match else None
-        
-        if doi:
-            logger.debug(f"Extracted DOI: {doi}")
-        
-        return doi
-    
-    except Exception as e:
-        logger.warning(f"Error during DOI extraction: {e}")
-        return None
+        raise ValueError(f"Unknown extraction method: {method}")
 
 
 # ============================================================================
-# GEMINI EXTRACTOR CLASS (Main Interface)
+# DOI EXTRACTION (FROM ORIGINAL)
+# ============================================================================
+
+def extract_doi_from_text(text: str) -> Optional[str]:
+    """Extract the first DOI found in the given text using regex."""
+    doi_pattern = re.compile(
+        r'\b10\.\d{4,9}/[-._;()/:A-Z0-9]+\b',
+        re.IGNORECASE
+    )
+    match = doi_pattern.search(text)
+    return match.group(0) if match else None
+
+
+# ============================================================================
+# LLM INTERFACES (FROM ORIGINAL)
+# ============================================================================
+
+class GoogleInterface:
+    """Google Gemini LLM interface."""
+    
+    def __init__(self, api_key: str, model: str, max_tokens: int):
+        if genai is None:
+            raise ImportError("google-generativeai not installed. Run: pip install google-generativeai")
+        
+        genai.configure(api_key=api_key)
+        self.model = genai.GenerativeModel(
+            model,
+            generation_config={
+                "temperature": 0.1,
+                "response_mime_type": "application/json",
+                "max_output_tokens": max_tokens
+            }
+        )
+        self.max_tokens = max_tokens
+        logger.info(f"Initialized Google Gemini client with model: {model}")
+        logger.info(f"Max output tokens: {max_tokens}")
+    
+    def _repair_truncated_json(self, json_text: str) -> str:
+        """Attempt to repair truncated JSON by closing incomplete structures."""
+        # Count opening and closing brackets
+        open_braces = json_text.count('{')
+        close_braces = json_text.count('}')
+        open_brackets = json_text.count('[')
+        close_brackets = json_text.count(']')
+        
+        # Find last complete position
+        last_complete_obj = json_text.rfind('},')
+        last_complete_arr = json_text.rfind('],')
+        
+        # Truncate at last complete structure
+        if last_complete_obj > last_complete_arr and last_complete_obj > 0:
+            json_text = json_text[:last_complete_obj + 1]
+        elif last_complete_arr > 0:
+            json_text = json_text[:last_complete_arr + 1]
+        
+        # Close any unclosed strings (look for odd number of quotes in last line)
+        lines = json_text.split('\n')
+        if lines:
+            last_line = lines[-1]
+            quote_count = last_line.count('"')
+            if quote_count % 2 == 1:  # Odd number means unclosed string
+                # Remove the incomplete line
+                json_text = '\n'.join(lines[:-1])
+        
+        # Close arrays and objects
+        while open_brackets > close_brackets:
+            json_text += '\n]'
+            close_brackets += 1
+        
+        while open_braces > close_braces:
+            json_text += '\n}'
+            close_braces += 1
+        
+        return json_text
+    
+    def parse_manuscript(self, text: str, debug_path: Optional[Path] = None) -> Dict:
+        """Parse manuscript using Google Gemini."""
+        logger.info("Sending request to Google Gemini API...")
+        
+        try:
+            full_prompt = f"{SYSTEM_PROMPT}\n\nParse this manuscript:\n\n{text}"
+            response = self.model.generate_content(full_prompt)
+            json_text = response.text
+            
+            # Save raw response for debugging
+            if debug_path:
+                debug_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(debug_path, 'w', encoding='utf-8') as f:
+                    f.write(json_text)
+                logger.info(f"Saved raw LLM response to: {debug_path}")
+            
+            # Try to parse JSON
+            try:
+                parsed_data = json.loads(json_text)
+                logger.info("✓ Successfully received and parsed Gemini response")
+                return parsed_data
+            except json.JSONDecodeError as e:
+                logger.warning(f"JSON decode error: {e}. Attempting to repair truncated JSON...")
+                
+                # Attempt to repair
+                repaired_json = self._repair_truncated_json(json_text)
+                
+                # Save repaired version
+                if debug_path:
+                    repair_path = debug_path.parent / f"{debug_path.stem}_repaired.json"
+                    with open(repair_path, 'w', encoding='utf-8') as f:
+                        f.write(repaired_json)
+                    logger.info(f"Saved repaired JSON to: {repair_path}")
+                
+                # Try parsing repaired JSON
+                try:
+                    parsed_data = json.loads(repaired_json)
+                    logger.info("✓ Successfully parsed repaired JSON")
+                    return parsed_data
+                except json.JSONDecodeError as e2:
+                    logger.error(f"Still failed after repair: {e2}")
+                    raise Exception(
+                        f"Gemini response is truncated or malformed. "
+                        f"Original error: {e}. "
+                        f"Repair failed: {e2}. "
+                        f"Try increasing MAX_TOKENS in config or use a longer context model."
+                    )
+        
+        except Exception as e:
+            logger.error(f"Google Gemini API error: {e}")
+            raise
+
+
+class OpenAIInterface:
+    """OpenAI ChatGPT interface."""
+    
+    def __init__(self, api_key: str, model: str, max_tokens: int):
+        if OpenAI is None:
+            raise ImportError("openai not installed. Run: pip install openai")
+        
+        self.client = OpenAI(api_key=api_key)
+        self.model = model
+        self.max_tokens = max_tokens
+        logger.info(f"Initialized OpenAI client with model: {model}")
+    
+    def parse_manuscript(self, text: str, debug_path: Optional[Path] = None) -> Dict:
+        """Parse manuscript using OpenAI."""
+        logger.info("Sending request to OpenAI API...")
+        
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {"role": "user", "content": f"Parse this manuscript:\n\n{text}"}
+                ],
+                response_format={"type": "json_object"},
+                max_tokens=self.max_tokens,
+                temperature=0.1
+            )
+            
+            json_text = response.choices[0].message.content
+            
+            if debug_path:
+                debug_path.parent.mkdir(parents=True, exist_ok=True)
+                with open(debug_path, 'w', encoding='utf-8') as f:
+                    f.write(json_text)
+                logger.info(f"Saved raw LLM response to: {debug_path}")
+            
+            parsed_data = json.loads(json_text)
+            logger.info("✓ Successfully received and parsed OpenAI response")
+            return parsed_data
+        
+        except Exception as e:
+            logger.error(f"OpenAI API error: {e}")
+            raise
+
+
+# ============================================================================
+# MAIN EXTRACTOR CLASS (PIPELINE INTERFACE)
 # ============================================================================
 
 class GeminiExtractor:
     """
-    Gemini-based PDF extractor for CitePrism pipeline.
-    Wraps existing extraction logic into a class interface.
+    Self-contained Gemini extractor for CitePrism pipeline.
+    Contains all logic from extractor_new_2.py.
     """
     
     def __init__(self, config):
-        """
-        Initialize the Gemini extractor.
-        
-        Args:
-            config: Configuration object with API keys and settings
-        """
+        """Initialize the Gemini extractor."""
         self.config = config
         
-        # Get API key and model from config
-        self.api_key = config.GOOGLE_API_KEY
-        self.model = config.GOOGLE_MODEL
-        self.max_tokens = config.MAX_TOKENS
+        # Get configuration
+        self.provider = getattr(config, 'LLM_PROVIDER', 'google')
+        self.model = getattr(config, 'GOOGLE_MODEL', 'gemini-2.0-flash-exp')
+        self.max_tokens = getattr(config, 'MAX_TOKENS', 100000)  # Increased default for longer papers
+        self.pdf_extractor = getattr(config, 'PDF_EXTRACTOR', 'pypdf')
         
-        if not self.api_key:
-            raise ValueError("GOOGLE_API_KEY not set in configuration")
+        # API keys
+        self.google_api_key = getattr(config, 'GOOGLE_API_KEY', None)
+        self.openai_api_key = getattr(config, 'OPENAI_API_KEY', None)
         
-        # Set up logs directory for debug output
-        self.logs_dir = Path("logs")
-        self.logs_dir.mkdir(exist_ok=True)
+        # Debug directory
+        self.debug_dir = Path("data/debug/extractor_responses")
+        self.debug_dir.mkdir(parents=True, exist_ok=True)
         
-        logger.info(f"Debug logs will be saved to: {self.logs_dir}")
-        logger.info(f"Max output tokens configured: {self.max_tokens}")
-        
-        # Initialize Gemini client
-        try:
-            
-            self.client = genai.Client(
-                api_key=self.api_key
-            )
-            
-            logger.info(f"Initialized Google GenAI Client with model: {self.model}")
-        except Exception as e:
-            raise ValueError(f"Failed to initialize Google GenAI client: {e}")
+        logger.info(f"GeminiExtractor initialized:")
+        logger.info(f"  - Provider: {self.provider}")
+        logger.info(f"  - Model: {self.model}")
+        logger.info(f"  - Max tokens: {self.max_tokens}")
     
-    def extract(self, pdf_path: Path) -> Dict:
+    def _get_llm_interface(self):
+        """Get the appropriate LLM interface."""
+        if self.provider == "openai":
+            return OpenAIInterface(
+                api_key=self.openai_api_key,
+                model=self.model,
+                max_tokens=self.max_tokens
+            )
+        elif self.provider == "google":
+            return GoogleInterface(
+                api_key=self.google_api_key,
+                model=self.model,
+                max_tokens=self.max_tokens
+            )
+        else:
+            raise ValueError(f"Unknown LLM provider: {self.provider}")
+    
+    def extract(self, pdf_path: Path, progress_bar=None) -> Dict:
         """
-        Extract structured data from PDF using Gemini LLM.
+        Extract structured data from a PDF using LLM.
         
         Args:
             pdf_path: Path to the PDF file
+            progress_bar: Optional Streamlit progress bar object
             
         Returns:
             Dictionary with parsed manuscript data
         """
-        logger.info(f"Starting extraction for: {pdf_path.name}")
+        logger.info("=" * 80)
+        logger.info(f"Processing: {pdf_path.name}")
+        logger.info("=" * 80)
         
-        # Step 1: Extract text from PDF
         try:
-            raw_text = extract_text_from_pdf(pdf_path, method="pypdf")
+            # Step 1: Extract text from PDF
+            if progress_bar:
+                progress_bar.progress(0.10, text="Extracting text from PDF...")
+            
+            logger.info(f"Step 1: Extracting text using {self.pdf_extractor}...")
+            raw_text = extract_text_from_pdf(pdf_path, method=self.pdf_extractor)
             
             if not raw_text or len(raw_text.strip()) < 100:
-                raise ValueError("Extracted text is too short or empty (less than 100 characters)")
+                raise ValueError("Extracted text is too short or empty")
             
-            logger.info(f"[OK] Successfully extracted {len(raw_text)} characters")
+            logger.info(f"  ✓ Extracted {len(raw_text)} characters")
             
-            # Count approximate number of references in raw text for validation
-            expected_ref_count = self._estimate_reference_count(raw_text)
-            logger.info(f"Estimated {expected_ref_count} references in source document")
+            # Step 2: Initialize LLM interface
+            if progress_bar:
+                progress_bar.progress(0.15, text="Connecting to LLM API...")
             
-        except Exception as e:
-            logger.error(f"PDF extraction failed: {e}")
-            raise
-        
-        # Step 2: Parse with Gemini LLM
-        debug_path = self.logs_dir / f"{pdf_path.stem}_llm_response.json"
-        try:
-            parsed_dict = self._parse_with_gemini(raw_text, debug_path=debug_path)
+            logger.info(f"Step 2: Initializing {self.provider} LLM interface...")
+            llm = self._get_llm_interface()
             
-            if not parsed_dict:
-                raise ValueError("LLM returned empty parsed data")
+            # Step 3: Parse manuscript with LLM
+            if progress_bar:
+                progress_bar.progress(0.20, text="Analyzing manuscript with LLM (this may take 30-60s)...")
             
-            logger.info("[OK] Successfully received parsed data from LLM")
+            logger.info("Step 3: Sending text to LLM for parsing...")
+            debug_path = self.debug_dir / f"{pdf_path.stem}_raw_response.json"
             
-        except Exception as e:
-            logger.error(f"LLM parsing failed: {e}")
-            raise
-        
-        # Step 3: Validate with Pydantic
-        try:
-            parsed_dict = self._normalize_citations(parsed_dict)
+            parsed_dict = llm.parse_manuscript(raw_text, debug_path=debug_path)
+            logger.info("  ✓ Successfully received LLM response")
+            
+            # Step 4: Validate output with Pydantic
+            if progress_bar:
+                progress_bar.progress(0.35, text="Validating extracted data...")
+            
+            logger.info("Step 4: Validating parsed data...")
             manuscript = ManuscriptStructure(**parsed_dict)
-            logger.info("[OK] Output validation successful")
-            logger.info(f"  - Title: {manuscript.metadata.title}")
-            logger.info(f"  - Authors: {len(manuscript.metadata.authors)}")
-            logger.info(f"  - Citations: {len(manuscript.citations_in_text)}")
-            logger.info(f"  - References: {len(manuscript.references_list)}")
             
-            # Step 3.5: Validate completeness
-            self._validate_completeness(
-                manuscript,
-                expected_ref_count,
-                pdf_path.name
-            )
+            logger.info("  ✓ Output validation successful")
+            logger.info(f"    - Title: {manuscript.metadata.title}")
+            logger.info(f"    - Authors: {len(manuscript.metadata.authors)}")
+            logger.info(f"    - Citations: {len(manuscript.citations_in_text)}")
+            logger.info(f"    - References: {len(manuscript.references_list)}")
             
-        except Exception as e:
-            logger.error(f"Output validation failed: {e}")
-            raise
-        
-        # Step 4: Extract DOI
-        try:
+            # Step 5: Extract DOI from text (regex-based)
+            if progress_bar:
+                progress_bar.progress(0.38, text="Extracting metadata...")
+            
+            logger.info("Step 5: Extracting DOI from text...")
             doi = extract_doi_from_text(raw_text)
             if doi:
-                manuscript.metadata.doi = doi
-                logger.info(f"[OK] Extracted DOI from text: {doi}")
-        except Exception as e:
-            logger.warning(f"DOI extraction failed (non-critical): {e}")
-        
-        # Return as dictionary
-        return manuscript.model_dump()
-    
-    def _normalize_citations(self, data: dict) -> dict:
-        """
-        Ensure citations_in_text is a list of dicts, not ints.
-        """
-        citations = data.get("citations_in_text", [])
-
-        fixed = []
-        for item in citations:
-            if isinstance(item, dict):
-                fixed.append(item)
-            elif isinstance(item, int):
-                # salvage minimal structure
-                fixed.append({
-                    "marker": f"[{item}]",
-                    "context_window": ""
-                })
+                manuscript.metadata.__dict__["doi"] = doi
+                logger.info(f"  ✓ Extracted DOI: {doi}")
             else:
-                # drop completely invalid entries
-                continue
-
-        data["citations_in_text"] = fixed
-        return data
+                logger.info("  ! No DOI found in text")
+            
+            # Step 6: Convert to pipeline-compatible format
+            if progress_bar:
+                progress_bar.progress(0.40, text="Finalizing parsed data...")
+            
+            logger.info("Step 6: Converting to pipeline format...")
+            result = manuscript.model_dump()
+            
+            logger.info("=" * 80)
+            logger.info("EXTRACTION COMPLETED SUCCESSFULLY")
+            logger.info("=" * 80)
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"Extraction failed: {e}", exc_info=True)
+            if progress_bar:
+                progress_bar.progress(0.40, text=f"Extraction failed: {str(e)[:50]}...")
+            raise
     
-    def _estimate_reference_count(self, text: str) -> int:
+    def extract_with_cache(self, pdf_path: Path, cache_key: str, 
+                          db_manager, progress_bar=None, 
+                          force_reprocess: bool = False) -> Dict:
         """
-        Estimate the number of references in the document by looking for 
-        common reference section patterns.
+        Extract with intelligent caching support.
         
         Args:
-            text: Raw manuscript text
+            pdf_path: Path to PDF file
+            cache_key: Unique cache identifier
+            db_manager: Database manager for caching
+            progress_bar: Optional progress bar
+            force_reprocess: If True, ignore cache
             
         Returns:
-            Estimated reference count
+            Parsed manuscript data
         """
-        try:
-            # Look for "References" or "Bibliography" section
-            ref_section_pattern = r'(?i)(references|bibliography)\s*\n'
-            match = re.search(ref_section_pattern, text)
-            
-            if match:
-                # Get text after references section
-                ref_section = text[match.end():]
-                
-                # Count numbered references like [1], [2], etc.
-                numbered_refs = len(re.findall(r'^\s*\[\d+\]', ref_section, re.MULTILINE))
-                
-                # Count Author-Year style references
-                author_year_refs = len(re.findall(r'^\s*\w+,\s+[A-Z]\..*?\(\d{4}\)', ref_section, re.MULTILINE))
-                
-                # Return the higher count
-                estimated = max(numbered_refs, author_year_refs)
-                
-                if estimated > 0:
-                    return estimated
-            
-            # Fallback: count citation markers in text
-            citation_markers = len(re.findall(r'\[\d+\]', text))
-            unique_markers = len(set(re.findall(r'\[(\d+)\]', text)))
-            
-            return max(unique_markers, citation_markers // 3)  # Conservative estimate
-            
-        except Exception as e:
-            logger.warning(f"Error estimating reference count: {e}")
-            return 0
-    
-    def _validate_completeness(
-        self,
-        manuscript: ManuscriptStructure,
-        expected_ref_count: int,
-        filename: str
-    ):
-        """
-        Validate that the extraction is complete and comprehensive.
+        # Check cache first (unless force_reprocess is True)
+        if not force_reprocess:
+            cached = db_manager.get_cached_response('parsing', cache_key)
+            if cached:
+                logger.info(f"✓ Using cached parsing result for {pdf_path.name}")
+                if progress_bar:
+                    progress_bar.progress(0.40, text="Using cached parsed data...")
+                return cached
         
-        Args:
-            manuscript: Parsed manuscript structure
-            expected_ref_count: Estimated number of references
-            filename: Name of the PDF file being processed
-        """
-        actual_ref_count = len(manuscript.references_list)
-        citation_count = len(manuscript.citations_in_text)
+        # If not cached or force reprocess, extract fresh
+        logger.info(f"{'Force re-parsing' if force_reprocess else 'Cache miss - parsing'} {pdf_path.name}")
+        result = self.extract(pdf_path, progress_bar)
         
-        # Check 1: Reference count validation
-        if expected_ref_count > 0:
-            completeness_ratio = actual_ref_count / expected_ref_count
-            
-            if completeness_ratio < 0.5:
-                logger.error(
-                    f"⚠️ CRITICAL: Only {actual_ref_count}/{expected_ref_count} references extracted "
-                    f"({completeness_ratio:.1%} completeness)"
-                )
-                logger.error(f"⚠️ Response appears to be INCOMPLETE or TRUNCATED!")
-                
-            elif completeness_ratio < 0.8:
-                logger.warning(
-                    f"⚠️ WARNING: Only {actual_ref_count}/{expected_ref_count} references extracted "
-                    f"({completeness_ratio:.1%} completeness)"
-                )
-                logger.warning(f"⚠️ Some references may be missing")
-                
-            else:
-                logger.info(
-                    f"[OK] Reference extraction looks complete: {actual_ref_count}/{expected_ref_count} "
-                    f"({completeness_ratio:.1%})"
-                )
+        # Cache the result
+        db_manager.cache_api_response('parsing', cache_key, result)
+        logger.info(f"  ✓ Cached parsing result for future use")
         
-        # Check 2: Minimum reference count sanity check
-        if actual_ref_count < 5:
-            logger.warning(
-                f"⚠️ WARNING: Very few references extracted ({actual_ref_count}). "
-                f"This may indicate an incomplete extraction."
-            )
-        
-        # Check 3: Citation vs Reference mismatch
-        if citation_count > actual_ref_count * 1.5:
-            logger.warning(
-                f"⚠️ WARNING: More citations ({citation_count}) than references ({actual_ref_count}). "
-                f"Some references may be missing from the reference list."
-            )
-        
-        # Check 4: Metadata completeness
-        if not manuscript.metadata.title:
-            logger.warning("⚠️ WARNING: No title extracted")
-        
-        if not manuscript.metadata.authors:
-            logger.warning("⚠️ WARNING: No authors extracted")
-        
-        if not manuscript.metadata.abstract:
-            logger.warning("⚠️ WARNING: No abstract extracted")
-        
-        # Save validation report to logs
-        validation_report = {
-            "filename": filename,
-            "expected_references": expected_ref_count,
-            "extracted_references": actual_ref_count,
-            "completeness_ratio": actual_ref_count / expected_ref_count if expected_ref_count > 0 else 0,
-            "citations_extracted": citation_count,
-            "has_title": manuscript.metadata.title is not None,
-            "has_authors": len(manuscript.metadata.authors) > 0,
-            "has_abstract": manuscript.metadata.abstract is not None,
-            "validation_status": "COMPLETE" if actual_ref_count >= expected_ref_count * 0.8 else "INCOMPLETE"
-        }
-        
-        validation_path = self.logs_dir / f"{Path(filename).stem}_validation.json"
-        try:
-            with open(validation_path, 'w', encoding='utf-8') as f:
-                json.dump(validation_report, f, indent=2)
-            logger.info(f"Saved validation report to: {validation_path}")
-        except Exception as e:
-            logger.warning(f"Failed to save validation report: {e}")
-    
-    def _parse_with_gemini(self, text: str, debug_path: Optional[Path] = None) -> Dict:
-        """
-        Parse manuscript text using Gemini LLM.
-        Streamlit-safe version:
-        - No response_schema (prevents timeout)
-        - Post-hoc Pydantic validation (original behavior)
-        """
-        logger.info("Sending request to Google Gemini API...")
-        logger.info(f"Input text length: {len(text)} characters")
-        logger.info(f"Max output tokens: {self.max_tokens}")
-
-        try:
-            response = self.client.models.generate_content(
-                model=self.model,
-                contents=[
-                    types.Content(
-                        role="user",
-                        parts=[
-                            types.Part(text=SYSTEM_PROMPT),
-                            types.Part(text=f"Parse this manuscript:\n\n{text}")
-                        ]
-                    )
-                ],
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0.1,
-                    max_output_tokens=self.max_tokens
-                )
-            )
-
-            if not response or not response.text:
-                raise ValueError("Google GenAI returned empty response")
-
-            # Save raw response for debugging
-            if debug_path:
-                debug_path.parent.mkdir(parents=True, exist_ok=True)
-                with open(debug_path, "w", encoding="utf-8") as f:
-                    f.write(response.text)
-                logger.info(f"[OK] Saved raw LLM response to: {debug_path}")
-                logger.info(f"  Response length: {len(response.text)} characters")
-
-            # Log truncation info (important for long papers)
-            if hasattr(response, "candidates") and response.candidates:
-                finish_reason = getattr(response.candidates[0], "finish_reason", None)
-                if finish_reason == 2:
-                    logger.error("⚠️ CRITICAL: Gemini response truncated (MAX_TOKENS)")
-                elif finish_reason == 1:
-                    logger.info("[OK] Gemini response completed normally")
-
-            # ---------- JSON PARSING (ORIGINAL STRATEGY) ----------
-            try:
-                clean_text = self._clean_json_response(response.text)
-                parsed_dict = json.loads(clean_text)
-
-            except json.JSONDecodeError as e:
-                logger.error(f"JSON parsing failed: {e}")
-
-                if HAS_JSON_REPAIR:
-                    logger.info("Attempting JSON repair...")
-                    repaired = repair_json(clean_text)
-                    parsed_dict = json.loads(repaired)
-                    logger.info("[OK] JSON repaired successfully")
-                else:
-                    raise
-
-            return parsed_dict
-
-        except Exception as e:
-            logger.error(f"Gemini parsing failed: {e}")
-            raise
-
-    
-    def _clean_json_response(self, text: str) -> str:
-        """Clean JSON response from potential formatting issues."""
-        try:
-            # Remove markdown code blocks
-            text = re.sub(r'```json\s*', '', text)
-            text = re.sub(r'\s*```', '', text)
-            
-            # Remove any leading/trailing whitespace
-            text = text.strip()
-            
-            return text
-        
-        except Exception as e:
-            logger.warning(f"Error during JSON cleaning: {e}")
-            return text
+        return result

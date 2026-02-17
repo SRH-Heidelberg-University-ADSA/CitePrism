@@ -1,0 +1,11 @@
+{
+  "filename": "Paper1.pdf",
+  "expected_references": 104,
+  "extracted_references": 104,
+  "completeness_ratio": 1.0,
+  "citations_extracted": 54,
+  "has_title": true,
+  "has_authors": true,
+  "has_abstract": true,
+  "validation_status": "COMPLETE"
+}

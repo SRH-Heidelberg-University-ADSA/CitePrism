@@ -212,3 +212,6 @@ __marimo__/
 
 # ignore debug logs
 *data/debug/*
+
+.DS_Store
+**/.DS_Store

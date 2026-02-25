@@ -1,7 +1,14 @@
 """
-CitePrism Pipeline Orchestrator
-================================
-End-to-end pipeline with intelligent caching and per-stage force reprocess.
+CitePrism Pipeline Orchestrator - Updated Version
+==================================================
+End-to-end pipeline with intelligent caching, per-stage force reprocess,
+and Streamlit progress bar integration.
+
+Changes from v1:
+- Integrated Gemini extractor wrapper
+- Added progress_bar parameter throughout
+- Better error handling and logging
+- Cross-platform path handling
 """
 
 import json
@@ -9,6 +16,7 @@ import logging
 from pathlib import Path
 from typing import Dict, Optional
 import numpy as np
+from src.risk_detection.risk_detector import run_risk_detection 
 
 logger = logging.getLogger(__name__)
 
@@ -49,10 +57,13 @@ class PipelineOrchestrator:
         
         for dir_path in self.data_dirs.values():
             dir_path.mkdir(parents=True, exist_ok=True)
+        
+        logger.info("Pipeline orchestrator initialized")
     
     def process_document(
         self, 
         pdf_path: Path, 
+        progress_bar=None,
         force_parse: bool = False,
         force_enrich: bool = False,
         force_score: bool = False
@@ -62,12 +73,13 @@ class PipelineOrchestrator:
         
         Args:
             pdf_path: Path to PDF file
-            force_parse: Force re-parsing even if already parsed
-            force_enrich: Force re-enrichment even if already enriched
-            force_score: Force re-scoring even if already scored
-        
+            progress_bar: Streamlit progress bar object (optional)
+            force_parse: If True, re-parse even if cached
+            force_enrich: If True, re-enrich even if cached
+            force_score: If True, re-score even if cached
+            
         Returns:
-            Dictionary with processing results and file paths
+            Dictionary with processing results
         """
         results = {
             'success': True,
@@ -80,6 +92,9 @@ class PipelineOrchestrator:
         
         try:
             # Stage 0: Register PDF
+            if progress_bar:
+                progress_bar.progress(0.05, text="Registering PDF in database...")
+            
             results.update(self._stage_register_pdf(pdf_path))
             
             if not results['success']:
@@ -90,8 +105,13 @@ class PipelineOrchestrator:
             
             # Stage 1: Parsing
             if force_parse or not status['status_parsed']:
-                logger.info(f"[Doc {document_id}] Stage 1: Parsing PDF with LLM...")
-                parse_result = self._stage_parse(document_id, pdf_path, force_parse)
+                logger.info(f"[Doc {document_id}] Stage 1: Parsing PDF with Gemini LLM...")
+                parse_result = self._stage_parse(
+                    document_id, 
+                    pdf_path, 
+                    force_reprocess=force_parse,
+                    progress_bar=progress_bar
+                )
                 results.update(parse_result)
                 
                 if not parse_result['success']:
@@ -101,14 +121,27 @@ class PipelineOrchestrator:
                 results['stages_skipped'].append('parsing')
                 parsed_path = self._normalize_path(status['parsed_path'])
                 results['file_paths']['parsed'] = parsed_path
+                
+                # Update progress bar if skipped
+                if progress_bar:
+                    progress_bar.progress(0.40, text="✓ Using cached parsed data...")
             
-            # Refresh status
+            # Refresh status after parsing
             status = self.db.get_document_status(document_id)
             
             # Stage 2: Enrichment
             if force_enrich or not status['status_enriched']:
                 logger.info(f"[Doc {document_id}] Stage 2: Enriching with OpenAlex...")
-                enrich_result = self._stage_enrich(document_id, status['parsed_path'])
+                
+                if progress_bar:
+                    progress_bar.progress(0.45, text="Starting metadata enrichment...")
+                
+                enrich_result = self._stage_enrich(
+                    document_id, 
+                    status['parsed_path'],
+                    force_reprocess=force_enrich,
+                    progress_bar=progress_bar
+                )
                 results.update(enrich_result)
                 
                 if not enrich_result['success']:
@@ -118,23 +151,55 @@ class PipelineOrchestrator:
                 results['stages_skipped'].append('enrichment')
                 enriched_path = self._normalize_path(status['enriched_path'])
                 results['file_paths']['enriched'] = enriched_path
+                
+                if progress_bar:
+                    progress_bar.progress(0.75, text="✓ Using cached enriched data...")
             
-            # Refresh status
+            # Refresh status again
             status = self.db.get_document_status(document_id)
             
-            # Stage 3: Scoring
+            # Stage 3: Scoring & Stage 4: Risk Detection
             if force_score or not status['status_scored']:
                 logger.info(f"[Doc {document_id}] Stage 3: Scoring (Embeddings + LLM)...")
-                score_result = self._stage_score(document_id, status['enriched_path'])
+                
+                if progress_bar:
+                    progress_bar.progress(0.80, text="Computing relevance scores...")
+                
+                score_result = self._stage_score(
+                    document_id, 
+                    status['enriched_path'],
+                    progress_bar=progress_bar
+                )
                 results.update(score_result)
                 
                 if not score_result['success']:
                     return results
+                
+                # --- NEW: Stage 4: Risk & Self-Citation Detection ---
+                # Fetch the most up-to-date path after scoring completes
+                status = self.db.get_document_status(document_id)
+                scored_path = Path(self._normalize_path(status['scored_path']))
+                
+                if progress_bar:
+                    progress_bar.progress(0.90, text="Applying Risk & Self-Citation Logic...")
+                    
+                logger.info(f"[Doc {document_id}] Stage 4: Applying Risk Detection to {scored_path}")
+                
+                # Run the detector dynamically on the new file
+                run_risk_detection(scored_path)
+                
             else:
-                logger.info(f"[Doc {document_id}] Stage 3: Skipped (already scored)")
+                logger.info(f"[Doc {document_id}] Stage 3 & 4: Skipped (already scored & flagged)")
                 results['stages_skipped'].append('scoring')
                 scored_path = self._normalize_path(status['scored_path'])
                 results['file_paths']['scored'] = scored_path
+                
+                if progress_bar:
+                    progress_bar.progress(0.95, text="✓ Using cached scored data...")
+            
+            # Final success
+            if progress_bar:
+                progress_bar.progress(1.0, text="✅ Pipeline completed successfully!")
             
             logger.info(f"[Doc {document_id}] [SUCCESS] Pipeline completed!")
             
@@ -142,6 +207,9 @@ class PipelineOrchestrator:
             logger.error(f"Pipeline failed: {e}", exc_info=True)
             results['success'] = False
             results['errors'].append(str(e))
+            
+            if progress_bar:
+                progress_bar.progress(0.0, text=f"❌ Pipeline failed: {str(e)[:50]}...")
         
         return results
     
@@ -185,9 +253,16 @@ class PipelineOrchestrator:
                 'errors': [f"Registration failed: {str(e)}"]
             }
     
-    def _stage_parse(self, document_id: int, pdf_path: Path, force_reprocess: bool = False) -> Dict:
-        """Stage 1: Parse PDF with LLM."""
+    def _stage_parse(
+        self, 
+        document_id: int, 
+        pdf_path: Path, 
+        force_reprocess: bool = False, 
+        progress_bar=None
+    ) -> Dict:
+        """Stage 1: Parse PDF with Gemini LLM."""
         try:
+            # Import the self-contained extractor
             from src.extractors.gemini_extractor import GeminiExtractor
             
             extractor = GeminiExtractor(self.config)
@@ -195,27 +270,24 @@ class PipelineOrchestrator:
             output_filename = f"{pdf_path.stem}_parsed.json"
             output_path = self.data_dirs['parsed'] / output_filename
             
-            # Check cache unless force_reprocess
-            parsed_data = None
-            if not force_reprocess:
-                cache_key = f"{pdf_path.name}:v1"
-                cached = self.db.get_cached_response('parsing', cache_key)
-                
-                if cached:
-                    logger.info("Using cached parsing result")
-                    parsed_data = cached
+            # Cache key for this PDF
+            cache_key = f"{pdf_path.name}:v1"
             
-            # Extract using LLM if needed
-            if parsed_data is None:
-                logger.info("Extracting text from PDF and parsing with LLM...")
-                parsed_data = extractor.extract(pdf_path)
-                
-                cache_key = f"{pdf_path.name}:v1"
-                self.db.cache_api_response('parsing', cache_key, parsed_data)
+            # Extract with caching support
+            logger.info("Extracting text from PDF and parsing with Gemini LLM...")
+            parsed_data = extractor.extract_with_cache(
+                pdf_path=pdf_path,
+                cache_key=cache_key,
+                db_manager=self.db,
+                progress_bar=progress_bar,
+                force_reprocess=force_reprocess
+            )
             
+            # Save to JSON file
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(parsed_data, f, indent=2, ensure_ascii=False)
             
+            # Update database
             metadata = parsed_data.get('metadata', {})
             self.db.update_parsed_status(
                 document_id=document_id,
@@ -228,24 +300,23 @@ class PipelineOrchestrator:
             logger.info(f"[SUCCESS] Parsing completed: {output_path}")
             
             return {
-                'success': True,
-                'stages_completed': ['parsing'],
-                'file_paths': {'parsed': str(output_path)},
-                'metadata': {
-                    'title': metadata.get('title'),
-                    'num_references': len(parsed_data.get('references_list', []))
-                }
+                'success': True, 
+                'stages_completed': ['parsing'], 
+                'file_paths': {'parsed': str(output_path)}
             }
-        
+            
         except Exception as e:
             logger.error(f"Parsing failed: {e}", exc_info=True)
             self.db.log_error(document_id, 'parsing', str(e))
-            return {
-                'success': False,
-                'errors': [f"Parsing failed: {str(e)}"]
-            }
+            return {'success': False, 'errors': [str(e)]}
     
-    def _stage_enrich(self, document_id: int, parsed_path: str) -> Dict:
+    def _stage_enrich(
+        self, 
+        document_id: int, 
+        parsed_path: str,
+        force_reprocess: bool = False,
+        progress_bar=None
+    ) -> Dict:
         """Stage 2: Enrich with OpenAlex API."""
         try:
             from src.enrichers.openalex_enricher import OpenAlexEnricher
@@ -262,7 +333,20 @@ class PipelineOrchestrator:
             output_filename = parsed_path_obj.name.replace('_parsed', '_enriched')
             output_path = self.data_dirs['enriched'] / output_filename
             
-            enriched_data = enricher.enrich_references(parsed_data)
+            # Enrich references (with force option)
+            enriched_data = enricher.enrich_references(
+                parsed_data, 
+                force=force_reprocess
+            )
+            
+            # Update progress during enrichment (if we have reference count)
+            num_refs = len(parsed_data.get('references_list', []))
+            if progress_bar and num_refs > 0:
+                # Show incremental progress (this is approximate)
+                progress_bar.progress(
+                    0.70, 
+                    text=f"Enriched metadata for {num_refs} references..."
+                )
             
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(enriched_data, f, indent=2, ensure_ascii=False)
@@ -294,7 +378,12 @@ class PipelineOrchestrator:
                 'errors': [f"Enrichment failed: {str(e)}"]
             }
     
-    def _stage_score(self, document_id: int, enriched_path: str) -> Dict:
+    def _stage_score(
+        self, 
+        document_id: int, 
+        enriched_path: str,
+        progress_bar=None
+    ) -> Dict:
         """Stage 3: Score references (embeddings + LLM)."""
         try:
             from src.scorers.relevance_scorer import RelevanceScorer
@@ -311,7 +400,14 @@ class PipelineOrchestrator:
             output_filename = enriched_path_obj.name.replace('_enriched', '_scored')
             output_path = self.data_dirs['scored'] / output_filename
             
+            # Score references
+            if progress_bar:
+                progress_bar.progress(0.85, text="Computing relevance scores with LLM...")
+            
             scored_data = scorer.score_references(enriched_data)
+            
+            if progress_bar:
+                progress_bar.progress(0.95, text="Finalizing audit report...")
             
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(scored_data, f, indent=2, ensure_ascii=False, cls=NumpyEncoder)

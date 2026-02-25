@@ -249,11 +249,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4311768396",
         "title": "Sustainable pavement drainage systems: Subgrade moisture, subsurface drainage methods and drainage effectiveness",
-        "display_name": "Sustainable pavement drainage systems: Subgrade moisture, subsurface drainage methods and drainage effectiveness",
         "year": 2022,
-        "cited_by_count": 29,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2022.129950",
         "url": "https://doi.org/10.1016/j.conbuildmat.2022.129950",
         "authors": [
@@ -294,11 +292,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2944196199",
         "title": "Determination of in-field temperature variations in fresh HMA and corresponding compaction temperatures",
-        "display_name": "Determination of in-field temperature variations in fresh HMA and corresponding compaction temperatures",
         "year": 2019,
-        "cited_by_count": 24,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2019.04.262",
         "url": "https://doi.org/10.1016/j.conbuildmat.2019.04.262",
         "authors": [
@@ -343,11 +339,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4307750324",
         "title": "In-Time Density Monitoring of In-Place Asphalt Layer Construction via Intelligent Compaction Technology",
-        "display_name": "In-Time Density Monitoring of In-Place Asphalt Layer Construction via Intelligent Compaction Technology",
         "year": 2022,
-        "cited_by_count": 13,
-        "is_retracted": false,
         "abstract": "Intelligent compaction (IC) has been successfully used for soil and base compaction of highways. However, the application of IC technology to monitor the construction quality of asphalt pavement faces complications with compaction processing. This study monitored the compaction process of asphalt layers using an IC-based method. The compaction data were first collected during the construction of a local road in Mardan, Pakistan, including IC data, in-place density, and temperature at the asphalt layer surface. The collected IC data were then used to compute the intelligent compaction measurement values (ICMVs). The support vector regression analysis was performed to predict the roller amplitude and in-place density using the ICMVs. To explore the correlations in compaction measuring/monitoring indicators, this study also explored the correlations between the ICMVs with core density, temperature, and amplitude. Experiment results indicated that the predicted roller amplitude values from the support vector regression model were close to the measured ones. There were high correlations between the roller amplitudes and temperatures with the compaction measurement values (CMVs). In contrast, the correlation between the in-place core densities and CMV values was low. Additionally, the CMVs of the backward pass were higher than the forward one in each compaction cycle because the pavement density increased and the air void decreased after each forward pass.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/(asce)mt.1943-5533.0004558",
         "url": "https://doi.org/10.1061/(asce)mt.1943-5533.0004558",
         "authors": [
@@ -405,11 +399,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4313369205",
         "title": "Sustainable re-use of waste glass, cement and lime treated dredged material as pavement material",
-        "display_name": "Sustainable re-use of waste glass, cement and lime treated dredged material as pavement material",
         "year": 2022,
-        "cited_by_count": 29,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.cscm.2022.e01815",
         "url": "https://doi.org/10.1016/j.cscm.2022.e01815",
         "authors": [
@@ -443,11 +435,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4394890951",
         "title": "Self-Healing Characteristics of Polyvinyl Alcohol-Fiber-Reinforced Hot Mix Asphalt for Enhanced Pavement Durability",
-        "display_name": "Self-Healing Characteristics of Polyvinyl Alcohol-Fiber-Reinforced Hot Mix Asphalt for Enhanced Pavement Durability",
         "year": 2024,
-        "cited_by_count": 6,
-        "is_retracted": false,
         "abstract": "Pavement maintenance presents significant financial challenges, driving researchers to explore innovative approaches that can prolong pavement service life and reduce costly interventions. The objective of this research is to examine the feasibility of utilizing polyvinyl alcohol (PVA) fibers to self-heal asphalt pavements. A comprehensive mechanical testing strategy was developed to evaluate the self-healing capability of several hot mix asphalt (HMA) mixtures at the micro- and macro-level. Moreover, to assess the healing behavior of macro fractures in PVA-fiber-reinforced HMA, semi-circular bending (SCB) specimens were loaded until peak load and then allowed to heal at varying time intervals and temperatures for several loading cycles. Healing indices developed based on SCB stiffness, strength, and beam fatigue technique were utilized to measure the self-healing ability of control and reinforced mixtures. By comparing different concentrations of PVA fibers with a control HMA, the optimal fiber dosage was determined based on newly developed healing indices. This study also investigated the impact of healing time and different temperatures on healing. The results demonstrated that PVA fibers expedited the healing process, effectively healing macro-, meso-, and micro-cracks. The most effective recovery occurred with 0.3% fiber content at 40°C for a 2 h duration. Incorporating PVA fibers into asphalt pavements presents a promising solution for extending pavement service life and can be helpful in reducing maintenance costs.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1177/03611981241231969",
         "url": "https://doi.org/10.1177/03611981241231969",
         "authors": [
@@ -485,11 +475,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4392251610",
         "title": "Fluid Inverse Volumetric Modeling and Applications From Surface Motion",
-        "display_name": "Fluid Inverse Volumetric Modeling and Applications From Surface Motion",
         "year": 2024,
-        "cited_by_count": 52,
-        "is_retracted": false,
         "abstract": "In this study, we devise a framework for volumetrically reconstructing fluid from observable, measurable free surface motion. Our innovative method amalgamates the benefits of deep learning and conventional simulation to preserve the guiding motion and temporal coherence of the reproduced fluid. We infer surface velocities by encoding and decoding spatiotemporal features of surface sequences, and a 3D CNN is used to generate the volumetric velocity field, which is then combined with 3D labels of obstacles and boundaries. Concurrently, we employ a network to estimate the fluid's physical properties. To progressively evolve the flow field over time, we input the reconstructed velocity field and estimated parameters into the physical simulator as the initial state. Our approach yields promising results for both synthetic fluid generated by different fluid solvers and captured real fluid. The developed framework naturally lends itself to a variety of graphics applications, such as 1) effective reproductions of fluid behaviors visually congruent with the observed surface motion, and 2) physics-guided re-editing of fluid scenes. Extensive experiments affirm that our novel method surpasses state-of-the-art approaches for 3D fluid inverse modeling and animation in graphics.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1109/tvcg.2024.3370551",
         "url": "https://doi.org/10.1109/tvcg.2024.3370551",
         "authors": [
@@ -535,11 +523,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4224442681",
         "title": "Moisture influence on structural responses of pavement on expansive soils",
-        "display_name": "Moisture influence on structural responses of pavement on expansive soils",
         "year": 2022,
-        "cited_by_count": 18,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.trgeo.2022.100773",
         "url": "https://doi.org/10.1016/j.trgeo.2022.100773",
         "authors": [
@@ -578,11 +564,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4319348740",
         "title": "Thermal fatigue and cracking behaviors of asphalt mixtures under different temperature variations",
-        "display_name": "Thermal fatigue and cracking behaviors of asphalt mixtures under different temperature variations",
         "year": 2023,
-        "cited_by_count": 66,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2023.130623",
         "url": "https://doi.org/10.1016/j.conbuildmat.2023.130623",
         "authors": [
@@ -635,11 +619,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4221043337",
         "title": "Application of coal fly ash in pavement subgrade stabilisation: A review",
-        "display_name": "Application of coal fly ash in pavement subgrade stabilisation: A review",
         "year": 2022,
-        "cited_by_count": 113,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jenvman.2022.114926",
         "url": "https://doi.org/10.1016/j.jenvman.2022.114926",
         "authors": [
@@ -692,11 +674,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3136991952",
         "title": "A novel approach for resilient modulus prediction using extreme learning machine-equilibrium optimiser techniques",
-        "display_name": "A novel approach for resilient modulus prediction using extreme learning machine-equilibrium optimiser techniques",
         "year": 2021,
-        "cited_by_count": 11,
-        "is_retracted": false,
         "abstract": "This study presents a novel hybrid intelligent approach using Extreme Learning Machine (ELM) and Equilibrium Optimiser (EO) (ELM-EO) for predicting resilient modulus, Mr of Unbound Granular Materials (UGMs). Fourteen various blends of Recycled Concrete Aggregate (RCA) with Recycled Clay Masonry (RCM), and Electric Arc Furnace Steel (EAFS) slag with limestone aggregates were tested in the laboratory using routine and advanced tests. The laboratory Mr testing produced 224 measurements based on the average of triplicate samples for each blend. The performance of the ELM-EO approach was evaluated and compared with conventional regression, ELM-biogeography-based optimisation (BBO) (ELM-BBO) and ELM-genetic algorithm (ELM-GA) approaches using the same input properties. The inputs used for the Mr prediction are the bulk stress, percent of RCM, and/or percent of EAFS. The results demonstrate that the performance of ELM-EO and ELM-BBO approaches is better than ELM-GA and regression approaches for predicting Mr. The overall statistical measures of the proposed approaches show that the ELM-EO approach ranks first as it outperforms the other approaches with coefficient of determination (R2) of 0.924 and Root Mean Square Error (RMSE) of 37.08 MPa.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/10298436.2021.1892109",
         "url": "https://doi.org/10.1080/10298436.2021.1892109",
         "authors": [
@@ -751,11 +731,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4225667703",
         "title": "Prediction of CBR and resilient modulus of crushed waste rocks using machine learning models",
-        "display_name": "Prediction of CBR and resilient modulus of crushed waste rocks using machine learning models",
         "year": 2022,
-        "cited_by_count": 37,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "California bearing ratio (CBR) and resilient modulus are critical factors for designing pavements. However, the measurement of CBR and resilient modulus of crushed waste rocks that are widely used for the construction of mine haul roads can be costly and time-consuming which is often prohibitive, especially since service lifetime of haul roads is relatively short. The recent development of machine learning techniques makes it possible to develop more efficient models, but many algorithms exist and it is not always clear which one is better for predicting CBR and resilient modulus. The main objective of this study was therefore to evaluate and compare the performance of multiple models, such as multiple linear regression (MLR), k-nearest neighbors (KNN), decision tree (DT), random forest (RF), multilayer perceptron (MLP), and neuroevolution of augmenting topologies (NEAT) for predicting CBR and resilient modulus of crushed waste rocks. Thirty-nine and 2320 datasets, obtained from a series of CBR and repeated load triaxial tests, were applied to develop CBR and resilient modulus models, respectively. The study of input features and hyperparameters was conducted to determine the optimal architecture of the machine learning models. A comparison study showed that RF models provided better results with coefficient of determination R 2 greater than 0.9. NEAT models showed good generalizability and simple structure although their performance was lower than RF models.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s11440-022-01472-1",
         "url": "https://doi.org/10.1007/s11440-022-01472-1",
         "authors": [
@@ -790,11 +768,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4285043979",
         "title": "Predicting resilient modulus of flexible pavement foundation using extreme gradient boosting based optimised models",
-        "display_name": "Predicting resilient modulus of flexible pavement foundation using extreme gradient boosting based optimised models",
         "year": 2022,
-        "cited_by_count": 97,
-        "is_retracted": false,
         "abstract": "This is the author accepted manuscript. the final version is available from Wiley via the DOI in this record",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/10298436.2022.2095385",
         "url": "https://doi.org/10.1080/10298436.2022.2095385",
         "authors": [
@@ -835,11 +811,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4379791055",
         "title": "Experiment and Application of NATM Tunnel Deformation Monitoring Based on 3D Laser Scanning",
-        "display_name": "Experiment and Application of NATM Tunnel Deformation Monitoring Based on 3D Laser Scanning",
         "year": 2023,
-        "cited_by_count": 55,
-        "is_retracted": false,
         "abstract": "In recent years, 3D laser scanning technology has been applied to tunnel engineering. Although more intelligent than traditional measurement technology, it is still challenging to estimate the real-time deformation of NATM tunnel excavation from laser detection and ranging point clouds. To further improve the measurement accuracy of 3D laser scanning technology in the tunnel construction process, this paper proposes an improved Kriging filtering algorithm. Considering the spatial correlation of the described object, the optimization method of point cloud grid filtering is studied. By analyzing the full-space deformation field of the tunnel lining, the deformation information of the measuring points on the surface of the tunnel lining is extracted. Based on the actual project, through the on-site monitoring comparison test, the three-dimensional laser point cloud data are grid processed and analyzed, and the deformation data obtained from the test are compared with the data measured by traditional methods. The experimental results show that the Kriging filtering algorithm can not only efficiently identify and extract the tunnel profile visualization data but also efficiently and accurately obtain the tunnel deformation. The measurement results obtained by using the proposed technology are in good agreement with those obtained by using traditional monitoring methods. Therefore, tunnel deformation monitoring based on 3D laser scanning technology can better reflect the evolution of the tunnel full-space deformation field under certain environmental conditions and can provide an effective safety warning for tunnel construction.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1155/2023/3341788",
         "url": "https://doi.org/10.1155/2023/3341788",
         "authors": [
@@ -886,11 +860,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3165201728",
         "title": "Developing Resilient Modulus Prediction Models Based on Experimental Results of Crushed Hornfels Mixes with Different Gradations and Plasticity",
-        "display_name": "Developing Resilient Modulus Prediction Models Based on Experimental Results of Crushed Hornfels Mixes with Different Gradations and Plasticity",
         "year": 2021,
-        "cited_by_count": 4,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Mechanistic pavement design procedures of flexible pavement based on elastic-layer theories require the determination or estimation of resilient modulus ( M R ) for each layer in the pavement structure. Considering the complexity and cost of testing required, regression models have been developed to predict resilient modulus of heavy-duty base crushed rock mixes from their physical and engineering properties. Testing results of M R for three different gradations of the same crushed rock with 15 different fines combinations of crusher dust (CD) and Claypro (CP) have been used to calibrate a universal three-parameter deviatoric stress model. The latter relates resilient modulus to both deviatoric and confining stresses and considers shear stresses and strains developed during loading. Physical properties of these mixes were then used to develop multiple linear regression models to predict the three parameters of the calibrated deviatoric stress model. The modelling process was repeated by including California bearing ratio as a predictor with the physical properties. Both sets of models show the properties considered herein, serve to explain a high variation in the three parameters, ranging between 71 and 91%. However, correlation between measured and predicted M R values from both sets of models is 0.90 and 0.87, respectively. Furthermore, the optimum clay content (CP) for the different mixtures was also assessed. The results indicated that 1% of CP can be considered the optimum content for all three gradations.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s42947-021-00005-5",
         "url": "https://doi.org/10.1007/s42947-021-00005-5",
         "authors": [
@@ -931,11 +903,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4381890949",
         "title": "Machine learning-based prediction of resilient modulus for blends of tire-derived aggregates and demolition wastes",
-        "display_name": "Machine learning-based prediction of resilient modulus for blends of tire-derived aggregates and demolition wastes",
         "year": 2023,
-        "cited_by_count": 8,
-        "is_retracted": false,
         "abstract": "AbstractAlthough numerous studies have been undertaken to examine the potential of C&D wastes in pavement structures, limited research to date has developed constitutive models for the resilient modulus (Mr) of C&D wastes. In this study, machine learning algorithms: artificial neural network (ANN); Support Vector Regression (SVR); and Random Forest Regression (RFR) were utilised for estimating the Mr of C&D wastes blended with tire-derived aggregate (TDA). A database of repeated load triaxial test results on C&D/TDA blends including stress-state parameters, Mr values and other influential parameters on the Mr such as physical properties of the blends, as well as the California bearing ratio (CBR) test results was utilised for developing the machine learning models. The predictive performance of the developed algorithms was assessed using statistical indices and several validation stages. The results exhibited the robustness of machine learning algorithms used for predicting the Mr of C&D/TDA wastes, with R2train, R2test, MAPEtrain, MAPEtest between 0.996–0.997, 0.911–0.997, 0.037–0.068, and 0.037–0.067, respectively. The sensitivity analysis results indicated that the optimum moisture content and CBR had the highest impacts on the Mr of C&D/TDA blends.KEYWORDS: Demolition wastespavement geotechnicsresilient modulusmachine learningtire derived aggregates Disclosure statementNo potential conflict of interest was reported by the author(s).Additional informationFundingThis work was supported by the State Government of Victoria.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/14680629.2023.2222176",
         "url": "https://doi.org/10.1080/14680629.2023.2222176",
         "authors": [
@@ -980,11 +950,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4387670115",
         "title": "Developing Prediction Equations for Soil Resilient Modulus Using Evolutionary Machine Learning",
-        "display_name": "Developing Prediction Equations for Soil Resilient Modulus Using Evolutionary Machine Learning",
         "year": 2023,
-        "cited_by_count": 32,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "The soil resilient modulus ( M R ) is essential to pavement design. This parameter is determined through a costly and time-consuming repeated load triaxial test. Accordingly, prior research focused on implementing complex and interpretable machine learning (ML) models to predict M R directly from soil parameters. However, existing models rely on either black-box machine learning, sacrificing interpretability, or traditional genetic programming (GP) approaches with underfitting issues. This study introduces an innovative approach using the Adaptive Layered Population Structure Genetic Algorithm (ALPS-GA) to develop accurate and fully interpretable M R prediction models for cohesive soils. For this purpose, a soil dataset was adopted from the literature with 891 data points for the A-4, A-6, and A-7-6 soil classes. Three M R prediction equations were developed for each soil class, and the performance of each equation was evaluated using the coefficient of determination ( R 2 ), the root mean squared error (RMSE), and the mean absolute error (MAE). The R 2 for the developed models ranged from 0.91 to 0.93 for the testing set; the RMSE ranged from 7.10 to 8.63 MPa, and the MAE ranged from 5.10 to 7.2 MPa, reflecting high-accuracy models. A comparative bias-variance analysis was done for the proposed models, and it was concluded that they do not tend to overfit or underfit the data, unlike previous models. Finally, a sensitivity analysis was implemented to investigate the impact of each soil parameter on M R for each soil type.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s40515-023-00342-x",
         "url": "https://doi.org/10.1007/s40515-023-00342-x",
         "authors": [
@@ -1037,11 +1005,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4396771810",
         "title": "Cardiovascular disease therapeutics via engineered oral microbiota: Applications and perspective",
-        "display_name": "Cardiovascular disease therapeutics via engineered oral microbiota: Applications and perspective",
         "year": 2024,
-        "cited_by_count": 69,
-        "is_retracted": false,
         "abstract": "Engineering bacteria are considered as a potential treatment for cardiovascular diseases and related risk factors. Oral bacteria are closely related to the occurrence and development of cardiovascular diseases, and their engineering has broad prospects and potential in the treatment of cardiovascular diseases. Oral pathogenic bacteria undergo protein and genetic engineering, including the incorporation of exogenous plasmids to yield therapeutic effects; genetically engineered oral probiotics can be harnessed to secrete cytokines and reactive oxygen species, offering novel therapeutic avenues for cardiovascular diseases.[Image: see text]",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1002/imt2.197",
         "url": "https://doi.org/10.1002/imt2.197",
         "authors": [
@@ -1152,11 +1118,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3217204925",
         "title": "Evaluation of climate effect on resilient modulus of granular subgrade material",
-        "display_name": "Evaluation of climate effect on resilient modulus of granular subgrade material",
         "year": 2021,
-        "cited_by_count": 18,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.coldregions.2021.103452",
         "url": "https://doi.org/10.1016/j.coldregions.2021.103452",
         "authors": [
@@ -1199,11 +1163,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4286008078",
         "title": "Resilient modulus estimation using in-situ modulus detector: performance and factors",
-        "display_name": "Resilient modulus estimation using in-situ modulus detector: performance and factors",
         "year": 2022,
-        "cited_by_count": 10,
-        "is_retracted": false,
         "abstract": "The resilient modulus of subgrade should be estimated for pavement designs that undergo repetitive loading from vehicular movement. In this study, an in-situ modulus detector (IMD) with flat, wedge, and cone tips is employed to estimate the resilient modulus. The specimens with three different levels of water content are compacted, and the dynamic responses for two hammer drop heights are analysed. For all specimens, elastic waves are acquired to estimate the shear modulus and Poisson's ratio using bender and piezo-disk elements. The resilient modulus estimated from the IMD is compared with the lightweight deflectometer (LWD) modulus. The experimental results show a stronger relationship between the flat and wedge tips than between the cone and wedge tips. Furthermore, higher drop heights result in strong relationships between the resilient, shear, and LWD moduli. This study proposes an intrinsic design and verification of an IMD for reliable resilient modulus estimation in pavement design.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/10298436.2022.2096883",
         "url": "https://doi.org/10.1080/10298436.2022.2096883",
         "authors": [
@@ -1247,11 +1209,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3136027227",
         "title": "Resilient modulus descriptive analysis and estimation for fine-grained soils using multivariate and machine learning methods",
-        "display_name": "Resilient modulus descriptive analysis and estimation for fine-grained soils using multivariate and machine learning methods",
         "year": 2021,
-        "cited_by_count": 33,
-        "is_retracted": false,
         "abstract": "The adoption of mechanistic-empirical approach to pavement design requires the use of resilient modulus of subgrade soils as a crucial input. The determination of in the laboratory is inexpedient due to the nature of the existing test protocols. This prompted the use of estimated values, which inadvertently has gained popularity lately. However, the accuracy of estimated values is questionable due to spatial variability of soil properties. This necessitated the aggressive search for robust and thorough approaches for predictive modelling of the . In the present study, a systematic approach was adopted for the descriptive analysis and estimation of . from routine soil properties using data from Long-Term Pavement Performance (LTPP) and considering the spatial variability of the soil properties. Descriptive analysis was executed using non-parametric correlation and principal component analysis (PCA), while the estimation was done using three machine learning methods which include gradient boosting regression (GBR), adaptive neuro-fuzzy inference system (ANFIS) and artificial neural network (ANN). Based on the PCA, four factors which explained a total of 77.5% variance in the data had significant influence on the . These include the effect of moisture-induced changes on the soil consistency limits and physical condition, effect of the soil clay content, effect of the soil gradation and effect of the soil stress state. Various factors of the machine learning methods such as the learning rate, number of clusters and number of hidden layers had a significant effect on the prediction accuracy. The three machine learning methods were satisfactory for the prediction based on R2 values which were generally above 0.9. Also, when considering spatial variability of routine soil properties, the GBR and ANFIS have a comparative advantage over the ANN, since they exhibited a high stability in the prediction for both the training and testing dataset.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/10298436.2021.1895993",
         "url": "https://doi.org/10.1080/10298436.2021.1895993",
         "authors": [
@@ -1290,11 +1250,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2901875110",
         "title": "Laboratory testing and analysis of dynamic and static resilient modulus of subgrade soil under various influencing factors",
-        "display_name": "Laboratory testing and analysis of dynamic and static resilient modulus of subgrade soil under various influencing factors",
         "year": 2018,
-        "cited_by_count": 80,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2018.11.061",
         "url": "https://doi.org/10.1016/j.conbuildmat.2018.11.061",
         "authors": [
@@ -1337,11 +1295,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3000030117",
         "title": "Modeling humidity and stress-dependent subgrade soils in flexible pavements",
-        "display_name": "Modeling humidity and stress-dependent subgrade soils in flexible pavements",
         "year": 2020,
-        "cited_by_count": 90,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.compgeo.2019.103413",
         "url": "https://doi.org/10.1016/j.compgeo.2019.103413",
         "authors": [
@@ -1387,11 +1343,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2962745204",
         "title": "Rapid estimation of resilient modulus of subgrade soils using performance-related soil properties",
-        "display_name": "Rapid estimation of resilient modulus of subgrade soils using performance-related soil properties",
         "year": 2019,
-        "cited_by_count": 87,
-        "is_retracted": false,
         "abstract": "This study aims at developing an efficient and accurate methodology to estimate the resilient modulus of subgrade soils. First, a new resilient modulus model incorporating stress dependence and moisture dependence was proposed. Second, prediction models were developed to conveniently and accurately determine model parameters of SWCC and resilient modulus model. In order to characterise the moisture dependence of subgrade soils, the matric suction was added into the proposed model. The matric suction was measured by the pressure plate test and the soil-water characteristic curve (SWCC) was used to determine the matric suction value at any given moisture contents. In order to develop prediction models for model parameters of SWCC and resilient modulus model, the laboratory experiments and multiple regression analysis were conducted on 22 soil samples. A series of performance-related soil properties were measured and used to develop the coefficients prediction models. The developed coefficients prediction models using the performance-related soil properties have high R-squared values and were validated by comparing the measured and predicted values of resilient modulus. Therefore, when the basic physical properties of soils were obtained, the resilient modulus can be predicted for the subgrade soils at any given matric suctions and stress states.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/10298436.2019.1643022",
         "url": "https://doi.org/10.1080/10298436.2019.1643022",
         "authors": [
@@ -1437,11 +1391,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3149311143",
         "title": "Characterising the resilient behaviour of pavement subgrade with construction and demolition waste under Freeze–Thaw cycles",
-        "display_name": "Characterising the resilient behaviour of pavement subgrade with construction and demolition waste under Freeze–Thaw cycles",
         "year": 2021,
-        "cited_by_count": 77,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jclepro.2021.126702",
         "url": "https://doi.org/10.1016/j.jclepro.2021.126702",
         "authors": [
@@ -1487,11 +1439,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2974869887",
         "title": "Effect evaluation of freeze-thaw on resilient modulus of unsaturated granular base course material in pavement",
-        "display_name": "Effect evaluation of freeze-thaw on resilient modulus of unsaturated granular base course material in pavement",
         "year": 2019,
-        "cited_by_count": 41,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.trgeo.2019.100284",
         "url": "https://doi.org/10.1016/j.trgeo.2019.100284",
         "authors": [
@@ -1534,11 +1484,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4310487384",
         "title": "Long-term and immediate effects of freeze–thaw cycles on the resilient modulus of treated expansive subgrades",
-        "display_name": "Long-term and immediate effects of freeze–thaw cycles on the resilient modulus of treated expansive subgrades",
         "year": 2022,
-        "cited_by_count": 16,
-        "is_retracted": false,
         "abstract": "This study aims to investigate the long-term and immediate effects of freeze-thaw (FT) cycles on the resilient modulus (MR) of two different expansive subgrades before and after lime-treatment. The immediate effects were examined by performing MR test (using triaxial dynamic-system) for specimens immediately after applying successive FT cycles. For assessment of long-term effects, the specimens were subjected to 15 FT cycles and then thawing in a humidity room for different recovery periods up to 250 days before commencing MR tests. The results indicated a reduction in MR by about three times due to FT cycles regardless of lime-treatment. This reduction mostly took place after first FT cycle and showed a dependency on FT cycle number. On long-term performance, the reduction was not entirely recovered for all soils, and reducing the designed values of MR is recommended when pavement subgrades are to be subjected to FT cycles even once a year.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/14680629.2022.2146603",
         "url": "https://doi.org/10.1080/14680629.2022.2146603",
         "authors": [
@@ -1573,11 +1521,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2028654367",
         "title": "Resilient Moduli Response of Moderately Cement-Treated Reclaimed Asphalt Pavement Aggregates",
-        "display_name": "Resilient Moduli Response of Moderately Cement-Treated Reclaimed Asphalt Pavement Aggregates",
         "year": 2011,
-        "cited_by_count": 319,
-        "is_retracted": false,
         "abstract": "The use of reclaimed asphalt pavement (RAP) aggregate materials in road construction reduces natural resource depletion and promotes the recycling of RAP materials for other applications. However, product variability and low resilient moduli characteristics often limit RAP applications in road bases. Stabilization of RAP materials with cement was hence attempted in a research study to evaluate the effectiveness of cement treatments in enhancing resilient characteristics of RAP aggregates. The present paper describes the results from a series of resilient modulus tests that were conducted in a laboratory environment using a repeated load triaxial test setup. The effects of three different cement dosages and various confining and deviatoric stress levels on the resilient modulus (MR) response of treated RAP materials were studied. MR values of untreated and cement-treated RAP aggregates ranged from 180 to 340 MPa and 200 to 515 MPa, respectively, which reveal the enhancements with cement treatment. Regression modeling analyses of MR test results, by using two- and three-parameter models, are also presented. The analyses show that both models are reasonably capable of capturing the effects of stress levels on treated RAP resilient properties. Test results were also analyzed to determine structural coefficients for pavement design purposes, which ranged from 0.16 to 0.22, suggesting a greater structural support of cement-treated RAP layers when compared with untreated aggregates.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/(asce)mt.1943-5533.0000268",
         "url": "https://doi.org/10.1061/(asce)mt.1943-5533.0000268",
         "authors": [
@@ -1616,11 +1562,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4387744525",
         "title": "Fault Detection for Point Machines: A Review, Challenges, and Perspectives",
-        "display_name": "Fault Detection for Point Machines: A Review, Challenges, and Perspectives",
         "year": 2023,
-        "cited_by_count": 81,
-        "is_retracted": false,
         "abstract": "Point machines are the actuators for railway switching and crossing systems that guide trains from one track to another. Hence, the safe and reliable behavior of point machines are pivotal for rail transportation. Recently, scholars and researchers have attempted to deploy various kinds of sensors on point machines for anomaly detection and/or incipient fault detection using date-driven algorithms. However, challenges arise when deploying condition monitoring and fault detection to trackside point machines in practical applications. This article begins by reviewing studies on fault and anomaly detection in point machines, encompassing employed methods and evaluation metrics. It subsequently conducts an in-depth analysis of point machines and outlines the envisioned intelligent fault detection system. Finally, it presents eight challenges and promising research directions along with a blueprint for intelligent point machine fault detection.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/act12100391",
         "url": "https://doi.org/10.3390/act12100391",
         "authors": [
@@ -1662,11 +1606,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4386089421",
         "title": "Comparison of Constrained Unscented and Cubature Kalman Filters for Nonlinear System Parameter Identification",
-        "display_name": "Comparison of Constrained Unscented and Cubature Kalman Filters for Nonlinear System Parameter Identification",
         "year": 2023,
-        "cited_by_count": 34,
-        "is_retracted": false,
         "abstract": "Accurate and efficient parameter identification along with uncertainty quantification in nonlinear systems is crucial for enabling practical and reliable structural health monitoring and digital twinning. This paper presents a novel procedure for estimating parameters that combines Bayesian filters and truncated probability density functions (PDFs). To simplify the state-space equations, only model parameters are incorporated in the state equations, whereas the measurement equations are implicitly considered in the state vector of displacement and velocity. This simplification enables the unified implementation of three different types of Bayesian filters: the unscented Kalman filter, third-degree cubature Kalman filter, and fifth-degree cubature Kalman filter. Consequently, it facilitates the seamless integration of complex numerical models into the parameter identification procedure. To improve the robustness of the proposed method, the truncated PDF is employed to enforce constraints that prevent the covariance matrix from becoming singular. The applicability and accuracy of the proposed method were evaluated using a 10-story numerical example and a 12-story shake-table model. Based on the selected parameters for tuning, the estimated results are consistent with both the simulated and experimental data, demonstrating that the Bayesian filters can estimate parameters and quantify their uncertainties. Comparison of the estimation accuracy, computational cost, and efficiency index among the three types of Bayesian filters reveals that the fifth-degree cubature Kalman filter has the highest accuracy. When dealing with less complex structural models, the unscented Kalman filter demonstrates superior efficiency. These findings are useful for finite-element model updating and assessment of structural performance.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/jenmdt.emeng-7091",
         "url": "https://doi.org/10.1061/jenmdt.emeng-7091",
         "authors": [
@@ -1710,11 +1652,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4394015596",
         "title": "Predicting the mechanical properties of plastic concrete: An optimization method by using genetic programming and ensemble learners",
-        "display_name": "Predicting the mechanical properties of plastic concrete: An optimization method by using genetic programming and ensemble learners",
         "year": 2024,
-        "cited_by_count": 56,
-        "is_retracted": false,
         "abstract": "This study presents a comparative analysis of individual and ensemble learning algorithms (ELAs) to predict the compressive strength (CS) and flexural strength (FS) of plastic concrete. Multilayer perceptron neuron network (MLPNN), Support vector machine (SVM), random forest (RF), and decision tree (DT) were used as base learners, which were then combined with bagging and Adaboost methods to improve the predictive performance. In addition, gene expression programming (GEP) was used to develop computational equations that can be used to predict the CS and FS of plastic concrete. An extensive database containing 357 and 125 data points was obtained from the literature, and the eight most impactful ingredients were used in the model’s development. The accuracy of all models was assessed using several statistical measures, including an error matrix, Akaike information criterion (AIC), K-fold cross-validation, and other external validation equations. Furthermore, sensitivity and SHAP analysis were performed to evaluate input variables' relative significance and impact on the anticipated CS and FS. Based on statistical measures and other validation criteria, GEP outpaces all other individual models, whereas, in ELAs, the SVR ensemble with Adaboost and RF modified with the Bagging technique demonstrated superior performance. SHapley Additive exPlanations (SHAP) and sensitivity analysis reveal that plastic, cement, water, and the age of the specimens have the highest influence, while superplasticizer has the lowest impact, which is consistent with experimental studies. Moreover, GUI and GEP-based simple mathematical correlation can enhance the practical scope of this study and be an effective tool for the pre-mix design of plastic concrete.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.cscm.2024.e03135",
         "url": "https://doi.org/10.1016/j.cscm.2024.e03135",
         "authors": [
@@ -1763,11 +1703,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4283389222",
         "title": "An Experimental and Modeling Investigation on Creep Mechanical Behavior of Granite Under Triaxial Cyclic Loading and Unloading",
-        "display_name": "An Experimental and Modeling Investigation on Creep Mechanical Behavior of Granite Under Triaxial Cyclic Loading and Unloading",
         "year": 2022,
-        "cited_by_count": 31,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "The objective of this work is to investigate the creep damage mechanism of granite from a nuclear power station. A series of multi-step loading and unloading cycles creep tests of granite were carried out under different confining pressures. For the creep test, the creep differential stresses (i.e., 60%, 70%, 80%, 90%, 100% and even larger than 100% of σ p ) were applied according to the instantaneous peak deviatoric stress σ p . To study the elastic-visco-plastic creep deformations of the granite specimens, the total strain was divided into instantaneous and creep strains, including the instantaneous elastic strain, plastic strain, visco-elastic strain, and visco-plastic strain. The results show that the short-term strength, crack damage threshold, and Young’s modulus all increased with the increasing of confining pressure. Due to an existing critical stress, the creep strain stabilizes when the applied stress is less than the stress level. An exponential function is proposed, which can well describe the relationship between the visco-plastic strain and stress ratio. The long-term strength of the granite corresponds to the stress level at the stress ratio range from 0.86 to 0.95. Besides, the damage mechanism of the failed granite specimens is analyzed using an X-ray micro-CT scanning system. Finally, a time-dependent damage model is proposed to quantitatively characterize the creep damage and deformation behaviors of granite.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s00603-022-02920-w",
         "url": "https://doi.org/10.1007/s00603-022-02920-w",
         "authors": [
@@ -1813,11 +1751,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4280630337",
         "title": "Macro-meso fatigue failure of bimrocks with various block content subjected to multistage fatigue triaxial loads",
-        "display_name": "Macro-meso fatigue failure of bimrocks with various block content subjected to multistage fatigue triaxial loads",
         "year": 2022,
-        "cited_by_count": 59,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.ijfatigue.2022.107014",
         "url": "https://doi.org/10.1016/j.ijfatigue.2022.107014",
         "authors": [
@@ -1860,11 +1796,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4377107535",
         "title": "Effect of the Field-Stress State on the Subgrade Resilient Modulus for Pavement Rutting and IRI",
-        "display_name": "Effect of the Field-Stress State on the Subgrade Resilient Modulus for Pavement Rutting and IRI",
         "year": 2023,
-        "cited_by_count": 3,
-        "is_retracted": false,
         "abstract": "The new Mechanistic-Empirical Pavement Design Guide (MEPDG) uses the subgrade resilient modulus (MR) as the key input parameter to represent the subgrade soil behavior for pavement design. The resilient modulus increases with an increase in confining pressure, whereas, for an increase in deviatoric stress, it increases for granular soils and decreases for fine-grained soils. The value of MR is highly stress dependent, with the stress state (i.e., bulk stress) a function of the position of the materials in the pavement structure and applied traffic loading. Applying excessive vertical stress at the top of the subgrade without knowing the appropriate stress state can result in permanent deformation. In situ stress must be calculated so the correct resilient modulus can be determined. To facilitate the implementation of MEPDG, this study develops a methodology to select the appropriate subgrade resilient modulus for predicting rutting and IRI. A comprehensive research methodology was undertaken to study the effect of in situ or undisturbed subgrade MR on pavement performance using the MEPDG. Results show that MR obtained from in situ stress is approximately 1.4 times higher than the MR estimate from NCHRP-285. Thus, the in situ stress significantly affects the calculation of subgrade MR and, subsequently, the use of MR in the predicted rutting, with IRI using the AASHTOWare pavement mechanistic-empirical design. Results also show that the pavement sections were classified as in “Good” and “Fair” conditions for rutting and IRI, respectively, considering in situ MR.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/geotechnics3020021",
         "url": "https://doi.org/10.3390/geotechnics3020021",
         "authors": [
@@ -1897,11 +1831,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2602661404",
         "title": "Development of a constitutive model for resilient modulus of cohesive soils",
-        "display_name": "Development of a constitutive model for resilient modulus of cohesive soils",
         "year": 2004,
-        "cited_by_count": 19,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": null,
         "url": "http://rave.ohiolink.edu/etdc/view?acc_num=osu1078246971",
         "authors": [
@@ -1927,9 +1859,26 @@
           "doi": null
         }
       },
-      "enrichment_status": "not_found",
-      "consistency_status": "Not Checked",
-      "external_metadata": {}
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W621617737",
+        "title": "DETERMINATION OF RESILIENT MODULUS FOR MAINE ROADWAY SOILS",
+        "year": 1999,
+        "abstract": "The Maine Department of Transportation commissioned this study to examine methods of obtaining resilient modulus for use in pavement design. Resilient modulus is a measure of soil layer stiffness and is highly subjective to density, moisture content, soil fabric structure, compaction method, laboratory equipment compliance, and technician skill. As a result, several alternative test methods have been proposed. These alternative test methods include resilient modulus correlation to results from torsional shear and resonant column tests, a modified gyratory test machine normally used for testing asphalt concrete specimens, and a small-scale falling weight deflectometer (FWD) device. The study used resilient modulus test data of 14 Maine soils published by Law Engineering (1992). Soil index property data and FWD data were obtained from the Strategic Highway Research Program's Long Term Pavement Performance (LTPP) database. Three methods for determining resilient modulus were examined: (1) backcalculation of resilient modulus using computer software, (2) determination of the K sub n constants for various constitutive resilient modulus equations by linear regression analysis, and (3) correlations between resilient modulus and soil property data and stress state. Computer backcalculation was done using MODCOMP 4 and MODULUS 5.1. The backcalculated resilient moduli did not compare well with the laboratory moduli when the programs automatically estimated the depth to hard layer and outliers were neglected. The K sub n constants for 7 common constitutive relationships were developed for 14 Maine soils using linear regression. Two equations correlating resilient modulus to dry density, water content, grain size distribution and stress state were also generated from linear regression techniques. California bearing ratio (CBR) does not correlate well with resilient modulus, therefore, no correlations involving CBR were examined.",
+        "is_scraped": false,
+        "doi": null,
+        "url": "https://trid.trb.org/view.aspx?id=647964",
+        "authors": [
+          {
+            "display_name": "Aaron L. Smart"
+          },
+          {
+            "display_name": "Dana N. Humphrey"
+          }
+        ],
+        "venue": null
+      }
     },
     {
       "ref_id": "[36]",
@@ -1951,11 +1900,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2055829062",
         "title": "Prediction Models of Resilient Modulus for Nongranular Materials",
-        "display_name": "Prediction Models of Resilient Modulus for Nongranular Materials",
         "year": 1994,
-        "cited_by_count": 48,
-        "is_retracted": false,
         "abstract": "Abstract This paper describes an experimental program and the analyses performed for the purpose of developing prediction models of resilient modulus for nongranular materials. Two models were developed and are presented herein. The first model provides a quick estimation of the resilient modulus based on basic characteristics of the specimens, while the second model includes a family of curves that relate a normalized modulus to the resilient axial strains and the plasticity index of the specimens. The significance of the second model is corroborated particularly now that moduli measurements obtained from field and laboratory tests can be easily related.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1520/gtj10109j",
         "url": "https://doi.org/10.1520/gtj10109j",
         "authors": [
@@ -1991,11 +1938,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2884666117",
         "title": "Characterizing cyclic and static moduli and strength of compacted pavement subgrade soils considering moisture variation",
-        "display_name": "Characterizing cyclic and static moduli and strength of compacted pavement subgrade soils considering moisture variation",
         "year": 2018,
-        "cited_by_count": 32,
-        "is_retracted": false,
         "abstract": "Compacted soils are widely used as the subgrade layer for pavements. Knowledge of the mechanical properties of subgrade soils under cyclic and static loading conditions and their variation under the influence of environmental factors is required for the rational design of pavements based on mechanistic methods. This paper presents an experimental investigation of the cyclic and static moduli and the strength properties of seven different compacted Canadian subgrade soils considering the variation in the post-compaction moisture content. Cyclic triaxial tests were performed to reliably determine the resilient modulus (MR). Unconfined compression tests, which allow an unloading-reloading loop at 1% strain, were performed to determine the deviator stress (Su1%) at 1% strain, the reloading elastic modulus (E1%) at 1% strain and the unconfined compressive strength (qu) at failure. The physical properties, the chemical and mineralogical compositions, and the soil-water characteristics of these soils were also determined. Relationships were developed to predict the MR from the Su1%, E1%, qu and soil physical properties for the investigated subgrade soils because the experimental determination of MR is both expensive and time-consuming. The studies presented in this paper provide useful information and approaches that can be used to promote the implementation of mechanistic pavement design methods using simple techniques.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.sandf.2018.06.003",
         "url": "https://doi.org/10.1016/j.sandf.2018.06.003",
         "authors": [
@@ -2037,11 +1982,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3183139758",
         "title": "Seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint",
-        "display_name": "Seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint",
         "year": 2021,
-        "cited_by_count": 141,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.engstruct.2021.112848",
         "url": "https://doi.org/10.1016/j.engstruct.2021.112848",
         "authors": [
@@ -2086,11 +2029,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4320036601",
         "title": "End-to-end deep learning model for underground utilities localization using GPR",
-        "display_name": "End-to-end deep learning model for underground utilities localization using GPR",
         "year": 2023,
-        "cited_by_count": 58,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.autcon.2023.104776",
         "url": "https://doi.org/10.1016/j.autcon.2023.104776",
         "authors": [
@@ -2144,11 +2085,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4386041982",
         "title": "Prediction of building energy performance using mathematical gene-expression programming for a selected region of dry-summer climate",
-        "display_name": "Prediction of building energy performance using mathematical gene-expression programming for a selected region of dry-summer climate",
         "year": 2023,
-        "cited_by_count": 31,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.engappai.2023.106958",
         "url": "https://doi.org/10.1016/j.engappai.2023.106958",
         "authors": [
@@ -2199,11 +2138,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4220683492",
         "title": "Seismic Behavior of Strengthened RC Columns under Combined Loadings",
-        "display_name": "Seismic Behavior of Strengthened RC Columns under Combined Loadings",
         "year": 2022,
-        "cited_by_count": 114,
-        "is_retracted": false,
         "abstract": "Twenty-five reinforced concrete (RC) columns of section size 250 × 250 mm were designed and tested to study the seismic response considering the effect of loading case, strengthening method, and the predamage level, containing 21 columns reinforced with high-performance ferrocement laminate (HPFL)-bonded steel plates (BSPs), i.e., the intact strengthened columns (ISCs), earthquake-damaged strengthened columns (EDSCs), corrosion-damaged strengthened columns (CSCs) and coupled-predamaged strengthened columns (CPSCs). The bearing capacity of the specimens under the four different types of loading methods is ranked as follows: uniaxial compression–bending–shear (CBS) members, biaxial CBS members, biaxial CBS-torsion (CBST) members, and uniaxial CBST members. Compared with nonstrengthened specimens, the cracks of the strengthened RC columns are more fully developed, and the failure modes have been changed after strengthening. The failure modes and load–deformation curves had little significant difference for the strengthened RC columns with different damage under combined loading levels. The bearing capacity of strengthened RC columns with the applied loading of 400 kN improved, which increased to 60.1%–114.7%, 29.9%–103%, 65.2%–127%, and 49.2%–104.5% for ISCs, EDSCs, CSCs, and CPSCs, respectively. Moreover, the bearing capacity of specimens decreased due to the existence of horizontal eccentricity. Finally, based on the degraded trilinear restoring force model, the strengthened influence coefficient for loading α and displacement β and the torsion influence coefficient for loading γ and displacement ξ were introduced. A modified restoring force model of RC columns was presented, reflecting the loading method, predamage level, and strengthening method. The theoretical calculation values align with the test load–deformation curves, and the mean absolute error is almost less than 15%.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/(asce)be.1943-5592.0001871",
         "url": "https://doi.org/10.1061/(asce)be.1943-5592.0001871",
         "authors": [
@@ -2246,11 +2183,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2898779956",
         "title": "Fractional elastoplastic constitutive model for soils based on a novel 3D fractional plastic flow rule",
-        "display_name": "Fractional elastoplastic constitutive model for soils based on a novel 3D fractional plastic flow rule",
         "year": 2018,
-        "cited_by_count": 219,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Abstract A novel three-dimensional (3D) fractional plastic flow rule that is not limited by the coordinate basis of the differentiable function is proposed based on the fractional derivative and the covariant transformation. By introducing the 3D fractional plastic flow rule into the characteristic stress space, a 3D fractional elastoplastic model for soil is established for the first time. Only five material parameters with clear physical significance are required in the proposed model. The capability of the model in capturing the strength and deformation behaviour of soils under true 3D stress conditions is verified by comparing model predictions with test results.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1016/j.compgeo.2018.10.004",
         "url": "https://doi.org/10.1016/j.compgeo.2018.10.004",
         "authors": [
@@ -2299,11 +2234,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4200470394",
         "title": "Simulation of Depth of Wear of Eco-Friendly Concrete Using Machine Learning Based Computational Approaches",
-        "display_name": "Simulation of Depth of Wear of Eco-Friendly Concrete Using Machine Learning Based Computational Approaches",
         "year": 2021,
-        "cited_by_count": 82,
-        "is_retracted": false,
         "abstract": "To avoid time-consuming, costly, and laborious experimental tests that require skilled personnel, an effort has been made to formulate the depth of wear of fly-ash concrete using a comparative study of machine learning techniques, namely random forest regression (RFR) and gene expression programming (GEP). A widespread database comprising 216 experimental records was constructed from available research. The database includes depth of wear as a response parameter and nine different explanatory variables, i.e., cement content, fly ash, water content, fine and coarse aggregate, plasticizer, air-entraining agent, age of concrete, and time of testing. The performance of the models was judged via statistical metrics. The GEP model gives better performance with R2 and ρ equals 0.9667 and 0.0501 respectively and meet with the external validation criterion suggested in the previous literature. The k-fold cross-validation also verifies the accurateness of the model by evaluating R2, RSE, MAE, and RMSE. The sensitivity analysis of GEP equation indicated that the time of testing is the influential parameter. The results of this research can help the designers, practitioners, and researchers to quickly estimate the depth of wear of fly-ash concrete thus shortening its ecological susceptibilities that push to sustainable and faster construction from the viewpoint of environmentally friendly waste management.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/ma15010058",
         "url": "https://doi.org/10.3390/ma15010058",
         "authors": [
@@ -2361,11 +2294,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3000483839",
         "title": "A comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar",
-        "display_name": "A comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar",
         "year": 2020,
-        "cited_by_count": 48,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.aej.2019.12.048",
         "url": "https://doi.org/10.1016/j.aej.2019.12.048",
         "authors": [
@@ -2420,11 +2351,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4403538740",
         "title": "A deep-learning-based MAC for integrating channel access, rate adaptation, and channel switch",
-        "display_name": "A deep-learning-based MAC for integrating channel access, rate adaptation, and channel switch",
         "year": 2024,
-        "cited_by_count": 44,
-        "is_retracted": false,
-        "abstract": "With increasing density and heterogeneity in unlicensed wireless networks, traditional MAC protocols, such as carrier-sense multiple access with collision avoidance (CSMA/CA) in Wi-Fi networks, are experiencing performance degradation. This is manifested in increased collisions and extended backoff times, leading to diminished spectrum efficiency and protocol coordination. Addressing these issues, this paper proposes a deep-learning-based MAC paradigm, dubbed DL-MAC, which leverages spectrum sensing data readily available from energy detection modules in wireless devices to achieve the MAC functionalities of channel access, rate adaptation and channel switch. First, we utilize DL-MAC to realize a joint design of channel access and rate adaptation. Subsequently, we integrate the capability of channel switch into DL-MAC, enhancing its functionality from single-channel to multi-channel operation. Specifically, the DL-MAC protocol incorporates a deep neural network (DNN) for channel selection and a recurrent neural network (RNN) for the joint design of channel access and rate adaptation. We conducted real-world data collection within the 2.4 GHz frequency band to validate the effectiveness of DL-MAC, and our experiments reveal that DL-MAC exhibits superior performance over traditional algorithms in both single and multi-channel environments and also outperforms single-function approaches in terms of overall performance. Additionally, the performance of DL-MAC remains robust, unaffected by channel switch overhead within the evaluated range.",
+        "abstract": "With increasing density and heterogeneity in unlicensed wireless networks, traditional MAC protocols, such as Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA) in Wi-Fi networks, are experiencing performance degradation. This is manifested in increased collisions and extended backoff times, leading to diminished spectrum efficiency and protocol coordination. Addressing these issues, this paper proposes a deep-learning-based MAC paradigm, dubbed DL-MAC, which leverages spectrum data readily available from energy detection modules in wireless devices to achieve the MAC functionalities of channel access, rate adaptation, and channel switch. First, we utilize DL-MAC to realize a joint design of channel access and rate adaptation. Subsequently, we integrate the capability of channel switching into DL-MAC, enhancing its functionality from single-channel to multi-channel operations. Specifically, the DL-MAC protocol incorporates a Deep Neural Network (DNN) for channel selection and a Recurrent Neural Network (RNN) for the joint design of channel access and rate adaptation. We conducted real-world data collection within the 2.4 GHz frequency band to validate the effectiveness of DL-MAC. Experimental results demonstrate that DL-MAC exhibits significantly superior performance compared to traditional algorithms in both single and multi-channel environments, and also outperforms single-function designs. Additionally, the performance of DL-MAC remains robust, unaffected by channel switch overheads within the evaluation range.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.dcan.2024.10.010",
         "url": "https://doi.org/10.1016/j.dcan.2024.10.010",
         "authors": [
@@ -2474,11 +2403,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3087991416",
         "title": "Applications of Gene Expression Programming for Estimating Compressive Strength of High‐Strength Concrete",
-        "display_name": "Applications of Gene Expression Programming for Estimating Compressive Strength of High‐Strength Concrete",
         "year": 2020,
-        "cited_by_count": 211,
-        "is_retracted": false,
         "abstract": "The experimental design of high‐strength concrete (HSC) requires deep analysis to get the target strength. In this study, machine learning approaches and artificial intelligence python‐based approaches have been utilized to predict the mechanical behaviour of HSC. The data to be used in the modelling consist of several input parameters such as cement, water, fine aggregate, and coarse aggregate in combination with a superplasticizer. Empirical relation with mathematical expression has been proposed using engineering programming. The efficiency of the models is assessed by statistical analysis with the error by using MAE, RRMSE, RSE, and comparisons were made between regression models. Moreover, variable intensity and correlation have shown that deep learning can be used to know the exact amount of materials in civil engineering rather than doing experimental work. The expression tree, as well as normalization of the graph, depicts significant accuracy between target and output values. The results reveal that machine learning proposed adamant accuracy and has elucidated performance in the prediction aspect.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1155/2020/8850535",
         "url": "https://doi.org/10.1155/2020/8850535",
         "authors": [
@@ -2540,11 +2467,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3081231874",
         "title": "Applications of Gene Expression Programming and Regression Techniques for Estimating Compressive Strength of Bagasse Ash based Concrete",
-        "display_name": "Applications of Gene Expression Programming and Regression Techniques for Estimating Compressive Strength of Bagasse Ash based Concrete",
         "year": 2020,
-        "cited_by_count": 162,
-        "is_retracted": false,
         "abstract": "Compressive strength is one of the important property of concrete and depends on many factors. Most of the concrete compressive strength predictive models mainly rely on available literature data, which are too simple to consider all the contributing factors. This study adopted a new approach to predict the compressive strength of sugarcane bagasse ash concrete (SCBAC). A vast amount of data from the literature study and fifteen laboratory tested concrete samples with different dosage of bagasse ash, were respectively used to calibrate and validate the models. The novel Gene Expression Programming, Multiple Linear Regression and Multiple Non-Linear Regression were used to model SCBAC compressive strength. The water cement ratio, bagasse ash percent replacement, quantity of fine and coarse aggregate and cement content were used as an input for models development. Various statistical indicators, i.e., NSE, R2 and RMSE were used to assess the performance of the models. The results indicated a strong correlation between observed and predicted values with NSE and R2 both above 0.8 during calibration and validation for the Gene Expression Programming (GEP). The outcomes from GEP outclassed all the models to predict SCBAC compressive strength. The validity of the model is further verified using data of fifteen tests conducted in the laboratory. Moreover, the cement content in the mix was revealed as the most sensitive parameter followed by water cement ratio form sensitivity analysis. The GEP fulfilled all the criteria for external validity. The simple formulae derived in this study could be used reliably for the prediction of SCBAC compressive strength.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/cryst10090737",
         "url": "https://doi.org/10.3390/cryst10090737",
         "authors": [
@@ -2599,11 +2524,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3043346423",
         "title": "Behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation",
-        "display_name": "Behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation",
         "year": 2020,
-        "cited_by_count": 71,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jclepro.2020.123074",
         "url": "https://doi.org/10.1016/j.jclepro.2020.123074",
         "authors": [
@@ -2644,11 +2567,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3196351205",
         "title": "A Comparative Study for the Prediction of the Compressive Strength of Self-Compacting Concrete Modified with Fly Ash",
-        "display_name": "A Comparative Study for the Prediction of the Compressive Strength of Self-Compacting Concrete Modified with Fly Ash",
         "year": 2021,
-        "cited_by_count": 122,
-        "is_retracted": false,
         "abstract": "Artificial intelligence and machine learning are employed in creating functions for the prediction of self-compacting concrete (SCC) strength based on input variables proportion as cement replacement. SCC incorporating waste material has been used in learning approaches. Artificial neural network (ANN) support vector machine (SVM) and gene expression programming (GEP) consisting of 300 datasets have been utilized in the model to foresee the mechanical property of SCC. Data used in modeling consist of several input parameters such as cement, water–binder ratio, coarse aggregate, fine aggregate, and fly ash (FA) in combination with the superplasticizer. The best predictive models were selected based on the coefficient of determination (R2) results and model validation. Empirical relation with mathematical expression has been proposed using ANN, SVM, and GEP. The efficiency of the models is assessed by permutation features importance, statistical analysis, and comparison between regression models. The results reveal that the proposed machine learning models achieved adamant accuracy and has elucidated performance in the prediction aspect.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/ma14174934",
         "url": "https://doi.org/10.3390/ma14174934",
         "authors": [
@@ -2707,11 +2628,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3128759053",
         "title": "Compressive Strength of Fly‐Ash‐Based Geopolymer Concrete by Gene Expression Programming and Random Forest",
-        "display_name": "Compressive Strength of Fly‐Ash‐Based Geopolymer Concrete by Gene Expression Programming and Random Forest",
         "year": 2021,
-        "cited_by_count": 203,
-        "is_retracted": false,
         "abstract": "Fly ash (FA) is a residual from thermal industries that has been effectively utilized in the production of FA‐based geopolymer concrete (FGPC). To avoid time‐consuming and costly experimental procedures, soft computing techniques, namely, random forest regression (RFR) and gene expression programming (GEP), are used in this study to develop an empirical model for the prediction of compressive strength of FGPC. A widespread, reliable, and consistent database of compressive strength of FGPC is set up via a comprehensive literature review. The database consists of 298 compressive strength data points. The influential parameters that are considered as input variables for modelling are curing temperature ( T ), curing time ( t ), age of the specimen ( A ), the molarity of NaOH solution ( M ), percent SiO 2 solids to water ratio (% S / W ) in sodium silicate (Na 2 SiO 3 ) solution, percent volume of total aggregate ( % A G ), fine aggregate to the total aggregate ratio ( F / A G ), sodium oxide (Na 2 O) to water ratio ( N / W ) in Na 2 SiO 3 solution, alkali or activator to the FA ratio ( A L / F A ), Na 2 SiO 3 to NaOH ratio ( N s / N o ), percent plasticizer (% P ), and extra water added as percent FA ( E W %). RFR is an ensemble algorithm and gives outburst performance as compared to GEP. However, GEP proposed an empirical expression that can be used to estimate the compressive strength of FGPC. The accuracy and performance of both models are evaluated via statistical error checks, and external validation is considered. The proposed GEP equation is used for sensitivity analysis and parametric study and then compared with nonlinear and linear regression expressions.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1155/2021/6618407",
         "url": "https://doi.org/10.1155/2021/6618407",
         "authors": [
@@ -2761,11 +2680,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4379538285",
         "title": "Prediction of sustainable concrete utilizing rice husk ash (RHA) as supplementary cementitious material (SCM): Optimization and hyper-tuning",
-        "display_name": "Prediction of sustainable concrete utilizing rice husk ash (RHA) as supplementary cementitious material (SCM): Optimization and hyper-tuning",
         "year": 2023,
-        "cited_by_count": 48,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Rice Husk ash (RHA) utilization in concrete as a waste material can contribute to the formation of a robust cementitious matrix with utmost properties. The strength of HPC when subjected to compression test is determined by the combination and quantity of the materials used in its production. Thus, making its mixed design process challenging and ambiguous. The objective of this research is to forecast the strength of HPC containing RHA, by using a diverse range of machine learning techniques, including both individual and ensemble learners such as bagging and boosting. This study will cause significant implications for sustainable construction practices by facilitating the development of an efficient and effective method for forecasting the strength of HPC. Individual machine learning (ML) algorithms are incorporated with ensemble methods such as bagging, adaptive boosting, and random forest algorithms. These ensemble techniques is use to create twenty different sub-models. Afterward, these sub-models is train and optimized for achieving the best possible value for R2. The sub-models were further fine-tuned to obtain the best value for R2. In order to assess or evaluate the quality, reliability, and generalizability of the test data, the K-Fold cross-validation method is utilized. Furthermore, the index for measuring the statistical performance of models is use to validate and compare the assessment of ensemble models with individual models. The findings indicate that using bagging and boosting techniques enhances the prediction accuracy of individual or weak models, with minimum errors and an R2 value > 0.92 is achieved using bagging with decision tree and random forest. In general, the performance of the model is optimized by using ensemble learner methods in machine learning (ML).",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jmrt.2023.06.006",
         "url": "https://doi.org/10.1016/j.jmrt.2023.06.006",
         "authors": [
@@ -2812,11 +2729,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4388181804",
         "title": "MPCCT: Multimodal vision-language learning paradigm with context-based compact Transformer",
-        "display_name": "MPCCT: Multimodal vision-language learning paradigm with context-based compact Transformer",
         "year": 2023,
-        "cited_by_count": 120,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.patcog.2023.110084",
         "url": "https://doi.org/10.1016/j.patcog.2023.110084",
         "authors": [
@@ -2857,11 +2772,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4379206808",
         "title": "A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials",
-        "display_name": "A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials",
         "year": 2023,
-        "cited_by_count": 36,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.mtcomm.2023.106335",
         "url": "https://doi.org/10.1016/j.mtcomm.2023.106335",
         "authors": [
@@ -2912,11 +2825,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4379745224",
         "title": "Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning",
-        "display_name": "Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning",
         "year": 2023,
-        "cited_by_count": 30,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Hemp bio-composite (HBC) is a sustainable material that can be considered as a “carbon negative” or “better-than-zero-carbon” because it absorbs more carbon from its surrounding than it releases during its manufacturing and application on the field. Because of their eco-friendliness, these bio-composites not only improve structure thermal efficiency but also encourage sustainable construction. However, due to its heterogeneous nature, the majority of the published research has experimentally investigated the characteristics of bio-composites. While the mathematical models remain still a challenge for academics. Therefore, three machine learning methods known as deep neural network (DNN), gene expression programming (GEP), and optimizable Gaussian process regressor (OGPR) are used to build up prediction models for compressive strength (CS) and thermal conductivity (TC) of hemp bio-composite. A total of 86 and 159 experimental values for TC and CS, respectively, were collected from the literature. To formulate the models, the ten most dominant input variables were chosen. To evaluate the performance of the models, various statistical metrics were employed. Based on statistical indicators, the increasing order of prediction capabilities of the established models is DNN>OGPR>GEP. The value of the correlation coefficient (R) for CS models is 0.9893 (GEP), 0.9997 (DNN), and 0.9995 (OGPR). While that for TC models are 0.9847 (GEP), 0.9999 (DNN), and 0.9999 (OGPR). The values of the performance index (ρ) and objective function (OF) are approaching 0. Thus, indicating the outburst performance of the developed models. The comparison of machine learning (ML) models with traditional regression models further confirms the accuracy of the developed models. Furthermore, contour maps analysis was conducted to get an insight into the ranges of input variables that were employed by global researchers to gain higher strength and thermal properties. For the interpretation of the models, Shapley Additive explanations (SHAP) analysis was carried out. The result revealed that the influencing trend of input variables is in close agreement with experimental studies. Thus, practitioners and designers to avoid hectic experimental tests to save time and cost can utilize these ML-based developed models in field projects. However, it is recommended to use more updated and extensive data to further validate the models and utilize other ML algorithms and post hoc interpretation techniques for the model's explanations.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jmrt.2023.06.007",
         "url": "https://doi.org/10.1016/j.jmrt.2023.06.007",
         "authors": [
@@ -2969,11 +2880,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4382364423",
         "title": "Strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms: Optimization and hyper tuning",
-        "display_name": "Strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms: Optimization and hyper tuning",
         "year": 2023,
-        "cited_by_count": 16,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.mtcomm.2023.106467",
         "url": "https://doi.org/10.1016/j.mtcomm.2023.106467",
         "authors": [
@@ -3024,11 +2933,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4386569935",
         "title": "Forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches",
-        "display_name": "Forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches",
         "year": 2023,
-        "cited_by_count": 25,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.mtcomm.2023.107066",
         "url": "https://doi.org/10.1016/j.mtcomm.2023.107066",
         "authors": [
@@ -3078,11 +2985,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4323928242",
         "title": "Rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing",
-        "display_name": "Rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing",
         "year": 2023,
-        "cited_by_count": 57,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2023.130903",
         "url": "https://doi.org/10.1016/j.conbuildmat.2023.130903",
         "authors": [
@@ -3123,11 +3028,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4200144918",
         "title": "Prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures",
-        "display_name": "Prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures",
         "year": 2021,
-        "cited_by_count": 27,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jclepro.2021.129980",
         "url": "https://doi.org/10.1016/j.jclepro.2021.129980",
         "authors": [
@@ -3174,11 +3077,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4380201463",
         "title": "CLVIN: Complete language-vision interaction network for visual question answering",
-        "display_name": "CLVIN: Complete language-vision interaction network for visual question answering",
         "year": 2023,
-        "cited_by_count": 101,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.knosys.2023.110706",
         "url": "https://doi.org/10.1016/j.knosys.2023.110706",
         "authors": [
@@ -3218,11 +3119,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4367555634",
         "title": "An Improved BPNN Method Based on Probability Density for Indoor Location",
-        "display_name": "An Improved BPNN Method Based on Probability Density for Indoor Location",
         "year": 2023,
-        "cited_by_count": 98,
-        "is_retracted": false,
         "abstract": "With the widespread use of indoor positioning technology, the need for high-precision positioning services is rising; nevertheless, there are several challenges, such as the difficulty of simulating the distribution of interior location data and the enormous inaccuracy of probability computation. As a result, this paper proposes three different neural network model comparisons for indoor location based on WiFi fingerprint - indoor location algorithm based on improved back propagation neural network model, RSSI indoor location algorithm based on neural network angle change, and RSSI indoor location algorithm based on depth neural network angle change - to raise accurately predict indoor location coordinates. Changing the action range of the activation function in the standard back-propagation neural network model achieves the goal of accurately predicting location coordinates. The revised back-propagation neural network model has strong stability and enhances indoor positioning accuracy based on experimental comparisons of loss rate (loss), accuracy rate (acc), and cumulative distribution function (CDF).",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1587/transinf.2022dlp0073",
         "url": "https://doi.org/10.1587/transinf.2022dlp0073",
         "authors": [
@@ -3269,11 +3168,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4385819939",
         "title": "Intelligent Control of Multilegged Robot Smooth Motion: A Review",
-        "display_name": "Intelligent Control of Multilegged Robot Smooth Motion: A Review",
         "year": 2023,
-        "cited_by_count": 109,
-        "is_retracted": false,
         "abstract": "Motion control is crucial for multilegged robot locomotion and task completion. This study aims to address the fundamental challenges of inadequate foot tracking and weak leg compliance control in multilegged robot motions. The first section summarizes and discusses the feasibility and operability of smooth motion for multilegged robots based on the necessary conditions and application value of walking over complicated and unstructured terrain. The second to fourth sections present a qualitative research method of literature review to study the effects of several factors on the smooth motion of multilegged robots, including foot force perception and motion planning, active compliance control, gait stability, and Deep Reinforcement Learning (DRL) control. We conducted a case analysis of multilegged robots using traditional Nonlinear Model Predictive Control (NMPC), biomimetic Central Pattern Generator (CPG), and DRL control in the latest international open-source projects to help readers further follow the latest open-source algorithms for legged robot motion control. In addition, we analyze the challenges these influencing factors face in optimization and provide suggestions for effectively promoting the realization of review objectives. In the fifth section, we discuss the challenges of springy gait and intelligent switching control in solving the problems of poor foot tracking and weak leg compliance. We explore and forecast the potential application of the Probability Density Function (PDF) control of the foot force in the smooth motion of multilegged robots. In the sixth section, we systematically discuss, analyze, and summarize the existing problems in this research field. We also highlight the shortcomings of existing research methods, look forward to future research areas, and highlight the obstacles that need to be overcome to promote future research in this field.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1109/access.2023.3304992",
         "url": "https://doi.org/10.1109/access.2023.3304992",
         "authors": [
@@ -3320,11 +3217,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4385661882",
         "title": "SVM strategy and analysis of a three-phase quasi-Z-source inverter with high voltage transmission ratio",
-        "display_name": "SVM strategy and analysis of a three-phase quasi-Z-source inverter with high voltage transmission ratio",
         "year": 2023,
-        "cited_by_count": 81,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Herein, we propose a novel three-phase quasi-Z-source inverter with a high voltage transmission ratio to address challenges such as high switching loss and sizeable magnetic components in the basic quasi-Z-source inverter. The proposed circuit topology, control strategy, and related analysis are presented. The circuit topology of the inverter comprises a quasi-Z-source network with an integrated magnetic inductor, an active clamp circuit, a three-phase inverter bridge, and an output LC filter, all of which are connected in series. An improved 12-sector space vector modulation scheme is proposed based on the root-mean-square value of the voltage and the instantaneous value of the current. Furthermore, analyses of the inverter voltage transmission ratio, resonant process, and parametric design guidelines for integrated magnetic inductor and zero-voltage switching conditions are presented. Experimental results on a 1-kVA prototype inverter demonstrate that the proposed inverter exhibits a higher transmission ratio and efficiency than existing inverters; thus, the proposed inverter would have broad prospects in low-voltage DC-AC applications.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s11431-022-2394-4",
         "url": "https://doi.org/10.1007/s11431-022-2394-4",
         "authors": [
@@ -3364,11 +3259,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4386367035",
         "title": "A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries",
-        "display_name": "A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries",
         "year": 2023,
-        "cited_by_count": 145,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jfranklin.2023.08.037",
         "url": "https://doi.org/10.1016/j.jfranklin.2023.08.037",
         "authors": [
@@ -3415,11 +3308,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4311240451",
         "title": "Ensemble regression based on polynomial regression-based decision tree and its application in the in-situ data of tunnel boring machine",
-        "display_name": "Ensemble regression based on polynomial regression-based decision tree and its application in the in-situ data of tunnel boring machine",
         "year": 2022,
-        "cited_by_count": 126,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.ymssp.2022.110022",
         "url": "https://doi.org/10.1016/j.ymssp.2022.110022",
         "authors": [
@@ -3468,11 +3359,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3216342379",
         "title": "An open-source unconstrained stress updating algorithm for the modified Cam-clay model",
-        "display_name": "An open-source unconstrained stress updating algorithm for the modified Cam-clay model",
         "year": 2021,
-        "cited_by_count": 107,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.cma.2021.114356",
         "url": "https://doi.org/10.1016/j.cma.2021.114356",
         "authors": [
@@ -3517,11 +3406,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3080200352",
         "title": "3D Dynamic Elastoplastic Constitutive Model of Concrete within the Framework of Rate-Dependent Consistency Condition",
-        "display_name": "3D Dynamic Elastoplastic Constitutive Model of Concrete within the Framework of Rate-Dependent Consistency Condition",
         "year": 2020,
-        "cited_by_count": 37,
-        "is_retracted": false,
         "abstract": "In this paper, the proposed yield function is the function of stress, hardening parameter, and strain rate. To fully describe the stress state and strain rate condition of material during dynamic loading, a new coordinate system, which is composed of a stress axis and strain rate axis, is employed to present the proposed rate-dependent yield surface. The strain rate is regarded as a variable in applying the consistency condition. The rate-dependent consistency is satisfied strictly during the whole dynamic loading. The nonassociated flow rule is employed to describe the dilatancy behavior of concrete. The loading–unloading criterion based on Ilyushin's postulate is developed into the rate-dependent loading–unloading criterion that can consider reasonably the change of elastic domain caused by strain rate. Furthermore, a three-dimensional (3D) dynamic elastoplastic model of concrete is established within the framework of the rate-dependent consistency condition. Under the dynamic uniaxial compression loading condition, the model characteristics related to rate-dependent consistency condition are discussed and analyzed. Five sets of dynamic experiment results of concrete are employed to evaluate the performance of the model.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/(asce)em.1943-7889.0001854",
         "url": "https://doi.org/10.1061/(asce)em.1943-7889.0001854",
         "authors": [
@@ -3562,11 +3449,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4385877082",
         "title": "A multimodal hybrid parallel network intrusion detection model",
-        "display_name": "A multimodal hybrid parallel network intrusion detection model",
         "year": 2023,
-        "cited_by_count": 122,
-        "is_retracted": false,
         "abstract": "With the rapid growth of Internet data traffic, the means of malicious attack become more diversified. The single modal intrusion detection model cannot fully exploit the rich feature information in the massive network traffic data, resulting in unsatisfactory detection results. To address this issue, this paper proposes a multimodal hybrid parallel network intrusion detection model (MHPN). The proposed model extracts network traffic features from two modalities: the statistical information of network traffic and the original load of traffic, and constructs appropriate neural network models for each modal information. Firstly, a two-branch convolutional neural network is combined with Long Short-Term Memory (LSTM) network to extract the spatio-temporal feature information of network traffic from the original load mode of traffic, and a convolutional neural network is used to extract the feature information of traffic statistics. Then, the feature information extracted from the two modalities is fused and fed to the CosMargin classifier for network traffic classification. The experimental results on the ISCX-IDS 2012 and CIC-IDS-2017 datasets show that the MHPN model outperforms the single-modal models and achieves an average accuracy of 99.98 $ \\% $ . The model also demonstrates strong robustness and a positive sample recognition rate.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/09540091.2023.2227780",
         "url": "https://doi.org/10.1080/09540091.2023.2227780",
         "authors": [
@@ -3604,11 +3489,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4319866324",
         "title": "Analysis and Experimental Verification of the Tangential Force Effect on Electromagnetic Vibration of PM Motor",
-        "display_name": "Analysis and Experimental Verification of the Tangential Force Effect on Electromagnetic Vibration of PM Motor",
         "year": 2023,
-        "cited_by_count": 102,
-        "is_retracted": false,
         "abstract": "In traditional analysis, several studies have discussed the vibration behavior of electric machines from the point of view of radial force. With the increasingly strict vibroacoustic index, the tangential force effects on the vibration are analyzed and investigated, and it shows the contribution of tangential force on electromagnetic vibration cannot be ignored. However, these studies are based mainly on finite element multi-physics models, and experiments are not conducted. Furthermore, the mechanism of tangential force is not clearly explained. In this paper, a special motor stator structure is proposed to explore the effect of tangential force on vibration. First, the analytical calculation of the tangential force and the tangential effect on motor vibration are described. Next, the Theorem of Translation of A Force is introduced to convert the effective tangential tooth force to a radial force couple acting on the stator yoke. Then, a novel motor stator is proposed to investigate the vibration characteristics caused only by tangential force, and the simulation is analyzed. Finally, a vibration test of the prototype is conducted and the result shows the tangential force can induce the radial vibration with corresponding order.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1109/tec.2023.3241082",
         "url": "https://doi.org/10.1109/tec.2023.3241082",
         "authors": [
@@ -3648,11 +3531,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3007270451",
         "title": "Investigation and Optimization of the C-ANN Structure in Predicting the Compressive Strength of Foamed Concrete",
-        "display_name": "Investigation and Optimization of the C-ANN Structure in Predicting the Compressive Strength of Foamed Concrete",
         "year": 2020,
-        "cited_by_count": 98,
-        "is_retracted": false,
         "abstract": "Development of Foamed Concrete (FC) and incessant increases in fabrication technology have paved the way for many promising civil engineering applications. Nevertheless, the design of FC requires a large number of experiments to determine the appropriate Compressive Strength (CS). Employment of machine learning algorithms to take advantage of the existing experiments database has been attempted, but model performance can still be improved. In this study, the performance of an Artificial Neural Network (ANN) was fully analyzed to predict the 28 days CS of FC. Monte Carlo simulations (MCS) were used to statistically analyze the convergence of the modeled results under the effect of random sampling strategies and the network structures selected. Various statistical measures such as Coefficient of Determination (R2), Mean Absolute Error (MAE), and Root Mean Squared Error (RMSE) were used for validation of model performance. The results show that ANN is a highly efficient predictor of the CS of FC, achieving a maximum R2 value of 0.976 on the training part and an R2 of 0.972 on the testing part, using the optimized C-ANN-[3–4–5–1] structure, which compares with previous published studies. In addition, a sensitivity analysis using Partial Dependence Plots (PDP) over 1000 MCS was also performed to interpret the relationship between the input parameters and 28 days CS of FC. Dry density was found as the variable with the highest impact to predict the CS of FC. The results presented could facilitate and enhance the use of C-ANN in other civil engineering-related problems.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/ma13051072",
         "url": "https://doi.org/10.3390/ma13051072",
         "authors": [
@@ -3697,11 +3578,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W1989840401",
         "title": "Neural Network Modeling of Resilient Modulus Using Routine Subgrade Soil Properties",
-        "display_name": "Neural Network Modeling of Resilient Modulus Using Routine Subgrade Soil Properties",
         "year": 2010,
-        "cited_by_count": 100,
-        "is_retracted": false,
         "abstract": "Artificial neural network (ANN) models are developed in this study to correlate resilient modulus with routine properties of subgrade soils and state of stress for pavement design application. A database is developed containing grain size distribution, Atterberg limits, standard Proctor, unconfined compression, and resilient modulus results for 97 soils from 16 different counties in Oklahoma. Of these, 63 soils (development data set) are used in training, and the remaining 34 soils (evaluation data set) from two different counties are used in the evaluation of the developed models. A commercial software, STATISTICA 7.1, is used to develop four different feedforward-type ANN models: linear network, general regression neural network, radial basis function network, and multilayer perceptrons network (MLPN). In each of these models, the input layer consists of seven nodes, one node for each of the independent variables, namely moisture content (w), dry density (γd), plasticity index (PI), percent passing sieve No. 200 (P200), unconfined compressive strength (Uc), deviatoric stress (σd), and bulk stress (θ). The output layer consists of only one node—resilient modulus (MR). After the architecture is set, the development data set is fed into the model for training. The strengths and weaknesses of the developed models are examined by comparing the predicted MR values with the experimental values with respect to the R2 values. Overall, the MLPN model with two hidden layers was found to be the best model for the present development and evaluation data sets. This model as well as the other models could be refined using an enriched database.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1061/(asce)1532-3641(2010)10:1(1)",
         "url": "https://doi.org/10.1061/(asce)1532-3641(2010)10:1(1)",
         "authors": [
@@ -3743,11 +3622,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3126780384",
         "title": "Predicting resilient modulus of compacted subgrade soils under influences of freeze–thaw cycles and moisture using gene expression programming and artificial neural network approaches",
-        "display_name": "Predicting resilient modulus of compacted subgrade soils under influences of freeze–thaw cycles and moisture using gene expression programming and artificial neural network approaches",
         "year": 2021,
-        "cited_by_count": 49,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Abstract This study aims at developing a gene expression programming (GEP) model and an artificial neural network (ANN) model to predict the resilient modulus (MR) of compacted pavement subgrade soils based on their physical properties, external stress states, and environmental factors. A database of 2813 MR measurements derived from 12 subgrade soils with different moisture-temperature histories was established for model development and validation. Influencing factors considered in this database include the weighted plasticity index (wPI), dry unit weight (γd), confining stress (σc), deviator stress (σd), moisture content (w), and the number of freeze–thaw cycles (NFT). Sensitivity analysis was conducted to evaluate the importance of each factor. The order of influencing factors by decreasing importance was found to be wPI, γd, w, NFT, σd, σc and the importance of the σc and σd is remarkably lower than other factors. This indicates that the MR of compacted subgrade soils is strongly dependent on the soil type (wPI, γd) and is more sensitive to environmental factors (NFT, w) than external stress states (σc, σd). The developed GEP and ANN models reasonably predicted the MR in the database and achieved better performance compared to several existing empirical models.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1016/j.trgeo.2021.100520",
         "url": "https://doi.org/10.1016/j.trgeo.2021.100520",
         "authors": [
@@ -3787,11 +3664,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W1985068142",
         "title": "Extreme Learning Machine Based Modeling of Resilient Modulus of Subgrade Soils",
-        "display_name": "Extreme Learning Machine Based Modeling of Resilient Modulus of Subgrade Soils",
         "year": 2013,
-        "cited_by_count": 43,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "This paper investigates the potential of two variants of extreme learning machine based regression approaches in predicting the resilient modulus of cohesive soils. Support vector regression was used to compare the performance of the proposed extreme learning machine based regression approaches. The dataset used in this study was derived from literature and consists of 9 input parameters with a total of 891 cases. For testing, two methods i.e. train/test and tenfold cross validation was used. In case of train and test methods, a total of 594 randomly selected cases were used to train different algorithms and the remaining 297 data were used to test the created models. Correlation coefficient value of 0.991 (root mean square error = 3.47 MPa) was achieved by polynomial kernel based extreme learning machine in comparison to 0.990 and 0.990 (root mean square error = 4.790 and 4.290 MPa) by simple extreme learning machine and radial basis kernel function based support vector regression respectively with test dataset. Comparisons of results with tenfold cross validation also suggest that polynomial kernel based extreme learning machine works well in terms of root mean square error and computational cost with the used dataset. Sensitivity analysis suggests the importance of confining stress and deviator stress in predicting the resilient modulus when using with polynomial kernel based extreme learning machine modeling approach.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s10706-013-9710-y",
         "url": "https://doi.org/10.1007/s10706-013-9710-y",
         "authors": [
@@ -3826,11 +3701,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2468700497",
         "title": "Prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems",
-        "display_name": "Prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems",
         "year": 2016,
-        "cited_by_count": 98,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2016.07.008",
         "url": "https://doi.org/10.1016/j.conbuildmat.2016.07.008",
         "authors": [
@@ -3871,11 +3744,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4289930890",
         "title": "Prediction of the resilient modulus of compacted subgrade soils using ensemble machine learning methods",
-        "display_name": "Prediction of the resilient modulus of compacted subgrade soils using ensemble machine learning methods",
         "year": 2022,
-        "cited_by_count": 84,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.trgeo.2022.100827",
         "url": "https://doi.org/10.1016/j.trgeo.2022.100827",
         "authors": [
@@ -3924,11 +3795,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3036246077",
         "title": "Failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm",
-        "display_name": "Failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm",
         "year": 2020,
-        "cited_by_count": 249,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.aei.2020.101126",
         "url": "https://doi.org/10.1016/j.aei.2020.101126",
         "authors": [
@@ -3974,11 +3843,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2805257321",
         "title": "A modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete",
-        "display_name": "A modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete",
         "year": 2018,
-        "cited_by_count": 375,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Abstract The compressive and tensile strength of high-performance concrete (HPC) is a highly nonlinear function of its constituents. The significance of expert frameworks for predicting the compressive and tensile strength of HPC is greatly distinguished in material technology. This study aims to develop an expert system based on the artificial neural network (ANN) model in association with a modified firefly algorithm (MFA). The ANN model is constructed from experimental data while MFA is used to optimize a set of initial weights and biases of ANN to improve the accuracy of this artificial intelligence technique. The accuracy of the proposed expert system is validated by comparing obtained results with those from the literature. The result indicates that the MFA-ANN hybrid system can obtain a better prediction of the high-performance concrete properties. The MFA-ANN is also much faster at solving problems. Therefore, the proposed approach can provide an efficient and accurate tool to predict and design HPC.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2018.05.201",
         "url": "https://doi.org/10.1016/j.conbuildmat.2018.05.201",
         "authors": [
@@ -4024,11 +3891,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3037496014",
         "title": "Ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete",
-        "display_name": "Ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete",
         "year": 2020,
-        "cited_by_count": 94,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.measurement.2020.108141",
         "url": "https://doi.org/10.1016/j.measurement.2020.108141",
         "authors": [
@@ -4076,11 +3941,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3038415525",
         "title": "Prediction of surface chloride concentration of marine concrete using ensemble machine learning",
-        "display_name": "Prediction of surface chloride concentration of marine concrete using ensemble machine learning",
         "year": 2020,
-        "cited_by_count": 258,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Abstract This paper develops and employs an ensemble machine learning (ML) model for prediction of surface chloride concentration (Cs) of concrete, which is an essential parameter for durability design and service life prediction of concrete structures in marine environment. For this purpose, a database containing 642 data-records of field exposure data of Cs (along with the associated mixture proportion parameters, environmental conditions and exposure time) is established based on extensive literature surveying, which covers splash, tidal, and submerged zones in various areas in the world. The database is used to train five standalone ML models, that is, linear regression (LR), Gaussian process regression (GPR), support vector machine (SVM), multilayer perceptron artificial neural network (MLP-ANN) and random forests (RF) models, as well as an ensemble weighted voting-based ML model, and subsequently used to compare their prediction performances. It is shown that, by meta-heuristically combining predictions of RF, MLP-ANN, and SVM, the ensemble ML model produces higher accuracy of prediction compared to all standalone ML models tested in this study. The prediction performances of eight conventional quantitative models for Cs prediction are also analyzed based on the testing dataset selected for ML. The results show that adoption of more diverse datasets and consideration of more factors in conventional models can improve their prediction performance. The ensemble ML model established on a large database, can easily consider the twelve influencing factors (which is difficult for conventional models) in the database, and has superior prediction performance, yet better time-efficiency, compared to conventional models.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1016/j.cemconres.2020.106164",
         "url": "https://doi.org/10.1016/j.cemconres.2020.106164",
         "authors": [
@@ -4131,11 +3994,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2038808304",
         "title": "Machine learning in concrete strength simulations: Multi-nation data analytics",
-        "display_name": "Machine learning in concrete strength simulations: Multi-nation data analytics",
         "year": 2014,
-        "cited_by_count": 428,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2014.09.054",
         "url": "https://doi.org/10.1016/j.conbuildmat.2014.09.054",
         "authors": [
@@ -4181,11 +4042,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4307042809",
         "title": "Modelling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete",
-        "display_name": "Modelling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete",
         "year": 2022,
-        "cited_by_count": 47,
-        "is_retracted": false,
         "abstract": "In the present work, an attempt is made to find the most suitable prediction model for Marshall Stability and the optimistic Bitumen Content (BC) in carbon fiber reinforced asphalt concrete for flexible pavements by performing Marshall Stability tests. Further the prediction analysis is performed by taking the cognizance of the published research articles. Twofold approaches are adopted; first, to find the most suitable model to predict the Marshall Stability and second to obtain the optimum binder content responsible for the highest strength. Further, to find the most suitable model for closer prediction of Marshall Stability, eighteen input parameters i.e., Binder Content (BC with fifteen variations); 4.20%, 4.30%, 4.50%, 4.90%, 5.00%, 5.10%, 5.15%, 5.20%, 5.23%, 5.30%, 5.34%, 5.40%, 5.50%, 6.00%, 6.50%, and three others i.e., Carbon fiber, Bitumen grade and Fiber length are applied in the modelling algorithm. Five Machine learning techniques viz., Support Vector Machine, Gaussian Process, Random Forest, Random Tree, and M5P model were employed to find the most suitable prediction model. Seven statistical metrices i.e., Coefficient of correlation (CC), Mean absolute error (MAE), Root mean squared error (RMSE), Relative absolute error (RAE), Root relative squared error (RRSE), Willmott's index (WI), and Nash- Sutcliffe coefficient (NSE) were used to evaluate the performance of the applied models. After performing modelling analysis, it has been found that the Random Forest-based model is outperforming amongst all applied models with CC as 0.9735, MAE as 1.1755, RMSE as 1.5046, RAE as 25.68%, RRSE as 26.93%, WI values as 0.9351, and NSE values as 0.9272 in the testing stage. The Taylor diagram of the testing dataset also conforms to the results of RF-based model. The sensitivity analysis demonstrates that binder content (BC) of about 5.0% has a significant influence on the Marshall Stability in the asphalt mix used with carbon fibers.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.aej.2022.09.055",
         "url": "https://doi.org/10.1016/j.aej.2022.09.055",
         "authors": [
@@ -4238,11 +4097,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4313343642",
         "title": "Real-time measurement on dynamic temperature variation of asphalt pavement using machine learning",
-        "display_name": "Real-time measurement on dynamic temperature variation of asphalt pavement using machine learning",
         "year": 2022,
-        "cited_by_count": 27,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.measurement.2022.112413",
         "url": "https://doi.org/10.1016/j.measurement.2022.112413",
         "authors": [
@@ -4283,11 +4140,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4381511492",
         "title": "Prediction of Interface Shear Stiffness Modulus of Asphalt Pavement using Bagging Ensemble-based Hybrid Machine Learning Model",
-        "display_name": "Prediction of Interface Shear Stiffness Modulus of Asphalt Pavement using Bagging Ensemble-based Hybrid Machine Learning Model",
         "year": 2023,
-        "cited_by_count": 4,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Interface shear stiffness modulus ( K ) is one of the important bonding properties of layers. It is also used to evaluate interface shear strength between asphalt layers of asphalt pavement. Direct determination of K parameter in field or laboratory requires time, cost and special equipment. In this article, K has been estimated based on three interlayer shear strength affecting factors namely maximum size of the asphalt concrete aggregate ( D max ), normal pressure and temperature using Machine Learning (ML) methods such as Multilayer Perception Neural Network, Bagging Random Forest (Bagging-RF), and Bagging Reduced Error Pruning Tree (Bagging-REPT). The ML models for the prediction of shear strength were built based on the laboratory shear tests results of 180 double-layer asphalt samples. The data was divided randomly into a ratio of 70/30 to train and test model, respectively. Standard statistical measures were used to evaluate and validate the models’ performance. All the developed models performed well in correctly predicting K value of AC, but performance of the Bagging-RF model is the best as it is giving Correlation Coefficient ( R ) value 0.88 between estimated value and determined value. The proposed ML predictive models will reduce the field and laboratory experimental efforts and increase the efficiency in estimating the K parameter for the safe designing, construction and maintenance of asphalt concrete pavements.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s13369-023-08014-1",
         "url": "https://doi.org/10.1007/s13369-023-08014-1",
         "authors": [
@@ -4333,11 +4188,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4387212008",
         "title": "Machine learning based pavement performance prediction for data-driven decision of asphalt pavement overlay",
-        "display_name": "Machine learning based pavement performance prediction for data-driven decision of asphalt pavement overlay",
         "year": 2023,
-        "cited_by_count": 17,
-        "is_retracted": false,
         "abstract": "AbstractThis study is to develop pavement performance models using support vector regression and ensemble machine learning methods for selection of pavement overlay strategy. Predictive models of pavement distresses were developed based on the Long-Term Pavement Performance (LTPP) data and compared using support vector machine, random forest regression, gradient boosting machine, and stacking ensemble. Gradient boosting machine was found to be a more effective method to establish predictive models of rut depth and International Roughness Index. Stacking ensemble and random forest regression would provide reliable prediction of alligator cracking. The models developed based on the clusters of climate and traffic parameters were found to be more effective. Based on the developed performance models, the effects of asphalt overlays on pavement distresses and service lives were investigated. When the overlay with recycled asphalt concrete (AC) was applied, the propagation of alligator cracking was faster compared to the overlay with virgin asphalt mixture. Milling before overlay tended to slow the increase of IRI but fasten the development of rut depth.Keywords: Asphalt overlayclusteringdistresseslTPPmachine learningpavement performancerecycled asphalt concrete Disclosure statementNo potential conflict of interest was reported by the author(s).",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/15732479.2023.2258498",
         "url": "https://doi.org/10.1080/15732479.2023.2258498",
         "authors": [
@@ -4372,11 +4225,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3194258433",
         "title": "Machine learning analysis of overweight traffic impact on survival life of asphalt pavement",
-        "display_name": "Machine learning analysis of overweight traffic impact on survival life of asphalt pavement",
         "year": 2021,
-        "cited_by_count": 10,
-        "is_retracted": false,
         "abstract": "The objective of this study is to quantify the impact of overweight traffic on asphalt pavement life using machine learning method for survival analysis. Traffic data and field distress measurements were collected from the long-term pavement performance (LTPP) database. A random survival forest algorithm was used to establish predictive models of load-related pavement distresses considering traffic loading, pavement structure, and climate. The variable importance approach was used to select the appropriate variables in the model and reduce prediction error. The findings indicated that the explanatory variables related to axle load spectra and traffic loading were significant in explaining pavement performance degradation. The derived models were further applied to estimate the survival probability curves of asphalt pavement life at different loading scenarios and evaluate the impact of overweight traffic on the reduction of pavement life. The reduction ratio of pavement life due to alligator cracking resulting from overweight traffic was found to be greater than those due to longitudinal cracking and rutting for all the pavement sections. The study findings indicate that the proposed random survival forest model is a promising approach for quantifying the impact of traffic loading on pavement life considering axle load spectra characteristics.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1080/15732479.2021.1961827",
         "url": "https://doi.org/10.1080/15732479.2021.1961827",
         "authors": [
@@ -4415,11 +4266,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4361216580",
         "title": "OESV-KRF: Optimal ensemble support vector kernel random forest based early detection and classification of skin diseases",
-        "display_name": "OESV-KRF: Optimal ensemble support vector kernel random forest based early detection and classification of skin diseases",
         "year": 2023,
-        "cited_by_count": 56,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.bspc.2023.104779",
         "url": "https://doi.org/10.1016/j.bspc.2023.104779",
         "authors": [
@@ -4465,11 +4314,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4312201162",
         "title": "Application of logistic regression, support vector machine and random forest on the effects of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries",
-        "display_name": "Application of logistic regression, support vector machine and random forest on the effects of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries",
         "year": 2022,
-        "cited_by_count": 11,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.envres.2022.115167",
         "url": "https://doi.org/10.1016/j.envres.2022.115167",
         "authors": [
@@ -4521,11 +4368,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4321354593",
         "title": "Random forest algorithm and support vector machine for nondestructive assessment of mass moisture content of brick walls in historic buildings",
-        "display_name": "Random forest algorithm and support vector machine for nondestructive assessment of mass moisture content of brick walls in historic buildings",
         "year": 2023,
-        "cited_by_count": 40,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.autcon.2023.104793",
         "url": "https://doi.org/10.1016/j.autcon.2023.104793",
         "authors": [
@@ -4565,11 +4410,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3126997349",
         "title": "Prediction of Compressive Strength of Fly Ash Based Concrete Using Individual and Ensemble Algorithm",
-        "display_name": "Prediction of Compressive Strength of Fly Ash Based Concrete Using Individual and Ensemble Algorithm",
         "year": 2021,
-        "cited_by_count": 252,
-        "is_retracted": false,
         "abstract": "Machine learning techniques are widely used algorithms for predicting the mechanical properties of concrete. This study is based on the comparison of algorithms between individuals and ensemble approaches, such as bagging. Optimization for bagging is done by making 20 sub-models to depict the accurate one. Variables like cement content, fine and coarse aggregate, water, binder-to-water ratio, fly-ash, and superplasticizer are used for modeling. Model performance is evaluated by various statistical indicators like mean absolute error (MAE), mean square error (MSE), and root mean square error (RMSE). Individual algorithms show a moderate bias result. However, the ensemble model gives a better result with R2 = 0.911 compared to the decision tree (DT) and gene expression programming (GEP). K-fold cross-validation confirms the model’s accuracy and is done by R2, MAE, MSE, and RMSE. Statistical checks reveal that the decision tree with ensemble provides 25%, 121%, and 49% enhancement for errors like MAE, MSE, and RMSE between the target and outcome response.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/ma14040794",
         "url": "https://doi.org/10.3390/ma14040794",
         "authors": [
@@ -4621,11 +4464,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3043257533",
         "title": "RETRACTED: Behavior assessment, regression analysis and support vector machine (SVM) modeling of waste tire rubberized concrete",
-        "display_name": "RETRACTED: Behavior assessment, regression analysis and support vector machine (SVM) modeling of waste tire rubberized concrete",
         "year": 2020,
-        "cited_by_count": 63,
-        "is_retracted": true,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.jclepro.2020.122960",
         "url": "https://doi.org/10.1016/j.jclepro.2020.122960",
         "authors": [
@@ -4664,11 +4505,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2091693228",
         "title": "A review on applications of ANN and SVM for building electrical energy consumption forecasting",
-        "display_name": "A review on applications of ANN and SVM for building electrical energy consumption forecasting",
         "year": 2014,
-        "cited_by_count": 926,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.rser.2014.01.069",
         "url": "https://doi.org/10.1016/j.rser.2014.01.069",
         "authors": [
@@ -4719,11 +4558,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3024514109",
         "title": "Modeling and Uncertainty Analysis of Groundwater Level Using Six Evolutionary Optimization Algorithms Hybridized with ANFIS, SVM, and ANN",
-        "display_name": "Modeling and Uncertainty Analysis of Groundwater Level Using Six Evolutionary Optimization Algorithms Hybridized with ANFIS, SVM, and ANN",
         "year": 2020,
-        "cited_by_count": 131,
-        "is_retracted": false,
         "abstract": "In the present study, six meta-heuristic schemes are hybridized with artificial neural network (ANN), adaptive neuro-fuzzy interface system (ANFIS), and support vector machine (SVM), to predict monthly groundwater level (GWL), evaluate uncertainty analysis of predictions and spatial variation analysis. The six schemes, including grasshopper optimization algorithm (GOA), cat swarm optimization (CSO), weed algorithm (WA), genetic algorithm (GA), krill algorithm (KA), and particle swarm optimization (PSO), were used to hybridize for improving the performance of ANN, SVM, and ANFIS models. Groundwater level (GWL) data of Ardebil plain (Iran) for a period of 144 months were selected to evaluate the hybrid models. The pre-processing technique of principal component analysis (PCA) was applied to reduce input combinations from monthly time series up to 12-month prediction intervals. The results showed that the ANFIS-GOA was superior to the other hybrid models for predicting GWL in the first piezometer (RMSE:1.21, MAE:0.878, NSE:0.93, PBIAS:0.15, R2:0.93), second piezometer (RMSE:1.22, MAE:0.881, NSE:0.92, PBIAS:0.17, R2:0.94), and third piezometer (RMSE:1.23, MAE:0.911, NSE:0.91, PBIAS:0.19, R2:0.94) in the testing stage. The performance of hybrid models with optimization algorithms was far better than that of classical ANN, ANFIS, and SVM models without hybridization. The percent of improvements in the ANFIS-GOA versus standalone ANFIS in piezometer 10 were 14.4%, 3%, 17.8%, and 181% for RMSE, MAE, NSE, and PBIAS in training stage and 40.7%, 55%, 25%, and 132% in testing stage, respectively. The improvements for piezometer 6 in train step were 15%, 4%, 13%, and 208% and in test step were 33%, 44.6%, 16.3%, and 173%, respectively, that clearly confirm the superiority of developed hybridization schemes in GWL modelling. Uncertainty analysis showed that ANFIS-GOA and SVM had, respectively, the best and worst performances among other models. In general, GOA enhanced the accuracy of the ANFIS, ANN, and SVM models.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/su12104023",
         "url": "https://doi.org/10.3390/su12104023",
         "authors": [
@@ -4764,11 +4601,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2977280727",
         "title": "Linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete",
-        "display_name": "Linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete",
         "year": 2019,
-        "cited_by_count": 227,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2019.117021",
         "url": "https://doi.org/10.1016/j.conbuildmat.2019.117021",
         "authors": [
@@ -4810,11 +4645,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3153085477",
         "title": "Prediction of Peak Particle Velocity Caused by Blasting through the Combinations of Boosted-CHAID and SVM Models with Various Kernels",
-        "display_name": "Prediction of Peak Particle Velocity Caused by Blasting through the Combinations of Boosted-CHAID and SVM Models with Various Kernels",
         "year": 2021,
-        "cited_by_count": 48,
-        "is_retracted": false,
         "abstract": "This research examines the feasibility of hybridizing boosted Chi-Squared Automatic Interaction Detection (CHAID) with different kernels of support vector machine (SVM) techniques for the prediction of the peak particle velocity (PPV) induced by quarry blasting. To achieve this objective, a boosting-CHAID technique was applied to a big experimental database comprising six input variables. The technique identified four input parameters (distance from blast-face, stemming length, powder factor, and maximum charge per delay) as the most significant parameters affecting the prediction accuracy and utilized them to propose the SVM models with various kernels. The kernel types used in this study include radial basis function, polynomial, sigmoid, and linear. Several criteria, including mean absolute error (MAE), correlation coefficient (R), and gains, were calculated to evaluate the developed models’ accuracy and applicability. In addition, a simple ranking system was used to evaluate the models’ performance systematically. The performance of the R and MAE index of the radial basis function kernel of SVM in training and testing phases, respectively, confirm the high capability of this SVM kernel in predicting PPV values. This study successfully demonstrates that a combination of boosting-CHAID and SVM models can identify and predict with a high level of accuracy the most effective parameters affecting PPV values.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/app11083705",
         "url": "https://doi.org/10.3390/app11083705",
         "authors": [
@@ -4864,11 +4697,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3168672392",
         "title": "Gradient boosting-based regression modelling for estimating the time period of the irregular precast concrete structural system with cross bracing",
-        "display_name": "Gradient boosting-based regression modelling for estimating the time period of the irregular precast concrete structural system with cross bracing",
         "year": 2021,
-        "cited_by_count": 2,
-        "is_retracted": false,
         "abstract": "Abstract Regression tree, random forest, bagging and gradient boosting regression-based modelling techniques were used to estimate the time period of precast concrete frame structures with vertical irregularity and cross-bracing using 756 Etabs models. This paper thoroughly explored the efficacy of random forest, regression tree, bagging, gradient boosting-based modelling using RStudio. The time period has been the output parameter while the number of cross-bracing, column size, beam size, soft storey, irregularity coefficient and height of the building has been assigned as input parameters. The accuracy of machine learning techniques has been checked by reference to the formulas published in the literature. A compar- ison of results indicates that the gradient boosting-based regression approach performed well as com- pared to random forest regression, bagging and regression tree.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1007/s44444-025-00073-z",
         "url": "https://doi.org/10.1007/s44444-025-00073-z",
         "authors": [
@@ -4908,11 +4739,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3008008902",
         "title": "An ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete",
-        "display_name": "An ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete",
         "year": 2020,
-        "cited_by_count": 215,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.conbuildmat.2020.118271",
         "url": "https://doi.org/10.1016/j.conbuildmat.2020.118271",
         "authors": [
@@ -4955,11 +4784,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4200482198",
         "title": "Strength prediction models for recycled aggregate concrete using Random Forests, ANN and LASSO",
-        "display_name": "Strength prediction models for recycled aggregate concrete using Random Forests, ANN and LASSO",
         "year": 2021,
-        "cited_by_count": 28,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Prediction of concrete strength is essential for proportioning new mixtures and quality affirmation of the concrete manufactured. Moreover, in the construction sector, obtaining 28 days compressive strength is not a usual practice as it takes a long time to obtain the results. Researches have been made to predict the above, using Multi Linear Regression, Adaptive neuro-fuzzy inference system and Genetic algorithm where not many comparisons include ensemble method like Random Forests. In this study, three different machine learning algorithms such as Random Forests, Artificial Neural Network, Least absolute shrinkage and selection operator (LASSO) have been utilized to arrive and compare the strength prediction models which minimize the cost and time spent on testing. Finally, the Random Forests algorithm was found to be 3.6% and 6.2% more accurate when compared to Artificial Neural Network and LASSO respectively. This strategy also enables the creation of prediction models that are less prone to overfitting.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s41024-021-00145-y",
         "url": "https://doi.org/10.1007/s41024-021-00145-y",
         "authors": [
@@ -4992,11 +4819,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4285801958",
         "title": "Prediction of Mechanical Strength by Using an Artificial Neural Network and Random Forest Algorithm",
-        "display_name": "Prediction of Mechanical Strength by Using an Artificial Neural Network and Random Forest Algorithm",
         "year": 2022,
-        "cited_by_count": 84,
-        "is_retracted": false,
         "abstract": "Geopolymer concrete could be the best alternative to ordinary Portland cement concrete due to its higher performance in any severe condition. It reduces the carbon footprints to a very higher level. Machine learning methods are the future of the construction industry because it predicts the mechanical strengths of concrete mix design on the basis of their constituents without destructive test conduction. This study is aimed at developing the models to predict the mechanical strengths and validate them with the actual results. After the experimental investigation, we found the results of the mechanical (including compressive, splitting tensile, and flexural tensile) strength. The M2 mix of geopolymer concrete got the highest mechanical strengths whereas the M5 mix gets the lowest mechanical strengths among all the mix designs. The machine learning methods ANN (artificial neural network) and random forest are used to develop the models based on mixed experimental results. Mechanical strength results are taken as outputs, and mixed constituents are taken as inputs for training and testing. The performance of predicted results is checked based on R 2 , MAE (mean absolute error), RMSE (relative mean square error), RAE (relative absolute error), and RRSE (root‐relative square error). Random forest models show the best prediction to the ANN models because it shows the negligible error between actual and predicted values. The R 2 value is 1 of 12 predicted results out of 15 by the use of random forest methods. So it is most suitable to predict the strength of geopolymer concrete based on their constituent’s material quantity.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1155/2022/7791582",
         "url": "https://doi.org/10.1155/2022/7791582",
         "authors": [
@@ -5049,11 +4874,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4224085183",
         "title": "On fine-tuning deep learning models using transfer learning and hyper-parameters optimization for disease identification in maize leaves",
-        "display_name": "On fine-tuning deep learning models using transfer learning and hyper-parameters optimization for disease identification in maize leaves",
         "year": 2022,
-        "cited_by_count": 121,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Maize is one of the world's most important food crops, but its cultivation is hampered by diseases. Rapid disease identification remains a challenge due to a lack of the necessary infrastructure. This necessitates the development of automated methods to identify diseases. In this research, the use of deep learning models to identify maize leaf diseases is proposed. In this article, we investigate the transfer learning of deep convolutional neural networks for the detection of maize leaf diseases and explore employing the knowledge of pre-trained models and then transferring the knowledge to our dataset. In this attempt, we employ pre-trained VGG16, ResNet50, InceptionV3, and Xception models to classify three common maize leaf diseases using a dataset of 18,888 images of healthy and diseased leaves. Besides, Bayesian optimization is used to choose optimal values for hyperparameters, and image augmentation is used to improve the model's ability to generalize. The work includes a comparative study and analysis of the proposed models. The results demonstrate that all trained models have an accuracy of more than 93% in classifying maize leaf diseases. In particular, VGG16, InceptionV3, and Xception achieved an accuracy of more than 99%. Furthermore, our methodology provides new avenues for the detection of maize leaf diseases.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1007/s00521-022-07246-w",
         "url": "https://doi.org/10.1007/s00521-022-07246-w",
         "authors": [
@@ -5092,11 +4915,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3146977894",
         "title": "Intelligent Fault Diagnosis of Rotary Machinery by Convolutional Neural Network with Automatic Hyper-Parameters Tuning Using Bayesian Optimization",
-        "display_name": "Intelligent Fault Diagnosis of Rotary Machinery by Convolutional Neural Network with Automatic Hyper-Parameters Tuning Using Bayesian Optimization",
         "year": 2021,
-        "cited_by_count": 79,
-        "is_retracted": false,
         "abstract": "Intelligent fault diagnosis can be related to applications of machine learning theories to machine fault diagnosis. Although there is a large number of successful examples, there is a gap in the optimization of the hyper-parameters of the machine learning model, which ultimately has a major impact on the performance of the model. Machine learning experts are required to configure a set of hyper-parameter values manually. This work presents a convolutional neural network based data-driven intelligent fault diagnosis technique for rotary machinery which uses model with optimized hyper-parameters and network structure. The proposed technique input raw three axes accelerometer signal as high definition 1-D data into deep learning layers with optimized hyper-parameters. Input is consisted of wide 12,800 × 1 × 3 vibration signal matrix. Model learning phase includes Bayesian optimization that optimizes hyper-parameters of the convolutional neural network. Finally, by using a Convolutional Neural Network (CNN) model with optimized hyper-parameters, classification in one of the 8 different machine states and 2 rotational speeds can be performed. This study accomplished the effective classification of different rotary machinery states in different rotational speeds using optimized convolutional artificial neural network for classification of raw three axis accelerometer signal input. Overall classification accuracy of 99.94% on evaluation set is obtained with the CNN model based on 19 layers. Additionally, more data are collected on the same machine with altered bearings to test the model for overfitting. Result of classification accuracy of 100% on second evaluation set has been achieved, proving the potential of using the proposed technique.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.3390/s21072411",
         "url": "https://doi.org/10.3390/s21072411",
         "authors": [
@@ -5137,11 +4958,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3008932423",
         "title": "Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach",
-        "display_name": "Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach",
         "year": 2020,
-        "cited_by_count": 64,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.aei.2020.101057",
         "url": "https://doi.org/10.1016/j.aei.2020.101057",
         "authors": [
@@ -5178,11 +4997,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4303444766",
         "title": "Ensemble Machine Learning approach for evaluating the material characterization of carbon nanotube-reinforced cementitious composites",
-        "display_name": "Ensemble Machine Learning approach for evaluating the material characterization of carbon nanotube-reinforced cementitious composites",
         "year": 2022,
-        "cited_by_count": 63,
-        "is_retracted": false,
         "abstract": null,
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.cscm.2022.e01537",
         "url": "https://doi.org/10.1016/j.cscm.2022.e01537",
         "authors": [
@@ -5218,11 +5035,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W4391560002",
         "title": "Forecasting the strength of graphene nanoparticles-reinforced cementitious composites using ensemble learning algorithms",
-        "display_name": "Forecasting the strength of graphene nanoparticles-reinforced cementitious composites using ensemble learning algorithms",
         "year": 2024,
-        "cited_by_count": 42,
-        "is_retracted": false,
         "abstract": "Contemporary infrastructure requires structural elements with enhanced mechanical strength and durability. Integrating nanomaterials into concrete is a promising solution to improve concrete strength and durability. However, the intricacies of such nanoscale cementitious composites are highly complex. Traditional regression models encounter limitations in capturing these intricate compositions to provide accurate and reliable estimations. This study focuses on developing robust prediction models for the compressive strength (CS) of graphene nanoparticle-reinforced cementitious composites (GrNCC) through machine learning (ML) algorithms. Three ML models, bagging regressor (BR), decision tree (DT), and AdaBoost regressor (AR), were employed to predict CS based on a comprehensive dataset of 172 experimental values. Seven input parameters, including graphite nanoparticle (GrN) diameter, water-to-cement ratio (wc), GrN content (GC), ultrasonication (US), sand content (SC), curing age (CA), and GrN thickness (GT), were considered. The models were trained with 70 % of the data, and the remaining 30 % of the data was used for testing the models. Statistical metrics such as mean absolute error (MAE), root mean square error (RMSE) and correlation coefficient (R) were employed to assess the predictive accuracy of the models. The DT and AR models demonstrated exceptional accuracy, yielding high correlation coefficients of 0.983 and 0.979 for training, and 0.873 and 0.822 for testing, respectively. Shapley Additive exPlanation (SHAP) analysis highlighted the influential role of curing age and GrN thickness (GT), positively impacting CS, while an increased water-to-cement ratio (w/c) negatively affected CS. This study showcases the efficacy of ML techniques in accurately predicting CS of graphene nanoparticle-modified concrete, offering a swift and cost-effective approach for assessing nanomaterial impact on concrete strength and reducing reliance on time-consuming and expensive experiments.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.1016/j.rineng.2024.101837",
         "url": "https://doi.org/10.1016/j.rineng.2024.101837",
         "authors": [
@@ -5276,11 +5091,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W3136814736",
         "title": "Sustainable utilization of foundry waste: Forecasting mechanical properties of foundry sand based concrete using multi-expression programming",
-        "display_name": "Sustainable utilization of foundry waste: Forecasting mechanical properties of foundry sand based concrete using multi-expression programming",
         "year": 2021,
-        "cited_by_count": 161,
-        "is_retracted": false,
-        "abstract": null,
+        "abstract": "Waste Foundry sand (WFS), a major solid waste from metal casting industry, is posing a significant environmental threat owing to its disposal to landfills. In this research, an innovative artificial intelligence technique i.e. Multi-Expression Programming (MEP) is applied to model the split tensile strength (ST) and modulus of elasticity (E) of concrete containing waste foundry sand (CWFS). The presented formulations correlate mechanical properties with four input variables i.e. w/c, foundry sand content, superplasticizer content and compressive strength. The results of statistical analysis validate the model accuracy as evident by the low values of objective function (0.033 for E and 0.052 for ST). Moreover, the average error in the predicted values is significantly low i.e. 0.287 MPa and 1.75 GPa for ST and E model, respectively. Parametric study depicts that the models are well trained to accurately predict the trends of mechanical properties with variation in mix parameters. The prediction models can promote the usage of WFS in green concrete thereby preventing waste disposal and contributing towards and sustainable construction.",
+        "is_scraped": true,
         "doi": "https://doi.org/10.1016/j.scitotenv.2021.146524",
         "url": "https://doi.org/10.1016/j.scitotenv.2021.146524",
         "authors": [
@@ -5333,11 +5146,9 @@
       "external_metadata": {
         "id": "https://openalex.org/W2058998445",
         "title": "Model Evaluation Guidelines for Systematic Quantification of Accuracy in Watershed Simulations",
-        "display_name": "Model Evaluation Guidelines for Systematic Quantification of Accuracy in Watershed Simulations",
         "year": 2007,
-        "cited_by_count": 12689,
-        "is_retracted": false,
         "abstract": "Watershed models are powerful tools for simulating the effect of watershed processes and management on soil and water resources. However, no comprehensive guidance is available to facilitate model evaluation in terms of the accuracy of simulated data compared to measured flow and constituent values. Thus, the objectives of this research were to: (1) determine recommended model evaluation techniques (statistical and graphical), (2) review reported ranges of values and corresponding performance ratings for the recommended statistics, and (3) establish guidelines for model evaluation based on the review results and project-specific considerations; all of these objectives focus on simulation of streamflow and transport of sediment and nutrients. These objectives were achieved with a thorough review of relevant literature on model application and recommended model evaluation methods. Based on this analysis, we recommend that three quantitative statistics, Nash-Sutcliffe efficiency (NSE), percent bias (PBIAS), and ratio of the root mean square error to the standard deviation of measured data (RSR), in addition to the graphical techniques, be used in model evaluation. The following model evaluation performance ratings were established for each recommended statistic. In general, model simulation can be judged as satisfactory if NSE > 0.50 and RSR < 0.70, and if PBIAS + 25% for streamflow, PBIAS + 55% for sediment, and PBIAS + 70% for N and P. For PBIAS, constituent-specific performance ratings were determined based on uncertainty of measured data. Additional considerations related to model evaluation guidelines are also discussed. These considerations include: single-event simulation, quality and quantity of measured data, model calibration procedure, evaluation time step, and project scope and magnitude. A case study illustrating the application of the model evaluation guidelines is also provided.",
+        "is_scraped": false,
         "doi": "https://doi.org/10.13031/2013.23153",
         "url": "https://doi.org/10.13031/2013.23153",
         "authors": [
@@ -5363,13 +5174,5 @@
         "venue": "Transactions of the ASABE"
       }
     }
-  ],
-  "enrichment_summary": {
-    "total_references": 104,
-    "successfully_enriched": 103,
-    "failed": 1,
-    "cached": 0,
-    "metadata_mismatches": 4,
-    "success_rate": "99.0%"
-  }
+  ]
 }

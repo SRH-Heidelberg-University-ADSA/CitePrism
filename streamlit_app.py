@@ -24,7 +24,8 @@ from ui.tabs.tab_2_raw import render_raw_data_tab
 from ui.tabs.tab_3_logs import render_logs_tab
 from ui.tabs.tab_4_ide import render_analyst_ide
 from ui.tabs.tab_5_advanced import render_advanced_features
-
+from ui.tabs.tab_6_evaluate import render_evaluation_tab
+    
 # Configure explicit terminal logging for VS Code
 LOG_DIR = project_root / "logs"
 LOG_DIR.mkdir(exist_ok=True)
@@ -135,7 +136,7 @@ def render_welcome_page():
             '<div style="margin: 20px 0;">'
             '<p style="font-size: 1.15rem; color: #555; margin-bottom: 8px;"><b>Contributors:</b></p>'
             '<p style="font-size: 1.1rem; color: #222; margin: 0; line-height: 1.8; font-weight: 500;">'
-            'Darshan<br>Gowrika<br>Kavana<br>Prajwal'
+            'Budanur Madappa Darshan Gowda<br>Gowrika Mahesh<br>Kavana Gopladevarahalli Papegowda<br>Prajwal Basavaraj'
             '</p>'
             '</div>'
             '<div style="margin-top: 35px;">'
@@ -218,6 +219,7 @@ def render_main_app():
         "📊 Audit Data Explorer", 
         "🕵️ Analyst IDE", 
         "🎓 Advanced Features",
+        "📈 Evaluation Metrics", # <--- ADDED TAB 6
         "📋 System Logs"  
     ]
     
@@ -244,6 +246,8 @@ def render_main_app():
         render_analyst_ide()
     elif st.session_state.active_tab == "🎓 Advanced Features":
         render_advanced_features()
+    elif st.session_state.active_tab == "📈 Evaluation Metrics": # <--- ADDED ROUTING FOR TAB 6
+        render_evaluation_tab()
     elif st.session_state.active_tab == "📋 System Logs":
         render_logs_tab()
 

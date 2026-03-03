@@ -293,9 +293,28 @@ def render_analyst_ide():
 
             # Interactive Table
             st.markdown("### 📋 Detailed Audit Table")
+            
+            # --- NEW TABLE LEGEND ---
+            st.markdown("""
+            <div style="background-color: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 15px; font-size: 0.95rem;">
+                <strong style="color: #333;">📖 Table Legend:</strong>
+                <ul style="margin-top: 5px; margin-bottom: 0; color: #555;">
+                    <li><span style="background-color: rgba(255, 0, 0, 0.1); padding: 2px 5px; border-radius: 3px; border: 1px solid #f5c6cb;">Red Highlighted Row</span> & 🚩 <b>Flagged:</b> AI scored this reference below your threshold (τ). Requires human review.</li>
+                    <li>✅ <b>OK:</b> The reference scored above the threshold and is contextually relevant.</li>
+                    <li>👤 <b>Self-Cite:</b> The author of this cited paper is also an author of the main manuscript.</li>
+                    <li>⚠️ <b>Issue:</b> Potential quality risk (e.g., retracted paper, missing DOI, or metadata mismatch).</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+            # ------------------------
+
             df = pd.DataFrame(table_data)
+            
+            # Apply row highlighting
             def highlight_flagged(row):
                 return ['background-color: rgba(255, 0, 0, 0.1)'] * len(row) if row['Status'] == '🚩 Flagged' else [''] * len(row)
+            
+            # Render the dataframe
             st.dataframe(df.style.apply(highlight_flagged, axis=1), use_container_width=True, hide_index=True)
             
             # --- EXPORT BUTTONS ---

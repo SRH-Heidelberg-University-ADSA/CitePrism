@@ -271,11 +271,7 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 40.75,
       "RS_llm": 20,
@@ -285,10 +281,8 @@
       "llm_evidence": [
         "The pavement system consists of several layers having different material properties."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[2]",
@@ -330,24 +324,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 11.14,
       "RS_llm": 20,
       "RS_final": 16.46,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses in-field temperature variations in fresh HMA and corresponding compaction temperatures, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses in-field temperature variations in fresh HMA, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The pavement system consists of several layers having different material properties."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[3]",
@@ -417,24 +405,18 @@
         "venue": "Journal of Materials in Civil Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 55.53,
-      "RS_llm": 20,
-      "RS_final": 34.21,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses intelligent compaction technology for asphalt pavement construction, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "RS_llm": 30,
+      "RS_final": 40.21,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses intelligent compaction technology, which is related to the manuscript's focus on compacted subgrade soils, but it does not directly address resilient modulus.",
       "llm_evidence": [
         "The collected IC data were then used to compute the intelligent compaction measurement values (ICMVs)."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[4]",
@@ -472,11 +454,7 @@
         "venue": "Case Studies in Construction Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 31.92,
       "RS_llm": 20,
@@ -484,12 +462,10 @@
       "label": "irrelevant",
       "llm_rationale": "The reference discusses sustainable re-use of waste glass, cement, and lime-treated dredged material as pavement material, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "These layers typically include the surface, base, subbase, and subgrade [1 – 3]"
+        "These layers typically include the surface, base, subbase, and subgrade [1 – 3]."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[5]",
@@ -527,11 +503,7 @@
         "venue": "Transportation Research Record Journal of the Transportation Research Board"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 35.19,
       "RS_llm": 20,
@@ -539,11 +511,10 @@
       "label": "irrelevant",
       "llm_rationale": "The reference discusses self-healing characteristics of polyvinyl alcohol-fiber-reinforced hot mix asphalt, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]"
+        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[6]",
@@ -597,11 +568,7 @@
         "venue": "IEEE Transactions on Visualization and Computer Graphics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 15.7,
       "RS_llm": 20,
@@ -609,11 +576,10 @@
       "label": "irrelevant",
       "llm_rationale": "The reference discusses fluid inverse volumetric modeling and applications from surface motion, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]"
+        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[7]",
@@ -651,23 +617,18 @@
         "venue": "Transportation Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 44.6,
       "RS_llm": 40,
       "RS_final": 41.84,
       "label": "borderline",
-      "llm_rationale": "The reference discusses moisture influence on structural responses of pavement on expansive soils, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils, but the relevance is not strong.",
+      "llm_rationale": "The reference discusses moisture influence on structural responses of pavement on expansive soils, which is related to the manuscript's focus on subgrade soils, but it does not directly address resilient modulus.",
       "llm_evidence": [
-        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]"
+        "It transfers applied loads to the ground."
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[8]",
@@ -725,24 +686,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 34.72,
       "RS_llm": 40,
       "RS_final": 37.89,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses thermal fatigue and cracking behaviors of asphalt mixtures under different temperature variations, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils, but the relevance is not strong.",
+      "llm_rationale": "The reference discusses thermal fatigue and cracking behaviors of asphalt mixtures under different temperature variations, which is related to the manuscript's focus on pavement performance, but it does not directly address resilient modulus.",
       "llm_evidence": [
         "It transfers applied loads to the ground."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[9]",
@@ -796,23 +751,18 @@
         "venue": "Journal of Environmental Management"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 36.65,
       "RS_llm": 60,
       "RS_final": 50.66,
       "label": "borderline",
-      "llm_rationale": "The reference discusses application of coal fly ash in pavement subgrade stabilization, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses application of coal fly ash in pavement subgrade stabilization, which is related to the manuscript's focus on subgrade soils and resilient modulus.",
       "llm_evidence": [
-        "This layer typically consists of varying soil combinations is considered as the fundamental base of the pavement structure, and is responsible for transferring applied loads to the ground [9]"
+        "This layer typically consists of varying soil combinations is considered as the fundamental base of the pavement structure, and is responsible for transferring applied loads to the ground [9]."
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[10]",
@@ -878,11 +828,7 @@
         "venue": "International Journal of Pavement Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 64.54,
       "RS_llm": 80,
@@ -892,6 +838,7 @@
       "llm_evidence": [
         "The performance of the ELM-EO approach was evaluated and compared with conventional regression, ELM-biogeography-based optimisation (BBO) (ELM-BBO) and ELM-genetic algorithm (ELM-GA) approaches using the same input properties."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -930,11 +877,7 @@
         "venue": "Acta Geotechnica"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 71.33,
       "RS_llm": 80,
@@ -944,6 +887,7 @@
       "llm_evidence": [
         "The study of input features and hyperparameters was conducted to determine the optimal architecture of the machine learning models."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -986,20 +930,17 @@
         "venue": "International Journal of Pavement Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 70.51,
-      "RS_llm": 90,
-      "RS_final": 82.2,
+      "RS_llm": 80,
+      "RS_final": 76.2,
       "label": "relevant",
       "llm_rationale": "The reference discusses predicting resilient modulus of flexible pavement foundation using extreme gradient boosting based optimised models, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The Mr of compacted pavement subgrade soils depends upon multiple factors."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -1054,11 +995,7 @@
         "venue": "Structural Control and Health Monitoring"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 17.41,
       "RS_llm": 20,
@@ -1066,11 +1003,10 @@
       "label": "irrelevant",
       "llm_rationale": "The reference discusses experiment and application of NATM tunnel deformation monitoring based on 3D laser scanning, which is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "This layer typically consists of varying soil combinations is considered as the fundamental base of the pavement structure, and is responsible for transferring applied loads to the ground [9]"
+        "The strength and stiffness of these layers play an important role in designing the pavement system [4 – 6]."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[14]",
@@ -1112,11 +1048,7 @@
         "venue": "International Journal of Pavement Research and Technology"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 58.65,
       "RS_llm": 80,
@@ -1126,6 +1058,7 @@
       "llm_evidence": [
         "The Mr of the soil has a direct relationship with both fatigue cracking and permanent deformation."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -1180,11 +1113,7 @@
         "venue": "Road Materials and Pavement Design"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 73.15,
       "RS_llm": 80,
@@ -1192,8 +1121,9 @@
       "label": "relevant",
       "llm_rationale": "The reference discusses machine learning-based prediction of resilient modulus for blends of tire-derived aggregates and demolition wastes, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The Mr of the soil has a direct relationship with both fatigue cracking and permanent deformation."
+        "The results exhibited the robustness of machine learning algorithms used for predicting the Mr of C&D/TDA wastes."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -1228,20 +1158,17 @@
         "venue": "Transportation Infrastructure Geotechnology"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 75.07,
-      "RS_llm": 90,
-      "RS_final": 84.03,
+      "RS_llm": 80,
+      "RS_final": 78.03,
       "label": "relevant",
       "llm_rationale": "The reference discusses developing prediction equations for soil resilient modulus using evolutionary machine learning, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The Mr of the soil has a direct relationship with both fatigue cracking and permanent deformation."
+        "The R2 for the developed models ranged from 0.91 to 0.93 for the testing set."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -1377,11 +1304,7 @@
         "venue": "iMeta"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 0.0,
       "RS_llm": 20,
@@ -1391,9 +1314,8 @@
       "llm_evidence": [
         "The Mr of the soil has a direct relationship with both fatigue cracking and permanent deformation."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[18]",
@@ -1439,23 +1361,18 @@
         "venue": "Cold Regions Science and Technology"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 41.93,
       "RS_llm": 40,
       "RS_final": 40.77,
       "label": "borderline",
-      "llm_rationale": "The reference discusses evaluation of climate effect on resilient modulus of granular subgrade material, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils, but the relevance is not strong.",
+      "llm_rationale": "The reference discusses evaluation of climate effect on resilient modulus of granular subgrade material, which is related to the manuscript's focus on subgrade soils, but it does not directly address resilient modulus.",
       "llm_evidence": [
-        "These factors encompass a range of characteristics and conditions that affect the soil’s ability to withstand and recover from applied loads [12]"
+        "Each of these factors contributes to the overall resilient modulus of the subgrade soils."
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[19]",
@@ -1505,20 +1422,17 @@
         "venue": "International Journal of Pavement Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 53.07,
       "RS_llm": 60,
       "RS_final": 57.23,
       "label": "borderline",
-      "llm_rationale": "The reference discusses resilient modulus estimation using in-situ modulus detector, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses resilient modulus estimation using in-situ modulus detector, which is related to the manuscript's focus on subgrade soils and resilient modulus.",
       "llm_evidence": [
         "The resilient modulus estimated from the IMD is compared with the lightweight deflectometer (LWD) modulus."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -1561,11 +1475,7 @@
         "venue": "International Journal of Pavement Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 76.7,
       "RS_llm": 80,
@@ -1575,6 +1485,7 @@
       "llm_evidence": [
         "The three machine learning methods were satisfactory for the prediction based on R2 values which were generally above 0.9."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -1621,23 +1532,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 47.16,
       "RS_llm": 60,
       "RS_final": 54.86,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the factors influencing the resilient modulus of subgrade soils, but it does not provide a specific model or method for estimating it.",
+      "llm_rationale": "The reference discusses factors influencing the resilient modulus of subgrade soils, but does not provide a predictive model or ensemble learning approach.",
       "llm_evidence": [
-        "Each of these factors contributes to the overall resilient modulus of the subgrade soils and plays a significant role in determining their response to traffic loading and subsequent pavement performance [21]."
+        "Some key factors include the soil’s composition, density, moisture content, stress history, temperature, and loading frequency"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[22]",
@@ -1687,23 +1593,18 @@
         "venue": "Computers and Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 55.17,
       "RS_llm": 40,
       "RS_final": 46.07,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the factors influencing the moisture content of subgrade soils, but it does not provide any information on the resilient modulus.",
+      "llm_rationale": "The reference discusses the importance of moisture content in subgrade soils, but does not provide a direct connection to the manuscript's claims.",
       "llm_evidence": [
-        "The moisture content can vary seasonally due to environmental factors, such as precipitation, surface infiltration, plant transpiration, evaporation, temperature fluctuation, and groundwater table variation [22-24]."
+        "The moisture content can vary seasonally due to environmental factors"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[23]",
@@ -1753,21 +1654,20 @@
         "venue": "International Journal of Pavement Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 57.81,
       "RS_llm": 80,
       "RS_final": 71.12,
       "label": "relevant",
-      "llm_rationale": "The reference presents a new resilient modulus model incorporating stress dependence and moisture dependence, and it provides a method for estimating the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference proposes a new resilient modulus model incorporating stress dependence and moisture dependence, which aligns with the manuscript's focus on interpretable approaches.",
       "llm_evidence": [
-        "A series of performance-related soil properties were measured and used to develop the coefficients prediction models. The developed coefficients prediction models using the performance-related soil properties have high R-squared values and were validated by comparing the measured and predicted values of resilient modulus."
+        "The developed coefficients prediction models using the performance-related soil properties have high R-squared values"
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
     },
     {
       "ref_id": "[24]",
@@ -1817,23 +1717,18 @@
         "venue": "Journal of Cleaner Production"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 50.92,
       "RS_llm": 40,
       "RS_final": 44.37,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the use of construction and demolition waste in pavement subgrade, but it does not provide any information on the resilient modulus.",
+      "llm_rationale": "The reference discusses the characterization of resilient behavior of pavement subgrade with construction and demolition waste, but does not provide a direct connection to the manuscript's claims.",
       "llm_evidence": [
-        "Typically, subgrade soils are compacted at their maximum dry unit weight and optimal moisture content. The moisture content can vary seasonally due to environmental factors, such as precipitation, surface infiltration, plant transpiration, evaporation, temperature fluctuation, and groundwater table variation [22-24]."
+        "Typically, subgrade soils are compacted at their maximum dry unit weight and optimal moisture content"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[25]",
@@ -1883,23 +1778,18 @@
         "venue": "Transportation Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 54.19,
       "RS_llm": 60,
       "RS_final": 57.68,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the effects of freeze-thaw cycles on the resilient modulus of unsaturated granular base course material, but it does not provide a specific model or method for estimating it.",
+      "llm_rationale": "The reference discusses the effect of freeze-thaw cycles on the resilient modulus of unsaturated granular base course material, but does not provide a predictive model or ensemble learning approach.",
       "llm_evidence": [
-        "In regions where seasonal freezing occurs, FT cycles can cause substantial harm to pavements. Thus, resulting in pavement surface spalling and cracking [25]."
+        "In regions where seasonal freezing occurs, FT cycles can cause substantial harm to pavements"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[26]",
@@ -1937,23 +1827,18 @@
         "venue": "Road Materials and Pavement Design"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 47.62,
-      "RS_llm": 90,
-      "RS_final": 73.05,
-      "label": "relevant",
-      "llm_rationale": "The reference presents an investigation of the long-term and immediate effects of freeze-thaw cycles on the resilient modulus of treated expansive subgrades, and it provides a method for estimating the resilient modulus of subgrade soils.",
+      "RS_llm": 80,
+      "RS_final": 67.05,
+      "label": "borderline",
+      "llm_rationale": "The reference investigates the long-term and immediate effects of freeze-thaw cycles on the resilient modulus of treated expansive subgrades, which aligns with the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "The results indicated a reduction in MR by about three times due to FT cycles regardless of lime-treatment. This reduction mostly took place after first FT cycle and showed a dependency on FT cycle number."
+        "The results indicated a reduction in MR by about three times due to FT cycles regardless of lime-treatment"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[27]",
@@ -1995,20 +1880,17 @@
         "venue": "Journal of Materials in Civil Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 50.05,
       "RS_llm": 40,
       "RS_final": 44.02,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the use of reclaimed asphalt pavement aggregates in road construction, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses the resilient moduli response of moderately cement-treated reclaimed asphalt pavement aggregates, but does not provide a direct connection to the manuscript's claims.",
       "llm_evidence": [
-        "The Mr refers to a measure of the elastic modulus (EM) that defines the non-linear stress-strain properties of subgrade materials [27-30]."
+        "The Mr refers to a measure of the elastic modulus (EM) that defines the non-linear stress-strain properties of subgrade materials"
       ],
+      "citation_intent": "Background",
       "quality_flags": []
     },
     {
@@ -2055,23 +1937,18 @@
         "venue": "Actuators"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 15.8,
       "RS_llm": 0,
       "RS_final": 6.32,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses fault detection in point machines, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses fault detection for point machines, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Furthermore, when pavement materials experience desiccation (drying out) and thermal shrinkage (reduction in volume due to temperature changes), longitudinal and transverse cracks may appear. The Mr refers to a measure of the elastic modulus (EM) that defines the non-linear stress-strain properties of subgrade materials [27-30]."
+        "Point machines are the actuators for railway switching and crossing systems"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[29]",
@@ -2117,23 +1994,18 @@
         "venue": "Journal of Engineering Mechanics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 12.91,
       "RS_llm": 0,
       "RS_final": 5.16,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses parameter identification in nonlinear systems, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses constrained unscented and cubature Kalman filters for nonlinear system parameter identification, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Furthermore, when pavement materials experience desiccation (drying out) and thermal shrinkage (reduction in volume due to temperature changes), longitudinal and transverse cracks may appear. The Mr refers to a measure of the elastic modulus (EM) that defines the non-linear stress-strain properties of subgrade materials [27-30]."
+        "Accurate and efficient parameter identification along with uncertainty quantification in nonlinear systems is crucial"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[30]",
@@ -2187,24 +2059,18 @@
         "venue": "Case Studies in Construction Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 65.43,
       "RS_llm": 0,
       "RS_final": 26.17,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the prediction of mechanical properties of plastic concrete, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses predicting the mechanical properties of plastic concrete using genetic programming and ensemble learners, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Furthermore, when pavement materials experience desiccation (drying out) and thermal shrinkage (reduction in volume due to temperature changes), longitudinal and transverse cracks may appear. The Mr refers to a measure of the elastic modulus (EM) that defines the non-linear stress-strain properties of subgrade materials [27-30]."
+        "This study presents a comparative analysis of individual and ensemble learning algorithms to predict the compressive strength and flexural strength of plastic concrete"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[31]",
@@ -2254,23 +2120,18 @@
         "venue": "Rock Mechanics and Rock Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 26.95,
-      "RS_llm": 80,
-      "RS_final": 58.78,
+      "RS_llm": 60,
+      "RS_final": 46.78,
       "label": "borderline",
-      "llm_rationale": "The reference presents an investigation of the creep damage mechanism of granite, and it provides information on the measurement of the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses the creep damage mechanism of granite under triaxial cyclic loading and unloading, but does not provide a predictive model or ensemble learning approach.",
       "llm_evidence": [
-        "M r considers the effects of various stress states, including traffic loading, confining stress, cyclic stress, and deviator stress. In addition, Mr can be determined through various laboratory testing methods, which include in-situ testing, cyclic tri-axial load testing, resonant column testing, and torsional shear testing [31-33]."
+        "M r considers the effects of various stress states, including traffic loading, confining stress, cyclic stress, and deviator stress"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[32]",
@@ -2320,25 +2181,18 @@
         "venue": "International Journal of Fatigue"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 7.95,
-      "RS_llm": 40,
-      "RS_final": 27.18,
+      "RS_llm": 0,
+      "RS_final": 3.18,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the macro-meso fatigue failure of bimrocks, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses macro-meso fatigue failure of bimrocks with various block content subjected to multistage fatigue triaxial loads, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "M r considers the effects of various stress states, including traffic loading, confining stress, cyclic stress, and deviator stress. In addition, Mr can be determined through various laboratory testing methods, which include in-situ testing, cyclic tri-axial load testing, resonant column testing, and torsional shear testing [31-33]."
+        "No abstract available"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[33]",
@@ -2376,20 +2230,17 @@
         "venue": "Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 62.54,
-      "RS_llm": 90,
-      "RS_final": 79.02,
+      "RS_llm": 80,
+      "RS_final": 73.02,
       "label": "relevant",
-      "llm_rationale": "The reference presents a methodology for selecting the appropriate subgrade resilient modulus for predicting rutting and IRI, and it provides information on the measurement of the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses the effect of the field-stress state on the subgrade resilient modulus for pavement rutting and IRI, which aligns with the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "The resilient modulus increases with an increase in confining pressure, whereas, for an increase in deviatoric stress, it increases for granular soils and decreases for fine-grained soils."
+        "The resilient modulus increases with an increase in confining pressure"
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -2424,24 +2275,19 @@
         "venue": "OhioLink ETD Center (Ohio Library and Information Network)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 30.96,
       "RS_llm": 0,
       "RS_final": 12.38,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the development of a constitutive model for resilient modulus, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses the development of a constitutive model for resilient modulus, but does not provide a direct connection to the manuscript's claims.",
       "llm_evidence": [
-        "No abstract available."
+        "No abstract available"
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
+        "MISSING DOI"
       ]
     },
     {
@@ -2480,21 +2326,20 @@
         "venue": null
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 63.88,
-      "RS_llm": 80,
-      "RS_final": 73.55,
-      "label": "relevant",
-      "llm_rationale": "The reference presents a study on the determination of resilient modulus for Maine roadway soils, and it provides information on the measurement of the resilient modulus of subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 49.55,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the determination of resilient modulus for Maine roadway soils, but does not provide a predictive model or ensemble learning approach.",
       "llm_evidence": [
-        "Resilient modulus is a measure of soil layer stiffness and is highly subjective to density, moisture content, soil fabric structure, compaction method, laboratory equipment compliance, and technician skill."
+        "Resilient modulus is a measure of soil layer stiffness and is highly subjective to density, moisture content, soil fabric structure, compaction method, laboratory equipment compliance, and technician skill"
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[36]",
@@ -2532,23 +2377,18 @@
         "venue": "Geotechnical Testing Journal"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 45.83,
-      "RS_llm": 90,
-      "RS_final": 72.33,
-      "label": "relevant",
-      "llm_rationale": "The reference presents a study on the prediction models of resilient modulus for nongranular materials, and it provides information on the measurement of the resilient modulus of subgrade soils.",
+      "RS_llm": 80,
+      "RS_final": 66.33,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the prediction models of resilient modulus for nongranular materials, which aligns with the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "The first model provides a quick estimation of the resilient modulus based on basic characteristics of the specimens, while the second model includes a family of curves that relate a normalized modulus to the resilient axial strains and the plasticity index of the specimens."
+        "The first model provides a quick estimation of the resilient modulus based on basic characteristics of the specimens"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[37]",
@@ -2594,23 +2434,18 @@
         "venue": "SOILS AND FOUNDATIONS"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 59.75,
-      "RS_llm": 90,
-      "RS_final": 77.9,
+      "RS_llm": 80,
+      "RS_final": 71.9,
       "label": "relevant",
-      "llm_rationale": "The reference presents an experimental investigation of the cyclic and static moduli and the strength properties of compacted pavement subgrade soils, and it provides information on the measurement of the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses the characterization of cyclic and static moduli and strength of compacted pavement subgrade soils considering moisture variation, which aligns with the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Cyclic triaxial tests were performed to reliably determine the resilient modulus (MR)."
+        "Relationships were developed to predict the MR from the Su1%, E1%, qu and soil physical properties for the investigated subgrade soils"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[38]",
@@ -2656,24 +2491,18 @@
         "venue": "Engineering Structures"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 6.34,
       "RS_llm": 0,
       "RS_final": 2.54,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses seismic behavior of a replaceable artificial controllable plastic hinge for precast concrete beam-column joint, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Conversely, k3 must be negative, as an increase in deviator or shear stress results in a softening effect on the material. Finally, a second set of regression analyses is conducted to establish the relationship between these k-coefficients and various soil physical properties, such as moisture content, dry density, plasticity index, liquid limit, coefficient of curvature, uniformity coefficient, and percent passing #200 sieve [37-39]."
+        "No abstract available"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[39]",
@@ -2731,24 +2560,18 @@
         "venue": "Automation in Construction"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 27.4,
       "RS_llm": 0,
       "RS_final": 10.96,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the end-to-end deep learning model for underground utilities localization using GPR, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "The reference discusses end-to-end deep learning model for underground utilities localization using GPR, which is unrelated to the manuscript's focus on resilient modulus.",
       "llm_evidence": [
-        "Conversely, k3 must be negative, as an increase in deviator or shear stress results in a softening effect on the material. Finally, a second set of regression analyses is conducted to establish the relationship between these k-coefficients and various soil physical properties, such as moisture content, dry density, plasticity index, liquid limit, coefficient of curvature, uniformity coefficient, and percent passing #200 sieve [37-39]."
+        "No abstract available"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[40]",
@@ -2806,25 +2629,18 @@
         "venue": "Engineering Applications of Artificial Intelligence"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 34.25,
       "RS_llm": 0,
       "RS_final": 13.7,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the prediction of building energy performance using mathematical gene-expression programming for a selected region of dry-summer climate, but it does not provide any information on the resilient modulus of subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Conversely, k3 must be negative, as an increase in deviator or shear stress results in a softening effect on the material. Finally, a second set of regression analyses is conducted to establish the relationship between these k-coefficients and various soil physical properties, such as moisture content, dry density, plasticity index, liquid limit, coefficient of curvature, uniformity coefficient, and percent passing #200 sieve [37-39]."
+        "Seismic Behavior of Strengthened RC Columns under Combined Loadings"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[41]",
@@ -2870,23 +2686,18 @@
         "venue": "Journal of Bridge Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 29.44,
-      "RS_llm": 20,
-      "RS_final": 23.78,
+      "RS_llm": 0,
+      "RS_final": 11.78,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses seismic behavior of strengthened RC columns, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Twenty-five reinforced concrete (RC) columns of section size 250 × 250 mm were designed and tested to study the seismic response considering the effect of loading case, strengthening method, and the predamage level."
+        "Seismic Behavior of Strengthened RC Columns under Combined Loadings"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[42]",
@@ -2936,23 +2747,18 @@
         "venue": "Computers and Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 31.89,
-      "RS_llm": 30,
-      "RS_final": 30.76,
+      "RS_llm": 0,
+      "RS_final": 12.76,
       "label": "irrelevant",
-      "llm_rationale": "The reference proposes a novel 3D fractional plastic flow rule for soils, which is related to the manuscript's focus on soil behavior, but the connection is not strong.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "A novel three-dimensional (3D) fractional plastic flow rule that is not limited by the coordinate basis of the differentiable function is proposed based on the fractional derivative and the covariant transformation."
+        "Fractional elastoplastic constitutive model for soils based on a novel 3D fractional plastic flow rule"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[43]",
@@ -3014,20 +2820,17 @@
         "venue": "Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 54.7,
-      "RS_llm": 60,
-      "RS_final": 57.88,
+      "RS_llm": 40,
+      "RS_final": 45.88,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the use of machine learning techniques for predicting the depth of wear of fly-ash concrete, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "llm_rationale": "Reference uses machine learning techniques, but the topic is not directly related to resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The performance of the models was judged via statistical metrics. The GEP model gives better performance with R2 and ρ equals 0.9667 and 0.0501 respectively."
+        "Simulation of depth of wear of eco-friendly concrete using machine learning based computational approaches"
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -3090,24 +2893,18 @@
         "venue": "Alexandria Engineering Journal"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 19.59,
-      "RS_llm": 20,
-      "RS_final": 19.84,
+      "RS_llm": 0,
+      "RS_final": 7.84,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "A comparative study on performance evaluation of hybrid GNPs/CNTs in conventional and self-compacting mortar"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[45]",
@@ -3157,22 +2954,19 @@
         "venue": "Digital Communications and Networks"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 16.58,
-      "RS_llm": 10,
-      "RS_final": 12.63,
+      "RS_llm": 0,
+      "RS_final": 6.63,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a deep-learning-based MAC paradigm for wireless networks, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "With increasing density and heterogeneity in unlicensed wireless networks, traditional MAC protocols, such as Carrier Sense Multiple Access with Collision Avoidance (CSMA/CA) in Wi-Fi networks, are experiencing performance degradation."
+        "A deep-learning-based MAC for integrating channel access, rate adaptation and channel switch"
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "MISSING DOI"
       ]
     },
     {
@@ -3239,20 +3033,17 @@
         "venue": "Advances in Civil Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 56.19,
-      "RS_llm": 50,
-      "RS_final": 52.48,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses the use of gene expression programming for estimating compressive strength of high-strength concrete, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "RS_llm": 0,
+      "RS_final": 22.48,
+      "label": "irrelevant",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The efficiency of the models is assessed by statistical analysis with the error by using MAE, RRMSE, RSE, and comparisons were made between regression models."
+        "Applications of Gene Expression Programming for Estimating Compressive Strength of High-Strength Concrete"
       ],
+      "citation_intent": "Background",
       "quality_flags": []
     },
     {
@@ -3319,20 +3110,17 @@
         "venue": "Crystals"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 48.51,
-      "RS_llm": 40,
-      "RS_final": 43.4,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses the use of gene expression programming and regression techniques for estimating compressive strength of bagasse ash based concrete, which is related to the manuscript's focus on using machine learning for predicting resilient modulus, but the connection is not strong.",
+      "RS_llm": 0,
+      "RS_final": 19.4,
+      "label": "irrelevant",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The results indicated a strong correlation between observed and predicted values with NSE and R2 both above 0.8 during calibration and validation for the Gene Expression Programming (GEP)."
+        "Applications of gene expression programming and regression techniques for estimating compressive strength of bagasse ash based concrete"
       ],
+      "citation_intent": "Background",
       "quality_flags": []
     },
     {
@@ -3371,24 +3159,18 @@
         "venue": "Journal of Cleaner Production"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 35.13,
-      "RS_llm": 20,
-      "RS_final": 26.05,
+      "RS_llm": 0,
+      "RS_final": 14.05,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "Behavior analysis of concrete with recycled tire rubber as aggregate using 3D-digital image correlation"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[49]",
@@ -3454,20 +3236,17 @@
         "venue": "Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 62.5,
-      "RS_llm": 60,
-      "RS_final": 61.0,
+      "RS_llm": 40,
+      "RS_final": 49.0,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the use of machine learning for predicting the compressive strength of self-compacting concrete modified with fly ash, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "llm_rationale": "Reference uses machine learning techniques, but the topic is not directly related to resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The best predictive models were selected based on the coefficient of determination (R2) results and model validation."
+        "A comparative study for the prediction of the compressive strength of self-compacting concrete modified with fly ash"
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -3522,20 +3301,17 @@
         "venue": "Advances in Civil Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 50.98,
-      "RS_llm": 70,
-      "RS_final": 62.39,
+      "RS_llm": 40,
+      "RS_final": 44.39,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the use of machine learning for predicting the compressive strength of fly-ash-based geopolymer concrete, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "llm_rationale": "Reference uses machine learning techniques, but the topic is not directly related to resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "RFR is an ensemble algorithm and gives outburst performance as compared to GEP."
+        "Compressive Strength of Fly-Ash-Based Geopolymer Concrete by Gene Expression Programming and Random Forest"
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -3590,20 +3366,17 @@
         "venue": "Journal of Materials Research and Technology"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 68.17,
       "RS_llm": 80,
       "RS_final": 75.27,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the use of machine learning for predicting the strength of HPC containing RHA, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "llm_rationale": "Reference uses machine learning techniques to predict the strength of HPC containing RHA, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The findings indicate that using bagging and boosting techniques enhances the prediction accuracy of individual or weak models, with minimum errors and an R2 value > 0.92 is achieved using bagging with decision tree and random forest."
+        "Prediction of sustainable concrete utilizing rice husk ash (RHA) as supplementary cementitious material (SCM): Optimization and hyper-tuning"
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -3646,24 +3419,18 @@
         "venue": "Pattern Recognition"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 19.66,
-      "RS_llm": 20,
-      "RS_final": 19.86,
+      "RS_llm": 0,
+      "RS_final": 7.86,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a multimodal vision-language learning paradigm with context-based compact Transformer, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "MPCCT: Multimodal vision-language learning paradigm with context-based compact Transformer"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[53]",
@@ -3717,27 +3484,18 @@
         "venue": "Materials Today Communications"
       },
       "self_citation": {
-        "is_self_cite": true,
-        "overlap_type": "single_author",
-        "matching_authors": [
-          "kiran arif"
-        ],
-        "overlap_percentage": 50.0,
-        "venue_overlap": false
+        "is_self_cite": true
       },
       "RS_embed": 35.49,
-      "RS_llm": 30,
-      "RS_final": 32.2,
+      "RS_llm": 0,
+      "RS_final": 14.2,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials, which is related to the manuscript's focus on using machine learning for predicting resilient modulus, but the connection is not strong.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "A novel approach in forecasting compressive strength of concrete with carbon nanotubes as nanomaterials"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract",
-        "questionable_self_cite"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[54]",
@@ -3795,23 +3553,18 @@
         "venue": "Journal of Materials Research and Technology"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 49.07,
-      "RS_llm": 90,
-      "RS_final": 73.63,
-      "label": "relevant",
-      "llm_rationale": "The reference discusses the use of machine learning for predicting the properties of bio-composite with interpretable machine learning approaches, which is related to the manuscript's focus on using machine learning for predicting resilient modulus.",
+      "RS_llm": 80,
+      "RS_final": 67.63,
+      "label": "borderline",
+      "llm_rationale": "Reference uses machine learning techniques to predict the properties of bio-composite, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The value of the correlation coefficient (R) for CS models is 0.9893 (GEP), 0.9997 (DNN), and 0.9995 (OGPR)."
+        "Evaluation of properties of bio-composite with interpretable machine learning approaches: optimization and hyper tuning"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[55]",
@@ -3865,24 +3618,18 @@
         "venue": "Materials Today Communications"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 49.04,
-      "RS_llm": 20,
-      "RS_final": 31.62,
+      "RS_llm": 0,
+      "RS_final": 19.62,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "Strength evaluation sustainable concrete with waste ingredients at elevated temperature by employing interpretable algorithms: Optimization and hyper tuning"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[56]",
@@ -3940,24 +3687,18 @@
         "venue": "Materials Today Communications"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 47.8,
-      "RS_llm": 20,
-      "RS_final": 31.12,
+      "RS_llm": 0,
+      "RS_final": 19.12,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "Forecasting the strength of micro/nano silica in cementitious matrix by machine learning approaches"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[57]",
@@ -3999,24 +3740,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 45.43,
-      "RS_llm": 20,
-      "RS_final": 30.17,
+      "RS_llm": 0,
+      "RS_final": 18.17,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "Rutting prediction of asphalt pavement with semi-rigid base: Numerical modeling on laboratory to accelerated pavement testing"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[58]",
@@ -4070,24 +3805,18 @@
         "venue": "Journal of Cleaner Production"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 41.35,
-      "RS_llm": 30,
-      "RS_final": 34.54,
+      "RS_llm": 0,
+      "RS_final": 16.54,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures, which is related to the manuscript's focus on using machine learning for predicting resilient modulus, but the connection is not strong.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "Prediction and evaluation of rutting and moisture susceptibility in rejuvenated asphalt mixtures"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[59]",
@@ -4129,24 +3858,18 @@
         "venue": "Knowledge-Based Systems"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 10.75,
-      "RS_llm": 20,
-      "RS_final": 16.3,
+      "RS_llm": 0,
+      "RS_final": 4.3,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a complete language-vision interaction network for visual question answering, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "Reference is not related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "No abstract available"
+        "CLVIN: Complete language-vision interaction network for visual question answering"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[60]",
@@ -4196,23 +3919,16 @@
         "venue": "IEICE Transactions on Information and Systems"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 13.64,
-      "RS_llm": 40,
-      "RS_final": 29.46,
+      "RS_llm": 50,
+      "RS_final": 35.46,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses an improved BPNN method based on probability density for indoor location, which is related to the manuscript's focus on using machine learning for predicting resilient modulus, but the connection is not strong.",
-      "llm_evidence": [
-        "With the widespread use of indoor positioning technology, the need for high-precision positioning services is rising; nevertheless, there are several challenges, such as the difficulty of simulating the distribution of interior location data and the enormous inaccuracy of probability computation."
-      ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "llm_rationale": "Rationale not captured from LLM",
+      "llm_evidence": [],
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[61]",
@@ -4266,23 +3982,18 @@
         "venue": "IEEE Access"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 24.04,
-      "RS_llm": 0,
-      "RS_final": 9.62,
+      "RS_llm": 20,
+      "RS_final": 21.62,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the control of multilegged robot motion, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses motion control for multilegged robots, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "Motion control is crucial for multilegged robot locomotion and task completion."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[62]",
@@ -4324,23 +4035,18 @@
         "venue": "Science China Technological Sciences"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 5.23,
-      "RS_llm": 0,
-      "RS_final": 2.09,
+      "RS_llm": 30,
+      "RS_final": 20.09,
       "label": "irrelevant",
-      "llm_rationale": "The reference proposes a novel three-phase quasi-Z-source inverter, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses a novel three-phase quasi-Z-source inverter, but it is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The proposed circuit topology, control strategy, and related analysis are presented."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[63]",
@@ -4390,24 +4096,18 @@
         "venue": "Journal of the Franklin Institute"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 2.99,
-      "RS_llm": 0,
-      "RS_final": 1.2,
+      "RS_llm": 20,
+      "RS_final": 13.2,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a robust observer for estimating the state of charge of lithium-ion batteries, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses a robust observer for estimating the state of charge of lithium-ion batteries, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[64]",
@@ -4461,25 +4161,18 @@
         "venue": "Mechanical Systems and Signal Processing"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 34.96,
-      "RS_llm": 0,
-      "RS_final": 13.98,
+      "RS_llm": 20,
+      "RS_final": 25.98,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses ensemble regression based on polynomial regression-based decision tree, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses ensemble regression based on polynomial regression, but it is not directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The success of these models is contingent upon both the quality and quantity of the data used during the model development process."
+        "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[65]",
@@ -4529,24 +4222,18 @@
         "venue": "Computer Methods in Applied Mechanics and Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 27.62,
-      "RS_llm": 0,
-      "RS_final": 11.05,
+      "RS_llm": 20,
+      "RS_final": 23.05,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses an open-source unconstrained stress updating algorithm for the modified Cam-clay model, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses an open-source unconstrained stress updating algorithm for the modified Cam-clay model, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The success of these models is contingent upon both the quality and quantity of the data used during the model development process."
+        "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[66]",
@@ -4592,23 +4279,18 @@
         "venue": "Journal of Engineering Mechanics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 33.93,
       "RS_llm": 40,
       "RS_final": 37.57,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses a 3D dynamic elastoplastic constitutive model of concrete, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils, but the relevance is not strong.",
+      "llm_rationale": "The reference discusses a 3D dynamic elastoplastic constitutive model of concrete, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils, but it is not directly applicable.",
       "llm_evidence": [
         "The strain rate is regarded as a variable in applying the consistency condition."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[67]",
@@ -4650,24 +4332,18 @@
         "venue": "Connection Science"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 30.36,
-      "RS_llm": 0,
-      "RS_final": 12.14,
+      "RS_llm": 20,
+      "RS_final": 24.14,
       "label": "irrelevant",
-      "llm_rationale": "The reference proposes a multimodal hybrid parallel network intrusion detection model, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses a multimodal hybrid parallel network intrusion detection model, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The experimental results on the ISCX-IDS 2012 and CIC-IDS-2017 datasets show that the MHPN model outperforms the single-modal models."
+        "With the rapid growth of Internet data traffic, the means of malicious attack become more diversified."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[68]",
@@ -4709,23 +4385,18 @@
         "venue": "IEEE Transactions on Energy Conversion"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 7.82,
-      "RS_llm": 0,
-      "RS_final": 3.13,
+      "RS_llm": 20,
+      "RS_final": 15.13,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the analysis and experimental verification of the tangential force effect on electromagnetic vibration of PM motor, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the analysis and experimental verification of the tangential force effect on electromagnetic vibration of PM motor, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "In traditional analysis, several studies have discussed the vibration behavior of electric machines from the point of view of radial force."
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[69]",
@@ -4775,20 +4446,17 @@
         "venue": "Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 55.5,
-      "RS_llm": 80,
-      "RS_final": 70.2,
-      "label": "relevant",
-      "llm_rationale": "The reference discusses the investigation and optimization of the C-ANN structure in predicting the compressive strength of foamed concrete, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 60,
+      "RS_final": 58.2,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the investigation and optimization of the C-ANN structure in predicting the compressive strength of foamed concrete, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The results show that ANN is a highly efficient predictor of the CS of FC, achieving a maximum R2 value of 0.976 on the training part."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -4835,20 +4503,17 @@
         "venue": "International Journal of Geomechanics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 71.71,
-      "RS_llm": 90,
-      "RS_final": 82.68,
+      "RS_llm": 80,
+      "RS_final": 76.68,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the neural network modeling of resilient modulus using routine subgrade soil properties, which is strongly related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the neural network modeling of resilient modulus using routine subgrade soil properties, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The goal was to establish a relationship between Mr and standard subgrade soil characteristics, along with stress states encountered in pavement design."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -4895,23 +4560,18 @@
         "venue": "Transportation Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 69.4,
-      "RS_llm": 100,
-      "RS_final": 87.76,
+      "RS_llm": 90,
+      "RS_final": 81.76,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the prediction of resilient modulus of compacted subgrade soils under influences of freeze-thaw cycles and moisture using gene expression programming and artificial neural network approaches, which is strongly related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the prediction of resilient modulus of compacted subgrade soils under influences of freeze–thaw cycles and moisture using gene expression programming and artificial neural network approaches, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The developed GEP and ANN models reasonably predicted the MR in the database and achieved better performance compared to several existing empirical models."
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[72]",
@@ -4949,20 +4609,17 @@
         "venue": "Geotechnical and Geological Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 67.52,
       "RS_llm": 80,
       "RS_final": 75.01,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the extreme learning machine-based modeling of resilient modulus of subgrade soils, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the extreme learning machine based modeling of resilient modulus of subgrade soils, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The dataset used in this study was derived from literature and consists of 9 input parameters with a total of 891 cases."
+        "The correlation coefficient value of 0.991 was achieved by polynomial kernel based extreme learning machine in comparison to 0.990 and 0.990 by simple extreme learning machine and radial basis kernel function based support vector regression respectively."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -5005,25 +4662,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 66.61,
-      "RS_llm": 0,
-      "RS_final": 26.64,
+      "RS_llm": 20,
+      "RS_final": 38.64,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the prediction of the resilient modulus of flexible pavement subgrade soils using adaptive neuro-fuzzy inference systems, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[74]",
@@ -5077,25 +4727,18 @@
         "venue": "Transportation Geotechnics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 75.88,
-      "RS_llm": 0,
-      "RS_final": 30.35,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses the prediction of the resilient modulus of compacted subgrade soils using ensemble machine learning methods, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 20,
+      "RS_final": 42.35,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the prediction of the resilient modulus of compacted subgrade soils using ensemble machine learning methods, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[75]",
@@ -5145,25 +4788,18 @@
         "venue": "Advanced Engineering Informatics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 57.09,
-      "RS_llm": 0,
-      "RS_final": 22.84,
+      "RS_llm": 20,
+      "RS_final": 34.84,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the failure mode classification and bearing capacity prediction for reinforced concrete columns based on ensemble machine learning algorithm, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[76]",
@@ -5213,24 +4849,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 54.0,
-      "RS_llm": 0,
-      "RS_final": 21.6,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses the modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 60,
+      "RS_final": 57.6,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the modified firefly algorithm-artificial neural network expert system for predicting compressive and tensile strength of high-performance concrete, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The compressive and tensile strength of high-performance concrete (HPC) is a highly nonlinear function of its constituents."
+        "The accuracy of the proposed expert system is validated by comparing obtained results with those from the literature."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy"
-      ]
+      "citation_intent": "Supporting",
+      "quality_flags": []
     },
     {
       "ref_id": "[77]",
@@ -5280,25 +4910,18 @@
         "venue": "Measurement"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 45.3,
-      "RS_llm": 0,
-      "RS_final": 18.12,
+      "RS_llm": 20,
+      "RS_final": 30.12,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the ensemble machine learning model for corrosion initiation time estimation of embedded steel reinforced self-compacting concrete, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[78]",
@@ -5356,20 +4979,17 @@
         "venue": "Cement and Concrete Research"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 61.46,
       "RS_llm": 80,
       "RS_final": 72.58,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the prediction of surface chloride concentration of marine concrete using ensemble machine learning, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the prediction of surface chloride concentration of marine concrete using ensemble machine learning, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The ensemble ML model produces higher accuracy of prediction compared to all standalone ML models tested in this study."
+        "The results show that adoption of more diverse datasets and consideration of more factors in conventional models can improve their prediction performance."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -5416,25 +5036,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 54.27,
-      "RS_llm": 0,
-      "RS_final": 21.71,
+      "RS_llm": 20,
+      "RS_final": 33.71,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses the machine learning in concrete strength simulations: Multi-nation data analytics, which is unrelated to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning in concrete strength simulations: Multi-nation data analytics, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "No abstract available."
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[80]",
@@ -5496,20 +5109,17 @@
         "venue": "Alexandria Engineering Journal"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 65.24,
       "RS_llm": 80,
       "RS_final": 74.1,
       "label": "relevant",
-      "llm_rationale": "The reference discusses the modeling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete, which is related to the manuscript's topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses the modeling and prediction of binder content using latest intelligent machine learning algorithms in carbon fiber reinforced asphalt concrete, which is directly related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The Random Forest-based model is outperforming amongst all applied models with CC as 0.9735."
+        "The Random Forest-based model is outperforming amongst all applied models with CC as 0.9735, MAE as 1.1755, RMSE as 1.5046, RAE as 25.68%, RRSE as 26.93%, WI values as 0.9351, and NSE values as 0.9272 in the testing stage."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": []
     },
     {
@@ -5552,23 +5162,18 @@
         "venue": "Measurement"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 55.36,
       "RS_llm": 60,
       "RS_final": 58.14,
       "label": "borderline",
-      "llm_rationale": "The reference discusses machine learning approaches for understanding material behavior, but it does not specifically address resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning applications in understanding material behavior, but it does not directly relate to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "In this research, various ML-based approaches, namely support vector machines (SVM), decision trees (DT), and random forests (RF), are employed to assess the resilient modules (Mr) of subgrade."
+        "Currently, numerous industries utilizes machine-learning algorithms (MLAs) to understand and estimate material behaviour"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[82]",
@@ -5622,20 +5227,17 @@
         "venue": "Arabian Journal for Science and Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 74.04,
       "RS_llm": 80,
       "RS_final": 77.62,
       "label": "relevant",
-      "llm_rationale": "The reference presents a machine learning model for predicting interface shear stiffness modulus, which is related to the resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs bagging ensemble-based hybrid machine learning models to predict the interface shear stiffness modulus of asphalt pavement, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The ML models for the prediction of shear strength were built based on the laboratory shear tests results of 180 double-layer asphalt samples."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -5674,23 +5276,18 @@
         "venue": "Structure and Infrastructure Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 72.93,
-      "RS_llm": 40,
-      "RS_final": 53.17,
+      "RS_llm": 60,
+      "RS_final": 65.17,
       "label": "borderline",
-      "llm_rationale": "The reference discusses machine learning approaches for predicting pavement performance, but it does not specifically address resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning-based pavement performance prediction, but it does not directly relate to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Predictive models of pavement distresses were developed based on the Long-Term Pavement Performance (LTPP) data and compared using support vector machine, random forest regression, gradient boosting machine, and stacking ensemble."
+        "Predictive models of pavement distresses were developed based on the Long-Term Pavement Performance (LTPP) data"
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[84]",
@@ -5732,21 +5329,20 @@
         "venue": "Structure and Infrastructure Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 65.56,
-      "RS_llm": 40,
-      "RS_final": 50.22,
+      "RS_llm": 60,
+      "RS_final": 62.22,
       "label": "borderline",
-      "llm_rationale": "The reference discusses machine learning approaches for predicting pavement life, but it does not specifically address resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning analysis of overweight traffic impact on asphalt pavement life, but it does not directly relate to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "A random survival forest algorithm was used to establish predictive models of load-related pavement distresses considering traffic loading, pavement structure, and climate."
+        "A random survival forest algorithm was used to establish predictive models of load-related pavement distresses"
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
     },
     {
       "ref_id": "[85]",
@@ -5792,24 +5388,18 @@
         "venue": "Biomedical Signal Processing and Control"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 26.93,
-      "RS_llm": 20,
-      "RS_final": 22.77,
+      "RS_llm": 40,
+      "RS_final": 34.77,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for early detection and classification of skin diseases, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning-based early detection and classification of skin diseases, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "In this research, various ML-based approaches, namely support vector machines (SVM), decision trees (DT), and random forests (RF), are employed to assess the resilient modules (Mr) of subgrade."
+        "OESV-KRF: Optimal ensemble support vector kernel random forest based early detection and classification of skin diseases"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[86]",
@@ -5871,24 +5461,18 @@
         "venue": "Environmental Research"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 23.72,
-      "RS_llm": 20,
-      "RS_final": 21.49,
+      "RS_llm": 40,
+      "RS_final": 33.49,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for treatment of certain risk factors associated with kidney injuries, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning analysis of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "In this research, various ML-based approaches, namely support vector machines (SVM), decision trees (DT), and random forests (RF), are employed to assess the resilient modules (Mr) of subgrade."
+        "Application of logistic regression, support vector machine and random forest on the effects of titanium dioxide nanoparticles using macroalgae in treatment of certain risk factors associated with kidney injuries"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[87]",
@@ -5926,24 +5510,18 @@
         "venue": "Automation in Construction"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 42.34,
-      "RS_llm": 20,
-      "RS_final": 28.94,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for nondestructive assessment of mass moisture content of brick walls in historic buildings, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 40.94,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses machine learning-based nondestructive assessment of mass moisture content of brick walls in historic buildings, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "In this research, various ML-based approaches, namely support vector machines (SVM), decision trees (DT), and random forests (RF), are employed to assess the resilient modules (Mr) of subgrade."
+        "Random forest algorithm and support vector machine for nondestructive assessment of mass moisture content of brick walls in historic buildings"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[88]",
@@ -6002,20 +5580,17 @@
         "venue": "Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 67.14,
-      "RS_llm": 90,
-      "RS_final": 80.86,
+      "RS_llm": 80,
+      "RS_final": 74.86,
       "label": "relevant",
-      "llm_rationale": "The reference presents a machine learning model for predicting compressive strength of fly ash based concrete, which is related to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs machine learning techniques to predict the compressive strength of fly ash-based concrete, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The ensemble model gives a better result with R2 = 0.911 compared to the decision tree (DT) and gene expression programming (GEP)."
+        "The ensemble model gives a better result with R2 = 0.911 compared to the decision tree (DT) and gene expression programming (GEP)"
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -6057,24 +5632,18 @@
         "venue": "Journal of Cleaner Production"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 46.84,
-      "RS_llm": 20,
-      "RS_final": 30.74,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for behavior assessment and regression analysis of waste tire rubberized concrete, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 42.74,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses behavior assessment, regression analysis, and support vector machine modeling of waste tire rubberized concrete, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Fig. 5 depicts the comprehensive flow diagram of the ML algorithm process that is used in our research."
+        "Behavior assessment, regression analysis and support vector machine (SVM) modeling of waste tire rubberized concrete"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[90]",
@@ -6132,24 +5701,18 @@
         "venue": "Renewable and Sustainable Energy Reviews"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 34.87,
-      "RS_llm": 20,
-      "RS_final": 25.95,
+      "RS_llm": 40,
+      "RS_final": 37.95,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for building electrical energy consumption forecasting, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses machine learning analysis of building electrical energy consumption forecasting, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Since then, it has gained widespread use for performing classification, prediction, and regression tasks."
+        "A review on applications of ANN and SVM for building electrical energy consumption forecasting"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[91]",
@@ -6195,23 +5758,18 @@
         "venue": "Sustainability"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 44.82,
-      "RS_llm": 20,
-      "RS_final": 29.93,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for modeling and uncertainty analysis of groundwater level, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 60,
+      "RS_final": 53.93,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses machine learning-based modeling and uncertainty analysis of groundwater level, but it does not directly relate to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Since then, it has gained widespread use for performing classification, prediction, and regression tasks."
+        "The results showed that the ANFIS-GOA was superior to the other hybrid models for predicting GWL in the first piezometer"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[92]",
@@ -6253,24 +5811,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 46.45,
-      "RS_llm": 20,
-      "RS_final": 30.58,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for linear and non-linear SVM prediction of fresh properties and compressive strength of high volume fly ash self-compacting concrete, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 42.58,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Since then, it has gained widespread use for performing classification, prediction, and regression tasks."
+        "Linear and non-linear SVM prediction for fresh properties and compressive strength of high volume fly ash self-compacting concrete"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[93]",
@@ -6328,23 +5880,18 @@
         "venue": "Applied Sciences"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 42.21,
       "RS_llm": 80,
       "RS_final": 64.88,
       "label": "borderline",
-      "llm_rationale": "The reference presents a machine learning model for predicting peak particle velocity caused by blasting, which is related to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs support vector machine models with various kernels to predict the peak particle velocity caused by blasting, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The performance of the R and MAE index of the radial basis function kernel of SVM in training and testing phases, respectively, confirm the high capability of this SVM kernel in predicting PPV values."
       ],
-      "quality_flags": [
-        "score_discrepancy"
-      ]
+      "citation_intent": "Methodology",
+      "quality_flags": []
     },
     {
       "ref_id": "[94]",
@@ -6386,20 +5933,17 @@
         "venue": "Journal of King Saud University - Engineering Sciences"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 51.02,
       "RS_llm": 80,
       "RS_final": 68.41,
       "label": "borderline",
-      "llm_rationale": "The reference presents a machine learning model for estimating the time period of precast concrete structural system with cross bracing, which is related to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs gradient boosting-based regression modelling to estimate the time period of precast concrete structural system with cross bracing, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The accuracy of machine learning techniques has been checked by reference to the formulas published in the literature."
+        "The accuracy of machine learning techniques has been checked by reference to the formulas published in the literature"
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -6450,25 +5994,18 @@
         "venue": "Construction and Building Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 63.3,
-      "RS_llm": 20,
-      "RS_final": 37.32,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for prediction and optimization of modulus of elasticity of recycled aggregate concrete, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 49.32,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "When all variables exhibit equal errors at the split point, the algorithm selects the variable with the lowest fitness function values as the decisive split point."
+        "An ensemble machine learning approach for prediction and optimization of modulus of elasticity of recycled aggregate concrete"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[96]",
@@ -6506,20 +6043,17 @@
         "venue": "Journal of Building Pathology and Rehabilitation"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 65.91,
-      "RS_llm": 90,
-      "RS_final": 80.36,
+      "RS_llm": 80,
+      "RS_final": 74.36,
       "label": "relevant",
-      "llm_rationale": "The reference presents a machine learning model for predicting strength of recycled aggregate concrete, which is related to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs random forests, ANN, and LASSO to predict the strength of recycled aggregate concrete, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "The Random Forests algorithm was found to be 3.6% and 6.2% more accurate when compared to Artificial Neural Network and LASSO respectively."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": []
     },
     {
@@ -6575,21 +6109,21 @@
         "venue": "Journal of Nanomaterials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 65.31,
-      "RS_llm": 90,
-      "RS_final": 80.12,
+      "RS_llm": 80,
+      "RS_final": 74.12,
       "label": "relevant",
-      "llm_rationale": "The reference presents a machine learning model for predicting compressive strength of concrete, which is related to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference employs random forests to predict the compressive strength of concrete, which is a related concept to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Unlike DT, which produces only one tree, RF grows multiple trees to form a forest where different data subsets are randomly selected and distributed across each tree."
+        "Shaqadan et al. utilized the RF regression model to predict the compressive strength (CS) of concrete and noticed a reliable performance."
       ],
-      "quality_flags": []
+      "citation_intent": "Methodology",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[98]",
@@ -6631,23 +6165,18 @@
         "venue": "Neural Computing and Applications"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 27.43,
-      "RS_llm": 20,
-      "RS_final": 22.97,
+      "RS_llm": 40,
+      "RS_final": 34.97,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for disease identification in maize leaves, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses fine-tuning deep learning models using transfer learning and hyper-parameters optimization for disease identification in maize leaves, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Choosing the right hyper parameters is vital for obtaining optimal performance when building ML models."
+        "Maize is one of the world's most important food crops, but its cultivation is hampered by diseases"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[99]",
@@ -6693,23 +6222,18 @@
         "venue": "Sensors"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 38.09,
-      "RS_llm": 20,
-      "RS_final": 27.24,
+      "RS_llm": 40,
+      "RS_final": 39.24,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for intelligent fault diagnosis of rotary machinery, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses intelligent fault diagnosis of rotary machinery by convolutional neural network with automatic hyper-parameters tuning using Bayesian optimization, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Choosing the right hyper parameters is vital for obtaining optimal performance when building ML models."
+        "Intelligent fault diagnosis can be related to applications of machine learning theories to machine fault diagnosis"
       ],
-      "quality_flags": [
-        "low_relevance"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[100]",
@@ -6751,25 +6275,18 @@
         "venue": "Advanced Engineering Informatics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 52.45,
-      "RS_llm": 20,
-      "RS_final": 32.98,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses machine learning approaches for prediction of interface yield stress and plastic viscosity of fresh concrete, which is unrelated to the topic of resilient modulus of compacted subgrade soils.",
+      "RS_llm": 40,
+      "RS_final": 44.98,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach, which is unrelated to the resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "Choosing the right hyper parameters is vital for obtaining optimal performance when building ML models."
+        "Prediction of interface yield stress and plastic viscosity of fresh concrete using a hybrid machine learning approach"
       ],
-      "quality_flags": [
-        "low_relevance",
-        "score_discrepancy",
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[101]",
@@ -6807,23 +6324,18 @@
         "venue": "Case Studies in Construction Materials"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 48.51,
       "RS_llm": 60,
       "RS_final": 55.4,
       "label": "borderline",
-      "llm_rationale": "The reference discusses ensemble machine learning approaches, but it does not directly relate to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses ensemble machine learning approaches, but does not directly relate to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
         "Choosing the right hyper parameters is vital for obtaining optimal performance when building ML models"
       ],
-      "quality_flags": [
-        "missing_abstract"
-      ]
+      "citation_intent": "Background",
+      "quality_flags": []
     },
     {
       "ref_id": "[102]",
@@ -6878,23 +6390,19 @@
         "venue": "Results in Engineering"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 56.08,
-      "RS_llm": 20,
-      "RS_final": 34.43,
-      "label": "irrelevant",
-      "llm_rationale": "The reference focuses on predicting compressive strength of graphene nanoparticle-reinforced cementitious composites, which is not directly related to the manuscript's topic.",
+      "RS_llm": 80,
+      "RS_final": 70.43,
+      "label": "relevant",
+      "llm_rationale": "The reference employs machine learning algorithms to predict compressive strength of graphene nanoparticle-reinforced cementitious composites, which shares similarities with the manuscript's use of ML for predicting resilient modulus.",
       "llm_evidence": [
-        "This study focuses on developing robust prediction models for the compressive strength (CS) of graphene nanoparticle-reinforced cementitious composites (GrNCC)"
+        "Three ML models, bagging regressor (BR), decision tree (DT), and AdaBoost regressor (AR), were employed to predict CS based on a comprehensive dataset of 172 experimental values."
       ],
+      "citation_intent": "Methodology",
       "quality_flags": [
-        "low_relevance",
-        "score_discrepancy"
+        "METADATA MISMATCH"
       ]
     },
     {
@@ -6953,20 +6461,17 @@
         "venue": "The Science of The Total Environment"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 54.0,
-      "RS_llm": 80,
-      "RS_final": 69.6,
+      "RS_llm": 40,
+      "RS_final": 45.6,
       "label": "borderline",
-      "llm_rationale": "The reference discusses forecasting mechanical properties of foundry sand-based concrete using multi-expression programming, which is related to the manuscript's focus on resilient modulus of compacted subgrade soils.",
+      "llm_rationale": "The reference discusses forecasting mechanical properties of foundry sand-based concrete using multi-expression programming, but does not directly relate to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "The presented formulations correlate mechanical properties with four input variables i.e. w/c, foundry sand content, superplasticizer content and compressive strength"
+        "The presented formulations correlate mechanical properties with four input variables i.e. w/c, foundry sand content, superplasticizer content and compressive strength."
       ],
+      "citation_intent": "Background",
       "quality_flags": []
     },
     {
@@ -7021,29 +6526,46 @@
         "venue": "Transactions of the ASABE"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
       "RS_embed": 29.92,
-      "RS_llm": 40,
-      "RS_final": 35.97,
+      "RS_llm": 20,
+      "RS_final": 23.97,
       "label": "irrelevant",
-      "llm_rationale": "The reference provides model evaluation guidelines for watershed simulations, which may be relevant to the manuscript's discussion of model validation and performance metrics.",
+      "llm_rationale": "The reference provides model evaluation guidelines for watershed simulations, which is unrelated to the manuscript's focus on resilient modulus of compacted subgrade soils.",
       "llm_evidence": [
-        "We recommend that three quantitative statistics, Nash-Sutcliffe efficiency (NSE), percent bias (PBIAS), and ratio of the root mean square error to the standard deviation of measured data (RSR), in addition to the graphical techniques, be used in model evaluation"
+        "Watershed models are powerful tools for simulating the effect of watershed processes and management on soil and water resources."
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "MISSING DOI"
       ]
     }
   ],
   "scoring_summary": {
     "total_references": 104,
     "self_citations": 1,
-    "low_relevance": 57,
+    "low_relevance": 49,
     "self_citation_rate": "1.0%"
-  }
+  },
+  "missing_citations": [
+    {
+      "title": "Guide for Mechanistic-Empirical Design of New and Rehabilitated Pavement Structures",
+      "authors": "American Association of State Highway and Transportation Officials (AASHTO)",
+      "year": "2008",
+      "rationale": "This seminal guide provides the authoritative framework for pavement design using mechanistic-empirical principles, where the resilient modulus (Mr) of subgrade soils is a critical input parameter. Citing it would firmly ground the manuscript's work within the established pavement engineering practice and demonstrate a comprehensive understanding of the real-world application and importance of Mr values, which the ML model aims to predict."
+    },
+    {
+      "title": "Prediction of Resilient Modulus of Fine-Grained Soils Using Ensemble Machine Learning Methods",
+      "authors": "D. K. Singh, V. K. Singh",
+      "year": "2020",
+      "rationale": "This paper directly aligns with the manuscript's core methodological focus on utilizing ensemble machine learning techniques (such as bagging, boosting, and Random Forest) for predicting the resilient modulus of fine-grained soils, which are typical subgrade materials. It provides highly relevant contemporary research, methodological parallels, and comparative insights for the author's chosen approach and findings."
+    },
+    {
+      "title": "Development of a web-based application for predicting the resilient modulus of granular materials using machine learning",
+      "authors": "Y. Chen, Y. Liu, S. Hu, G. Xu",
+      "year": "2021",
+      "rationale": "The manuscript prominently mentions the development of a Graphical User Interface (GUI) for 'practical implantation.' This paper offers a direct precedent and valuable context for the design, development, and utility of user-friendly interfaces for machine learning models in predicting resilient modulus, thereby strengthening the practical application and dissemination aspect of the author's work."
+    }
+  ]
 }

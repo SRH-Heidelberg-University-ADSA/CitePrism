@@ -4,7 +4,8 @@ CitePrism Relevance Scorer - Complete Scoring Pipeline
 Combines embedding similarity, LLM judgment, and self-citation detection
 to produce final relevance scores for all references.
 
-Includes deep debugging for LLM rationale and evidence extraction.
+Includes deep debugging for LLM rationale, evidence extraction, 
+and citation intent/sentiment analysis.
 
 Author: CitePrism Team
 """
@@ -156,7 +157,7 @@ class EmbeddingScorer:
 
 
 # ============================================================================
-# HF LLM BATCH SCORER (UPDATED WITH DEEP DEBUGGING)
+# HF LLM BATCH SCORER (UPDATED WITH CITATION INTENT PROMPT)
 # ============================================================================
 
 class HFBatchScorer:
@@ -195,7 +196,7 @@ class HFBatchScorer:
                 messages=[
                     {
                         "role": "system", 
-                        "content": "You are an expert academic reviewer. You MUST return ONLY a valid JSON array of objects. Keys: ref_id, relevance_score, label, rationale, evidence."
+                        "content": "You are an expert academic reviewer. You MUST return ONLY a valid JSON array of objects. Keys: ref_id, relevance_score, label, rationale, evidence, citation_intent."
                     },
                     {"role": "user", "content": prompt}
                 ],
@@ -251,9 +252,10 @@ class HFBatchScorer:
                 if i >= len(batch_data):
                     break
                 
-                # Check for key variations (e.g., if LLM used "reason" instead of "rationale")
+                # Check for key variations
                 rationale = result.get('rationale') or result.get('reason') or "No rationale provided by LLM"
                 evidence = result.get('evidence') or result.get('quotes') or []
+                intent = result.get('citation_intent') or "Background"
                 
                 # IMPORTANT: Map LLM result keys to consistent internal keys used by RelevanceScorer
                 normalized_results.append({
@@ -261,7 +263,8 @@ class HFBatchScorer:
                     "relevance_score_llm": int(result.get('relevance_score', 50)),
                     "label": result.get('label', 'borderline'),
                     "rationale": rationale,
-                    "evidence": evidence
+                    "evidence": evidence,
+                    "citation_intent": intent
                 })
             
             # Pad if LLM missed items
@@ -272,7 +275,8 @@ class HFBatchScorer:
                     "relevance_score_llm": 50,
                     "label": "borderline",
                     "rationale": "Missing from LLM response",
-                    "evidence": []
+                    "evidence": [],
+                    "citation_intent": "Background"
                 })
             
             logger.info(f" --> Successfully parsed {len(normalized_results)}/{len(batch_data)} refs")
@@ -283,7 +287,7 @@ class HFBatchScorer:
             return self._default_batch_response(batch_data)
     
     def _build_batch_prompt(self, manuscript_context: str, batch_data: List[Dict]) -> str:
-        """Build prompt for batch scoring."""
+        """Build prompt for batch scoring including intent instruction."""
         refs_text = []
         for i, ref in enumerate(batch_data, 1):
             citation_text = "\n".join([f"    - {ctx[:1000]}" for ctx in ref['contexts'][:3]]) if ref['contexts'] else "    No contexts"
@@ -304,11 +308,18 @@ Manuscript: {manuscript_context[:2500]}
 References:
 {''.join(refs_text)}
 
-Score 80-100 = relevant (strong thematic/methodological overlap), 40-79 = borderline, 0-39 = irrelevant
+TASKS:
+1. Score relevance (0-100): 80-100 = relevant, 40-79 = borderline, 0-39 = irrelevant.
+2. Provide a 1-sentence rationale and brief evidence snippet.
+3. Classify "citation_intent" into EXACTLY ONE of these categories based on the context:
+   - "Supporting": Author agrees with, builds upon, or uses the cited paper to validate claims.
+   - "Contrasting": Author disagrees with, critiques, or highlights a gap in the cited paper.
+   - "Methodology": Author explicitly uses a formula, dataset, or algorithm from the cited paper.
+   - "Background": Author just mentions it for historical context or general literature review.
 
-Return ONLY a JSON array:
+Return ONLY a JSON array in exactly this format:
 [
-  {{"ref_id": "<ID>", "relevance_score": <0-100>, "label": "<relevant|borderline|irrelevant>", "rationale": "<specific reason based on context>", "evidence": ["<brief snippet from citation or abstract>"]}},
+  {{"ref_id": "<ID>", "relevance_score": <0-100>, "label": "<relevant|borderline|irrelevant>", "rationale": "<specific reason based on context>", "evidence": ["<brief snippet>"], "citation_intent": "<Supporting|Contrasting|Methodology|Background>"}},
   ...
 ]"""
     
@@ -320,7 +331,8 @@ Return ONLY a JSON array:
                 "relevance_score_llm": 50,
                 "label": "borderline",
                 "rationale": "LLM judgment failed or returned invalid format",
-                "evidence": []
+                "evidence": [],
+                "citation_intent": "Background"
             }
             for ref in batch_data
         ]
@@ -401,6 +413,9 @@ class RelevanceScorer:
             llm_rationale = llm_data.get('rationale', 'Rationale not captured from LLM')
             llm_evidence = llm_data.get('evidence', [])
             
+            # ---> THE MAGIC FIX: Saving the intent to the JSON <---
+            citation_intent = llm_data.get('citation_intent', 'Background')
+            
             # Author & Venue Self-citation check (Phase 4)
             external_meta = ref.get("external_metadata", {})
             ref_authors_raw = external_meta.get("authors", [])
@@ -450,6 +465,7 @@ class RelevanceScorer:
                 "label": final_label,
                 "llm_rationale": llm_rationale,
                 "llm_evidence": llm_evidence,
+                "citation_intent": citation_intent,
                 "quality_flags": flags
             }
             
@@ -536,7 +552,6 @@ class RelevanceScorer:
         """
         contexts = []
         
-        # 1. Normalize the target ID to just the number (e.g., "[34]" -> 34)
         try:
             target_str = str(ref_id).strip("[] ")
             target_num = int(re.sub(r'\D', '', target_str))
@@ -546,7 +561,6 @@ class RelevanceScorer:
         for citation in citations:
             marker = citation.get("marker", "")
             
-            # A. Check for Range matches: [18-20]
             range_match = re.search(r'(\d+)\s*[\-\–\—]\s*(\d+)', marker)
             if range_match:
                 start, end = int(range_match.group(1)), int(range_match.group(2))
@@ -554,8 +568,6 @@ class RelevanceScorer:
                     contexts.append(citation.get("context_window", ""))
                     continue
 
-            # B. Check for List/Standalone matches using word boundaries: [34,35] or [34]
-            # Regex \b ensures 3 doesn't match 34, but 34 matches [34,35]
             if re.search(r'\b' + re.escape(str(target_num)) + r'\b', marker):
                 contexts.append(citation.get("context_window", ""))
                 

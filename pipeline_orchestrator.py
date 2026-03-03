@@ -17,6 +17,7 @@ from pathlib import Path
 from typing import Dict, Optional
 import numpy as np
 from src.risk_detection.risk_detector import run_risk_detection 
+from src.features.citation_suggester import generate_missing_citations 
 
 logger = logging.getLogger(__name__)
 
@@ -122,11 +123,9 @@ class PipelineOrchestrator:
                 parsed_path = self._normalize_path(status['parsed_path'])
                 results['file_paths']['parsed'] = parsed_path
                 
-                # Update progress bar if skipped
                 if progress_bar:
                     progress_bar.progress(0.40, text="✓ Using cached parsed data...")
             
-            # Refresh status after parsing
             status = self.db.get_document_status(document_id)
             
             # Stage 2: Enrichment
@@ -155,10 +154,9 @@ class PipelineOrchestrator:
                 if progress_bar:
                     progress_bar.progress(0.75, text="✓ Using cached enriched data...")
             
-            # Refresh status again
             status = self.db.get_document_status(document_id)
             
-            # Stage 3: Scoring & Stage 4: Risk Detection
+            # Stage 3: Scoring, Stage 4: Risk Detection, Stage 5: Missing Citations
             if force_score or not status['status_scored']:
                 logger.info(f"[Doc {document_id}] Stage 3: Scoring (Embeddings + LLM)...")
                 
@@ -175,27 +173,30 @@ class PipelineOrchestrator:
                 if not score_result['success']:
                     return results
                 
-                # --- NEW: Stage 4: Risk & Self-Citation Detection ---
                 # Fetch the most up-to-date path after scoring completes
                 status = self.db.get_document_status(document_id)
                 scored_path = Path(self._normalize_path(status['scored_path']))
                 
+                # --- Stage 4: Risk & Self-Citation Detection ---
                 if progress_bar:
                     progress_bar.progress(0.90, text="Applying Risk & Self-Citation Logic...")
-                    
                 logger.info(f"[Doc {document_id}] Stage 4: Applying Risk Detection to {scored_path}")
-                
-                # Run the detector dynamically on the new file
                 run_risk_detection(scored_path)
                 
+                # --- Stage 5: Missing Citations AI (Feature 6.2) ---
+                if progress_bar:
+                    progress_bar.progress(0.95, text="Asking AI for missing seminal papers...")
+                logger.info(f"[Doc {document_id}] Stage 5: Generating Missing Citations")
+                generate_missing_citations(scored_path, self.config)
+                
             else:
-                logger.info(f"[Doc {document_id}] Stage 3 & 4: Skipped (already scored & flagged)")
+                logger.info(f"[Doc {document_id}] Stage 3, 4 & 5: Skipped (already processed)")
                 results['stages_skipped'].append('scoring')
                 scored_path = self._normalize_path(status['scored_path'])
                 results['file_paths']['scored'] = scored_path
                 
                 if progress_bar:
-                    progress_bar.progress(0.95, text="✓ Using cached scored data...")
+                    progress_bar.progress(0.95, text="✓ Using cached scored and analyzed data...")
             
             # Final success
             if progress_bar:

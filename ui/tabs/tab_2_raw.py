@@ -1,31 +1,44 @@
 import streamlit as st
 import os
 import json
+import base64
 from ui.components.helpers import display_pdf, display_json_pretty, show_pipeline_progress
 
 def render_raw_data_tab():
+    # 1. Check if a document is selected
     if not st.session_state.current_document_id:
-        st.info("Audit a document in the first tab to see results here.")
+        st.info("📂 Please select a document from the Document Manager sidebar to see results here.")
         return
 
     doc_id = st.session_state.current_document_id
-    status = st.session_state.db_manager.get_document_status(doc_id)
+    str_doc_id = str(doc_id)
+    
+    # Safely get status and files
+    try:
+        status = st.session_state.db_manager.get_document_status(doc_id)
+    except:
+        status = {"pdf_filename": f"Document {doc_id}"}
+        
     files = st.session_state.pipeline.get_document_files(doc_id)
     stages = st.session_state.pipeline.check_stage_completion(doc_id)
     
-    st.header(f"Results for: {status['pdf_filename']}")
+    st.header(f"Results for: {status.get('pdf_filename', 'Selected Document')}")
     show_pipeline_progress(stages)
     st.markdown("---")
     
-    col_pdf, col_json = st.columns([1, 1])
+    # 2. Create the Side-by-Side Layout
+    col_pdf, col_text = st.columns([1, 1], gap="large")
     
+    # --- LEFT COLUMN: PDF VIEWER ---
     with col_pdf:
         st.subheader("📄 PDF Viewer")
         display_pdf(files['pdf'])
     
-    with col_json:
-        st.subheader("🔍 JSON Data Inspector")
+    # --- RIGHT COLUMN: HUMAN READABLE INSPECTOR ---
+    with col_text:
+        st.subheader("🔍 Data Extraction Viewer")
         
+        # Determine available stages
         available_options = []
         if stages.get('parsed') and files.get('parsed') and os.path.exists(files['parsed']):
             available_options.append("Parsed Extraction")
@@ -35,12 +48,14 @@ def render_raw_data_tab():
             available_options.append("Final Relevance Scoring")
             
         if not available_options:
-            st.info("No JSON data available yet. Please run the pipeline.")
+            st.info("No data available yet. Please run the pipeline.")
         else:
+            # Stage Selector Dropdown
             view_choice = st.selectbox(
                 "Select Pipeline Stage to View:", 
                 available_options, 
-                index=len(available_options)-1
+                index=len(available_options)-1,
+                label_visibility="collapsed" # Hides the label for a cleaner look
             )
             
             file_map = {
@@ -51,10 +66,120 @@ def render_raw_data_tab():
             
             selected_file = file_map.get(view_choice)
             
-            st.markdown("---")
             if selected_file and os.path.exists(selected_file):
                 with open(selected_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                display_json_pretty(data, title=f"Showing: {view_choice}")
+                
+                # --- DATA EXTRACTION ---
+                meta = data.get('manuscript_metadata') or data.get('metadata') or {}
+                refs = data.get('scored_references') or data.get('enriched_references') or data.get('references') or []
+                in_text_cites = data.get('citations_in_text') or data.get('in_text_citations') or []
+                
+                # --- VISUAL UPGRADE 1: KPI METRICS ---
+                st.markdown("<br>", unsafe_allow_html=True)
+                kpi1, kpi2 = st.columns(2)
+                kpi1.metric(label="📚 Total References", value=len(refs))
+                kpi2.metric(label="📎 In-Text Citations", value=len(in_text_cites))
+                st.markdown("<br>", unsafe_allow_html=True)
+                
+                # --- VISUAL UPGRADE 2: SUB-TABS (Replaces Expanders) ---
+                tab_meta, tab_cites, tab_refs = st.tabs(["📄 Metadata", f"📎 Citations ({len(in_text_cites)})", f"📚 References ({len(refs)})"])
+                
+                # TAB 1: METADATA
+                with tab_meta:
+                    title = meta.get('title', 'Unknown Title')
+                    authors = meta.get('authors', [])
+                    authors_str = ", ".join(authors) if isinstance(authors, list) else str(authors)
+                    doi = meta.get('doi')
+                    doi_display = f"`{doi}`" if doi else "*NULL*"
+                    abstract = meta.get('abstract', 'No abstract extracted.')
+                    
+                    st.markdown(f"**Title:** {title}")
+                    st.markdown(f"**Authors:** {authors_str}")
+                    st.markdown(f"**DOI:** {doi_display}")
+                    st.markdown("**Abstract:**")
+                    st.info(abstract)
+                
+                # TAB 2: CITATIONS (Inside a scrollable container!)
+                with tab_cites:
+                    if not in_text_cites:
+                        st.write("No in-text citations found in this stage.")
+                    else:
+                        with st.container(height=500): # Fixes height so it scrolls independently
+                            for cite in in_text_cites:
+                                marker = cite.get('marker', '[Unknown]')
+                                context = cite.get('context_window') or cite.get('text') or "No context text."
+                                st.markdown(f"**Marker:** `{marker}`")
+                                st.markdown(f"*{context}*")
+                                st.divider()
+
+                # TAB 3: REFERENCES (Inside a scrollable container!)
+                with tab_refs:
+                    if not refs:
+                        st.write("No references found.")
+                    else:
+                        with st.container(height=500): # Fixes height so it scrolls independently
+                            for i, ref in enumerate(refs):
+                                ref_id = ref.get('ref_id', f"[{i+1}]")
+                                parsed_data = ref.get('original_data', {}).get('parsed', {}) if 'original_data' in ref else ref
+                                
+                                ref_title = parsed_data.get('title') or ref.get('title') or "Unknown Title"
+                                ref_authors = parsed_data.get('authors') or ref.get('authors') or []
+                                ref_authors_str = ", ".join(ref_authors) if isinstance(ref_authors, list) else str(ref_authors)
+                                ref_year = parsed_data.get('year') or ref.get('year') or "N/A"
+                                
+                                st.markdown(f"**{ref_id}** | {ref_title}")
+                                st.caption(f"Authors: {ref_authors_str} | Year: {ref_year}")
+                                
+                                # --- VISUAL UPGRADE 3: HTML BADGES ---
+                                if view_choice == "Final Relevance Scoring" and 'RS_final' in ref:
+                                    label = ref.get('label', '').upper()
+                                    
+                                    # Set colors based on label
+                                    if label == "RELEVANT":
+                                        badge_color = "#d4edda"
+                                        text_color = "#155724"
+                                    elif label == "IRRELEVANT":
+                                        badge_color = "#f8d7da"
+                                        text_color = "#721c24"
+                                    else:
+                                        badge_color = "#fff3cd"
+                                        text_color = "#856404"
+                                        
+                                    badge_html = f"<span style='background-color: {badge_color}; color: {text_color}; padding: 3px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: bold;'>{label}</span>"
+                                    
+                                    score = ref.get('RS_final')
+                                    intent = ref.get('citation_intent', '')
+                                    
+                                    # Create a neat stats row
+                                    cols = st.columns([1, 1, 2])
+                                    cols[0].markdown(f"**Score:** `{score}/100`")
+                                    cols[1].markdown(badge_html, unsafe_allow_html=True)
+                                    if intent:
+                                        cols[2].markdown(f"**Intent:** {intent}")
+                                    
+                                    rationale = ref.get('llm_rationale')
+                                    if rationale:
+                                        st.markdown(f"> 🤖 **AI:** {rationale}")
+                                
+                                st.divider()
+
+                # --- DOWNLOAD BUTTON & RAW JSON ---
+                st.markdown("<br>", unsafe_allow_html=True)
+                
+                col_down, col_raw = st.columns([1, 1])
+                with col_down:
+                    json_string = json.dumps(data, indent=4)
+                    st.download_button(
+                        label=f"📥 Download {view_choice} JSON",
+                        file_name=f"{str_doc_id}_{view_choice.replace(' ', '_').lower()}.json",
+                        mime="application/json",
+                        data=json_string,
+                        use_container_width=True
+                    )
+                with col_raw:
+                    with st.expander("⚙️ View Raw JSON Data"):
+                        display_json_pretty(data, title=f"Showing: {view_choice}")
+                    
             else:
                 st.error(f"Could not load the file for {view_choice}.")

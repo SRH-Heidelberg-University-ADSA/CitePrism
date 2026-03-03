@@ -17,23 +17,23 @@
     },
     {
       "marker": "[31]",
-      "context_window": "Traditionally distinct, kernel methods and deep neural networks are now being actively investigated for their interconnections. A key perspective is deep kernel learning [31], where composite functions in reproducing kernel Hilbert spaces (RKHSs) are learned from data, and representer theorems ensure data-dependent solutions [5, 19]. This blends deep neural network flexibility with the theoretical rigor of kernel methods."
+      "context_window": "A key perspective is deep kernel learning [31], where composite functions in reproducing kernel Hilbert spaces (RKHSs) are learned from data, and representer theorems ensure data-dependent solutions [5, 19]. This blends deep neural network flexibility with the theoretical rigor of kernel methods."
     },
     {
       "marker": "[5, 19]",
-      "context_window": "A key perspective is deep kernel learning [31], where composite functions in reproducing kernel Hilbert spaces (RKHSs) are learned from data, and representer theorems ensure data-dependent solutions [5, 19]. This blends deep neural network flexibility with the theoretical rigor of kernel methods. Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]."
+      "context_window": "A key perspective is deep kernel learning [31], where composite functions in reproducing kernel Hilbert spaces (RKHSs) are learned from data, and representer theorems ensure data-dependent solutions [5, 19]. This blends deep neural network flexibility with the theoretical rigor of kernel methods."
     },
     {
       "marker": "[7, 17]",
-      "context_window": "This blends deep neural network flexibility with the theoretical rigor of kernel methods. Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]. The generalization properties of both kernel methods and deep neural networks have been extensively investigated, with Rademacher complexity [29] serving as a central tool for bounding generalization errors."
+      "context_window": "This blends deep neural network flexibility with the theoretical rigor of kernel methods. Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]."
     },
     {
       "marker": "[24]",
-      "context_window": "This blends deep neural network flexibility with the theoretical rigor of kernel methods. Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]. The generalization properties of both kernel methods and deep neural networks have been extensively investigated, with Rademacher complexity [29] serving as a central tool for bounding generalization errors."
+      "context_window": "This blends deep neural network flexibility with the theoretical rigor of kernel methods. Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]."
     },
     {
       "marker": "[4]",
-      "context_window": "Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]. The generalization properties of both kernel methods and deep neural networks have been extensively investigated, with Rademacher complexity [29] serving as a central tool for bounding generalization errors. For kernel methods, Rademacher complexity bounds can be derived directly through the reproducing property."
+      "context_window": "Relatedly, the neural tangent kernel [7, 17] and convolutional kernel networks [24] enable kernel-based analysis of neural networks, and kernel-inspired regularization has been explored for deep learning [4]. The generalization properties of both kernel methods and deep neural networks have been extensively investigated, with Rademacher complexity [29] serving as a central tool for bounding generalization errors."
     },
     {
       "marker": "[29]",
@@ -69,79 +69,79 @@
     },
     {
       "marker": "[1]",
-      "context_window": "Multi-TaskLearning:Theadvantagesofmulti-tasklearninghavebeenextensivelyexplored inthemachinelearningliterature[1]. Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared representations and task relationships influence generalization [22, 8, 34]. Initial generalization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]."
+      "context_window": "1.1 Related works Multi-TaskLearning:Theadvantagesofmulti-tasklearninghavebeenextensivelyexplored inthemachinelearningliterature[1]. Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared repre- sentations and task relationships influence generalization [22, 8, 34]."
     },
     {
       "marker": "[22, 8, 34]",
-      "context_window": "Multi-TaskLearning:Theadvantagesofmulti-tasklearninghavebeenextensivelyexplored inthemachinelearningliterature[1]. Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared representations and task relationships influence generalization [22, 8, 34]. Initial generalization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]."
+      "context_window": "Multi-TaskLearning:Theadvantagesofmulti-tasklearninghavebeenextensivelyexplored inthemachinelearningliterature[1]. Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared repre- sentations and task relationships influence generalization [22, 8, 34]. Initial gen- eralization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]."
     },
     {
       "marker": "[26]",
-      "context_window": "Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared representations and task relationships influence generalization [22, 8, 34]. Initial generalization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds leveraging local Rademacher complexity analysed the role of common regularization strategies [40]."
+      "context_window": "Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared repre- sentations and task relationships influence generalization [22, 8, 34]. Initial gen- eralization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds lever- aging local Rademacher complexity analysed the role of common regularization strategies [40]."
     },
     {
       "marker": "[32]",
-      "context_window": "Initial generalization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds leveraging local Rademacher complexity analysed the role of common regularization strategies [40]. To address the current scarcity of multi-task deep learning theories, this work introduces a novel framework to analyzing the generalization characteristics of functions learned by vector-valued deep learning architectures with use of transfer operators, providing new insights into multi-task learning with neural networks."
+      "context_window": "Initial gen- eralization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds lever- aging local Rademacher complexity analysed the role of common regularization strategies [40]. To address the current scarcity of multi-task deep learning the- ories, this work introduces a novel framework to analyzing the generalization characteristics of functions learned by vector-valued deep learning architectures with use of transfer operators, providing new insights into multi-task learning with neural networks."
     },
     {
       "marker": "[40]",
-      "context_window": "subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds leveraging local Rademacher complexity analysed the role of common regularization strategies [40]. To address the current scarcity of multi-task deep learning theories, this work introduces a novel framework to analyzing the generalization characteristics of functions learned by vector-valued deep learning architectures with use of transfer operators, providing new insights into multi-task learning with neural networks. Sketching:To alleviate the computational demands of kernel methods, sketching techniques have emerged as a powerful tool for approximating kernel matrices and reducing memory requirements [23, 38, 39]."
+      "context_window": "Initial gen- eralization results in multi-task learning include Rademacher complexity-based bounds for linear classification [26], subsequently refined to derive risk estimates in trace norm regularized models [32]. More recently, sharper risk bounds lever- aging local Rademacher complexity analysed the role of common regularization strategies [40]. To address the current scarcity of multi-task deep learning the- ories, this work introduces a novel framework to analyzing the generalization characteristics of functions learned by vector-valued deep learning architectures with use of transfer operators, providing new insights into multi-task learning with neural networks."
     },
     {
       "marker": "[23, 38, 39]",
-      "context_window": "More recently, sharper risk bounds leveraging local Rademacher complexity analysed the role of common regularization strategies [40]. To address the current scarcity of multi-task deep learning theories, this work introduces a novel framework to analyzing the generalization characteristics of functions learned by vector-valued deep learning architectures with use of transfer operators, providing new insights into multi-task learning with neural networks. Sketching:To alleviate the computational demands of kernel methods, sketching techniques have emerged as a powerful tool for approximating kernel matrices and reducing memory requirements [23, 38, 39]. By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems."
+      "context_window": "Sketching:To alleviate the computational demands of kernel methods, sketch- ing techniques have emerged as a powerful tool for approximating kernel matri- ces and reducing memory requirements [23, 38, 39]. By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems."
     },
     {
       "marker": "[39]",
-      "context_window": "Sketching:To alleviate the computational demands of kernel methods, sketching techniques have emerged as a powerful tool for approximating kernel matrices and reducing memory requirements [23, 38, 39]. By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems. Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcomputational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses."
+      "context_window": "Sketching:To alleviate the computational demands of kernel methods, sketch- ing techniques have emerged as a powerful tool for approximating kernel matri- ces and reducing memory requirements [23, 38, 39]. By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems. Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcom- putational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses."
     },
     {
       "marker": "[21]",
-      "context_window": "By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems. Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcomputational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]."
+      "context_window": "By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems. Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcom- putational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]."
     },
     {
       "marker": "[10]",
-      "context_window": "Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcomputational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]. This section presents our notation (Section 2.1) and the required mathematical background (Section 2.2)."
+      "context_window": "By employing randomized linear projections, sketching can enable near-optimal nonparametric regression [39] and provide efficient solutions for large-scale problems. Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcom- putational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]."
     },
     {
       "marker": "[6]",
-      "context_window": "while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcomputational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]. This section presents our notation (Section 2.1) and the required mathematical background (Section 2.2)."
+      "context_window": "Approaches such as Random Fourier Features [21] have proven effective, while recent work onp-sparsifiedsketches[10]demonstratesthatstructuredsparsitycanofferbothcom- putational advantages and strong theoretical guarantees, extending the range of applicability for generic Lipschitz losses. The core aim is the same as well known by [6]."
     },
     {
       "marker": "[37, 20]",
-      "context_window": "Fors > d/2,Hs(Rd,Rm)is the Sobolev spaceW s,2(Rd,Rm). Details regarding Sobolev spaces of vector-valued functions and their associated vvRKHS can be found in [37, 20]. We study the general setting of multi-output (vector-valued) supervised learning."
+      "context_window": "Fors > d/2,Hs(Rd,Rm)is the Sobolev spaceW s,2(Rd,Rm). Details regarding Sobolev spaces of vector-valued functions and their associated vvRKHS can be found in [37, 20]."
+    },
+    {
+      "marker": "[28, 15]",
+      "context_window": "3 Operator Representation framework for deep learning This work analyzes the generalization capabilities ofL-layer deep neural net- works mapping from an input spaceRd0 to an output spaceRm. Building upon the operator-theoretic framework developed in [28, 15], we present an in-depth analysis of vector-valued neural networks through the lens of vvRKHSs."
     },
     {
       "marker": "[6, 33, 21]",
-      "context_window": "Specifically, Assumption 1, the attainability condition, is a common starting point in kernel literature [6, 33, 21], positing the existence of a risk minimizer within our hypothesis space. Assumption 2 addresses complexity control by restricting the hypothesis space to a unit ball, allowing us to normalize without loss of generality. Assumption 3, the Lipschitz continuity of the loss function, is a classical requirement for bounding generalization error."
+      "context_window": "Following standard practice in kernel methods and deep learning theory, our analysis relies on a set of key assumptions. Specifically, Assumption 1, the at- tainability condition, is a common starting point in kernel literature [6, 33, 21], positing the existence of a risk minimizer within our hypothesis space. Assumption 2 addresses complexity control by restricting the hypothesis space to a unit ball, allowing us to normalize without loss of generality."
     },
     {
       "marker": "[28]",
-      "context_window": "Finally, Assumption 5, pertaining to the properties of the final nonlinear transformation, is justified by Remark 1 and Lemma 1 of [28]. These assumptions, while potentially restrictive, enable us to establish meaningful theoretical guarantees. We proceed by bounding the Rademacher complexity, analyzing the case where weight matrices are invertible or injective."
+      "context_window": "Assumption 3, the Lipschitz continuity of the loss function, is a classical requirement for bound- ing generalization error. Finally, Assumption 5, pertaining to the properties of the final nonlinear transformation, is justified by Remark 1 and Lemma 1 of [28]. These assumptions, while potentially restrictive, enable us to establish meaningful theoretical guarantees."
     },
     {
       "marker": "[28]",
-      "context_window": "Using a similar argument as in the proof of Theorem3, and applying inequality(10)from Theorem2in [28], yields the following results. Lemma 1.The Rademacher complexity bRm n (Finj)is bounded as bRm n (Finj)≤∥g∥ HsL(RdL,Rm) rκ n Tr(M) sup Wl∈W C,D l LY l=1 Gl ·sup ω∈ran(Wl) 1 +∥W⊤ l ω∥2 2 1 +∥ω∥2 2 sl−1/2 1 det(W⊤ l Wl)1/4 L−1Y l=1 ∥Kσl∥.(5)"
+      "context_window": "Using a similar argument as in the proof of Theorem3, and applying inequality(10)from Theorem2in [28], yields the following results."
     },
     {
       "marker": "[15]",
-      "context_window": "The Koopman-based bound is flexible and can be combined with other bounds, as demonstrated previously ([15], Section 4.4 and Proposition 19). This approach can be extended to our setting using the same technique. Specifically, the complexity of anL-layer, multi-output network can be decomposed into the Koopman-based bound for the firstllayers and the bound for the remaining L−llayers."
-    },
-    {
-      "marker": "[28]",
-      "context_window": "Remark 1.For simplicity, our analysis considers single-output neural networks and RKHSs associated with the one-dimensional Brownian kernel as the function spaces presented in Remark(2)-(i)in [28]. A further refinement involves combining the Koopman-based framework with established “peeling” techniques [30, 12]. This combination has the potential to yield a complexity bound of the form O   LY j=l+1 ∥Wj∥2,2 lY j=1 ∥Wj∥  ."
+      "context_window": "4.2 Integrating the Koopman-based bound The Koopman-based bound is flexible and can be combined with other bounds, as demonstrated previously ([15], Section 4.4 and Proposition 19). This ap- proach can be extended to our setting using the same technique."
     },
     {
       "marker": "[30, 12]",
-      "context_window": "Remark 1.For simplicity, our analysis considers single-output neural networks and RKHSs associated with the one-dimensional Brownian kernel as the function spaces presented in Remark(2)-(i)in [28]. A further refinement involves combining the Koopman-based framework with established “peeling” techniques [30, 12]. This combination has the potential to yield a complexity bound of the form O   LY j=l+1 ∥Wj∥2,2 lY j=1 ∥Wj∥  ."
+      "context_window": "Remark 1.For simplicity, our analysis considers single-output neural networks and RKHSs associated with the one-dimensional Brownian kernel as the func- tion spaces presented in Remark(2)-(i)in [28]. A further refinement involves combining the Koopman-based framework with established “peeling” techniques [30, 12]. This combination has the potential to yield a complexity bound of the form O ( LY j=l+1 ∥Wj∥2,2 lY j=1 ∥Wj∥ ) ."
     },
     {
       "marker": "[27]",
-      "context_window": "whereℓ:R m ×Rm →Rrepresents a loss function satisfying the following conditions: for ally∈R m, the mappingz7→ℓ(z,y)is proper, lower semi-continuous, and convex. According to the vector-valued representer theorem [27], the minimizer of Problem (11) admits the representationˆfn = Pn j=1 Ks0 (·,x j) ˆαj=Pn j=1 ks0 (·,x j)Mˆαj, where the coefficient matrixˆA= ( ˆα1, . . . ,ˆαn)⊤ ∈R n×m solves the optimization problem min A∈Rn×m 1 n Pn i=1 ℓ([k0AM]⊤ i: ,y i) +λn 2 Tr(k0AMA⊤)."
+      "context_window": "The penalized empirical risk minimization problem is then defined as min f∈H s0 1 n nX i=1 ℓ(f(xi),y i) +λn 2 ∥f∥2 Hs0 ,(11) whereℓ:R m ×Rm →Rrepresents a loss function satisfying the following condi- tions: for ally∈R m, the mappingz7→ℓ(z,y)is proper, lower semi-continuous, and convex. According to the vector-valued representer theorem [27], the min- imizer of Problem (11) admits the representationˆfn = Pn j=1 Ks0 (·,x j) ˆαj=Pn j=1 ks0 (·,x j)Mˆαj, where the coefficient matrixˆA= ( ˆα1, . . . ,ˆαn)⊤ ∈R n×m solves the optimization problem min A∈Rn×m 1 n nX i=1 ℓ([k0AM]⊤ i: ,y i) +λn 2 Tr(k0AMA⊤)."
     },
     {
       "marker": "[21]",
-      "context_window": "In this framework, sketching entails replacing the matrixAwith a sketched approximationS ⊤Γ, whereS∈R s×n denotes a sketch matrix andΓ∈R s×m parameterizes the reduced-dimensional representation. Consequently, the solution to the sketched problem is given by˜fs = Pn j=1 k(·,x j)M[S⊤ ˜Γ]j:, with ˜Γ∈R s×m obtained by minimizing 1 n Pn i=1 ℓ([k0S⊤ ˜ΓM]i:,y i) +λn 2 Tr(Sk0S⊤ ˜ΓM˜Γ⊤). We adopt the framework of ([21], Sections2.1&3) to derive our excess risk bounds."
+      "context_window": "We adopt the framework of ([21], Sections2.1&3) to derive our excess risk bounds. Specifically, we assume that the true risk is minimized overHs0 at fHs0 := arg minf∈H s0 ERadmn[ℓ(f(X), Y)]. The existence of such a minimizer is a standard assumption [6, 10, 33, 39] and implies thatfHs0 has bounded norm ([10, 33], Remark2)."
     },
     {
       "marker": "[6, 10, 33, 39]",
@@ -149,43 +149,51 @@
     },
     {
       "marker": "[10, 33]",
-      "context_window": "The existence of such a minimizer is a standard assumption [6, 10, 33, 39] and implies thatfHs0 has bounded norm ([10, 33], Remark2). Following [10, 21], we also assume that the estimators obtained by Empirical Risk Minimization possess bounded norms. Letk 0/n=UDU ⊤ represent the eigendecomposition of the scaled Gram matrixk 0, whereD= diag(µ 1, . . . , µn)contains the eigenvalues ofk 0/nar rangedindecreasingorder."
+      "context_window": "The existence of such a minimizer is a standard assumption [6, 10, 33, 39] and implies thatfHs0 has bounded norm ([10, 33], Remark2). Following [10, 21], we also assume that the estimators obtained by Empirical Risk Minimization possess bounded norms."
     },
     {
       "marker": "[10, 21]",
-      "context_window": "implies thatfHs0 has bounded norm ([10, 33], Remark2). Following [10, 21], we also assume that the estimators obtained by Empirical Risk Minimization possess bounded norms. Letk 0/n=UDU ⊤ represent the eigendecomposition of the scaled Gram matrixk 0, whereD= diag(µ 1, . . . , µn)contains the eigenvalues ofk 0/nar rangedindecreasingorder."
+      "context_window": "The existence of such a minimizer is a standard assumption [6, 10, 33, 39] and implies thatfHs0 has bounded norm ([10, 33], Remark2). Following [10, 21], we also assume that the estimators obtained by Empirical Risk Minimization possess bounded norms. Letk 0/n=UDU ⊤ represent the eigendecomposition of the scaled Gram matrixk 0, whereD= diag(µ 1, . . . , µn)contains the eigenvalues ofk 0/nar- rangedindecreasingorder."
     },
     {
       "marker": "[39]",
-      "context_window": "Defineδ 2 n asthecriticalradiusofk 0/n, characterized as the minimal value for which the functionψ(δn) = 1 n Pn i=1 min(δ2 n, µi) 1/2 is bounded above byδ2 n. The existence and uniqueness ofδ2 n are well-established for any RKHS associated with a positive definite kernel, as demonstrated in [39]. Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists."
+      "context_window": "The existence and uniqueness ofδ2 n are well-established for any RKHS associated with a positive definite kernel, as demonstrated in [39]. Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists."
     },
     {
       "marker": "[10]",
-      "context_window": "The existence and uniqueness ofδ2 n are well-established for any RKHS associated with a positive definite kernel, as demonstrated in [39]. Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists. Definition 2.(k 0-satisfiability, [39])Letc >0be independent ofn,U 1 ∈ Rn×dn andU 2 ∈R n×(n−dn) be the left and right blocks of the matrixUpre viously defined, andD 2 = diag(µdn+1, . . . , µn)."
+      "context_window": "The existence and uniqueness ofδ2 n are well-established for any RKHS associated with a positive definite kernel, as demonstrated in [39]. Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists. Definition 2.(k 0-satisfiability, [39])Letc >0be independent ofn,U 1 ∈ Rn×dn andU 2 ∈R n×(n−dn) be the left and right blocks of the matrixUpre- viously defined, andD 2 = diag(µdn+1, . . . , µn)."
     },
     {
       "marker": "[39]",
-      "context_window": "Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists. Definition 2.(k 0-satisfiability, [39])Letc >0be independent ofn,U 1 ∈ Rn×dn andU 2 ∈R n×(n−dn) be the left and right blocks of the matrixUpre viously defined, andD 2 = diag(µdn+1, . . . , µn). A matrixSis said to bek 0- satisfiableforcif we have ∥(SU1)⊤SU1 −I dn∥ ≤1 2 ,and∥SU 2D1/2 2 ∥ ≤cδ n. (12)"
+      "context_window": "Thestatisticaldimensiond n isdefinedin[10]astheminimalindexj∈ {1, . . . , n} such thatµj ≤δ 2 n, withd n =nif no suchjexists. Definition 2.(k 0-satisfiability, [39])Letc >0be independent ofn,U 1 ∈ Rn×dn andU 2 ∈R n×(n−dn) be the left and right blocks of the matrixUpre- viously defined, andD 2 = diag(µdn+1, . . . , µn). A matrixSis said to bek 0- satisfiableforcif we have ∥(SU1)⊤SU1 −I dn∥ ≤1 2 ,and∥SU 2D1/2 2 ∥ ≤cδ n. (12)"
     },
     {
       "marker": "[10]",
-      "context_window": "The following theorem’s proof directly applies Theorem4from [10], a key theoretical result underpinning this paper. Corollary 1.Suppose that Assumptions 1 to 6 hold, thatK s0 =k s0 Mis a decomposable kernel withMinvertible, and letC= 1+ √ 6c, with c the constant from Assumption 6. Then for anyδ∈(0,1), with probability at least1−δ, we have R ˜fs ≤ R(fHs0 ) +JℓC p λn +∥M∥δ 2n + λn 2 + 8L r κTr(M) n + 2 r 8 log(4/δ) n . (13) 11 [10]proposedp-sparsifiedsketches, demonstratingtheirk 0-satisfiability."
+      "context_window": "The following theorem’s proof directly applies Theorem4from [10], a key theoretical result underpinning this paper."
     },
     {
       "marker": "[10]",
-      "context_window": "Then for anyδ∈(0,1), with probability at least1−δ, we have R ˜fs ≤ R(fHs0 ) +JℓC p λn +∥M∥δ 2n + λn 2 + 8L r κTr(M) n + 2 r 8 log(4/δ) n . (13) 11 [10]proposedp-sparsifiedsketches, demonstratingtheirk 0-satisfiability. These sketches consist of i.i.d. Rademacher or centered Gaussian entries modulated by Bernoulli variables (parameterp, scaled for isometry)."
+      "context_window": "[10]proposedp-sparsifiedsketches, demonstratingtheirk 0-satisfiability. These sketches consist of i.i.d. Rademacher or centered Gaussian entries modulated by Bernoulli variables (parameterp, scaled for isometry), improving computational efficiency."
+    },
+    {
+      "marker": "[10]",
+      "context_window": "Sparsity, controlled byp, enables rewriting the sketch matrixSas a product of a sub-Gaussian and a reduced sub-sampling sketch, improving computational efficiency.p-sparsified sketches arek0-satisfiable with high probability forc= 2√p (1 + √log (5)) + 1 (see, [10], Theorem 5)."
     },
     {
       "marker": "[14]",
-      "context_window": "Inspired by recent advances in operator-theoretic approaches to deep learning, particularly the framework developed by [14], this section presents a new network architecture designed to capture intricate relationships in multi-task learning. BystrategicallyemployingPFoperatorswithinadeepvvRKHSframework, we create a computationally tractable yet theoretically sound approach to deep kernel methods."
+      "context_window": "5 Operator Representation framework for deep vvRKHS Inspired by recent advances in operator-theoretic approaches to deep learning, particularly the framework developed by [14], this section presents a new net- work architecture designed to capture intricate relationships in multi-task learn- ing. BystrategicallyemployingPFoperatorswithinadeepvvRKHSframework, we create a computationally tractable yet theoretically sound approach to deep kernel methods."
+    },
+    {
+      "marker": "[14]",
+      "context_window": "5.1 Deep vvRKHS We define anL-layer deep vvRKHS. For an integerL≥3, letX0,X1, . . . ,XL,Y represent a family of Hilbert spaces. Illustration of the proposed deep vvRKHS (adapted from [14], Figure 1)."
     },
     {
       "marker": "[41]",
-      "context_window": "DefineeHj as the vvRKHS corresponding to the separable kernelK j =k jM. Then, forj= 1, . . . , L, we haveH j ≤ eHj, as shown in ([41], Proposition 17). Consequently, the Rademacher complexity can be bounded as bRm n (FL)≤ p κTr(M1) n sup (fj∈Fj)j ∥PfL−1 . . .Pf1 |eV(x)∥∥fL∥HL,(16) where we assumek1 satisfies Assumption 4."
+      "context_window": "Then, forj= 1, . . . , L, we haveH j ≤ eHj, as shown in ([41], Proposition 17). Consequently, the Rademacher complexity can be bounded as bRm n (FL)≤ p κTr(M1) n sup (fj∈Fj)j ∥PfL−1 . . .Pf1 |eV(x)∥∥fL∥HL,(16) where we assumek1 satisfies Assumption 4."
     },
     {
       "marker": "[41]",
-      "context_window": "By appropriately refining the vvRKHS, we modulate the trade-off between approximation and sampling errors, mitigating both overfitting and underfitting [41]."
+      "context_window": "In this case, a refinementG(L) withH L ⊂ H(L) (as function spaces, we con- sider vvRKHSsH (j) corresponding to the separable kernelsG(j) =k jA, where M≤AforA∈ B(R m)+ andj= 1, . . . , L) enlarges the candidate function space, diminishing approximation error. By appropriately refining the vvRKHS, we modulate the trade-off between approximation and sampling errors, mitigat- ing both overfitting and underfitting [41]."
     }
   ],
   "scored_references": [
@@ -194,7 +202,7 @@
       "original_data": {
         "ref_id": "[1]",
         "parsed": {
-          "title": "Multi-task feature learning",
+          "title": "Multi-task feature learning.",
           "authors": [
             "A. Argyriou",
             "T. Evgeniou",
@@ -205,7 +213,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2165644552",
@@ -229,28 +237,27 @@
         "venue": "The MIT Press eBooks"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 58.05,
-      "RS_llm": 60,
-      "RS_final": 59.22,
+      "RS_embed": 58.36,
+      "RS_llm": 40,
+      "RS_final": 47.34,
       "label": "borderline",
-      "llm_rationale": "The reference discusses multi-task feature learning, which is related to the manuscript's topic of multi-task learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "llm_rationale": "The reference discusses multi-task feature learning, which is related to the manuscript's focus on multi-task learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We present a method for learning a low-dimensional representation which is shared across a set of multiple related tasks."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[2]",
       "original_data": {
         "ref_id": "[2]",
         "parsed": {
-          "title": "Spectrally-normalized margin bounds for neural networks",
+          "title": "Spectrally-normalized margin bounds for neural networks.",
           "authors": [
             "P.L. Bartlett",
             "D.J. Foster",
@@ -261,7 +268,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2963285844",
@@ -285,28 +292,27 @@
         "venue": "International Conference on Learning Representations"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 54.16,
-      "RS_llm": 80,
-      "RS_final": 69.66,
+      "RS_embed": 54.31,
+      "RS_llm": 60,
+      "RS_final": 57.72,
       "label": "borderline",
-      "llm_rationale": "The reference presents a generalization bound for feedforward neural networks, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference presents a generalization bound for feedforward neural networks, which is related to the manuscript's focus on generalization bounds for deep learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We present a generalization bound for feedforward neural networks in terms of the product of the spectral norm of the layers and the Frobenius norm of the weights."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[3]",
       "original_data": {
         "ref_id": "[3]",
         "parsed": {
-          "title": "Benign overfitting in linear regression",
+          "title": "Benign overfitting in linear regression.",
           "authors": [
             "P.L. Bartlett",
             "P.M. Long",
@@ -345,28 +351,27 @@
         "venue": "Proceedings of the National Academy of Sciences"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 58.26,
-      "RS_llm": 40,
-      "RS_final": 47.3,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses benign overfitting in linear regression, which is not directly related to the manuscript's topic of generalization bounds for deep learning.",
+      "RS_embed": 58.83,
+      "RS_llm": 80,
+      "RS_final": 71.53,
+      "label": "relevant",
+      "llm_rationale": "The reference discusses benign overfitting, which is a key concept in the manuscript's analysis of generalization properties of multi-task learning with deep learning architectures.",
       "llm_evidence": [
         "The phenomenon of benign overfitting is one of the key mysteries uncovered by deep learning methodology."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[4]",
       "original_data": {
         "ref_id": "[4]",
         "parsed": {
-          "title": "A kernel perspective for regularizing deep neural networks",
+          "title": "A kernel perspective for regularizing deep neural networks.",
           "authors": [
             "A. Bietti",
             "G. Mialon",
@@ -378,7 +383,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2913004909",
@@ -405,28 +410,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 65.18,
-      "RS_llm": 50,
-      "RS_final": 56.07,
+      "RS_embed": 65.43,
+      "RS_llm": 70,
+      "RS_final": 68.17,
       "label": "borderline",
-      "llm_rationale": "The reference proposes a new point of view for regularizing deep neural networks, which is related to the manuscript's topic of generalization bounds for deep learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "llm_rationale": "The reference proposes a new point of view for regularizing deep neural networks, which is related to the manuscript's focus on regularization techniques for deep learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We propose a new point of view for regularizing deep neural networks by using the norm of a reproducing kernel Hilbert space (RKHS)."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[5]",
       "original_data": {
         "ref_id": "[5]",
         "parsed": {
-          "title": "A representer theorem for deep kernel learning",
+          "title": "A representer theorem for deep kernel learning.",
           "authors": [
             "B. Bohn",
             "M. Griebel",
@@ -437,7 +441,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Mismatch Flagged (Year diff: 2)",
       "external_metadata": {
         "id": "https://openalex.org/W2760746183",
@@ -461,28 +465,28 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 58.04,
-      "RS_llm": 70,
-      "RS_final": 65.22,
-      "label": "borderline",
-      "llm_rationale": "The reference provides a finite-sample and an infinite-sample representer theorem for the concatenation of (linear combinations of) kernel functions of reproducing kernel Hilbert spaces, which is related to the manuscript's topic of generalization bounds for deep learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "RS_embed": 58.33,
+      "RS_llm": 90,
+      "RS_final": 77.33,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a finite-sample and an infinite-sample representer theorem for the concatenation of (linear combinations of) kernel functions of reproducing kernel Hilbert spaces, which is a key concept in the manuscript's analysis of generalization properties of multi-task learning with deep learning architectures.",
       "llm_evidence": [
         "In this paper we provide a finite-sample and an infinite-sample representer theorem for the concatenation of (linear combinations of) kernel functions of reproducing kernel Hilbert spaces."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[6]",
       "original_data": {
         "ref_id": "[6]",
         "parsed": {
-          "title": "Optimal rates for the regularized least-squares algorithm",
+          "title": "Optimal rates for the regularized least-squares algorithm.",
           "authors": [
             "A. Caponnetto",
             "E.D. Vito"
@@ -513,28 +517,27 @@
         "venue": "Foundations of Computational Mathematics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 65.8,
-      "RS_llm": 90,
-      "RS_final": 80.32,
+      "RS_embed": 65.52,
+      "RS_llm": 80,
+      "RS_final": 74.21,
       "label": "relevant",
-      "llm_rationale": "The reference develops a theoretical analysis of the performance of the regularized least-square algorithm on a reproducing kernel Hilbert space, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference develops a theoretical analysis of the performance of the regularized least-square algorithm on a reproducing kernel Hilbert space, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
         "We develop a theoretical analysis of the performance of the regularized least-square algorithm on a reproducing kernel Hilbert space in the supervised learning setting."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[7]",
       "original_data": {
         "ref_id": "[7]",
         "parsed": {
-          "title": "Deep neural tangent kernel and laplace kernel have the same RKHS",
+          "title": "Deep neural tangent kernel and laplace kernel have the same RKHS.",
           "authors": [
             "L. Chen",
             "S. Xu"
@@ -544,7 +547,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W3088538132",
@@ -565,28 +568,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 42.86,
+      "RS_embed": 44.27,
       "RS_llm": 60,
-      "RS_final": 53.14,
+      "RS_final": 53.71,
       "label": "borderline",
-      "llm_rationale": "The reference proves that the reproducing kernel Hilbert spaces (RKHS) of a deep neural tangent kernel and the Laplace kernel include the same set of functions, which is related to the manuscript's topic of generalization bounds for deep learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "llm_rationale": "The reference proves that the reproducing kernel Hilbert spaces (RKHS) of a deep neural tangent kernel and the Laplace kernel include the same set of functions, which is related to the manuscript's focus on kernel methods for deep learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We prove that the reproducing kernel Hilbert spaces (RKHS) of a deep neural tangent kernel and the Laplace kernel include the same set of functions."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[8]",
       "original_data": {
         "ref_id": "[8]",
         "parsed": {
-          "title": "Provable multi-task representation learning by two-layer relu neural networks",
+          "title": "Provable multi-task representation learning by two-layer relu neural networks.",
           "authors": [
             "L. Collins",
             "H. Hassani",
@@ -632,37 +634,37 @@
         "venue": "ACM Transactions on Graphics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 40.86,
+      "RS_embed": 41.12,
       "RS_llm": 40,
-      "RS_final": 40.34,
+      "RS_final": 40.45,
       "label": "borderline",
-      "llm_rationale": "The reference proposes a new neural network module dubbed EdgeConv for point clouds, which is not directly related to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference proposes a new neural network module dubbed EdgeConv suitable for CNN-based high-level tasks on point clouds, which is not directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We propose a new neural network module dubbed EdgeConv suitable for CNN-based high-level tasks on point clouds."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[9]",
       "original_data": {
         "ref_id": "[9]",
         "parsed": {
-          "title": "Multi-task learning with deep neural networks: A survey",
+          "title": "Multi-task learning with deep neural networks: A survey.",
           "authors": [
             "M. Crawshaw"
           ],
           "year": 2020,
-          "venue": "arXiv preprint arXiv:2009.09796",
+          "venue": "arXiv preprint",
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W3087549734",
@@ -680,28 +682,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 65.66,
+      "RS_embed": 66.08,
       "RS_llm": 80,
-      "RS_final": 74.26,
+      "RS_final": 74.43,
       "label": "relevant",
-      "llm_rationale": "The reference provides an overview of multi-task learning methods for deep neural networks, which is relevant to the manuscript's topic of multi-task learning.",
+      "llm_rationale": "The reference provides an overview of multi-task learning methods for deep neural networks, which is related to the manuscript's focus on multi-task learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We give an overview of multi-task learning methods for deep neural networks, with the aim of summarizing both the well-established and most recent directions within the field."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[10]",
       "original_data": {
         "ref_id": "[10]",
         "parsed": {
-          "title": "Fast kernel methods for generic Lipschitz losses via p-sparsified sketches",
+          "title": "Fast kernel methods for generic Lipschitz losses via p-sparsified sketches.",
           "authors": [
             "T. El Ahmad",
             "P. Laforgue",
@@ -712,7 +713,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W4281902949",
@@ -736,28 +737,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 67.33,
+      "RS_embed": 67.39,
       "RS_llm": 90,
-      "RS_final": 80.93,
+      "RS_final": 80.96,
       "label": "relevant",
-      "llm_rationale": "The reference presents fast kernel methods for generic Lipschitz losses via p-sparsified sketches, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference presents a new approach to alleviate computational burdens in kernel methods, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
         "We show that sparsified Gaussian (and Rademacher) sketches still produce theoretically-valid approximations while allowing for important time and space savings."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[11]",
       "original_data": {
         "ref_id": "[11]",
         "parsed": {
-          "title": "Multi-task deep learning as multi-objective optimization",
+          "title": "Multi-task deep learning as multi-objective optimization.",
           "authors": [
             "G.D. Fatta",
             "G. Nicosia",
@@ -769,58 +769,49 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
-      "consistency_status": "Match",
+      "enrichment_status": "success (cached)",
+      "consistency_status": "Mismatch Flagged (Title Similarity: 58%)",
       "external_metadata": {
-        "id": "https://openalex.org/W4390234224",
-        "title": "Multi-Task Deep Learning as Multi-Objective Optimization",
-        "year": 2023,
-        "abstract": "Machine Learning (ML) models are typically trained on the available data for a single target task, for which they are meant to provide a solution. In contrast, multi-task learning (MTL) methods target multiple tasks simultaneously. In this case, the model is trained on the aggregated data from many target tasks and a single model representation is shared by all the tasks. The use of a shared representation enables the machine learning model to generalize better on each individual task as the inductive algorithm may learn shared features that are more robust to the noise present in the individual single-task datasets, thus reducing the risk of bias. MTL is contributing to the advancement of ML and is also generating impactful applications for real-world problems. This chapter presents MTL as a general optimization methodology. The MTL paradigm, the different variants, the internal MTL mechanisms that affect the quality of the ML models, and some specific examples of MTL...",
-        "is_scraped": true,
-        "doi": "https://doi.org/10.1007/978-3-030-54621-2_827-1",
-        "url": "https://doi.org/10.1007/978-3-030-54621-2_827-1",
+        "id": "https://openalex.org/W3021613070",
+        "title": "Pymoo: Multi-Objective Optimization in Python",
+        "year": 2020,
+        "abstract": "Python has become the programming language of choice for research and industry projects related to data science, machine learning, and deep learning. Since optimization is an inherent part of these research fields, more optimization related frameworks have arisen in the past few years. Only a few of them support optimization of multiple conflicting objectives at a time, but do not provide comprehensive tools for a complete multi-objective optimization task. To address this issue, we have developed pymoo, a multi-objective optimization framework in Python. We provide a guide to getting started with our framework by demonstrating the implementation of an exemplary constrained multi-objective optimization scenario. Moreover, we give a high-level overview of the architecture of pymoo to show its capabilities followed by an explanation of each module and its corresponding sub-modules. The implementations in our framework are customizable and algorithms can be modified/extended by supplying custom operators. Moreover, a variety of single, multi- and many-objective test problems are provided and gradients can be retrieved by automatic differentiation out of the box. Also, pymoo addresses practical needs, such as the parallelization of function evaluations, methods to visualize low and high-dimensional spaces, and tools for multi-criteria decision making. For more information about pymoo, readers are encouraged to visit: https://pymoo.org.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1109/access.2020.2990567",
+        "url": "https://doi.org/10.1109/access.2020.2990567",
         "authors": [
           {
-            "display_name": "Giuseppe Di Fatta"
+            "display_name": "Julian Blank"
           },
           {
-            "display_name": "Giuseppe Nicosia"
-          },
-          {
-            "display_name": "Varun Ojha"
-          },
-          {
-            "display_name": "Pãnos M. Pardalos"
+            "display_name": "Kalyanmoy Deb"
           }
         ],
-        "venue": "Encyclopedia of Optimization"
+        "venue": "IEEE Access"
       },
       "self_citation": {
-        "is_self_cite": true,
-        "overlap_type": "partial_team",
-        "matching_authors": [
-          "giuseppe di fatta",
-          "giuseppe nicosia"
-        ],
-        "overlap_percentage": 50.0,
-        "venue_overlap": false
+        "is_self_cite": true
       },
-      "RS_embed": 59.7,
-      "RS_llm": 80,
-      "RS_final": 71.88,
-      "label": "relevant",
-      "llm_rationale": "The reference presents multi-task deep learning as multi-objective optimization, which is relevant to the manuscript's topic of multi-task learning.",
+      "RS_embed": 49.88,
+      "RS_llm": 40,
+      "RS_final": 43.95,
+      "label": "borderline",
+      "llm_rationale": "The reference proposes a multi-objective optimization framework in Python, which is not directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We present MTL as a general optimization methodology."
+        "We have developed pymoo, a multi-objective optimization framework in Python."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[12]",
       "original_data": {
         "ref_id": "[12]",
         "parsed": {
-          "title": "Size-independent sample complexity of neural networks",
+          "title": "Size-independent sample complexity of neural networks.",
           "authors": [
             "N. Golowich",
             "A. Rakhlin",
@@ -855,28 +846,27 @@
         "venue": "Information and Inference A Journal of the IMA"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 44.41,
-      "RS_llm": 60,
-      "RS_final": 53.76,
+      "RS_embed": 44.36,
+      "RS_llm": 80,
+      "RS_final": 65.74,
       "label": "borderline",
-      "llm_rationale": "The reference studies the sample complexity of learning neural networks, which is related to the manuscript's topic of generalization bounds for deep learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "llm_rationale": "The reference studies the sample complexity of learning neural networks, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We study the sample complexity of learning neural networks by providing new bounds on their Rademacher complexity."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[13]",
       "original_data": {
         "ref_id": "[13]",
         "parsed": {
-          "title": "Size-independent sample complexity of neural networks",
+          "title": "Size-independent sample complexity of neural networks.",
           "authors": [
             "N. Golowich",
             "A. Rakhlin",
@@ -887,7 +877,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2777138330",
@@ -911,22 +901,19 @@
         "venue": "Information and Inference A Journal of the IMA"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 44.41,
+      "RS_embed": 44.36,
       "RS_llm": 80,
-      "RS_final": 65.76,
+      "RS_final": 65.74,
       "label": "borderline",
-      "llm_rationale": "The reference presents size-independent sample complexity of neural networks, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference studies the sample complexity of learning neural networks, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We study the sample complexity of learning neural networks by providing new bounds on their Rademacher complexity."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": [
-        "score_discrepancy"
+        "MISSING DOI"
       ]
     },
     {
@@ -934,7 +921,7 @@
       "original_data": {
         "ref_id": "[14]",
         "parsed": {
-          "title": "Deep learning with kernels through rkhm and the perron-frobenius operator",
+          "title": "Deep learning with kernels through rkhm and the perron-frobenius operator.",
           "authors": [
             "Y. Hashimoto",
             "M. Ikeda",
@@ -945,7 +932,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W4378464681",
@@ -969,28 +956,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 71.05,
+      "RS_embed": 71.5,
       "RS_llm": 90,
-      "RS_final": 82.42,
+      "RS_final": 82.6,
       "label": "relevant",
-      "llm_rationale": "The reference presents deep learning with kernels through RKHM and the Perron-Frobenius operator, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference presents a new deep learning framework for kernel methods, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
         "We present deep RKHM, a deep learning framework for kernel methods."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[15]",
       "original_data": {
         "ref_id": "[15]",
         "parsed": {
-          "title": "Koopman-based generalization bound: New aspect for full-rank weights",
+          "title": "Koopman-based generalization bound: New aspect for full-rank weights.",
           "authors": [
             "Y. Hashimoto",
             "S. Sonoda",
@@ -1003,7 +989,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W4320853781",
@@ -1033,28 +1019,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 58.1,
+      "RS_embed": 57.62,
       "RS_llm": 80,
-      "RS_final": 71.24,
+      "RS_final": 71.05,
       "label": "relevant",
-      "llm_rationale": "The reference presents Koopman-based generalization bound: New aspect for full-rank weights, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference proposes a new bound for generalization of neural networks using Koopman operators, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We propose a new bound for generalization of neural networks using Koopman operators."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[16]",
       "original_data": {
         "ref_id": "[16]",
         "parsed": {
-          "title": "Entangled kernels - beyond separability",
+          "title": "Entangled kernels - beyond separability.",
           "authors": [
             "R. Huusari",
             "H. Kadri"
@@ -1064,7 +1049,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W3119212112",
@@ -1085,28 +1070,27 @@
         "venue": "Aaltodoc (Aalto University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 57.01,
+      "RS_embed": 57.05,
       "RS_llm": 70,
-      "RS_final": 64.8,
+      "RS_final": 64.82,
       "label": "borderline",
-      "llm_rationale": "The reference investigates the possibility of going beyond the well-known separable kernels, which is related to the manuscript's topic of generalization bounds for deep learning. However, the reference does not specifically address the generalization bounds for deep learning.",
+      "llm_rationale": "The reference investigates the possibility of going beyond the well-known separable kernels, which is related to the manuscript's focus on kernel methods for deep learning, but it does not directly address the novel generalization bounds for deep learning.",
       "llm_evidence": [
         "We consider the problem of operator-valued kernel learning and investigate the possibility of going beyond the well-known separable kernels."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[17]",
       "original_data": {
         "ref_id": "[17]",
         "parsed": {
-          "title": "Neural tangent kernel: Convergence and generalization in neural networks",
+          "title": "Neural tangent kernel: Convergence and generalization in neural networks.",
           "authors": [
             "A. Jacot",
             "F. Gabriel",
@@ -1117,7 +1101,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2809090039",
@@ -1141,28 +1125,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 51.45,
-      "RS_llm": 80,
-      "RS_final": 68.58,
-      "label": "borderline",
-      "llm_rationale": "The reference presents neural tangent kernel: Convergence and generalization in neural networks, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "RS_embed": 51.62,
+      "RS_llm": 90,
+      "RS_final": 74.65,
+      "label": "relevant",
+      "llm_rationale": "The reference proves that the evolution of an ANN during training can be described by a kernel, which is a key concept in the manuscript's analysis of generalization properties of multi-task learning with deep learning architectures.",
       "llm_evidence": [
-        "We prove that the evolution of an ANN during training can also be described by a kernel: during gradient descent on the parameters of an ANN, the network function $f_θ$ (which maps input vectors to output vectors) follows the kernel gradient of the functional cost (which is convex, in contrast to the parameter cost) w.r.t. a new kernel: the Neural Tangent Kernel (NTK)."
+        "We prove that the evolution of an ANN during training can also be described by a kernel."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[18]",
       "original_data": {
         "ref_id": "[18]",
         "parsed": {
-          "title": "Robust fine-tuning of deep neural networks with Hessian-based generalization guarantees",
+          "title": "Robust fine-tuning of deep neural networks with Hessian-based generalization guarantees.",
           "authors": [
             "H. Ju",
             "D. Li",
@@ -1173,7 +1156,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W4320461355",
@@ -1197,28 +1180,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 61.25,
+      "RS_embed": 61.34,
       "RS_llm": 80,
-      "RS_final": 72.5,
+      "RS_final": 72.54,
       "label": "relevant",
-      "llm_rationale": "The reference presents robust fine-tuning of deep neural networks with Hessian-based generalization guarantees, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference studies the generalization properties of fine-tuning a pretrained deep neural network, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
-        "We study the generalization properties of fine-tuning a pretrained deep neural network on a target task."
+        "We study the generalization properties of fine-tuning a pretrained deep neural network."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[19]",
       "original_data": {
         "ref_id": "[19]",
         "parsed": {
-          "title": "Autoencoding any data through kernel autoencoders",
+          "title": "Autoencoding any data through kernel autoencoders.",
           "authors": [
             "P. Laforgue",
             "S. Clémençon",
@@ -1229,7 +1211,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2804096263",
@@ -1253,22 +1235,19 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 46.01,
+      "RS_embed": 45.67,
       "RS_llm": 90,
-      "RS_final": 72.4,
+      "RS_final": 72.27,
       "label": "relevant",
-      "llm_rationale": "The reference presents autoencoding any data through kernel autoencoders, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference introduces a novel algorithmic approach to data representation based on kernel methods, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
-        "This paper investigates a novel algorithmic approach to data representation based on kernel methods."
+        "We introduce a novel algorithmic approach to data representation based on kernel methods."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": [
-        "score_discrepancy"
+        "MISSING DOI"
       ]
     },
     {
@@ -1276,7 +1255,7 @@
       "original_data": {
         "ref_id": "[20]",
         "parsed": {
-          "title": "Towards optimal sobolev norm rates for the vector-valued regularized least-squares algorithm",
+          "title": "Towards optimal sobolev norm rates for the vector-valued regularized least-squares algorithm.",
           "authors": [
             "Z. Li",
             "D. Meunier",
@@ -1315,28 +1294,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 58.29,
+      "RS_embed": 57.92,
       "RS_llm": 80,
-      "RS_final": 71.32,
+      "RS_final": 71.17,
       "label": "relevant",
-      "llm_rationale": "The reference presents towards optimal Sobolev norm rates for the vector-valued regularized least-squares algorithm, which is relevant to the manuscript's topic of generalization bounds for deep learning.",
+      "llm_rationale": "The reference presents the first optimal rates for infinite-dimensional vector-valued ridge regression on a continuous scale of norms, which is related to the manuscript's focus on regularization techniques for deep learning.",
       "llm_evidence": [
         "We present the first optimal rates for infinite-dimensional vector-valued ridge regression on a continuous scale of norms."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[21]",
       "original_data": {
         "ref_id": "[21]",
         "parsed": {
-          "title": "Towards a unified analysis of random fourier features",
+          "title": "Towards a unified analysis of random fourier features.",
           "authors": [
             "Z. Li",
             "J.F. Ton",
@@ -1348,7 +1326,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2953256123",
@@ -1375,34 +1353,33 @@
         "venue": "Oxford University Research Archive (ORA) (University of Oxford)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 53.49,
+      "RS_embed": 53.63,
       "RS_llm": 80,
-      "RS_final": 69.4,
+      "RS_final": 69.45,
       "label": "borderline",
-      "llm_rationale": "The reference discusses random Fourier features, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference provides a unified risk analysis of learning with random Fourier features, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We tackle these problems and provide the first unified risk analysis of learning with random Fourier features using the squared error and Lipschitz continuous loss functions."
+        "We provide the first unified risk analysis of learning with random Fourier features using the squared error and Lipschitz continuous loss functions."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[22]",
       "original_data": {
         "ref_id": "[22]",
         "parsed": {
-          "title": "Implicit regularization of multi-task learning and finetuning in overparameterized neural networks",
+          "title": "Implicit regularization of multi-task learning and finetuning in overparameterized neural networks.",
           "authors": [
             "J.W. Lindsey",
             "S. Lippl"
           ],
           "year": 2023,
-          "venue": "arXiv preprint arXiv:2310.02396",
+          "venue": "arXiv preprint",
           "doi": null
         }
       },
@@ -1427,38 +1404,38 @@
         "venue": "IEEE Access"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 53.07,
+      "RS_embed": 52.44,
       "RS_llm": 40,
-      "RS_final": 45.23,
+      "RS_final": 44.98,
       "label": "borderline",
-      "llm_rationale": "The reference discusses multi-task learning, but it is more focused on pruning deep neural networks rather than generalization bounds.",
+      "llm_rationale": "The reference provides a survey of methods for pruning deep neural networks, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "Recenttheoreticalresearch has focused on properties of multi-task neural networks and how shared representations and task relationships influence generalization [22, 8, 34]"
+        "This paper presents a survey of methods for pruning deep neural networks."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[23]",
       "original_data": {
         "ref_id": "[23]",
         "parsed": {
-          "title": "Randomized algorithms for matrices and data",
+          "title": "Randomized algorithms for matrices and data.",
           "authors": [
             "M.W. Mahoney",
             "et al."
           ],
           "year": 2011,
-          "venue": "Foundations and Trends®in Machine Learning",
+          "venue": "Foundations and Trends® in Machine Learning",
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1999352252",
@@ -1476,28 +1453,27 @@
         "venue": "Chapman & Hall/CRC data mining and knowledge discovery series"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 35.5,
+      "RS_embed": 35.14,
       "RS_llm": 60,
-      "RS_final": 50.2,
+      "RS_final": 50.06,
       "label": "borderline",
-      "llm_rationale": "The reference discusses randomized algorithms for matrices and data, which is related to the manuscript's topic of sketching techniques.",
+      "llm_rationale": "The reference discusses randomized algorithms for matrices and data, which is related to the manuscript's focus on sketching techniques for approximating kernel matrices.",
       "llm_evidence": [
-        "Sketching:To alleviate the computational demands of kernel methods, sketching techniques have emerged as a powerful tool for approximating kernel matrices and reducing memory requirements [23, 38, 39]"
+        "Randomized algorithms for very large matrix problems have received a great deal of attention in recent years."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[24]",
       "original_data": {
         "ref_id": "[24]",
         "parsed": {
-          "title": "Convolutional kernel networks",
+          "title": "Convolutional kernel networks.",
           "authors": [
             "J. Mairal",
             "P. Koniusz",
@@ -1509,7 +1485,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2123872146",
@@ -1536,22 +1512,19 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 49.31,
-      "RS_llm": 20,
-      "RS_final": 31.72,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses convolutional kernel networks, which is not related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "RS_embed": 49.62,
+      "RS_llm": 50,
+      "RS_final": 49.85,
+      "label": "borderline",
+      "llm_rationale": "The reference proposes a new type of convolutional neural network whose invariance is encoded by a reproducing kernel, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "An important goal in visual recognition is to devise image representations that are invariant to particular transformations."
+        "We address this goal with a new type of convolutional neural network (CNN) whose invariance is encoded by a reproducing kernel."
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "MISSING DOI"
       ]
     },
     {
@@ -1559,7 +1532,7 @@
       "original_data": {
         "ref_id": "[25]",
         "parsed": {
-          "title": "Benign, tempered, or catastrophic: Toward a refined taxonomy of overfitting",
+          "title": "Benign, tempered, or catastrophic: Toward a refined taxonomy of overfitting.",
           "authors": [
             "N.R. Mallinar",
             "J.B. Simon",
@@ -1573,7 +1546,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Mismatch Flagged (Title Similarity: 25%)",
       "external_metadata": {
         "id": "https://openalex.org/W3129999094",
@@ -1600,28 +1573,28 @@
         "venue": "Proceedings of the AAAI Conference on Artificial Intelligence"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 48.99,
-      "RS_llm": 50,
-      "RS_final": 49.6,
+      "RS_embed": 49.14,
+      "RS_llm": 80,
+      "RS_final": 67.66,
       "label": "borderline",
-      "llm_rationale": "The reference discusses the phenomenon of double-descent in neural networks, which is related to the manuscript's topic of generalization bounds.",
+      "llm_rationale": "The reference characterizes the spectral distribution of the empirical feature covariance matrix, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "In this paper, we use techniques from random matrix theory to characterize the spectral distribution of the empirical feature covariance matrix as a width-dependent perturbation of the spectrum of the neural network Gaussian process (NNGP) kernel."
+        "We use techniques from random matrix theory to characterize the spectral distribution of the empirical feature covariance matrix."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH",
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[26]",
       "original_data": {
         "ref_id": "[26]",
         "parsed": {
-          "title": "Bounds for linear multi-task learning",
+          "title": "Bounds for linear multi-task learning.",
           "authors": [
             "A. Maurer"
           ],
@@ -1630,7 +1603,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2156267734",
@@ -1648,28 +1621,27 @@
         "venue": null
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 67.27,
-      "RS_llm": 80,
-      "RS_final": 74.91,
+      "RS_embed": 67.05,
+      "RS_llm": 90,
+      "RS_final": 80.82,
       "label": "relevant",
-      "llm_rationale": "The reference discusses bounds for linear multi-task learning, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference provides dimension-free and data-dependent bounds for linear multi-task learning, which is directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We give dimension-free and data-dependent bounds for linear multi-task learning where a common linear operator is chosen to preprocess data for a vector of task speci…c linear-thresholding classi-…ers."
+        "We give dimension-free and data-dependent bounds for linear multi-task learning."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[27]",
       "original_data": {
         "ref_id": "[27]",
         "parsed": {
-          "title": "On learning vector-valued functions",
+          "title": "On learning vector-valued functions.",
           "authors": [
             "C.A. Micchelli",
             "M. Pontil"
@@ -1679,13 +1651,13 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2115003579",
         "title": "On Learning Vector-Valued Functions",
         "year": 2004,
-        "abstract": "In this letter, we provide a study of learning in a Hilbert space of vector-valued functions. We motivate the need for extending learning theory of scalar-valued functions by practical considerations and establish some basic results for learning vector-valued functions that should prove useful in applications. Specifically, we allow an output space Y to be a Hilbert space, and we consider a reproducing kernel Hilbert space of functions whose values lie in Y. In this setting, we derive the form of the minimal norm interpolant to a finite set of data and apply it to study some regularization functionals that are important in learning theory. We consider specific examples of such functionals corresponding to multiple-output regularization networks and support vector machines, for both regression and classification. Finally, we provide classes of operator-valued kernels of the dot product and translation-invariant type.",
+        "abstract": "In this letter, we provide a study of learning in a Hilbert space of vectorvalued functions. We motivate the need for extending learning theory of scalar-valued functions by practical considerations and establish some basic results for learning vector-valued functions that should prove useful in applications. Specifically, we allow an output space Y to be a Hilbert space, and we consider a reproducing kernel Hilbert space of functions whose values lie in Y. In this setting, we derive the form of the minimal norm interpolant to a finite set of data and apply it to study some regularization functionals that are important in learning theory. We consider specific examples of such functionals corresponding to multiple-output regularization networks and support vector machines, for both regression and classification. Finally, we provide classes of operator-valued kernels of the dot product and translation-invariant type.",
         "is_scraped": false,
         "doi": "https://doi.org/10.1162/0899766052530802",
         "url": "https://doi.org/10.1162/0899766052530802",
@@ -1700,28 +1672,27 @@
         "venue": "Neural Computation"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 59.94,
+      "RS_embed": 60.01,
       "RS_llm": 70,
-      "RS_final": 65.98,
+      "RS_final": 66.0,
       "label": "borderline",
-      "llm_rationale": "The reference discusses learning vector-valued functions, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference provides a study of learning in a Hilbert space of vector-valued functions, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "In this letter, we provide a study of learning in a Hilbert space of vector-valued functions."
+        "We motivate the need for extending learning theory of scalar-valued functions by practical considerations."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[28]",
       "original_data": {
         "ref_id": "[28]",
         "parsed": {
-          "title": "On the koopman-based generalization bounds for multi-task deep learning",
+          "title": "On the koopman-based generalization bounds for multi-task deep learning.",
           "authors": [
             "M. Mohammadigohari",
             "G. Di Fatta",
@@ -1733,7 +1704,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W7117152926",
@@ -1760,32 +1731,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": true,
-        "overlap_type": "partial_team",
-        "matching_authors": [
-          "mahdi mohammadigohari",
-          "giuseppe di fatta",
-          "giuseppe nicosia"
-        ],
-        "overlap_percentage": 75.0,
-        "venue_overlap": false
+        "is_self_cite": true
       },
-      "RS_embed": 80.96,
-      "RS_llm": 90,
-      "RS_final": 86.38,
+      "RS_embed": 81.19,
+      "RS_llm": 80,
+      "RS_final": 80.48,
       "label": "relevant",
-      "llm_rationale": "The reference discusses Koopman-based generalization bounds for multi-task deep learning, which is directly related to the manuscript's topic.",
+      "llm_rationale": "The reference establishes generalization bounds for multi-task deep neural networks using operator-theoretic techniques, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "The authors propose a tighter bound than those derived from conventional norm based methods by leveraging small condition numbers in the weight matrices and introducing a tailored Sobolev space as an expanded hypothesis space."
+        "The paper establishes generalization bounds for multitask deep neural networks using operator-theoretic techniques."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[29]",
       "original_data": {
         "ref_id": "[29]",
         "parsed": {
-          "title": "Foundations of Machine Learning",
+          "title": "Foundations of Machine Learning.",
           "authors": [
             "M. Mohri",
             "A. Rostamizadeh",
@@ -1796,7 +1762,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Mismatch Flagged (Year diff: 6)",
       "external_metadata": {
         "id": "https://openalex.org/W2540093921",
@@ -1810,22 +1776,20 @@
         "venue": "The MIT Press eBooks"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 38.32,
+      "RS_embed": 37.43,
       "RS_llm": 30,
-      "RS_final": 33.33,
+      "RS_final": 32.97,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses foundations of machine learning, which is not directly related to the manuscript's topic.",
+      "llm_rationale": "The reference discusses the foundations of machine learning, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We study the basic problem of inferring from a set of training examples a classification rule whose predictions are highly accurate on freshly observed test data."
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "METADATA MISMATCH",
+        "MISSING DOI"
       ]
     },
     {
@@ -1833,7 +1797,7 @@
       "original_data": {
         "ref_id": "[30]",
         "parsed": {
-          "title": "Norm-based capacity control in neural networks",
+          "title": "Norm-based capacity control in neural networks.",
           "authors": [
             "B. Neyshabur",
             "R. Tomioka",
@@ -1844,7 +1808,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2962857907",
@@ -1868,28 +1832,27 @@
         "venue": "Conference on Learning Theory"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 43.51,
-      "RS_llm": 40,
-      "RS_final": 41.4,
+      "RS_embed": 43.93,
+      "RS_llm": 60,
+      "RS_final": 53.57,
       "label": "borderline",
-      "llm_rationale": "The reference discusses norm-based capacity control in neural networks, which is related to the manuscript's topic of generalization bounds.",
+      "llm_rationale": "The reference investigates the capacity, convexity, and characterization of a general family of norm-constrained feed-forward networks, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We investigate the capacity, convexity and characterization of a general family of norm-constrained feed-forward networks."
       ],
-      "quality_flags": []
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[31]",
       "original_data": {
         "ref_id": "[31]",
         "parsed": {
-          "title": "The promises and pitfalls of deep kernel learning",
+          "title": "The promises and pitfalls of deep kernel learning.",
           "authors": [
             "S.W. Ober",
             "C.E. Rasmussen",
@@ -1924,28 +1887,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 61.62,
-      "RS_llm": 60,
-      "RS_final": 60.65,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses deep kernel learning, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "RS_embed": 62.18,
+      "RS_llm": 80,
+      "RS_final": 72.87,
+      "label": "relevant",
+      "llm_rationale": "The reference explores the behavior of deep kernel learning, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "Deep kernel learning (DKL) and related techniques aim to combine the representational power of neural networks with the reliable uncertainty estimates of Gaussian processes."
+        "We identify situations where this is not the case."
       ],
-      "quality_flags": []
+      "citation_intent": "Contrasting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[32]",
       "original_data": {
         "ref_id": "[32]",
         "parsed": {
-          "title": "Excess risk bounds for multitask learning with trace norm regularization",
+          "title": "Excess risk bounds for multitask learning with trace norm regularization.",
           "authors": [
             "M. Pontil",
             "A. Maurer"
@@ -1955,7 +1917,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1565096114",
@@ -1976,28 +1938,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 65.73,
-      "RS_llm": 80,
-      "RS_final": 74.29,
+      "RS_embed": 65.55,
+      "RS_llm": 90,
+      "RS_final": 80.22,
       "label": "relevant",
-      "llm_rationale": "The reference discusses excess risk bounds for multitask learning with trace norm regularization, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference provides excess risk bounds for multitask learning with trace norm regularization, which is directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "Trace norm regularization is a popular method of multitask learning. We give excess risk bounds with explicit dependence on the number of tasks, the number of examples per task and properties of the data distribution."
+        "We give excess risk bounds with explicit dependence on the number of tasks, the number of examples per task and properties of the data distribution."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[33]",
       "original_data": {
         "ref_id": "[33]",
         "parsed": {
-          "title": "Generalization properties of learning with random features",
+          "title": "Generalization properties of learning with random features.",
           "authors": [
             "A. Rudi",
             "L. Rosasco"
@@ -2028,28 +1989,27 @@
         "venue": "CINECA IRIS Institutial Research Information System (University of Genoa)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 47.54,
-      "RS_llm": 70,
-      "RS_final": 61.02,
+      "RS_embed": 48.25,
+      "RS_llm": 80,
+      "RS_final": 67.3,
       "label": "borderline",
-      "llm_rationale": "The reference discusses generalization properties of learning with random features, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference studies the generalization properties of ridge regression with random features, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We study the generalization properties of ridge regression with random features in the statistical learning framework."
+        "We show for the first time that O(1/ √ n) learning bounds can be achieved with only O( √ n log n) random features."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[34]",
       "original_data": {
         "ref_id": "[34]",
         "parsed": {
-          "title": "Variation spaces for multi-output neural networks: Insights on multi-task learning and network compression",
+          "title": "Variation spaces for multi-output neural networks: Insights on multi-task learning and network compression.",
           "authors": [
             "J. Shenouda",
             "R. Parhi",
@@ -2088,28 +2048,27 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 69.65,
+      "RS_embed": 69.91,
       "RS_llm": 80,
-      "RS_final": 75.86,
+      "RS_final": 75.96,
       "label": "relevant",
-      "llm_rationale": "The reference discusses variation spaces for multi-output neural networks, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "llm_rationale": "The reference introduces a novel theoretical framework for the analysis of vector-valued neural networks, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "This paper introduces a novel theoretical framework for the analysis of vector-valued neural networks through the development of vector-valued variation spaces."
+        "This paper introduces a novel theoretical framework for the analysis of vector-valued neural networks."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[35]",
       "original_data": {
         "ref_id": "[35]",
         "parsed": {
-          "title": "Scalable matrix-valued kernel learning for high-dimensional nonlinear multivariate regression and granger causality",
+          "title": "Scalable matrix-valued kernel learning for high-dimensional nonlinear multivariate regression and granger causality.",
           "authors": [
             "V. Sindhwani",
             "H.Q. Minh",
@@ -2120,7 +2079,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1823924931",
@@ -2144,22 +2103,19 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 57.88,
+      "RS_embed": 57.92,
       "RS_llm": 90,
-      "RS_final": 77.15,
+      "RS_final": 77.17,
       "label": "relevant",
-      "llm_rationale": "The reference discusses scalable matrix-valued kernel learning for high-dimensional nonlinear multivariate regression and Granger causality, which is directly related to the manuscript's topic.",
+      "llm_rationale": "The reference proposes a general matrix-valued multiple kernel learning framework for high-dimensional nonlinear multivariate regression problems, which is directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "We propose a general matrix-valued multiple kernel learning framework for high-dimensional nonlinear multivariate regression problems."
       ],
+      "citation_intent": "Supporting",
       "quality_flags": [
-        "score_discrepancy"
+        "MISSING DOI"
       ]
     },
     {
@@ -2167,7 +2123,7 @@
       "original_data": {
         "ref_id": "[36]",
         "parsed": {
-          "title": "Compression based bound for non-compressed network: unified generalization error analysis of large compressible deep neural network",
+          "title": "Compression based bound for non-compressed network: unified generalization error analysis of large compressible deep neural network.",
           "authors": [
             "T. Suzuki",
             "H. Abe",
@@ -2196,33 +2152,32 @@
         "venue": "International Conference on Learning Representations"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 55.21,
-      "RS_llm": 60,
-      "RS_final": 58.08,
+      "RS_embed": 54.96,
+      "RS_llm": 80,
+      "RS_final": 69.98,
       "label": "borderline",
-      "llm_rationale": "The reference discusses compression-based bounds for non-compressed networks, which is related to the manuscript's topic of generalization bounds.",
+      "llm_rationale": "The reference provides a unified framework that can convert compression-based bounds to those for non-compressed original networks, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "One of the biggest issues in deep learning theory is the generalization ability of networks with huge model size."
+        "We give a unified framework that can convert compression-based bounds to those for non-compressed original networks."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[37]",
       "original_data": {
         "ref_id": "[37]",
         "parsed": {
-          "title": "Approximation with matrix-valued kernels and highly effective error estimators for reduced basis approximations",
+          "title": "Approximation with matrix-valued kernels and highly effective error estimators for reduced basis approximations.",
           "authors": [
             "D. Wittwar"
           ],
           "year": 2022,
-          "venue": "Ph.D. thesis, Universität Stuttgart, Stuttgart, Germany",
+          "venue": "Ph.D. thesis, Universität Stuttgart",
           "doi": null
         }
       },
@@ -2271,22 +2226,20 @@
         "venue": "Journal of High Energy Physics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 30.52,
-      "RS_llm": 20,
-      "RS_final": 24.21,
+      "RS_embed": 30.75,
+      "RS_llm": 30,
+      "RS_final": 30.3,
       "label": "irrelevant",
-      "llm_rationale": "The reference discusses approximation with matrix-valued kernels and highly effective error estimators for reduced basis approximations, which is not directly related to the manuscript's topic.",
+      "llm_rationale": "The reference discusses the automation of computations of tree-level and next-to-leading order cross sections, which is not directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We discuss the theoretical bases that underpin the automation of the computations of tree-level and next-to-leading order cross sections, of their matching to parton shower simulations, and of the merging of matched samples that differ by light-parton multiplicities."
+        "We discuss the theoretical bases that underpin the automation of the computations of tree-level and next-to-leading order cross sections."
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "METADATA MISMATCH",
+        "MISSING DOI"
       ]
     },
     {
@@ -2294,7 +2247,7 @@
       "original_data": {
         "ref_id": "[38]",
         "parsed": {
-          "title": "Sketching as a tool for numerical linear algebra",
+          "title": "Sketching as a tool for numerical linear algebra.",
           "authors": [
             "D.P. Woodruff"
           ],
@@ -2303,7 +2256,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2157988812",
@@ -2321,22 +2274,19 @@
         "venue": "arXiv (Cornell University)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 24.71,
-      "RS_llm": 50,
-      "RS_final": 39.88,
-      "label": "irrelevant",
-      "llm_rationale": "The reference discusses sketching as a tool for numerical linear algebra, which is related to the manuscript's topic of sketching techniques.",
+      "RS_embed": 24.89,
+      "RS_llm": 60,
+      "RS_final": 45.96,
+      "label": "borderline",
+      "llm_rationale": "The reference highlights the recent advances in algorithms for numerical linear algebra that have come from the technique of linear sketching, but it does not directly relate to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
         "This survey highlights the recent advances in algorithms for numerical linear algebra that have come from the technique of linear sketching."
       ],
+      "citation_intent": "Background",
       "quality_flags": [
-        "low_relevance"
+        "MISSING DOI"
       ]
     },
     {
@@ -2344,7 +2294,7 @@
       "original_data": {
         "ref_id": "[39]",
         "parsed": {
-          "title": "Randomized sketches for kernels: Fast and optimal nonparametric regression",
+          "title": "Randomized sketches for kernels: Fast and optimal nonparametric regression.",
           "authors": [
             "Y. Yang",
             "M. Pilanci",
@@ -2361,7 +2311,7 @@
         "id": "https://openalex.org/W2962937842",
         "title": "Randomized sketches for kernels: Fast and optimal nonparametric regression",
         "year": 2017,
-        "abstract": "Kernel ridge regression (KRR) is a standard method for performing nonparametric regression over reproducing kernel Hilbert spaces. Given $n$ samples, the time and space complexity of computing the KRR estimate scale as $\\\\mathcal{O}(n^{3})$ and $\\\\mathcal{O}(n^{2})$, respectively, and so is prohibitive in many cases. We propose approximations of KRR based on $m$-dimensional randomized sketches of the kernel matrix, and study how small the projection dimension $m$ can be chosen while still preserving minimax optimality of the approximate KRR estimate. For various classes of randomized sketches, including those based on Gaussian and randomized Hadamard matrices, we prove that it suffices to choose the sketch dimension $m$ proportional to the statistical dimension (modulo logarithmic factors). Thus, we obtain fast and minimax optimal approximations to the KRR estimate for nonparametric regression. In doing so, we prove a novel lower bound on the minimax risk of kernel regression in terms of the localized Rademacher complexity.",
+        "abstract": "Kernel ridge regression (KRR) is a standard method for performing nonparametric regression over reproducing kernel Hilbert spaces. Given $n$ samples, the time and space complexity of computing the KRR estimate scale as $\\mathcal{O}(n^{3})$ and $\\mathcal{O}(n^{2})$, respectively, and so is prohibitive in many cases. We propose approximations of KRR based on $m$-dimensional randomized sketches of the kernel matrix, and study how small the projection dimension $m$ can be chosen while still preserving minimax optimality of the approximate KRR estimate. For various classes of randomized sketches, including those based on Gaussian and randomized Hadamard matrices, we prove that it suffices to choose the sketch dimension $m$ proportional to the statistical dimension (modulo logarithmic factors). Thus, we obtain fast and minimax optimal approximations to the KRR estimate for nonparametric regression. In doing so, we prove a novel lower bound on the minimax risk of kernel regression in terms of the localized Rademacher complexity.",
         "is_scraped": false,
         "doi": "https://doi.org/10.1214/16-aos1472",
         "url": "https://doi.org/10.1214/16-aos1472",
@@ -2379,28 +2329,27 @@
         "venue": "The Annals of Statistics"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 52.84,
-      "RS_llm": 80,
-      "RS_final": 69.14,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses randomized sketches for kernels, which is directly related to the manuscript's topic of sketching techniques.",
+      "RS_embed": 52.98,
+      "RS_llm": 90,
+      "RS_final": 75.19,
+      "label": "relevant",
+      "llm_rationale": "The reference proposes approximations of kernel ridge regression based on randomized sketches of the kernel matrix, which is directly related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "Kernel ridge regression (KRR) is a standard method for performing nonparametric regression over reproducing kernel Hilbert spaces."
+        "We propose approximations of KRR based on $m$-dimensional randomized sketches of the kernel matrix."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[40]",
       "original_data": {
         "ref_id": "[40]",
         "parsed": {
-          "title": "Local rademacher complexity-based learning guarantees for multi-task learning",
+          "title": "Local rademacher complexity-based learning guarantees for multi-task learning.",
           "authors": [
             "N. Yousefi",
             "Y. Lei",
@@ -2443,28 +2392,27 @@
         "venue": "University of Birmingham Research Portal (University of Birmingham)"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 66.87,
-      "RS_llm": 70,
-      "RS_final": 68.75,
-      "label": "borderline",
-      "llm_rationale": "The reference discusses local Rademacher complexity-based learning guarantees for multi-task learning, which is related to the manuscript's topic of generalization bounds for vector-valued neural networks.",
+      "RS_embed": 66.76,
+      "RS_llm": 80,
+      "RS_final": 74.7,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a Talagrand-type concentration inequality for Multi-Task Learning, which is related to the manuscript's focus on generalization bounds for deep learning.",
       "llm_evidence": [
-        "We show a Talagrand-type concentration inequality for Multi-Task Learning (MTL), with which we establish sharp excess risk bounds for MTL in terms of the Local Rademacher Complexity (LRC)."
+        "We show a Talagrand-type concentration inequality for Multi-Task Learning."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     },
     {
       "ref_id": "[41]",
       "original_data": {
         "ref_id": "[41]",
         "parsed": {
-          "title": "Refinement of operator-valued reproducing kernels",
+          "title": "Refinement of operator-valued reproducing kernels.",
           "authors": [
             "H. Zhang",
             "Y. Xu",
@@ -2475,7 +2423,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success",
+      "enrichment_status": "success (cached)",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2122176428",
@@ -2499,28 +2447,46 @@
         "venue": "Journal of Machine Learning Research"
       },
       "self_citation": {
-        "is_self_cite": false,
-        "overlap_type": "none",
-        "matching_authors": [],
-        "overlap_percentage": 0.0,
-        "venue_overlap": false
+        "is_self_cite": false
       },
-      "RS_embed": 59.2,
-      "RS_llm": 85,
-      "RS_final": 74.68,
+      "RS_embed": 59.7,
+      "RS_llm": 90,
+      "RS_final": 77.88,
       "label": "relevant",
-      "llm_rationale": "The reference provides a refinement kernel method for operator-valued reproducing kernels, which is closely related to the manuscript's framework of deep vector-valued reproducing kernel Hilbert spaces (vvRKHS).",
+      "llm_rationale": "The reference provides a refinement kernel method for operator-valued reproducing kernels, which is directly related to the manuscript's topic of multi-task learning with deep kernel methods.",
       "llm_evidence": [
-        "The study is motivated from the need of updating the current operator-valued reproducing kernel in multi-task learning when underfitting or overfitting occurs.",
-        "DefineeHj as the vvRKHS corresponding to the separable kernelK j =k jM. Then, forj= 1, . . . , L, we haveH j ≤ eHj, as shown in ([41], Proposition 17)."
+        "The study is motivated from the need of updating the current operator-valued reproducing kernel in multi-task learning when underfitting or overfitting occurs."
       ],
-      "quality_flags": []
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
     }
   ],
   "scoring_summary": {
     "total_references": 41,
-    "self_citations": 2,
-    "low_relevance": 4,
-    "self_citation_rate": "4.9%"
-  }
+    "self_citations": 1,
+    "low_relevance": 2,
+    "self_citation_rate": "2.4%"
+  },
+  "missing_citations": [
+    {
+      "title": "Learning multiple outputs using a regularized functional approach",
+      "authors": "Charles A. Micchelli and Massimiliano Pontil",
+      "year": "2005",
+      "rationale": "The manuscript introduces 'deep vector-valued reproducing kernel Hilbert spaces (vvRKHS)' and focuses on vector-valued neural networks. This seminal paper provides foundational theoretical insights into vector-valued function learning within the RKHS framework, including the definition and properties of vector-valued kernels and regularization approaches for multiple outputs. It is crucial for contextualizing and building upon the theoretical underpinnings of vvRKHS for multi-task learning."
+    },
+    {
+      "title": "Regularized multi-task learning",
+      "authors": "Theodoros Evgeniou and Massimiliano Pontil",
+      "year": "2004",
+      "rationale": "This is a highly influential and seminal paper that laid much of the theoretical groundwork for regularized multi-task learning within a statistical learning framework, particularly using kernel methods. Given the manuscript's focus on 'multi-task learning' and deriving new 'generalization bounds,' citing this work provides essential historical context and a foundational baseline for understanding the theoretical challenges and existing approaches to generalization in multi-task settings that their novel operator-based framework aims to advance."
+    },
+    {
+      "title": "Information-theoretic generalization bounds for deep learning",
+      "authors": "Yaqing Xu and Maxim Raginsky",
+      "year": "2017",
+      "rationale": "The authors claim to achieve 'tighter generalization guarantees compared to traditional norm-based bounds.' This paper is a leading example of an alternative paradigm for deriving generalization bounds, using information theory (e.g., mutual information), which has shown promise in providing tighter and more data-dependent bounds than many norm-based or complexity-based approaches. Acknowledging this distinct and influential line of work would strengthen the paper's comparison and positioning regarding the state-of-the-art in generalization theory, particularly for deep learning."
+    }
+  ]
 }

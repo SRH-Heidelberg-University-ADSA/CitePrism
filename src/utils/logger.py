@@ -2,71 +2,49 @@
 import logging
 import sys
 from logging.handlers import RotatingFileHandler
-import os
-import yaml
 
 
-def setup_logger(config_path="config/config.yaml"):
+def setup_logger():
     """
-    Sets up a Unicode-safe logger based on the configuration file.
+    Sets up a Unicode-safe logger based on Config settings.
+    Reads LOG_LEVEL directly from settings.py -- no YAML file needed.
     """
+    from config.settings import Config
 
-    # Load minimal config just for logging
-    with open(config_path, 'r', encoding="utf-8") as f:
-        config = yaml.safe_load(f)
+    level = getattr(logging, Config.LOG_LEVEL.upper(), logging.INFO)
+    log_file = str(Config.LOGS_DIR / "citeprism.log")
 
-    log_config = config.get('logging', {})
-    level = getattr(logging, log_config.get('level', 'INFO').upper())
-    filename = log_config.get('log_file', 'extractor.log')
+    root = logging.getLogger()
+    root.setLevel(level)
 
-    # Create logger
-    logger = logging.getLogger("ResearchPaperExtractor")
-    logger.setLevel(level)
-    logger.propagate = False  # Prevent double logging
+    # Clear any handlers added before this runs (e.g. by Streamlit)
+    root.handlers.clear()
 
-    # Clear existing handlers (important for re-runs)
-    logger.handlers.clear()
+    formatter = logging.Formatter(Config.LOG_FORMAT)
 
-    # Formatter
-    formatter = logging.Formatter(
-        '%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s'
-    )
-
-    # -----------------------------
-    # Console Handler (UTF-8 SAFE)
-    # -----------------------------
+    # Console handler (UTF-8 safe)
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
-
-    # 🔑 CRITICAL FIX: force UTF-8 with fallback
     try:
-        console_handler.stream.reconfigure(
-            encoding="utf-8",
-            errors="replace"
-        )
+        console_handler.stream.reconfigure(encoding="utf-8", errors="replace")
     except Exception:
-        # Fallback for older Python versions
         pass
+    root.addHandler(console_handler)
 
-    logger.addHandler(console_handler)
-
-    # -----------------------------
-    # File Handler (UTF-8 SAFE)
-    # -----------------------------
+    # File handler (UTF-8 safe, rotating)
     file_handler = RotatingFileHandler(
-        filename,
-        maxBytes=log_config.get('max_log_size_mb', 10) * 1024 * 1024,
+        log_file,
+        maxBytes=10 * 1024 * 1024,
         backupCount=5,
-        encoding="utf-8",          # 🔑 FIX
-        errors="replace"           # 🔑 FIX
+        encoding="utf-8",
+        errors="replace",
     )
     file_handler.setLevel(level)
     file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
+    root.addHandler(file_handler)
 
-    return logger
+    return root
 
 
-# Singleton instance
 logger = setup_logger()

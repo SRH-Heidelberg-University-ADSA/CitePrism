@@ -1,0 +1,1502 @@
+{
+  "manuscript_metadata": {
+    "title": "SOCIAL: Social network optimization algorithm via centrality and influence-aware learning",
+    "doi": "10.1016/j.asoc.2026.114914",
+    "authors": [
+      "Mehrdad Jalali",
+      "Binh Vu",
+      "Swati Chandna",
+      "Mohammad H. Nadimi-Shahraki"
+    ],
+    "abstract": "We present SOCIAL (Social Network Optimization Algorithm via Centrality and Influence-based Learning), a structure-aware metaheuristic that reframes black-box engineering optimization as social-network analysis on a small-world graph of candidate solutions. Each solution is a node, and edges specify local neighbor interactions; information flow is governed by an influence-diffusion score that combines structural centrality (betweenness/bridge potential) with relative fitness, enabling agents to preferentially learn from solutions that are both well-positioned in the network and high-quality in the search space. A time-scheduled learning policy shifts from network-driven exploration toward elite-guided exploitation, with adaptive mutation and periodic population synchronization to prevent stagnation while preserving diversity. This networked view yields interpretable search dynamics—identifying leaders, followers, and critical bridges—together with scalable communication over sparse graphs. We assess SOCIAL on 23 benchmark functions and six constrained engineering design problems (gear train, pressure vessel, welded beam, speed reducer, composite laminate, and FGM beam), demonstrating robust performance and competitive ranking-based evaluation against contemporary optimizers. SOCIAL achieves particularly strong results on multimodal, discontinuous, and constraint-dominated problems, while maintaining stability and feasibility rates. The algorithm’s network-based architecture makes it particularly well-suited for materials science and cheminformatics applications, where candidate structures can be modeled as nodes in similarity graphs, enabling optimization of graph-model hyperparameters, sampling policies, and candidate exploration strategies in materials design. The key novelty is using the social-network structure itself as the learning mechanism, providing a general and explainable optimizer for engineering problems where gradients are unavailable, objectives are nonconvex or noisy, and variables are mixed discrete–continuous."
+  },
+  "citations_in_text": [
+    {
+      "marker": "[1]",
+      "context_window": "Classical techniques—Linear Programming (LP), Nonlinear Programming (NLP), and Dynamic Programming (DP)—offer strong theoretical guarantees, but typically rely on assumptions such as continuity, differentiability, or convexity [1]. These assumptions often break down in high-dimensional, nonlinear, multimodal, discrete, or otherwise irregular real-world settings."
+    },
+    {
+      "marker": "[2]",
+      "context_window": "To bridge this gap, metaheuristic algorithms have emerged as problem-independent optimizers that balance exploration and exploitation without requiring gradient information. Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes."
+    },
+    {
+      "marker": "[3]",
+      "context_window": "To bridge this gap, metaheuristic algorithms have emerged as problem-independent optimizers that balance exploration and exploitation without requiring gradient information. Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes."
+    },
+    {
+      "marker": "[4]",
+      "context_window": "To bridge this gap, metaheuristic algorithms have emerged as problem-independent optimizers that balance exploration and exploitation without requiring gradient information. Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes."
+    },
+    {
+      "marker": "[5]",
+      "context_window": "Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes. Nevertheless, the No Free Lunch (NFL) theorem formalizes a key limitation: no single optimizer dominates across all problem classes [ 8]."
+    },
+    {
+      "marker": "[6]",
+      "context_window": "Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes. Nevertheless, the No Free Lunch (NFL) theorem formalizes a key limitation: no single optimizer dominates across all problem classes [ 8]."
+    },
+    {
+      "marker": "[7]",
+      "context_window": "Foundational examples include Genetic Algorithms (GA) [2], Particle Swarm Optimization (PSO) [3], and Differential Evolution (DE) [4]. More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes. Nevertheless, the No Free Lunch (NFL) theorem formalizes a key limitation: no single optimizer dominates across all problem classes [ 8]."
+    },
+    {
+      "marker": "[8]",
+      "context_window": "More recent methods—such as the Grey Wolf Optimizer (GWO) [5], Harris Hawks Optimization (HHO) [6], and the Walrus Optimizer (WO) [7]—aim to accelerate convergence while maintaining diversity on complex landscapes. Nevertheless, the No Free Lunch (NFL) theorem formalizes a key limitation: no single optimizer dominates across all problem classes [ 8]. Designing algorithms with stronger generalization, adaptivity, interpretability, and scalability, therefore, remains an active research frontier."
+    },
+    {
+      "marker": "citephan2024walrus, yang2010nature",
+      "context_window": "Metaheuristic algorithms, which employ adaptive strategies to balance exploration and exploitation, have emerged as powerful alternatives for addressing these challenges. Metaheuristic algorithms are approximation techniques for identifying near-optimal solutions to optimization problems that challenge existing methods due to computational complexity or local optima citephan2024walrus, yang2010nature. In contrast to problem-specific heuristic algorithms, metaheuristics provide universal frameworks that utilize natural or social phenomena—such as swarm intelligence, evolutionary processes, or network dynamics—to efficiently explore solution spaces."
+    },
+    {
+      "marker": "[7]",
+      "context_window": "The No Free Lunch theorem emphasizes that no single optimizer is generally superior, prompting the development of several metaheuristic techniques tailored to specific problem attributes. Recent developments in metaheuristic algorithms have been inspired by various biological, ecological, and social activities, as noted by Han et al. [ 7]. These algorithms are assessed using benchmark suites such as CEC 2021 and practical engineering challenges, showcasing their capacity to manage intricate optimization tasks."
+    },
+    {
+      "marker": "Kennedy (1995)",
+      "context_window": "Algorithms that use a swarm intelligence model their actions after those of distributed systems, such as anthills or ant colonies. According to Kennedy (1995), Particle Swarm Optimization (PSO) mimics the way birds swarm by adjusting particle positions toward both individual and collective optimal solutions. Using pheromone trails, Ant Colony Optimization (ACO) achieves remarkable results in combinatorial optimization, much like ants do when foraging [ 9]."
+    },
+    {
+      "marker": "[9]",
+      "context_window": "According to Kennedy (1995), Particle Swarm Optimization (PSO) mimics the way birds swarm by adjusting particle positions toward both individual and collective optimal solutions. Using pheromone trails, Ant Colony Optimization (ACO) achieves remarkable results in combinatorial optimization, much like ants do when foraging [ 9]. A simulated honey bee colony, known as an Artificial Bee Colony (ABC), helps maintain a balance between scout bee exploration and employed bee exploitation [10]."
+    },
+    {
+      "marker": "[10]",
+      "context_window": "Using pheromone trails, Ant Colony Optimization (ACO) achieves remarkable results in combinatorial optimization, much like ants do when foraging [ 9]. A simulated honey bee colony, known as an Artificial Bee Colony (ABC), helps maintain a balance between scout bee exploration and employed bee exploitation [10]. According to Mirjalili (2014), the Grey Wolf Optimizer (GWO) achieves strong performance in engineering design by mimicking the hierarchical hunting behavior of grey wolves."
+    },
+    {
+      "marker": "Mirjalili (2014)",
+      "context_window": "A simulated honey bee colony, known as an Artificial Bee Colony (ABC), helps maintain a balance between scout bee exploration and employed bee exploitation [10]. According to Mirjalili (2014), the Grey Wolf Optimizer (GWO) achieves strong performance in engineering design by mimicking the hierarchical hunting behavior of grey wolves. Likewise, Aquila Optimizer (AO) mimics the hunting behavior of Aquila eagles, while Harris Hawks Optimization (HHO) uses cooperative hunting techniques to optimize globally [ 6,11]."
+    },
+    {
+      "marker": "[6,11]",
+      "context_window": "According to Mirjalili (2014), the Grey Wolf Optimizer (GWO) achieves strong performance in engineering design by mimicking the hierarchical hunting behavior of grey wolves. Likewise, Aquila Optimizer (AO) mimics the hunting behavior of Aquila eagles, while Harris Hawks Optimization (HHO) uses cooperative hunting techniques to optimize globally [ 6,11]. A couple of more recent algorithms are the African Vultures Optimization Algorithm (AVOA) and the Tuna Swarm Optimization (TSO)."
+    },
+    {
+      "marker": "[7]",
+      "context_window": "The former models cooperative foraging of tuna swarms for high-dimensional problems, while the latter mimics vulture navigation for continuous optimization. While BWO uses paired swimming and prey behaviors for engineering applications, the Chameleon Swarm Algorithm (CSA) employs chameleon-hunting behaviors to balance exploration and exploitation [ 7]. According to Li et al. (2020), the Slime Mould Algorithm (SMA) provides effective search capabilities by leveraging slime moulds’ feeding habits."
+    },
+    {
+      "marker": "Li et al. (2020)",
+      "context_window": "While BWO uses paired swimming and prey behaviors for engineering applications, the Chameleon Swarm Algorithm (CSA) employs chameleon-hunting behaviors to balance exploration and exploitation [ 7]. According to Li et al. (2020), the Slime Mould Algorithm (SMA) provides effective search capabilities by leveraging slime moulds’ feeding habits. A recent SOCIAL benchmark, the Walrus Optimizer (WO) mimics the behaviors of walruses in migration, feeding, and reproduction, outperforming other algorithms on engineering problems and CEC 2021 functions such as gear train design (with a function value of 2.7009 × 10 −12) and pressure vessel design (with a function value of 5885.35) [7]."
+    },
+    {
+      "marker": "[7]",
+      "context_window": "According to Li et al. (2020), the Slime Mould Algorithm (SMA) provides effective search capabilities by leveraging slime moulds’ feeding habits. A recent SOCIAL benchmark, the Walrus Optimizer (WO) mimics the behaviors of walruses in migration, feeding, and reproduction, outperforming other algorithms on engineering problems and CEC 2021 functions such as gear train design (with a function value of 2.7009 × 10 −12) and pressure vessel design (with a function value of 5885.35) [7]. The principles of genetics and natural selection are the building blocks of evolutionary algorithms."
+    },
+    {
+      "marker": "[2]",
+      "context_window": "The principles of genetics and natural selection are the building blocks of evolutionary algorithms. One optimization process that frequently employs Genetic Algorithm (GA) is the evolution of solutions through the use of crossover, mutation, and selection [ 2]. Differential Evolution (DE) shows resilience in continuous optimization by using mutation and crossover techniques to investigate solution spaces [ 4]."
+    },
+    {
+      "marker": "[4]",
+      "context_window": "One optimization process that frequently employs Genetic Algorithm (GA) is the evolution of solutions through the use of crossover, mutation, and selection [ 2]. Differential Evolution (DE) shows resilience in continuous optimization by using mutation and crossover techniques to investigate solution spaces [ 4]. These algorithms work well, but in multimodal environments they may converge too quickly, which calls for improvements such as adaptive mutation or hybrid approaches."
+    },
+    {
+      "marker": "[15]",
+      "context_window": "In tasks like Nash equilibrium identification and robotic resource localization, M-LEA has achieved state-of-the-art results [ 15]. The current transition from micro-scale signals inspired by physics to macro-scale knowledge spread based on social factors is driven by these advancements: Instead of explicit niching, SOCIAL uses small-world network topology, centrality-weighted influence, and elite-guided adaptation, which are inherited from LEA/M-LEA."
+    },
+    {
+      "marker": "[16]",
+      "context_window": "The current transition from micro-scale signals inspired by physics to macro-scale knowledge spread based on social factors is driven by these advancements: Instead of explicit niching, SOCIAL uses small-world network topology, centrality-weighted influence, and elite-guided adaptation, which are inherited from LEA/M-LEA. Among recent social-inspired metaheuristics, Mozhdehi et al. [ 16] propose the Divine Religions Algorithm (DRA), a social-inspired metaheuristic for engineering and continuous optimization problems that employs role-based interactions among followers, missionaries, and leaders. DRA has been evaluated on benchmark functions and engineering problems, demonstrating competitive performance in continuous optimization settings."
+    },
+    {
+      "marker": "[1]",
+      "context_window": "Metaheuristics are not single-use gadgets; they are portable search policies for unruly spaces. When dimensionality explodes, nonlinearity snarls, or multimodality hides good solutions behind bad neighborhoods, these methods trade exactness for agility and consistently produce high-quality candidates where classical assumptions (smoothness, convexity, differentiability) fail [ 1]. Their core advantage is a principled balance between exploration and exploitation that travels well—from toy testbeds to industrial constraints and scientific design challenges."
+    },
+    {
+      "marker": "[7]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[3]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[2]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[4]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[5]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[6]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[13]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[17]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[18]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[19]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[16]",
+      "context_window": "Standard suites such as CEC 2021 function as controlled “wind tunnels” for stress-testing search behavior: unimodal cases (e.g., Sphere, Rosenbrock) probe convergence rates; multimodal cases (e.g., Rastrigin, Ackley) expose diversity maintenance; hybrid/composite cases (e.g., Penalized1, Penalized2) evaluate robustness in tangled landscapes [ 7]. Across these settings, canonical families like PSO [3], GA [2], and DE [4] remain strong baselines, while newer designs—GWO [5], HHO [6], WO [7], SMA [13], RSA [17], SMO [18], Nutcracker [19], and DRA [16]—inject richer interactions and scheduling."
+    },
+    {
+      "marker": "[6,7]",
+      "context_window": "The No Free Lunch theorem keeps the playing field honest: there is no universal champion, only algorithms whose inductive biases match the geometry at hand. Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility."
+    },
+    {
+      "marker": "[4]",
+      "context_window": "Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]."
+    },
+    {
+      "marker": "[9]",
+      "context_window": "Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]."
+    },
+    {
+      "marker": "[10]",
+      "context_window": "Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]."
+    },
+    {
+      "marker": "[20]",
+      "context_window": "Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]."
+    },
+    {
+      "marker": "[21]",
+      "context_window": "Real systems—gear trains, cantilever beams, springs—mix discrete and continuous variables under stress, deflection, and geometric limits [ 6,7]. Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]."
+    },
+    {
+      "marker": "[14]",
+      "context_window": "Metaheuristics excel here by negotiating constraints while searching globally: DE [ 4], ACO [ 9], ABC [10], GOA [ 20], and IGWO [ 21] are frequently deployed to reduce weight, cost, or energy without violating feasibility. In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]. Materials science as combinatorial frontier."
+    },
+    {
+      "marker": "[15]",
+      "context_window": "In our own prior work, LEA unified broad exploration with precise local refinement using lotus-leaf microtexture and dragonfly pollination metaphors for constraint handling [ 14]; its multimodal successor M-LEA added roaming, self-organizing subpopulations to discover multiple optima without hand-tuned niching, advancing tasks like Nash equilibrium identification and robotic resource localization [ 15]. Materials science as combinatorial frontier. Designing advanced materials—especially MOFs—pushes search into combinatorial territory: metal nodes, linkers, topologies, and functional groups interact to shape pores, selectivity, and stability [ 22]."
+    },
+    {
+      "marker": "[22]",
+      "context_window": "Materials science as combinatorial frontier. Designing advanced materials—especially MOFs—pushes search into combinatorial territory: metal nodes, linkers, topologies, and functional groups interact to shape pores, selectivity, and stability [ 22]. Metaheuristics help navigate this design lattice: PSO and GA have been used to predict stable structures and screen thousands of hypothetical MOFs for CO 2 capture [ 23,24]; DE has tuned synthesis conditions to balance temperature, solvent, and time [25]."
+    },
+    {
+      "marker": "[23,24]",
+      "context_window": "Designing advanced materials—especially MOFs—pushes search into combinatorial territory: metal nodes, linkers, topologies, and functional groups interact to shape pores, selectivity, and stability [ 22]. Metaheuristics help navigate this design lattice: PSO and GA have been used to predict stable structures and screen thousands of hypothetical MOFs for CO 2 capture [ 23,24]; DE has tuned synthesis conditions to balance temperature, solvent, and time [25]."
+    },
+    {
+      "marker": "[25]",
+      "context_window": "Metaheuristics help navigate this design lattice: PSO and GA have been used to predict stable structures and screen thousands of hypothetical MOFs for CO 2 capture [ 23,24]; DE has tuned synthesis conditions to balance temperature, solvent, and time [25]. Emerging optimizers such as AO [11], AVOA [12], and DRA [ 16] show promise for traversing multimodal composition spaces to propose novel candidates."
+    },
+    {
+      "marker": "[11]",
+      "context_window": "DE has tuned synthesis conditions to balance temperature, solvent, and time [25]. Emerging optimizers such as AO [11], AVOA [12], and DRA [ 16] show promise for traversing multimodal composition spaces to propose novel candidates. Beyond MOFs, methods like GWO, IGWO, and HHO adapt filler distributions and matrix formulations in composites to meet target mechanical profiles [ 5,6,21]."
+    },
+    {
+      "marker": "[12]",
+      "context_window": "DE has tuned synthesis conditions to balance temperature, solvent, and time [25]. Emerging optimizers such as AO [11], AVOA [12], and DRA [ 16] show promise for traversing multimodal composition spaces to propose novel candidates. Beyond MOFs, methods like GWO, IGWO, and HHO adapt filler distributions and matrix formulations in composites to meet target mechanical profiles [ 5,6,21]."
+    },
+    {
+      "marker": "[16]",
+      "context_window": "DE has tuned synthesis conditions to balance temperature, solvent, and time [25]. Emerging optimizers such as AO [11], AVOA [12], and DRA [ 16] show promise for traversing multimodal composition spaces to propose novel candidates. Beyond MOFs, methods like GWO, IGWO, and HHO adapt filler distributions and matrix formulations in composites to meet target mechanical profiles [ 5,6,21]."
+    },
+    {
+      "marker": "[5,6,21]",
+      "context_window": "Emerging optimizers such as AO [11], AVOA [12], and DRA [ 16] show promise for traversing multimodal composition spaces to propose novel candidates. Beyond MOFs, methods like GWO, IGWO, and HHO adapt filler distributions and matrix formulations in composites to meet target mechanical profiles [ 5,6,21]. Takeaway."
+    },
+    {
+      "marker": "[1,16,18]",
+      "context_window": "As computational demands intensify—particularly in materials discovery—algorithms that reason over relations (social-network interactions) or bio-physical cues (as in LEA/M-LEA) become increasingly attractive. This perspective motivates our present contribution: a network-centric, knowledge-diffusion approach that retains the roam–refine spirit of our earlier LEA family while leveraging small-world topology and centrality-weighted influence to scale across complex, constraint-sensitive problems [ 1,16,18]. SOCIAL tackles these pain points with a structure-aware search policy:"
+    },
+    {
+      "marker": "[7]",
+      "context_window": "2.4 . Challenges and opportunities Metaheuristics succeed by relaxing modeling assumptions, yet they still face recurring pitfalls: (i) premature convergence where diversity collapses on rugged, multimodal terrains; (ii) parameter brittleness where small hyperparameter shifts lead to large performance swings; and (iii) computational strain as dimensionality, constraints, or evaluation costs rise [7]. Canonical schemes like PSO and GA can lose coverage of the search space, while newer methods such as WO and HHO depend on careful scheduling to keep exploration and exploitation in balance."
+    },
+    {
+      "marker": "[26]",
+      "context_window": "Watts-Strogatz Small-World Topology: The network is initialized using the Watts-Strogatz model [ 26], which produces a graph with both high clustering and short average path length. This topology reflects real-world social systems, supporting rapid diffusion of influence while maintaining local cohesion."
+    },
+    {
+      "marker": "[27,28]",
+      "context_window": "SOCIAL’s core mechanisms—network topology, centrality-weighted influence diffusion, elite memory, controlled synchronization, and delayed consensus—directly complement existing graph-based approaches in metal–organic framework (MOF) discovery and analysis. For instance, SOCIAL could optimize graph-model hyperparameters, sampling policies, or candidate exploration strategies within MOF similarity networks, building upon prior work in MOF network analysis [27,28]. The algorithm’s diversity-preserving mechanisms align with representative sampling strategies for frugal graph learning [29], while its elite-guided exploitation could enhance candidate selection workflows in MOF discovery pipelines [30]."
+    },
+    {
+      "marker": "[29]",
+      "context_window": "For instance, SOCIAL could optimize graph-model hyperparameters, sampling policies, or candidate exploration strategies within MOF similarity networks, building upon prior work in MOF network analysis [27,28]. The algorithm’s diversity-preserving mechanisms align with representative sampling strategies for frugal graph learning [29], while its elite-guided exploitation could enhance candidate selection workflows in MOF discovery pipelines [30]. We envision SOCIAL serving as an optimizer on graph-structured chemical spaces, complementing existing MOF discovery frameworks by navigating latent-space representations or optimizing selection policies within similarity networks."
+    },
+    {
+      "marker": "[30]",
+      "context_window": "For instance, SOCIAL could optimize graph-model hyperparameters, sampling policies, or candidate exploration strategies within MOF similarity networks, building upon prior work in MOF network analysis [27,28]. The algorithm’s diversity-preserving mechanisms align with representative sampling strategies for frugal graph learning [29], while its elite-guided exploitation could enhance candidate selection workflows in MOF discovery pipelines [30]. We envision SOCIAL serving as an optimizer on graph-structured chemical spaces, complementing existing MOF discovery frameworks by navigating latent-space representations or optimizing selection policies within similarity networks."
+    }
+  ],
+  "enriched_references": [
+    {
+      "ref_id": "[1]",
+      "original_data": {
+        "ref_id": "[1]",
+        "parsed": {
+          "title": "Nature-Inspired Metaheuristic Algorithms",
+          "authors": [
+            "X.S. Yang"
+          ],
+          "year": 2010,
+          "venue": "Luniver Press",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 2)",
+      "external_metadata": {
+        "id": "https://openalex.org/W1596914020",
+        "title": "Nature-Inspired Metaheuristic Algorithms",
+        "year": 2008,
+        "abstract": "Modern metaheuristic algorithms such as bee algorithms and harmony search start to demonstrate their power in dealing with tough optimization problems and even NP-hard problems. This book reviews and introduces the state-of-the-art nature-inspired metaheuristic algorithms in optimization, including genetic algorithms, bee algorithms, particle swarm optimization, simulated annealing, ant colony optimization, harmony search, and firefly algorithms. We also briefly introduce the photosynthetic algorithm, the enzyme algorithm, and Tabu search. Worked examples with implementation have been used to show how each algorithm works. This book is thus an ideal textbook for an undergraduate and/or graduate course. As some of the algorithms such as the harmony search and firefly algorithms are at the forefront of current research, this book can also serve as a reference book for researchers.",
+        "is_scraped": false,
+        "doi": null,
+        "url": "http://ci.nii.ac.jp/ncid/BB0976847X",
+        "authors": [
+          {
+            "display_name": "Xin‐She Yang"
+          }
+        ],
+        "venue": "Medical Entomology and Zoology"
+      }
+    },
+    {
+      "ref_id": "[2]",
+      "original_data": {
+        "ref_id": "[2]",
+        "parsed": {
+          "title": "Adaptation in Natural and Artificial Systems",
+          "authors": [
+            "J.H. Holland"
+          ],
+          "year": 1975,
+          "venue": "University of Michigan Press",
+          "doi": "10.7551/MITPRESS/1090.001.0001"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 17)",
+      "external_metadata": {
+        "id": "https://openalex.org/W1497256448",
+        "title": "Adaptation in Natural and Artificial Systems",
+        "year": 1992,
+        "abstract": "Genetic algorithms are playing an increasingly important role in studies of complex adaptive systems, ranging from adaptive agents in economic theory to the use of machine learning techniques in the design of complex devices such as aircraft turbines and integrated circuits. Adaptation in Natural and Artificial Systems is the book that initiated this field of study, presenting the theoretical foundations and exploring applications. In its most familiar form, adaptation is a biological process, whereby organisms evolve by rearranging genetic material to survive in environments confronting them. In this now classic work, Holland presents a mathematical model that allows for the nonlinearity of such complex interactions. He demonstrates the model's universality by applying it to economics, physiological psychology, game theory, and artificial intelligence and then outlines the way in which this approach modifies the traditional views of mathematical genetics. Initially applying his concepts to simply defined artificial systems with limited numbers of parameters, Holland goes on to explore their use in the study of a wide range of complex, naturally occuring processes, concentrating on systems having multiple factors that interact in nonlinear ways. Along the way he accounts for major effects of coadaptation and coevolution: the emergence of building blocks, or schemata, that are recombined and passed on to succeeding generations to provide, innovations and improvements. Bradford Books imprint",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.7551/mitpress/1090.001.0001",
+        "url": "https://doi.org/10.7551/mitpress/1090.001.0001",
+        "authors": [
+          {
+            "display_name": "John H. Holland"
+          }
+        ],
+        "venue": "The MIT Press eBooks"
+      }
+    },
+    {
+      "ref_id": "[3]",
+      "original_data": {
+        "ref_id": "[3]",
+        "parsed": {
+          "title": "Particle swarm optimization",
+          "authors": [
+            "J. Kennedy",
+            "R. Eberhart"
+          ],
+          "year": 1995,
+          "venue": "Proceedings of ICNN’95",
+          "doi": "10.1109/ICNN.1995.488968"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 7)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2152195021",
+        "title": "Particle swarm optimization",
+        "year": 2002,
+        "abstract": "A concept for the optimization of nonlinear functions using particle swarm methodology is introduced. The evolution of several paradigms is outlined, and an implementation of one of the paradigms is discussed. Benchmark testing of the paradigm is described, and applications, including nonlinear function optimization and neural network training, are proposed. The relationships between particle swarm optimization and both artificial life and genetic algorithms are described.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1109/icnn.1995.488968",
+        "url": "https://doi.org/10.1109/icnn.1995.488968",
+        "authors": [
+          {
+            "display_name": "James Kennedy"
+          },
+          {
+            "display_name": "R.C. Eberhart"
+          }
+        ],
+        "venue": null
+      }
+    },
+    {
+      "ref_id": "[4]",
+      "original_data": {
+        "ref_id": "[4]",
+        "parsed": {
+          "title": "Differential evolution—a simple and efficient heuristic for global optimization over continuous spaces",
+          "authors": [
+            "R. Storn",
+            "K. Price"
+          ],
+          "year": 1997,
+          "venue": "J. Glob. Optim.",
+          "doi": "10.1023/A:1008202821328"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W1595159159",
+        "title": "Differential Evolution – A Simple and Efficient Heuristic for global Optimization over Continuous Spaces",
+        "year": 1997,
+        "abstract": "A new heuristic approach for minimizing possiblynonlinear and non-differentiable continuous spacefunctions is presented. By means of an extensivetestbed it is demonstrated that the new methodconverges faster and with more certainty than manyother acclaimed global optimization methods. The newmethod requires few control variables, is robust, easyto use, and lends itself very well to parallelcomputation.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1023/a:1008202821328",
+        "url": "https://doi.org/10.1023/a:1008202821328",
+        "authors": [
+          {
+            "display_name": "Rainer Storn"
+          },
+          {
+            "display_name": "Kenneth V. Price"
+          }
+        ],
+        "venue": "Journal of Global Optimization"
+      }
+    },
+    {
+      "ref_id": "[5]",
+      "original_data": {
+        "ref_id": "[5]",
+        "parsed": {
+          "title": "Grey wolf optimizer",
+          "authors": [
+            "S. Mirjalili",
+            "et al."
+          ],
+          "year": 2014,
+          "venue": "Adv. Eng. Softw.",
+          "doi": "10.1016/j.advengsoft.2013.12.007"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2061438946",
+        "title": "Grey Wolf Optimizer",
+        "year": 2014,
+        "abstract": "This work proposes a new meta-heuristic called Grey Wolf Optimizer (GWO) inspired by grey wolves (Canis lupus). The GWO algorithm mimics the leadership hierarchy and hunting mechanism of grey wolves in nature. Four types of grey wolves such as alpha, beta, delta, and omega are employed for simulating the leadership hierarchy. In addition, the three main steps of hunting, searching for prey, encircling prey, and attacking prey, are implemented. The algorithm is then benchmarked on 29 well-known test functions, and the results are verified by a comparative study with Particle Swarm Optimization (PSO), Gravitational Search Algorithm (GSA), Differential Evolution (DE), Evolutionary Programming (EP), and Evolution Strategy (ES). The results show that the GWO algorithm is able to provide very competitive results compared to these well-known meta-heuristics. The paper also considers solving three classical engineering design problems (tension/compression spring, welded beam, and pressure vessel designs) and presents a real application of the proposed method in the field of optical engineering. The results of the classical engineering design problems and real application prove that the proposed algorithm is applicable to challenging problems with unknown search spaces.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.advengsoft.2013.12.007",
+        "url": "https://doi.org/10.1016/j.advengsoft.2013.12.007",
+        "authors": [
+          {
+            "display_name": "Seyedali Mirjalili"
+          },
+          {
+            "display_name": "Seyed Mohammad Mirjalili"
+          },
+          {
+            "display_name": "Andrew Lewis"
+          }
+        ],
+        "venue": "Advances in Engineering Software"
+      }
+    },
+    {
+      "ref_id": "[6]",
+      "original_data": {
+        "ref_id": "[6]",
+        "parsed": {
+          "title": "Harris hawks optimization: algorithm and applications",
+          "authors": [
+            "A.A. Heidari",
+            "et al."
+          ],
+          "year": 2019,
+          "venue": "Future Gener. Comput. Syst.",
+          "doi": "10.1016/j.future.2019.02.028"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2919979744",
+        "title": "Harris hawks optimization: Algorithm and applications",
+        "year": 2019,
+        "abstract": "Abstract In this paper, a novel population-based, nature-inspired optimization paradigm is proposed, which is called Harris Hawks Optimizer (HHO). The main inspiration of HHO is the cooperative behavior and chasing style of Harris’ hawks in nature called surprise pounce. In this intelligent strategy, several hawks cooperatively pounce a prey from different directions in an attempt to surprise it. Harris hawks can reveal a variety of chasing patterns based on the dynamic nature of scenarios and escaping patterns of the prey. This work mathematically mimics such dynamic patterns and behaviors to develop an optimization algorithm. The effectiveness of the proposed HHO optimizer is checked, through a comparison with other nature-inspired techniques, on 29 benchmark problems and several real-world engineering problems. The statistical results and comparisons show that the HHO algorithm provides very promising and occasionally competitive results compared to well-established metaheuristic techniques. Source codes of HHO are publicly available at http://www.alimirjalili.com/HHO.html and http://www.evo-ml.com/2019/03/02/hho .",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.future.2019.02.028",
+        "url": "https://doi.org/10.1016/j.future.2019.02.028",
+        "authors": [
+          {
+            "display_name": "Ali Asghar Heidari"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          },
+          {
+            "display_name": "Hossam Faris"
+          },
+          {
+            "display_name": "Ibrahim Aljarah"
+          },
+          {
+            "display_name": "Majdi Mafarja"
+          },
+          {
+            "display_name": "Huiling Chen"
+          }
+        ],
+        "venue": "Future Generation Computer Systems"
+      }
+    },
+    {
+      "ref_id": "[7]",
+      "original_data": {
+        "ref_id": "[7]",
+        "parsed": {
+          "title": "Walrus optimizer: a novel nature-inspired metaheuristic algorithm",
+          "authors": [
+            "M. Han",
+            "D. Zunfeng",
+            "K.F. Yuen",
+            "H. Zhu",
+            "L. Yancang",
+            "Q. Yuan"
+          ],
+          "year": 2024,
+          "venue": "Expert Syst. Appl.",
+          "doi": "10.1016/j.eswa.2023.122413"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W4388294626",
+        "title": "Walrus optimizer: A novel nature-inspired metaheuristic algorithm",
+        "year": 2023,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.eswa.2023.122413",
+        "url": "https://doi.org/10.1016/j.eswa.2023.122413",
+        "authors": [
+          {
+            "display_name": "Muxuan Han"
+          },
+          {
+            "display_name": "Zunfeng Du"
+          },
+          {
+            "display_name": "Kum Fai Yuen"
+          },
+          {
+            "display_name": "Haitao Zhu"
+          },
+          {
+            "display_name": "Yancang Li"
+          },
+          {
+            "display_name": "Qiuyu Yuan"
+          }
+        ],
+        "venue": "Expert Systems with Applications"
+      }
+    },
+    {
+      "ref_id": "[8]",
+      "original_data": {
+        "ref_id": "[8]",
+        "parsed": {
+          "title": "No free lunch theorems for optimization",
+          "authors": [
+            "D.H. Wolpert",
+            "W.G. Macready"
+          ],
+          "year": 1997,
+          "venue": "IEEE Trans. Evol. Comput.",
+          "doi": "10.1109/4235.585893"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2151554678",
+        "title": "No free lunch theorems for optimization",
+        "year": 1997,
+        "abstract": "A framework is developed to explore the connection between effective optimization algorithms and the problems they are solving. A number of \"no free lunch\" (NFL) theorems are presented which establish that for any algorithm, any elevated performance over one class of problems is offset by performance over another class. These theorems result in a geometric interpretation of what it means for an algorithm to be well suited to an optimization problem. Applications of the NFL theorems to information-theoretic aspects of optimization and benchmark measures of performance are also presented. Other issues addressed include time-varying optimization problems and a priori \"head-to-head\" minimax distinctions between optimization algorithms, distinctions that result despite the NFL theorems' enforcing of a type of uniformity over all algorithms.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1109/4235.585893",
+        "url": "https://doi.org/10.1109/4235.585893",
+        "authors": [
+          {
+            "display_name": "David H. Wolpert"
+          },
+          {
+            "display_name": "William G. Macready"
+          }
+        ],
+        "venue": "IEEE Transactions on Evolutionary Computation"
+      }
+    },
+    {
+      "ref_id": "[9]",
+      "original_data": {
+        "ref_id": "[9]",
+        "parsed": {
+          "title": "Optimization, learning and natural algorithms.",
+          "authors": [
+            "M. Dorigo"
+          ],
+          "year": 1992,
+          "venue": "Politecnico Di Milano",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W1492640216",
+        "title": "Optimization, Learning and Natural Algorithms",
+        "year": 1992,
+        "abstract": "",
+        "is_scraped": false,
+        "doi": null,
+        "url": "https://ci.nii.ac.jp/naid/10000136323/",
+        "authors": [
+          {
+            "display_name": "Marco Dorigo"
+          }
+        ],
+        "venue": "Medical Entomology and Zoology"
+      }
+    },
+    {
+      "ref_id": "[10]",
+      "original_data": {
+        "ref_id": "[10]",
+        "parsed": {
+          "title": "An idea based on honey bee swarm for numerical optimization",
+          "authors": [
+            "D. Karaboga"
+          ],
+          "year": 2005,
+          "venue": "Erciyes University",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2287814884",
+        "title": "AN IDEA BASED ON HONEY BEE SWARM FOR NUMERICAL OPTIMIZATION",
+        "year": 2005,
+        "abstract": "Swarm intelligence has become a research interest to many research scientists of related fields in recent years. Bonabeau has defined the swarm intelligence as “any attempt to design algorithms or distributed problem-solving devices inspired by the collective behaviour of",
+        "is_scraped": false,
+        "doi": null,
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.708.8411",
+        "authors": [
+          {
+            "display_name": "Derviş Karaboğa"
+          }
+        ],
+        "venue": null
+      }
+    },
+    {
+      "ref_id": "[11]",
+      "original_data": {
+        "ref_id": "[11]",
+        "parsed": {
+          "title": "Aquila optimizer: a novel meta-heuristic optimization algorithm",
+          "authors": [
+            "L. Abualigah",
+            "et al."
+          ],
+          "year": 2021,
+          "venue": "Comput. Ind. Eng.",
+          "doi": "10.1016/j.cie.2021.107250"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3139484821",
+        "title": "Aquila Optimizer: A novel meta-heuristic optimization algorithm",
+        "year": 2021,
+        "abstract": "Abstract This paper proposes a novel population-based optimization method, called Aquila Optimizer (AO), which is inspired by the Aquila’s behaviors in nature during the process of catching the prey. Hence, the optimization procedures of the proposed AO algorithm are represented in four methods; selecting the search space by high soar with the vertical stoop, exploring within a diverge search space by contour flight with short glide attack, exploiting within a converge search space by low flight with slow descent attack, and swooping by walk and grab prey. To validate the new optimizer’s ability to find the optimal solution for different optimization problems, a set of experimental series is conducted. For example, during the first experiment, AO is applied to find the solution of well-known 23 functions. The second and third experimental series aims to evaluate the AO’s performance to find solutions for more complex problems such as thirty CEC2017 test functions and ten CEC2019 test functions, respectively. Finally, a set of seven real-world engineering problems are used. From the experimental results of AO that compared with well-known meta-heuristic methods, the superiority of the developed AO algorithm is observed.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.cie.2021.107250",
+        "url": "https://doi.org/10.1016/j.cie.2021.107250",
+        "authors": [
+          {
+            "display_name": "Laith Abualigah"
+          },
+          {
+            "display_name": "Dalia Yousri"
+          },
+          {
+            "display_name": "Mohamed Abd Elaziz"
+          },
+          {
+            "display_name": "Ahmed A. Ewees"
+          },
+          {
+            "display_name": "Mohammed A. A. Al‐qaness"
+          },
+          {
+            "display_name": "Amir H. Gandomi"
+          }
+        ],
+        "venue": "Computers & Industrial Engineering"
+      }
+    },
+    {
+      "ref_id": "[12]",
+      "original_data": {
+        "ref_id": "[12]",
+        "parsed": {
+          "title": "African vultures optimization algorithm: a new nature-inspired metaheuristic algorithm for global optimization problems",
+          "authors": [
+            "B. Abdollahzadeh",
+            "F.S. Gharehchopogh",
+            "S. Mirjalili"
+          ],
+          "year": 2021,
+          "venue": "Comput. Ind. Eng.",
+          "doi": "10.1016/j.cie.2021.107408"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3163903840",
+        "title": "African vultures optimization algorithm: A new nature-inspired metaheuristic algorithm for global optimization problems",
+        "year": 2021,
+        "abstract": "Abstract Metaheuristics play a crucial role in solving optimization problems. The majority of such algorithms are inspired by collective intelligence and foraging of creatures in nature. In this paper, a new metaheuristic is proposed inspired by African vultures' lifestyles. The algorithm is named African Vultures Optimization Algorithm (AVOA) and simulates African vultures’ foraging and navigation behaviors. To evaluate the performance of AVOA, it is first tested on 36 standard benchmark functions. A comparative study is conducted that demonstrates the superiority of the proposed algorithm compared to several existing algorithms. To showcase the applicability of the AVOA and its black box nature, it is employed to find optimal solutions for eleven engineering design problems. Various experiments show that the AVOA performs better than the comparative algorithms in most engineering case studies. As the experiment results, the AVOA algorithm in 30 benchmarks out of 36 benchmarks has achieved better results than the optimizer algorithms and has a significant and better performance on the majority of engineering problems. Wilcoxon rank-sum test has been used for statistical evaluation and indicates the significant superiority of the AVOA algorithm at a 95% confidence interval.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.cie.2021.107408",
+        "url": "https://doi.org/10.1016/j.cie.2021.107408",
+        "authors": [
+          {
+            "display_name": "Benyamın Abdollahzadeh"
+          },
+          {
+            "display_name": "Farhad Soleimanian Gharehchopogh"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          }
+        ],
+        "venue": "Computers & Industrial Engineering"
+      }
+    },
+    {
+      "ref_id": "[13]",
+      "original_data": {
+        "ref_id": "[13]",
+        "parsed": {
+          "title": "Slime mould algorithm: a new method for stochastic optimization",
+          "authors": [
+            "S. Li",
+            "et al."
+          ],
+          "year": 2020,
+          "venue": "Future Gener. Comput. Syst.",
+          "doi": "10.1016/j.future.2020.03.055"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3014974411",
+        "title": "Slime mould algorithm: A new method for stochastic optimization",
+        "year": 2020,
+        "abstract": "Abstract In this paper, a new stochastic optimizer, which is called slime mould algorithm (SMA), is proposed based on the oscillation mode of slime mould in nature. The proposed SMA has several new features with a unique mathematical model that uses adaptive weights to simulate the process of producing positive and negative feedback of the propagation wave of slime mould based on bio-oscillator to form the optimal path for connecting food with excellent exploratory ability and exploitation propensity. The proposed SMA is compared with up-to-date metaheuristics using an extensive set of benchmarks to verify its efficiency. Moreover, four classical engineering problems are utilized to estimate the efficacy of the algorithm in optimizing constrained problems. The results demonstrate that the proposed SMA benefits from competitive, often outstanding performance on different search landscapes. The source codes of SMA are publicly available at http://www.alimirjalili.com/SMA.html and https://tinyurl.com/Slime-mould-algorithm .",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.future.2020.03.055",
+        "url": "https://doi.org/10.1016/j.future.2020.03.055",
+        "authors": [
+          {
+            "display_name": "Shimin Li"
+          },
+          {
+            "display_name": "Huiling Chen"
+          },
+          {
+            "display_name": "Mingjing Wang"
+          },
+          {
+            "display_name": "Ali Asghar Heidari"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          }
+        ],
+        "venue": "Future Generation Computer Systems"
+      }
+    },
+    {
+      "ref_id": "[14]",
+      "original_data": {
+        "ref_id": "[14]",
+        "parsed": {
+          "title": "Lotus effect optimization algorithm (LEA): a lotus nature-inspired algorithm for engineering design optimization",
+          "authors": [
+            "E. Dalirinia",
+            "M. Jalali",
+            "M. Yaghoobi",
+            "H. Tabatabaee"
+          ],
+          "year": 2024,
+          "venue": "J. Supercomput.",
+          "doi": "10.1007/s11227-023-05513-8"
+        }
+      },
+      "enrichment_status": "success (cached)",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W4382931980",
+        "title": "Lotus effect optimization algorithm (LEA): a lotus nature-inspired algorithm for engineering design optimization",
+        "year": 2023,
+        "abstract": "Abstract Here we introduce a new evolutionary algorithm called the Lotus Effect Algorithm, which combines efficient operators from the dragonfly algorithm, such as the movement of dragonflies in flower pollination for exploration, with the self-cleaning feature of water on flower leaves known as the lotus effect, for extraction and local search operations. The authors compared this method to other improved versions of the dragonfly algorithm using standard benchmark functions, and it outperformed all other methods according to Fredman's test on 29 benchmark functions. The article also highlights the practical application of LEA in reducing energy consumption in IoT nodes through clustering, resulting in increased packet delivery ratio and network lifetime. Additionally, the performance of the proposed method was tested on real-world problems with multiple constraints, such as the welded beam design optimization problem and the speed-reducer problem applied in a gearbox, and the results showed that LEA performs better than other methods in terms of accuracy.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1007/s11227-023-05513-8",
+        "url": "https://doi.org/10.1007/s11227-023-05513-8",
+        "authors": [
+          {
+            "display_name": "Elham Dalirinia"
+          },
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Mahdi Yaghoobi"
+          },
+          {
+            "display_name": "Hamid Tabatabaee"
+          }
+        ],
+        "venue": "The Journal of Supercomputing"
+      }
+    },
+    {
+      "ref_id": "[15]",
+      "original_data": {
+        "ref_id": "[15]",
+        "parsed": {
+          "title": "Multimodal lotus effect algorithm for engineering optimization problems",
+          "authors": [
+            "E. Dalirinia",
+            "M. Yaghoobi",
+            "H. Tabatabaee",
+            "S. Chandna",
+            "M. Jalali"
+          ],
+          "year": 2025,
+          "venue": "Eng. Rep.",
+          "doi": "10.1002/eng2.70137"
+        }
+      },
+      "enrichment_status": "success (cached)",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4409821965",
+        "title": "Multimodal Lotus Effect Algorithm for Engineering Optimization Problems",
+        "year": 2025,
+        "abstract": "ABSTRACT Multimodal optimization problems (MMOPs) are critical in fields like game theory and robotics, where identifying multiple optimal solutions simultaneously is essential, yet challenging due to the need for effective global exploration and precise localization of optima. This study introduces the multimodal lotus effect algorithm (M‐LEA), a novel extension of our previously published lotus effect optimization algorithm (LEA), which was designed for single‐modal optimization and thus struggled to maintain multiple optima in complex multimodal spaces. M‐LEA addresses this limitation by incorporating a roaming technique with independently evolving subpopulations, enabling it to navigate multimodal spaces without requiring parameters such as radius or prior information about the number or distribution of optima. Its robustness is demonstrated through comparisons with five algorithms on the IEEE CEC2013‐2015 challenge, where M‐LEA consistently outperformed competitors. The algorithm's practical utility is further validated in two applications: identifying Nash equilibrium points in game theory and localizing resources via robotic systems. Results show that M‐LEA achieves superior performance and stability, making it well‐suited for scenarios demanding high efficiency and precision. These findings highlight M‐LEA's potential for diverse domains, paving the way for its application in game theory, robotics, and other fields requiring advanced multimodal optimization techniques.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/eng2.70137",
+        "url": "https://doi.org/10.1002/eng2.70137",
+        "authors": [
+          {
+            "display_name": "Elham Dalirinia"
+          },
+          {
+            "display_name": "Mahdi Yaghoobi"
+          },
+          {
+            "display_name": "Hamid Tabatabaee"
+          },
+          {
+            "display_name": "Swati Chandna"
+          },
+          {
+            "display_name": "Mehrdad Jalali"
+          }
+        ],
+        "venue": "Engineering Reports"
+      }
+    },
+    {
+      "ref_id": "[16]",
+      "original_data": {
+        "ref_id": "[16]",
+        "parsed": {
+          "title": "Divine religions algorithm: a novel social-inspired metaheuristic algorithm for engineering and continuous optimization problems",
+          "authors": [
+            "A.T. Mozhdehi",
+            "N. Khodadadi",
+            "M. Aboutalebi",
+            "E.-S.M. El-Kenawy",
+            "A.G. Hussien",
+            "W. Zhao",
+            "M.H. Nadimi-Shahraki",
+            "S. Mirjalili"
+          ],
+          "year": 2025,
+          "venue": "Cluster Comput.",
+          "doi": "10.1007/s10586-024-04954-x"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4407936786",
+        "title": "Divine Religions Algorithm: a novel social-inspired metaheuristic algorithm for engineering and continuous optimization problems",
+        "year": 2025,
+        "abstract": "Abstract Classical optimization methods struggle with complex, NP-hard real-world problems. To overcome these challenges, researchers have explored approximate methods inspired by natural behavioral patterns. One prominent branch of these metaheuristic methods draws from human behaviors observed in politics, sports, and social interactions. This study introduces a novel optimization technique, the Divine Religions Algorithm (DRA), which employs an evolutionary socio-economic approach inspired by religious societies. The algorithm models interactions among followers, missionaries, and leaders, organizing followers into religious and political schools. Agents such as promotion, miracles, substitution, and reward-penalty mechanisms, along with an elitism-based search, enhance follower beliefs. The DRA’s performance is benchmarked against seven popular metaheuristic techniques: Sine-Cosine Algorithm, Tunicate Swarm Algorithm, Moth-flame Optimization, Gray Wolf Optimization, Whale Optimization Algorithm, Fire Hawk Optimization, and Smell Agent Optimization. We evaluate the DRA using twenty-three standard benchmarks, considering key indicators such as accuracy, convergence, efficiency, and cost. Additionally, five real-world optimization problems are employed to demonstrate the DRA’s superiority in handling constrained engineering problems.The results indicate that the DRA significantly outperforms other methods, delivering superior outcomes across multiple aspects, proving its efficacy in solving complex optimization problems. The source codes of the DRA algorithm are publicly available at https://nimakhodadadi.com/algorithms-%2B-codes .",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1007/s10586-024-04954-x",
+        "url": "https://doi.org/10.1007/s10586-024-04954-x",
+        "authors": [
+          {
+            "display_name": "Ali Toufanzadeh Mozhdehi"
+          },
+          {
+            "display_name": "Nima Khodadadi"
+          },
+          {
+            "display_name": "M.R. Aboutalebi"
+          },
+          {
+            "display_name": "El‐Sayed M. El‐kenawy"
+          },
+          {
+            "display_name": "Abdelazim G. Hussien"
+          },
+          {
+            "display_name": "Weiguo Zhao"
+          },
+          {
+            "display_name": "Mohammad H. Nadimi-Shahraki"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          }
+        ],
+        "venue": "Cluster Computing"
+      }
+    },
+    {
+      "ref_id": "[17]",
+      "original_data": {
+        "ref_id": "[17]",
+        "parsed": {
+          "title": "Reptile search algorithm (RSA): a nature-inspired meta-heuristic optimizer",
+          "authors": [
+            "L. Abualigah",
+            "M.A. Elaziz",
+            "P. Sumari",
+            "Z.W. Geem",
+            "A.H. Gandomi"
+          ],
+          "year": 2022,
+          "venue": "Expert Syst. Appl.",
+          "doi": "10.1016/j.eswa.2021.116158"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W3212797097",
+        "title": "Reptile Search Algorithm (RSA): A nature-inspired meta-heuristic optimizer",
+        "year": 2021,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.eswa.2021.116158",
+        "url": "https://doi.org/10.1016/j.eswa.2021.116158",
+        "authors": [
+          {
+            "display_name": "Laith Abualigah"
+          },
+          {
+            "display_name": "Mohamed Abd Elaziz"
+          },
+          {
+            "display_name": "Putra Sumari"
+          },
+          {
+            "display_name": "Zong Woo Geem"
+          },
+          {
+            "display_name": "Amir H. Gandomi"
+          }
+        ],
+        "venue": "Expert Systems with Applications"
+      }
+    },
+    {
+      "ref_id": "[18]",
+      "original_data": {
+        "ref_id": "[18]",
+        "parsed": {
+          "title": "Starling murmuration optimizer: a novel bio-inspired algorithm for global and engineering optimization",
+          "authors": [
+            "H. Zamani",
+            "M.H. Nadimi-Shahraki",
+            "A.H. Gandomi"
+          ],
+          "year": 2022,
+          "venue": "Comput. Methods Appl. Mech. Eng.",
+          "doi": "10.1016/j.cma.2022.114616"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4211075681",
+        "title": "Starling murmuration optimizer: A novel bio-inspired algorithm for global and engineering optimization",
+        "year": 2022,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.cma.2022.114616",
+        "url": "https://doi.org/10.1016/j.cma.2022.114616",
+        "authors": [
+          {
+            "display_name": "Hoda Zamani"
+          },
+          {
+            "display_name": "Mohammad H. Nadimi-Shahraki"
+          },
+          {
+            "display_name": "Amir H. Gandomi"
+          }
+        ],
+        "venue": "Computer Methods in Applied Mechanics and Engineering"
+      }
+    },
+    {
+      "ref_id": "[19]",
+      "original_data": {
+        "ref_id": "[19]",
+        "parsed": {
+          "title": "Nutcracker optimizer: a novel nature-inspired metaheuristic algorithm for global optimization and engineering design problems",
+          "authors": [
+            "M. Abdel-Basset",
+            "R. Mohamed",
+            "M. Jameel",
+            "M. Abouhawwash"
+          ],
+          "year": 2023,
+          "venue": "Knowl.-Based Syst.",
+          "doi": "10.1016/j.knosys.2022.110248"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4313479115",
+        "title": "Nutcracker optimizer: A novel nature-inspired metaheuristic algorithm for global optimization and engineering design problems",
+        "year": 2023,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.knosys.2022.110248",
+        "url": "https://doi.org/10.1016/j.knosys.2022.110248",
+        "authors": [
+          {
+            "display_name": "Mohamed Abdel‐Basset"
+          },
+          {
+            "display_name": "Reda Mohamed"
+          },
+          {
+            "display_name": "Mohammed Jameel"
+          },
+          {
+            "display_name": "Mohamed Abouhawwash"
+          }
+        ],
+        "venue": "Knowledge-Based Systems"
+      }
+    },
+    {
+      "ref_id": "[20]",
+      "original_data": {
+        "ref_id": "[20]",
+        "parsed": {
+          "title": "A comprehensive survey of the grasshopper optimization algorithm: results, variants, and applications",
+          "authors": [
+            "L. Abualigah",
+            "A. Diabat"
+          ],
+          "year": 2020,
+          "venue": "Neural Comput. Appl.",
+          "doi": "10.1007/s00521-020-04789-8"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3043887388",
+        "title": "A comprehensive survey of the Grasshopper optimization algorithm: results, variants, and applications",
+        "year": 2020,
+        "abstract": "The grasshopper optimization algorithm is one of the dominant modern meta-heuristic optimization algorithms. It has been successfully applied to various optimization problems in several fields, including engineering design, wireless networking, machine learning, image processing, control of power systems, and others. We survey the available literature on the grasshopper optimization algorithm, including its modifications, hybridizations, and generalization to the binary, chaotic, and multi-objective cases. We review its applications, evaluate the algorithms, and provide conclusions.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1007/s00521-020-04789-8",
+        "url": "https://doi.org/10.1007/s00521-020-04789-8",
+        "authors": [
+          {
+            "display_name": "Laith Abualigah"
+          },
+          {
+            "display_name": "Ali Diabat"
+          }
+        ],
+        "venue": "Neural Computing and Applications"
+      }
+    },
+    {
+      "ref_id": "[21]",
+      "original_data": {
+        "ref_id": "[21]",
+        "parsed": {
+          "title": "An improved grey wolf optimizer for solving engineering problems",
+          "authors": [
+            "M.H. Nadimi-Shahraki",
+            "S. Taghian",
+            "S. Mirjalili"
+          ],
+          "year": 2021,
+          "venue": "Expert Syst. Appl.",
+          "doi": "10.1016/j.eswa.2020.113917"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W3087652231",
+        "title": "An improved grey wolf optimizer for solving engineering problems",
+        "year": 2020,
+        "abstract": "Abstract In this article, an Improved Grey Wolf Optimizer (I-GWO) is proposed for solving global optimization and engineering design problems. This improvement is proposed to alleviate the lack of population diversity, the imbalance between the exploitation and exploration, and premature convergence of the GWO algorithm. The I-GWO algorithm benefits from a new movement strategy named dimension learning-based hunting (DLH) search strategy inherited from the individual hunting behavior of wolves in nature. DLH uses a different approach to construct a neighborhood for each wolf in which the neighboring information can be shared between wolves. This dimension learning used in the DLH search strategy enhances the balance between local and global search and maintains diversity. The performance of the proposed I-GWO algorithm is evaluated on the CEC 2018 benchmark suite and four engineering problems. In all experiments, I-GWO is compared with six other state-of-the-art metaheuristics. The results are also analyzed by Friedman and MAE statistical tests. The experimental results and statistical tests demonstrate that the I-GWO algorithm is very competitive and often superior compared to the algorithms used in the experiments. The results of the proposed algorithm on the engineering design problems demonstrate its efficiency and applicability.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.eswa.2020.113917",
+        "url": "https://doi.org/10.1016/j.eswa.2020.113917",
+        "authors": [
+          {
+            "display_name": "Mohammad H. Nadimi-Shahraki"
+          },
+          {
+            "display_name": "Shokooh Taghian"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          }
+        ],
+        "venue": "Expert Systems with Applications"
+      }
+    },
+    {
+      "ref_id": "[22]",
+      "original_data": {
+        "ref_id": "[22]",
+        "parsed": {
+          "title": "The chemistry and applications of metal-organic frameworks",
+          "authors": [
+            "H. Furukawa",
+            "K.E. Cordova",
+            "M. O’Keeffe",
+            "O.M. Yaghi"
+          ],
+          "year": 2013,
+          "venue": "Science",
+          "doi": "10.1126/science.1230444"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2141939342",
+        "title": "The Chemistry and Applications of Metal-Organic Frameworks",
+        "year": 2013,
+        "abstract": "Crystalline metal-organic frameworks (MOFs) are formed by reticular synthesis, which creates strong bonds between inorganic and organic units. Careful selection of MOF constituents can yield crystals of ultrahigh porosity and high thermal and chemical stability. These characteristics allow the interior of MOFs to be chemically altered for use in gas separation, gas storage, and catalysis, among other applications. The precision commonly exercised in their chemical modification and the ability to expand their metrics without changing the underlying topology have not been achieved with other solids. MOFs whose chemical composition and shape of building units can be multiply varied within a particular structure already exist and may lead to materials that offer a synergistic combination of properties.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1126/science.1230444",
+        "url": "https://doi.org/10.1126/science.1230444",
+        "authors": [
+          {
+            "display_name": "Hiroyasu Furukawa"
+          },
+          {
+            "display_name": "Kyle E. Cordova"
+          },
+          {
+            "display_name": "M. O’Keeffe"
+          },
+          {
+            "display_name": "Omar M. Yaghi"
+          }
+        ],
+        "venue": "Science"
+      }
+    },
+    {
+      "ref_id": "[23]",
+      "original_data": {
+        "ref_id": "[23]",
+        "parsed": {
+          "title": "Materials design by evolutionary optimization of functional groups in metal-organic frameworks",
+          "authors": [
+            "S.P. Collins",
+            "T.D. Daff",
+            "S.S. Piotrkowski",
+            "T.K. Woo"
+          ],
+          "year": 2016,
+          "venue": "Sci. Adv.",
+          "doi": "10.1126/sciadv.1600954"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2554191423",
+        "title": "Materials design by evolutionary optimization of functional groups in metal-organic frameworks",
+        "year": 2016,
+        "abstract": "A genetic algorithm that efficiently optimizes a desired physical or functional property in metal-organic frameworks (MOFs) by evolving the functional groups within the pores has been developed. The approach has been used to optimize the CO<sub>2</sub> uptake capacity of 141 experimentally characterized MOFs under conditions relevant for postcombustion CO<sub>2</sub> capture. A total search space of 1.65 trillion structures was screened, and 1035 derivatives of 23 different parent MOFs were identified as having exceptional CO<sub>2</sub> uptakes of >3.0 mmol/g (at 0.15 atm and 298 K). Many well-known MOF platforms were optimized, with some, such as MIL-47, having their CO<sub>2</sub> adsorption increase by more than 400%. The structures of the high-performing MOFs are provided as potential targets for synthesis.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1126/sciadv.1600954",
+        "url": "https://doi.org/10.1126/sciadv.1600954",
+        "authors": [
+          {
+            "display_name": "Sean P. Collins"
+          },
+          {
+            "display_name": "Thomas D. Daff"
+          },
+          {
+            "display_name": "Sarah Piotrkowski"
+          },
+          {
+            "display_name": "Tom K. Woo"
+          }
+        ],
+        "venue": "Science Advances"
+      }
+    },
+    {
+      "ref_id": "[24]",
+      "original_data": {
+        "ref_id": "[24]",
+        "parsed": {
+          "title": "Large-scale screening of hypothetical metal-organic frameworks",
+          "authors": [
+            "C.E. Wilmer",
+            "M. Leaf",
+            "C.Y. Lee",
+            "O.K. Farha",
+            "B.G. Hauser",
+            "J.T. Hupp",
+            "R.Q. Snurr"
+          ],
+          "year": 2012,
+          "venue": "Nat. Chem.",
+          "doi": "10.1038/nchem.1192"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2100716186",
+        "title": "Large-scale screening of hypothetical metal–organic frameworks",
+        "year": 2011,
+        "abstract": "Metal–organic frameworks (MOFs) are porous materials constructed from modular molecular building blocks, typically metal clusters and organic linkers. These can, in principle, be assembled to form an almost unlimited number of MOFs, yet materials reported to date represent only a tiny fraction of the possible combinations. Here, we demonstrate a computational approach to generate all conceivable MOFs from a given chemical library of building blocks (based on the structures of known MOFs) and rapidly screen them to find the best candidates for a specific application. From a library of 102 building blocks we generated 137,953 hypothetical MOFs and for each one calculated the pore-size distribution, surface area and methane-storage capacity. We identified over 300 MOFs with a predicted methane-storage capacity better than that of any known material, and this approach also revealed structure–property relationships. Methyl-functionalized MOFs were frequently top performers, so we selected one such promising MOF and experimentally confirmed its predicted capacity.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1038/nchem.1192",
+        "url": "https://doi.org/10.1038/nchem.1192",
+        "authors": [
+          {
+            "display_name": "Christopher E. Wilmer"
+          },
+          {
+            "display_name": "Michael Leaf"
+          },
+          {
+            "display_name": "Chang Yeon Lee"
+          },
+          {
+            "display_name": "Omar K. Farha"
+          },
+          {
+            "display_name": "Brad G. Hauser"
+          },
+          {
+            "display_name": "Joseph T. Hupp"
+          },
+          {
+            "display_name": "Randall Q. Snurr"
+          }
+        ],
+        "venue": "Nature Chemistry"
+      }
+    },
+    {
+      "ref_id": "[25]",
+      "original_data": {
+        "ref_id": "[25]",
+        "parsed": {
+          "title": "Multiobjective optimization of metal–organic framework structural properties and synthesis costs through machine learning",
+          "authors": [
+            "H. Zhang",
+            "et al."
+          ],
+          "year": 2025,
+          "venue": "J. Chem. Inf. Model.",
+          "doi": "10.1021/acs.jcim.5c01730"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4417275278",
+        "title": "Multiobjective Optimization of Metal–Organic Framework Structural Properties and Synthesis Costs through Machine Learning",
+        "year": 2025,
+        "abstract": "Metal-organic frameworks (MOFs) are a novel class of porous materials characterized by high surface area, high porosity, and tunable structure, possessing immense application potential. Many synthesis methods have been developed for MOFs, such as chemical, hydrothermal, mechanochemical, and microwave-assisted methods. However, their commercialization faces significant hurdles due to the high synthesis costs that mainly include the material costs of organic ligands, metal precursors, solvents, and energy consumption during prolonged reaction times. The synthesis conditions and material selections also impact the MOF structural properties, such as specific surface area and porosity. Hence, in this paper, we propose a machine learning-based multiobjective framework to identify optimal MOF synthesis conditions while achieving desired structural properties. Leveraging synthesis data from the SynMOF database and large-scale commercial raw material cost data, we developed machine learning predictive models. Pareto-optimal synthesis routes maximizing SSA while minimizing cost were identified using the nondominated sorting genetic algorithm II (NSGA-II). Subsequently, k-Nearest Neighbors (k-NN) was employed to retrieve practical optimal synthesis conditions by matching the optimized abstract features with those of metal types, solvent types, and ligand descriptors. Finally, a Bagging-integrated positive-unlabeled learning model was employed to screen solutions with a production feasibility probability exceeding 0.7. This comprehensive framework provides a strategic pathway for synthesizing high-performance, low-cost MOFs.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/acs.jcim.5c01730",
+        "url": "https://doi.org/10.1021/acs.jcim.5c01730",
+        "authors": [
+          {
+            "display_name": "Hongkai Zhang"
+          },
+          {
+            "display_name": "Chunjian Pan"
+          },
+          {
+            "display_name": "Qi Liang"
+          },
+          {
+            "display_name": "Longchun Zhong"
+          },
+          {
+            "display_name": "Wei‐Ping Pan"
+          }
+        ],
+        "venue": "Journal of Chemical Information and Modeling"
+      }
+    },
+    {
+      "ref_id": "[26]",
+      "original_data": {
+        "ref_id": "[26]",
+        "parsed": {
+          "title": "Collective dynamics of ’small-world’ networks",
+          "authors": [
+            "D.J. Watts",
+            "S.H. Strogatz"
+          ],
+          "year": 1998,
+          "venue": "Nature",
+          "doi": "10.1038/30918"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2112090702",
+        "title": "Collective dynamics of ‘small-world’ networks",
+        "year": 1998,
+        "abstract": "Networks of coupled dynamical systems have been used to model biological oscillators 1 , 2 , 3 , 4 , Josephson junction arrays 5 , 6 , excitable media 7 , neural networks 8 , 9 , 10 , spatial games 11 , genetic control networks 12 and many other self-organizing systems. Ordinarily, the connection topology is assumed to be either completely regular or completely random. But many biological, technological and social networks lie somewhere between these two extremes. Here we explore simple models of networks that can be tuned through this middle ground: regular networks ‘rewired’ to introduce increasing amounts of disorder. We find that these systems can be highly clustered, like regular lattices, yet have small characteristic path lengths, like random graphs. We call them ‘small-world’ networks, by analogy with the small-world phenomenon 13 , 14 (popularly known as six degrees of separation 15 ). The neural network of the worm Caenorhabditis elegans , the power grid of the western United States, and the collaboration graph of film actors are shown to be small-world networks. Models of dynamical systems with small-world coupling display enhanced signal-propagation speed, computational power, and synchronizability. In particular, infectious diseases spread more easily in small-world networks than in regular lattices.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1038/30918",
+        "url": "https://doi.org/10.1038/30918",
+        "authors": [
+          {
+            "display_name": "Duncan J. Watts"
+          },
+          {
+            "display_name": "Steven H. Strogatz"
+          }
+        ],
+        "venue": "Nature"
+      }
+    },
+    {
+      "ref_id": "[27]",
+      "original_data": {
+        "ref_id": "[27]",
+        "parsed": {
+          "title": "MOFSocialNet: exploiting metal-organic framework relationships via social network analysis",
+          "authors": [
+            "M. Jalali",
+            "M. Tsotsalas",
+            "C. Wöll"
+          ],
+          "year": 2022,
+          "venue": "Nanomater.",
+          "doi": "10.3390/nano12040704"
+        }
+      },
+      "enrichment_status": "success (cached)",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4214674586",
+        "title": "MOFSocialNet: Exploiting Metal-Organic Framework Relationships via Social Network Analysis",
+        "year": 2022,
+        "abstract": "The number of metal-organic frameworks (MOF) as well as the number of applications of this material are growing rapidly. With the number of characterized compounds exceeding 100,000, manual sorting becomes impossible. At the same time, the increasing computer power and established use of automated machine learning approaches makes data science tools available, that provide an overview of the MOF chemical space and support the selection of suitable MOFs for a desired application. Among the different data science tools, graph theory approaches, where data generated from numerous real-world applications is represented as a graph (network) of interconnected objects, has been widely used in a variety of scientific fields such as social sciences, health informatics, biological sciences, agricultural sciences and economics. We describe the application of a particular graph theory approach known as social network analysis to MOF materials and highlight the importance of community (group) detection and graph node centrality. In this first application of the social network analysis approach to MOF chemical space, we created MOFSocialNet. This social network is based on the geometrical descriptors of MOFs available in the CoRE-MOFs database. MOFSocialNet can discover communities with similar MOFs structures and identify the most representative MOFs within a given community. In addition, analysis of MOFSocialNet using social network analysis methods can predict MOF properties more accurately than conventional ML tools. The latter advantage is demonstrated for the prediction of gas storage properties, the most important property of these porous reticular networks.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.3390/nano12040704",
+        "url": "https://doi.org/10.3390/nano12040704",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Manuel Tsotsalas"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Nanomaterials"
+      }
+    },
+    {
+      "ref_id": "[28]",
+      "original_data": {
+        "ref_id": "[28]",
+        "parsed": {
+          "title": "MOFGalaxyNet: a social network analysis for predicting guest accessibility in metal–organic frameworks utilizing graph convolutional networks",
+          "authors": [
+            "M. Jalali",
+            "A.D. Wonanke",
+            "C. Wöll"
+          ],
+          "year": 2023,
+          "venue": "J. Cheminform.",
+          "doi": "10.1186/s13321-023-00764-2"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4387542153",
+        "title": "MOFGalaxyNet: a social network analysis for predicting guest accessibility in metal–organic frameworks utilizing graph convolutional networks",
+        "year": 2023,
+        "abstract": "Metal-organic frameworks (MOFs), are porous crystalline structures comprising of metal ions or clusters intricately linked with organic entities, displaying topological diversity and effortless chemical flexibility. These characteristics render them apt for multifarious applications such as adsorption, separation, sensing, and catalysis. Predominantly, the distinctive properties and prospective utility of MOFs are discerned post-manufacture or extrapolation from theoretically conceived models. For empirical researchers unfamiliar with hypothetical structure development, the meticulous crystal engineering of a high-performance MOF for a targeted application via a bottom-up approach resembles a gamble. For example, the precise pore limiting diameter (PLD), which determines the guest accessibility of any MOF cannot be easily inferred with mere knowledge of the metal ion and organic ligand. This limitation in bottom-up conceptual understanding of specific properties of the resultant MOF may contribute to the cautious industrial-scale adoption of MOFs.Consequently, in this study, we take a step towards circumventing this limitation by designing a new tool that predicts the guest accessibility-a MOF key performance indicator-of any given MOF from information on only the organic linkers and the metal ions. This new tool relies on clustering different MOFs in a galaxy-like social network, MOFGalaxyNet, combined with a Graphical Convolutional Network (GCN) to predict the guest accessibility of any new entry in the social network. The proposed network and GCN results provide a robust approach for screening MOFs for various host-guest interaction studies.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1186/s13321-023-00764-2",
+        "url": "https://doi.org/10.1186/s13321-023-00764-2",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "A. D. Dinga Wonanke"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Journal of Cheminformatics"
+      }
+    },
+    {
+      "ref_id": "[29]",
+      "original_data": {
+        "ref_id": "[29]",
+        "parsed": {
+          "title": "The black hole strategy: gravity-based representative sampling for frugal graph learning on metal–organic framework networks",
+          "authors": [
+            "M. Jalali",
+            "A.D. Wonanke",
+            "P. Friederich",
+            "C. Wöll"
+          ],
+          "year": 2025,
+          "venue": "J. Chem. Inf. Model.",
+          "doi": "10.1021/acs.jcim.5c01518"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4414736102",
+        "title": "The Black Hole Strategy: Gravity-Based Representative Sampling for Frugal Graph Learning on Metal–Organic Framework Networks",
+        "year": 2025,
+        "abstract": "The expansion of large-scale materials databases has facilitated the development of graph-based representations, encoding structural and functional similarities as edges in data-driven networks. These enable machine learning models to leverage both local features and global relationships. However, densely connected datasets often introduce redundancy and noise, escalating computational complexity without improving performance. Here, we introduce the Black Hole Strategy, a gravity-based representative sampling method that constructs compact, informative subsets from large materials datasets while preserving essential structural and property diversity. Using metal-organic frameworks (MOFs) as a case study, we demonstrate that graph neural networks (GraphSAGE, GCN, and GAT) trained on Black Hole-sparsified datasets achieve comparable or superior classification and regression performance compared to full-dataset models, despite utilizing significantly fewer data points and reduced memory and training time requirements. Analysis of class-level confusion matrices confirms that critical structure-property relationships─such as pore-limiting diameter (PLD)─persist under substantial sparsification. An ablation study on gravity score weights validates the balanced formulation and robustness of the approach. Topological and efficiency benchmarks further demonstrate that the method preserves modularity, diversity, and connectivity across sparsification levels. These findings establish the Black Hole Strategy as a principled and frugal approach for machine learning in materials science, enabling efficient, interpretable, and scalable discovery workflows. Importantly, this work contributes to the objectives of the FAIRmat consortium, which aims to develop a FAIR data infrastructure for condensed matter physics and materials science. Our approach advances FAIR (Findable, Accessible, Interoperable, Reusable) data practices through optimized sampling techniques that enhance data management, reusability, and interoperability in materials informatics.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/acs.jcim.5c01518",
+        "url": "https://doi.org/10.1021/acs.jcim.5c01518",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "A. D. Dinga Wonanke"
+          },
+          {
+            "display_name": "Pascal Friederich"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Journal of Chemical Information and Modeling"
+      }
+    },
+    {
+      "ref_id": "[30]",
+      "original_data": {
+        "ref_id": "[30]",
+        "parsed": {
+          "title": "MOF-LENS: bio-inspired lotus effect optimization for accelerated discovery of metal–organic framework nanocarriers for doxorubicin delivery in cancer therapy",
+          "authors": [
+            "M. Jalali",
+            "V. Binh",
+            "S. Mehraeen",
+            "S. Chandna",
+            "F. Jalali"
+          ],
+          "year": 2025,
+          "venue": "Mater. Today Commun.",
+          "doi": "10.1016/j.mtcomm.2025.114448"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4417013576",
+        "title": "MOF-LENS: Bio-inspired lotus effect optimization for accelerated discovery of metal–organic framework nanocarriers for doxorubicin delivery in cancer therapy",
+        "year": 2025,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.mtcomm.2025.114448",
+        "url": "https://doi.org/10.1016/j.mtcomm.2025.114448",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Binh Thanh Vu"
+          },
+          {
+            "display_name": "Sina Mehraeen"
+          },
+          {
+            "display_name": "Swati Chandna"
+          },
+          {
+            "display_name": "Farzad Jalali"
+          }
+        ],
+        "venue": "Materials Today Communications"
+      }
+    }
+  ]
+}

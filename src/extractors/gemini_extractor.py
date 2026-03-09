@@ -201,114 +201,314 @@ def extract_doi_from_text(text: str) -> Optional[str]:
 # ============================================================================
 
 class GoogleInterface:
-    """Google Gemini LLM interface."""
-    
+    """Google Gemini LLM interface with chunked extraction to avoid timeouts."""
+
+    # Threshold (chars) above which we switch to chunked mode
+    CHUNK_THRESHOLD = 60_000
+    # How many chars to send per chunk (comfortably under context limits)
+    CHUNK_SIZE = 50_000
+    # Per-call timeout in seconds (well within gRPC 600s hard deadline)
+    REQUEST_TIMEOUT = 300
+
     def __init__(self, api_key: str, model: str, max_tokens: int):
         if genai is None:
             raise ImportError("google-generativeai not installed. Run: pip install google-generativeai")
-        
+
         genai.configure(api_key=api_key)
+        self.model_name = model
         self.model = genai.GenerativeModel(
             model,
             generation_config={
                 "temperature": 0.1,
                 "response_mime_type": "application/json",
-                "max_output_tokens": max_tokens
-            }
+                "max_output_tokens": max_tokens,
+            },
         )
         self.max_tokens = max_tokens
         logger.info(f"Initialized Google Gemini client with model: {model}")
         logger.info(f"Max output tokens: {max_tokens}")
-    
+
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+
+    def _call_api(self, prompt: str) -> str:
+        """Single API call with an explicit timeout."""
+        import google.api_core.exceptions as gapi_exc
+
+        try:
+            response = self.model.generate_content(
+                prompt,
+                request_options={"timeout": self.REQUEST_TIMEOUT},
+            )
+            return response.text
+        except gapi_exc.DeadlineExceeded as e:
+            raise TimeoutError(
+                f"Gemini API timed out after {self.REQUEST_TIMEOUT}s. "
+                "Try reducing CHUNK_SIZE or splitting the paper."
+            ) from e
+
+    def _safe_json(self, raw: str) -> Dict:
+        """Parse JSON, with a best-effort repair on truncation."""
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            repaired = self._repair_truncated_json(raw)
+            return json.loads(repaired)
+
     def _repair_truncated_json(self, json_text: str) -> str:
         """Attempt to repair truncated JSON by closing incomplete structures."""
-        # Count opening and closing brackets
         open_braces = json_text.count('{')
         close_braces = json_text.count('}')
         open_brackets = json_text.count('[')
         close_brackets = json_text.count(']')
-        
-        # Find last complete position
+
         last_complete_obj = json_text.rfind('},')
         last_complete_arr = json_text.rfind('],')
-        
-        # Truncate at last complete structure
+
         if last_complete_obj > last_complete_arr and last_complete_obj > 0:
             json_text = json_text[:last_complete_obj + 1]
         elif last_complete_arr > 0:
             json_text = json_text[:last_complete_arr + 1]
-        
-        # Close any unclosed strings (look for odd number of quotes in last line)
+
         lines = json_text.split('\n')
         if lines:
             last_line = lines[-1]
-            quote_count = last_line.count('"')
-            if quote_count % 2 == 1:  # Odd number means unclosed string
-                # Remove the incomplete line
+            if last_line.count('"') % 2 == 1:
                 json_text = '\n'.join(lines[:-1])
-        
-        # Close arrays and objects
+
         while open_brackets > close_brackets:
             json_text += '\n]'
             close_brackets += 1
-        
         while open_braces > close_braces:
             json_text += '\n}'
             close_braces += 1
-        
+
         return json_text
-    
+
+    # ------------------------------------------------------------------
+    # Chunk-splitting utilities
+    # ------------------------------------------------------------------
+
+    def _split_body_and_references(self, text: str):
+        """
+        Split raw PDF text into (body_text, references_text).
+        'References' section is identified by a common header pattern.
+        """
+        import re
+        ref_pattern = re.compile(
+            r'\n\s*(?:References|Bibliography|REFERENCES|BIBLIOGRAPHY)\s*\n',
+            re.IGNORECASE,
+        )
+        match = ref_pattern.search(text)
+        if match:
+            body = text[:match.start()]
+            refs = text[match.start():]
+            logger.info(
+                f"Split text into body ({len(body)} chars) "
+                f"+ references ({len(refs)} chars)"
+            )
+            return body, refs
+        # Fallback: no clear boundary – treat last 20 % as reference area
+        split_at = int(len(text) * 0.80)
+        logger.warning("Could not find References header; using 80/20 heuristic split.")
+        return text[:split_at], text[split_at:]
+
+    def _chunk_text(self, text: str, chunk_size: int) -> List[str]:
+        """Break text into chunks at paragraph boundaries."""
+        chunks, current = [], []
+        current_len = 0
+        for para in text.split('\n\n'):
+            para_len = len(para)
+            if current_len + para_len > chunk_size and current:
+                chunks.append('\n\n'.join(current))
+                current, current_len = [], 0
+            current.append(para)
+            current_len += para_len
+        if current:
+            chunks.append('\n\n'.join(current))
+        return chunks
+
+    # ------------------------------------------------------------------
+    # Chunked extraction prompts
+    # ------------------------------------------------------------------
+
+    _BODY_PROMPT = """\
+You are an expert academic parser. Given the BODY of a research paper (excluding references), extract:
+
+1. metadata: title, authors (list), abstract
+2. citations_in_text: every in-text citation marker with its context window
+   (the cited sentence ± 1 sentence before/after).
+
+Return ONLY valid JSON in this exact schema (no markdown, no explanation):
+{
+  "metadata": {"title": "...", "authors": ["..."], "abstract": "..."},
+  "citations_in_text": [
+    {"marker": "[1]", "context_window": "...sentence before... cited sentence... sentence after..."}
+  ]
+}
+
+Do NOT include a references_list. Extract ALL citations – do not truncate.
+
+PAPER BODY:
+"""
+
+    _REFS_PROMPT = """\
+You are an expert academic parser. Given the REFERENCES section of a paper, parse every reference entry into structured JSON.
+
+Return ONLY valid JSON in this exact schema (no markdown, no explanation):
+{
+  "references_list": [
+    {
+      "ref_id": "[1]",
+      "parsed": {
+        "title": "...",
+        "authors": ["..."],
+        "year": 2020,
+        "venue": "...",
+        "doi": "10.xxxx/..." or null
+      }
+    }
+  ]
+}
+
+Extract ALL references – do not truncate.
+
+REFERENCES SECTION:
+"""
+
+    _BODY_CHUNK_PROMPT = """\
+You are an expert academic parser. Given a CHUNK of a research paper body, extract all in-text citation markers with context windows (the cited sentence ± 1 sentence before/after).
+
+Return ONLY valid JSON (no markdown):
+{
+  "citations_in_text": [
+    {"marker": "[1]", "context_window": "..."}
+  ]
+}
+
+If there are no citations in this chunk, return {"citations_in_text": []}.
+
+CHUNK:
+"""
+
+    # ------------------------------------------------------------------
+    # Public entry point
+    # ------------------------------------------------------------------
+
     def parse_manuscript(self, text: str, debug_path: Optional[Path] = None) -> Dict:
-        """Parse manuscript using Google Gemini."""
-        logger.info("Sending request to Google Gemini API...")
-        
-        try:
-            full_prompt = f"{SYSTEM_PROMPT}\n\nParse this manuscript:\n\n{text}"
-            response = self.model.generate_content(full_prompt)
-            json_text = response.text
-            
-            # Save raw response for debugging
-            if debug_path:
-                debug_path.parent.mkdir(parents=True, exist_ok=True)
-                with open(debug_path, 'w', encoding='utf-8') as f:
-                    f.write(json_text)
-                logger.info(f"Saved raw LLM response to: {debug_path}")
-            
-            # Try to parse JSON
+        """
+        Parse manuscript using Google Gemini.
+        For papers > CHUNK_THRESHOLD chars, automatically uses chunked extraction
+        to avoid 504 DeadlineExceeded timeouts.
+        """
+        if len(text) <= self.CHUNK_THRESHOLD:
+            logger.info("Paper is small – using single-call extraction.")
+            return self._parse_single(text, debug_path)
+        else:
+            logger.info(
+                f"Paper is large ({len(text)} chars > {self.CHUNK_THRESHOLD}) "
+                "– switching to chunked extraction to avoid timeouts."
+            )
+            return self._parse_chunked(text, debug_path)
+
+    # ------------------------------------------------------------------
+    # Single-call path (small papers, unchanged behaviour)
+    # ------------------------------------------------------------------
+
+    def _parse_single(self, text: str, debug_path: Optional[Path] = None) -> Dict:
+        """Original single-call extraction for small papers."""
+        logger.info("Sending single request to Google Gemini API...")
+        full_prompt = f"{SYSTEM_PROMPT}\n\nParse this manuscript:\n\n{text}"
+        json_text = self._call_api(full_prompt)
+
+        if debug_path:
+            debug_path.parent.mkdir(parents=True, exist_ok=True)
+            debug_path.write_text(json_text, encoding='utf-8')
+            logger.info(f"Saved raw LLM response to: {debug_path}")
+
+        parsed = self._safe_json(json_text)
+        logger.info("[OK] Successfully parsed single-call Gemini response")
+        return parsed
+
+    # ------------------------------------------------------------------
+    # Chunked path (large papers)
+    # ------------------------------------------------------------------
+
+    def _parse_chunked(self, text: str, debug_path: Optional[Path] = None) -> Dict:
+        """
+        Two-phase extraction:
+          Phase 1 – body chunks  --> metadata + citations_in_text
+          Phase 2 – refs section --> references_list
+        Then merge into the standard ManuscriptStructure schema.
+        """
+        body_text, refs_text = self._split_body_and_references(text)
+
+        # ---- Phase 1a: metadata + first chunk of citations ----
+        first_chunk = body_text[:self.CHUNK_SIZE]
+        logger.info(f"Phase 1a: Extracting metadata + citations from first body chunk ({len(first_chunk)} chars)...")
+        meta_prompt = self._BODY_PROMPT + first_chunk
+        meta_raw = self._call_api(meta_prompt)
+        meta_data = self._safe_json(meta_raw)
+
+        metadata = meta_data.get("metadata", {})
+        all_citations = list(meta_data.get("citations_in_text", []))
+        logger.info(f"  --> metadata extracted, {len(all_citations)} citations so far")
+
+        # ---- Phase 1b: remaining body chunks (citations only) ----
+        remaining_chunks = self._chunk_text(body_text[self.CHUNK_SIZE:], self.CHUNK_SIZE)
+        for i, chunk in enumerate(remaining_chunks, start=2):
+            logger.info(f"Phase 1{chr(96+i)}: Extracting citations from body chunk {i} ({len(chunk)} chars)...")
+            chunk_prompt = self._BODY_CHUNK_PROMPT + chunk
+            chunk_raw = self._call_api(chunk_prompt)
             try:
-                parsed_data = json.loads(json_text)
-                logger.info("✓ Successfully received and parsed Gemini response")
-                return parsed_data
-            except json.JSONDecodeError as e:
-                logger.warning(f"JSON decode error: {e}. Attempting to repair truncated JSON...")
-                
-                # Attempt to repair
-                repaired_json = self._repair_truncated_json(json_text)
-                
-                # Save repaired version
-                if debug_path:
-                    repair_path = debug_path.parent / f"{debug_path.stem}_repaired.json"
-                    with open(repair_path, 'w', encoding='utf-8') as f:
-                        f.write(repaired_json)
-                    logger.info(f"Saved repaired JSON to: {repair_path}")
-                
-                # Try parsing repaired JSON
-                try:
-                    parsed_data = json.loads(repaired_json)
-                    logger.info("✓ Successfully parsed repaired JSON")
-                    return parsed_data
-                except json.JSONDecodeError as e2:
-                    logger.error(f"Still failed after repair: {e2}")
-                    raise Exception(
-                        f"Gemini response is truncated or malformed. "
-                        f"Original error: {e}. "
-                        f"Repair failed: {e2}. "
-                        f"Try increasing MAX_TOKENS in config or use a longer context model."
-                    )
-        
-        except Exception as e:
-            logger.error(f"Google Gemini API error: {e}")
-            raise
+                chunk_data = self._safe_json(chunk_raw)
+                new_cites = chunk_data.get("citations_in_text", [])
+                all_citations.extend(new_cites)
+                logger.info(f"  --> {len(new_cites)} additional citations")
+            except Exception as e:
+                logger.warning(f"  ! Could not parse chunk {i}: {e} – skipping")
+
+        # Deduplicate citations by (marker, first 80 chars of context)
+        seen, unique_citations = set(), []
+        for c in all_citations:
+            key = (c.get("marker", ""), c.get("context_window", "")[:80])
+            if key not in seen:
+                seen.add(key)
+                unique_citations.append(c)
+        logger.info(f"Total unique citations extracted: {len(unique_citations)}")
+
+        # ---- Phase 2: references section ----
+        all_references = []
+        ref_chunks = self._chunk_text(refs_text, self.CHUNK_SIZE)
+        for i, chunk in enumerate(ref_chunks, start=1):
+            logger.info(f"Phase 2.{i}: Parsing references chunk {i} ({len(chunk)} chars)...")
+            ref_prompt = self._REFS_PROMPT + chunk
+            ref_raw = self._call_api(ref_prompt)
+            try:
+                ref_data = self._safe_json(ref_raw)
+                new_refs = ref_data.get("references_list", [])
+                all_references.extend(new_refs)
+                logger.info(f" --> {len(new_refs)} references parsed")
+            except Exception as e:
+                logger.warning(f"  ! Could not parse ref chunk {i}: {e} – skipping")
+
+        logger.info(f"Total references extracted: {len(all_references)}")
+
+        # ---- Merge into standard schema ----
+        merged = {
+            "metadata": metadata,
+            "citations_in_text": unique_citations,
+            "references_list": all_references,
+        }
+
+        if debug_path:
+            debug_path.parent.mkdir(parents=True, exist_ok=True)
+            debug_path.write_text(json.dumps(merged, indent=2), encoding='utf-8')
+            logger.info(f"Saved merged chunked response to: {debug_path}")
+
+        logger.info(f"[OK] Chunked extraction complete")
+        return merged
 
 
 class OpenAIInterface:
@@ -348,7 +548,7 @@ class OpenAIInterface:
                 logger.info(f"Saved raw LLM response to: {debug_path}")
             
             parsed_data = json.loads(json_text)
-            logger.info("✓ Successfully received and parsed OpenAI response")
+            logger.info(f"[OK] Successfully received and parsed OpenAI response")
             return parsed_data
         
         except Exception as e:
@@ -432,7 +632,7 @@ class GeminiExtractor:
             if not raw_text or len(raw_text.strip()) < 100:
                 raise ValueError("Extracted text is too short or empty")
             
-            logger.info(f"  ✓ Extracted {len(raw_text)} characters")
+            logger.info(f"  [OK] Extracted {len(raw_text)} characters")
             
             # Step 2: Initialize LLM interface
             if progress_bar:
@@ -449,7 +649,7 @@ class GeminiExtractor:
             debug_path = self.debug_dir / f"{pdf_path.stem}_raw_response.json"
             
             parsed_dict = llm.parse_manuscript(raw_text, debug_path=debug_path)
-            logger.info("  ✓ Successfully received LLM response")
+            logger.info("  [OK] Successfully received LLM response")
             
             # Step 4: Validate output with Pydantic
             if progress_bar:
@@ -458,7 +658,7 @@ class GeminiExtractor:
             logger.info("Step 4: Validating parsed data...")
             manuscript = ManuscriptStructure(**parsed_dict)
             
-            logger.info("  ✓ Output validation successful")
+            logger.info("  [OK] Output validation successful")
             logger.info(f"    - Title: {manuscript.metadata.title}")
             logger.info(f"    - Authors: {len(manuscript.metadata.authors)}")
             logger.info(f"    - Citations: {len(manuscript.citations_in_text)}")
@@ -472,7 +672,7 @@ class GeminiExtractor:
             doi = extract_doi_from_text(raw_text)
             if doi:
                 manuscript.metadata.__dict__["doi"] = doi
-                logger.info(f"  ✓ Extracted DOI: {doi}")
+                logger.info(f"  [OK] Extracted DOI: {doi}")
             else:
                 logger.info("  ! No DOI found in text")
             
@@ -515,7 +715,7 @@ class GeminiExtractor:
         if not force_reprocess:
             cached = db_manager.get_cached_response('parsing', cache_key)
             if cached:
-                logger.info(f"✓ Using cached parsing result for {pdf_path.name}")
+                logger.info(f"[OK] Using cached parsing result for {pdf_path.name}")
                 if progress_bar:
                     progress_bar.progress(0.40, text="Using cached parsed data...")
                 return cached
@@ -526,6 +726,6 @@ class GeminiExtractor:
         
         # Cache the result
         db_manager.cache_api_response('parsing', cache_key, result)
-        logger.info(f"  ✓ Cached parsing result for future use")
+        logger.info(f"[OK] Cached parsing result for future use")
         
         return result

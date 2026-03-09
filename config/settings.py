@@ -34,7 +34,7 @@ class Config:
     # Token limits
     MAX_TOKENS: int = int(os.getenv("MAX_TOKENS", "32000"))
 
-        # ============================================================================
+    # ============================================================================
     # HUGGINGFACE CONFIGURATION
     # ============================================================================
     
@@ -56,6 +56,12 @@ class Config:
     # OpenAlex settings
     OPENALEX_EMAIL: str = os.getenv("OPENALEX_EMAIL", "your.email@example.com")
     OPENALEX_RATE_LIMIT: float = float(os.getenv("OPENALEX_RATE_LIMIT", "0.1"))
+
+    # Elsevier settings (used for enrichment)
+    ELSEVIER_API_KEY: Optional[str] = os.getenv("ELSEVIER_API_KEY")
+
+    # Springer settings (used for enrichment)
+    SPRINGER_API_KEY: Optional[str] = os.getenv("SPRINGER_API_KEY")
     
     # ============================================================================
     # SCORING CONFIGURATION
@@ -99,7 +105,7 @@ class Config:
     # LOGGING CONFIGURATION
     # ============================================================================
     
-    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "DEBUG")
     LOG_FORMAT: str = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     
     # ============================================================================

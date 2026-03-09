@@ -14,6 +14,12 @@ import logging
 project_root = Path(__file__).parent
 sys.path.append(str(project_root))
 
+# Initialize logging FIRST via logger.py before any other imports.
+# This sets root logger level from Config.LOG_LEVEL (.env / settings.py).
+# DO NOT call logging.basicConfig() anywhere -- it would override this.
+from src.utils.logger import setup_logger
+setup_logger()
+
 from database_manager import DatabaseManager
 from pipeline_orchestrator import PipelineOrchestrator
 from config.settings import Config
@@ -25,19 +31,7 @@ from ui.tabs.tab_3_logs import render_logs_tab
 from ui.tabs.tab_4_ide import render_analyst_ide
 from ui.tabs.tab_5_advanced import render_advanced_features
 from ui.tabs.tab_6_evaluate import render_evaluation_tab
-    
-# Configure explicit terminal logging for VS Code
-LOG_DIR = project_root / "logs"
-LOG_DIR.mkdir(exist_ok=True)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - [%(levelname)s] - %(name)s: %(message)s',
-    handlers=[
-        logging.FileHandler(LOG_DIR / 'streamlit_app.log'),
-        logging.StreamHandler(sys.stdout)  
-    ]
-)
 logger = logging.getLogger(__name__)
 
 # Page config

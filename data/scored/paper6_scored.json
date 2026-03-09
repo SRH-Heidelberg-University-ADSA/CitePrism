@@ -1,0 +1,3075 @@
+{
+  "manuscript_metadata": {
+    "title": "MOF-LENS: Bio-inspired lotus effect optimization for accelerated discovery of metal – organic framework nanocarriers for doxorubicin delivery in cancer therapy",
+    "doi": "10.1016/j.mtcomm.2025.114448",
+    "authors": [
+      "Mehrdad Jalali",
+      "Binh Vu",
+      "Sina Mehraeen",
+      "Swati Chandna",
+      "Farzad Jalali"
+    ],
+    "abstract": "Metal – organic frameworks (MOFs) are crystalline materials characterized by adjustable porosity and chemical properties, rendering them effective carriers for doxorubicin (DOX) in the treatment of hepatocellular carcinoma (HCC). The extensive design space complicates the identification of metal-organic frameworks (MOFs) that simultaneously optimize doxorubicin (DOX) loading, pH-responsive release, and biocompatibility. We introduce MOF-LENS (Latent Evolutionary Navigation System), a bio-inspired framework that integrates structural de -scriptors (pore size, surface area, void fraction) and SMILES-based fingerprints into a unified latent space. This framework employs the previously published Lotus Effect Algorithm (LEA) to identify high-quality MOF nano -carriers. In benchmarks comparing particle swarm optimization, genetic algorithms, random search, and a deterministic filter baseline across 30 independent runs, MOF-LENS achieves comparable or superior best fitness with significantly reduced variance, resulting in a consistent set of top candidates rather than isolated outliers. The chosen MOFs demonstrate pore-limiting diameters within the DOX-compatible range (12 – 16 Å) and exhibit a strong chemical affinity for DOX. Docking calculations validate substantial binding at physiological pH, with interactions slightly diminished under mildly acidic conditions, aligning with controlled release mechanisms. While illustrated for DOX in HCC, MOF-LENS is applicable to various drugs; retargeting to alternatives like paclitaxel necessitates merely the modification of the drug fingerprint, pore-size window, and a limited set of fitness weights."
+  },
+  "citations_in_text": [
+    {
+      "marker": "[1]",
+      "context_window": "Metal – Organic Frameworks (MOFs) are crystalline, porous materials made up of metal nodes connected by organic linkers. They have very high surface areas (up to 7000 m²/g), pore sizes that can be changed from 0.2 nm to 10 nm, and a wide range of chemical properties [1] . These properties position MOFs as transformative materials for appli -cations including gas storage, catalysis, separation, environmental remediation, and biomedical drug delivery [2-4] ."
+    },
+    {
+      "marker": "[2-4]",
+      "context_window": "They have very high surface areas (up to 7000 m²/g), pore sizes that can be changed from 0.2 nm to 10 nm, and a wide range of chemical properties [1] . These properties position MOFs as transformative materials for appli -cations including gas storage, catalysis, separation, environmental remediation, and biomedical drug delivery [2-4] . In cancer therapy, MOFs are particularly promising for delivering chemotherapeutic agents, such as doxorubicin (DOX), addressing critical challenges including poor drug solubility, off-target effects, and premature release, especially in the treatment of hepatocellular carcinoma (HCC) [5,6] ."
+    },
+    {
+      "marker": "[5,6]",
+      "context_window": "These properties position MOFs as transformative materials for appli -cations including gas storage, catalysis, separation, environmental remediation, and biomedical drug delivery [2-4] . In cancer therapy, MOFs are particularly promising for delivering chemotherapeutic agents, such as doxorubicin (DOX), addressing critical challenges including poor drug solubility, off-target effects, and premature release, especially in the treatment of hepatocellular carcinoma (HCC) [5,6] . The conceptual mechanism of DOX encapsulation within a MOF carrier and its interaction with cancer cells is illustrated in Fig. 1 , highlighting how porous MOF structures can transport DOX through the bloodstream and release it in the tumor microenvironment."
+    },
+    {
+      "marker": "[7,8]",
+      "context_window": "From a drug-delivery perspective, MOFs excel due to four key attri -butes. First, their large surface areas and tunable pores enable a high drug-loading capacity [7,8] . Second, many MOFs support stimuli-responsive release, where payloads are discharged under tumor-specific conditions such as acidic pH or elevated glutathione [9] , thereby reducing off-target toxicity."
+    },
+    {
+      "marker": "[9]",
+      "context_window": "First, their large surface areas and tunable pores enable a high drug-loading capacity [7,8] . Second, many MOFs support stimuli-responsive release, where payloads are discharged under tumor-specific conditions such as acidic pH or elevated glutathione [9] , thereby reducing off-target toxicity. Third, functional groups such as amino moieties allow conjugation with targeting ligands (e.g., folic acid or lactobionic acid), enabling selective uptake by cancer cells."
+    },
+    {
+      "marker": "[10]",
+      "context_window": "Third, functional groups such as amino moieties allow conjugation with targeting ligands (e.g., folic acid or lactobionic acid), enabling selective uptake by cancer cells. Finally, MOFs constructed from biocompatible metals (e.g., Zr, Fe) exhibit low toxicity and high stability under physiological conditions (pH 7.4) [10] . Recent studies on Zn-MOF-74 nanocarriers — coated with polydopamine or sodium alginate and synthesized in pH-responsive forms — illustrate these advantages by demonstrating high drug-loading capacity, enhanced biocompatibility and stability, and pH-triggered release of DOX or 5-FU in cancer models [11-13] ."
+    },
+    {
+      "marker": "[11-13]",
+      "context_window": "Finally, MOFs constructed from biocompatible metals (e.g., Zr, Fe) exhibit low toxicity and high stability under physiological conditions (pH 7.4) [10] . Recent studies on Zn-MOF-74 nanocarriers — coated with polydopamine or sodium alginate and synthesized in pH-responsive forms — illustrate these advantages by demonstrating high drug-loading capacity, enhanced biocompatibility and stability, and pH-triggered release of DOX or 5-FU in cancer models [11-13] . However, the vast combinatorial space of MOFs, driven by diverse metal nodes, organic linkers, and secondary building units (SBUs), identifies optimal drug carriers."
+    },
+    {
+      "marker": "[14]",
+      "context_window": "However, the vast combinatorial space of MOFs, driven by diverse metal nodes, organic linkers, and secondary building units (SBUs), identifies optimal drug carriers. The interplay of structural properties (e.g., pore size for drug loading) and chemical properties (e.g., linker functionality for targeting) necessitates a unified optimization approach [14] . For instance, NH 2 -UiO-66, with a pore limiting diameter (PLD) of approximately 6 Å, has demonstrated effective DOX encapsulation through framework defects and cavities, enabling pH-responsive release in acidic tumor microenvironments (pH 4 – 6) [15] ."
+    },
+    {
+      "marker": "[15]",
+      "context_window": "The interplay of structural properties (e.g., pore size for drug loading) and chemical properties (e.g., linker functionality for targeting) necessitates a unified optimization approach [14] . For instance, NH 2 -UiO-66, with a pore limiting diameter (PLD) of approximately 6 Å, has demonstrated effective DOX encapsulation through framework defects and cavities, enabling pH-responsive release in acidic tumor microenvironments (pH 4 – 6) [15] . However, relying on defects can lead to inconsistent performance, prompting MOF-LENS to target a PLD range of 12 – 16 Å, which aligns with the hydrodynamic diameter of DOX (12 Å to 15 Å) for optimized loading and controlled release without structural irregularities, as supported by molecular simulations [16,17] ."
+    },
+    {
+      "marker": "[16,17]",
+      "context_window": "For instance, NH 2 -UiO-66, with a pore limiting diameter (PLD) of approximately 6 Å, has demonstrated effective DOX encapsulation through framework defects and cavities, enabling pH-responsive release in acidic tumor microenvironments (pH 4 – 6) [15] . However, relying on defects can lead to inconsistent performance, prompting MOF-LENS to target a PLD range of 12 – 16 Å, which aligns with the hydrodynamic diameter of DOX (12 Å to 15 Å) for optimized loading and controlled release without structural irregularities, as supported by molecular simulations [16,17] . Traditional MOF discovery and screening strategies can be broadly categorized into three main groups."
+    },
+    {
+      "marker": "[18]",
+      "context_window": "Traditional MOF discovery and screening strategies can be broadly categorized into three main groups. High-throughput experimental screening synthesizes and tests large MOF libraries; however, it is labor- intensive, time-consuming, and costly [18] . Computational simulations, such as molecular dynamics (MD) and density functional theory (DFT), offer atomistic insights into MOF – drug interactions; however, they necessitate considerable computational resources and present chal -lenges in scaling to tens of thousands of candidates [19] ."
+    },
+    {
+      "marker": "[19]",
+      "context_window": "High-throughput experimental screening synthesizes and tests large MOF libraries; however, it is labor- intensive, time-consuming, and costly [18] . Computational simulations, such as molecular dynamics (MD) and density functional theory (DFT), offer atomistic insights into MOF – drug interactions; however, they necessitate considerable computational resources and present chal -lenges in scaling to tens of thousands of candidates [19] . Heuristic design strategies, such as isoreticular synthesis, systematically modify known frameworks but inherently limit exploration of the full chemical and structural diversity of MOFs [20] ."
+    },
+    {
+      "marker": "[20]",
+      "context_window": "Computational simulations, such as molecular dynamics (MD) and density functional theory (DFT), offer atomistic insights into MOF – drug interactions; however, they necessitate considerable computational resources and present chal -lenges in scaling to tens of thousands of candidates [19] . Heuristic design strategies, such as isoreticular synthesis, systematically modify known frameworks but inherently limit exploration of the full chemical and structural diversity of MOFs [20] . More recently, data-driven and graph-based approaches — including our MOFGalaxyNet and MOFSocialNet frameworks, as well as network sparsification methods such as the Black Hole strategy and inverse link prediction — have begun to leverage large MOF corpora and connectivity information to improve property prediction and dataset quality."
+    },
+    {
+      "marker": "[21-24]",
+      "context_window": "More recently, data-driven and graph-based approaches — including our MOFGalaxyNet and MOFSocialNet frameworks, as well as network sparsification methods such as the Black Hole strategy and inverse link prediction — have begun to leverage large MOF corpora and connectivity information to improve property prediction and dataset quality. Nevertheless, these approaches have so far focused primarily on graph representation and screening for general material properties rather than explicitly optimizing MOF can -didates for multi-objective drug-delivery criteria [21-24] . These ap -proaches rarely integrate structural and chemical descriptors within a unified, data-driven optimization pipeline."
+    },
+    {
+      "marker": "[25,26]",
+      "context_window": "These ap -proaches rarely integrate structural and chemical descriptors within a unified, data-driven optimization pipeline. The combinatorial diversity of MOFs, with over 100,000 synthesized and millions of hypothetical structures, renders manual or experimental screening infeasible [25,26] . Traditional approaches, including high-throughput experimental screening, molecular dynamics simula -tions, or heuristic design rules such as isoreticular synthesis, are resource-intensive and often fail to integrate structural properties (e.g., pore size distribution, void fraction, accessible surface area (ASA)) with chemical properties (e.g., linker functionality, coordination environ -ment) [27] ."
+    },
+    {
+      "marker": "[27]",
+      "context_window": "The combinatorial diversity of MOFs, with over 100,000 synthesized and millions of hypothetical structures, renders manual or experimental screening infeasible [25,26] . Traditional approaches, including high-throughput experimental screening, molecular dynamics simula -tions, or heuristic design rules such as isoreticular synthesis, are resource-intensive and often fail to integrate structural properties (e.g., pore size distribution, void fraction, accessible surface area (ASA)) with chemical properties (e.g., linker functionality, coordination environ -ment) [27] . To address these challenges, we introduce MOF-LENS (Latent Evolutionary Navigation System), a multi-modal optimization frame -work that combines structural property optimization (void fraction, ASA, PLD, coordination number), chemical structure representation via SMILES-based fingerprints for linkers, SBUs, and metal clusters, and bio- inspired evolutionary search using the Lotus Effect Algorithm (LEA) to balance drug-loading efficiency, pH-responsive release, and targeting potential in a unified multi-objective setting."
+    },
+    {
+      "marker": "[28,29]",
+      "context_window": "To overcome these limitations, various optimization and machine- learning techniques have been proposed for MOF discovery. Genetic Algorithms (GA) and Differential Evolution (DE) have been used to optimize MOFs for gas storage and catalysis based mainly on structural descriptors such as void fraction and surface area [28,29] . Particle Swarm Optimization (PSO) and Simulated Annealing (SA) have also been explored, but they often struggle with the high-dimensional, multimodal nature of MOF design, particularly when multiple struc -tural and chemical objectives must be balanced simultaneously [30] ."
+    },
+    {
+      "marker": "[30]",
+      "context_window": "Genetic Algorithms (GA) and Differential Evolution (DE) have been used to optimize MOFs for gas storage and catalysis based mainly on structural descriptors such as void fraction and surface area [28,29] . Particle Swarm Optimization (PSO) and Simulated Annealing (SA) have also been explored, but they often struggle with the high-dimensional, multimodal nature of MOF design, particularly when multiple struc -tural and chemical objectives must be balanced simultaneously [30] . Machine-learning models, including random forests and neural net -works, can accurately predict specific MOF properties but typically require large, curated datasets and are less suited to direct multi-objective optimization over a complex design space [31] ."
+    },
+    {
+      "marker": "[31]",
+      "context_window": "Particle Swarm Optimization (PSO) and Simulated Annealing (SA) have also been explored, but they often struggle with the high-dimensional, multimodal nature of MOF design, particularly when multiple struc -tural and chemical objectives must be balanced simultaneously [30] . Machine-learning models, including random forests and neural net -works, can accurately predict specific MOF properties but typically require large, curated datasets and are less suited to direct multi-objective optimization over a complex design space [31] . Bio-inspired metaheuristics, such as Ant Colony Optimization (ACO) and Artificial Bee Colony (ABC), show promise for navigating rugged search landscapes; however, they have been rarely applied to systematic MOF discovery [32,33] ."
+    },
+    {
+      "marker": "[32,33]",
+      "context_window": "Machine-learning models, including random forests and neural net -works, can accurately predict specific MOF properties but typically require large, curated datasets and are less suited to direct multi-objective optimization over a complex design space [31] . Bio-inspired metaheuristics, such as Ant Colony Optimization (ACO) and Artificial Bee Colony (ABC), show promise for navigating rugged search landscapes; however, they have been rarely applied to systematic MOF discovery [32,33] . In general, current methods either focus on structural screening and ignore chemistry, or they offer predictive models without a built-in optimization framework that can find a wide range of high-quality candidates."
+    },
+    {
+      "marker": "[34,35]",
+      "context_window": "The Lotus Effect Algorithm (LEA), inspired by the self-cleaning properties of lotus leaves, offers a compelling alternative. LEA em -ploys L ´evy-flight-based exploration with dynamically adapted step sizes to navigate multimodal landscapes efficiently [34,35] . Unlike classical swarm methods with uniform particle updates, LEA adjusts particle movements according to search progress, enhancing its ability to escape local optima and maintain solution diversity."
+    },
+    {
+      "marker": "[36]",
+      "context_window": "Algorithm 2 sketches the fitness evaluation. MOF-LENS operates on a curated dataset of MOFs extracted from the Cambridge Structural Database (CSD) [36] . The data are stored as a comma-separated file containing numerical structural descriptors — void fraction, accessible surface area (ASA, m²/g), pore limiting diameter (PLD, Å), maximum metal coordination number, and secondary building unit (SBU) extension points — as well as categorical information on metal type (e.g., Zr, Fe, Zn) and SMILES strings for organic linkers and SBUs."
+    },
+    {
+      "marker": "[37]",
+      "context_window": "To ensure biocompatibility for drug delivery, MOFs containing toxic metals such as Pb, Cd, Cr, Ni, or Hg are removed via pattern-based exclusion [10] . SMILES strings are sanitized with RDKit [37] , and en -tries with invalid or unparsable SMILES ( ≈ 5 % of the dataset) are dis -carded. Amino groups ( – NH ₂ ) in linkers and SBUs are detected through substructure matching, providing a binary feature that later supports ligand functionalization."
+    },
+    {
+      "marker": "[38]",
+      "context_window": "Structural properties are represented by five normalized features: void fraction, ASA, PLD, maximum metal coordination num -ber, and SBU extension points. Chemical information is encoded using 256-bit Morgan fingerprints (radius 2) generated from a linker and SBU SMILES with RDKit [38] . These fingerprints compactly represent the presence of local sub -structures and are used both for Tanimoto similarity calculations and for the hybrid distance metric."
+    },
+    {
+      "marker": "[39]",
+      "context_window": "Similarity between two MOFs i is quantified by a hybrid distance d ( i , j ) = 0 . 7 ‖ x i x j ‖ 2 + 0 . 3 ( 1 Tanimoto ( F i , F j )) , where the Euclidean term captures similarity in pore architecture, and the Tanimoto term captures similarity in linker chemistry [39] . The weights (0.7 structural, 0.3 chemical) were selected by grid search on a 1,000-MOF validation subset to best align with experimentally reported DOX loading efficiencies in known MOFs."
+    },
+    {
+      "marker": "[40]",
+      "context_window": "Particles are initialized uni -formly at random and evolved for at most T = 100iterations. p ( 1 ) i = clip ( p ( t ) i + η ( t ) s ( t ) i , [ 0 , 1 ] 5 ) , where s ( t ) i is drawn from a L ´evy distribution with exponent β = 1 . 5, η ( t ) is the step size, initialized as η ( 0 ) = 0 . 5 and decayed by a factor of 0.98 at each iteration, and clip ( ⋅ ) enforces the unit-hypercube bounds [40] . This combination yields large exploratory jumps in early iterations and finer local searches as the algorithm converges."
+    },
+    {
+      "marker": "[41]",
+      "context_window": "To instantiate MOF-LENS for doxorubicin (DOX), we define a drug- specific fitness function that captures the structural, chemical, and physicochemical requirements relevant to DOX encapsulation and release. DOX is a moderately bulky anthracycline (hydrated size ≈ 12 – 15 Å) whose clinical application is limited by cardiotoxicity, rapid systemic clearance, and pH-dependent stability [41] . Thus, the desired MOF properties include appropriate pore aperture, favorable chemical affinity, stability under physiological conditions (pH 7.4), responsiveness to mildly acidic tumor environments (pH 4 – 6), and compatibility with post-synthetic functionalization."
+    },
+    {
+      "marker": "[42]",
+      "context_window": "This window reflects the hydrated steric radius of DOX and avoids the defect- mediated, batch-dependent loading often observed in compact frame -works with nominal PLD < 6 Å. The Tanimoto similarity between the linker fingerprint F m and the DOX fingerprint F DOX promotes MOFs whose aro -matic and heterocyclic motifs support π – π stacking, hydrogen bonding, and other noncovalent interactions relevant for DOX binding [42] . The normalized score shows how stable a material is at different pH levels, such as physiological and tumor-like levels."
+    },
+    {
+      "marker": "[43]",
+      "context_window": "The normalized score shows how stable a material is at different pH levels, such as physiological and tumor-like levels. It rewards materials that are stable at pH 7.4 but can release quickly at mildly acidic pH [43] . The binary term s NH 2 ( m ) rewards amino groups on linkers or nodes, enabling covalent attachment of targeting ligands, such as folic acid or lactobionic acid, for hepatocellular carcinoma (HCC) targeting."
+    },
+    {
+      "marker": "[44]",
+      "context_window": "We compare MOF-LENS – LEA against four baselines: Particle Swarm Optimization (PSO): a widely used swarm-based optimizer in materials and engineering design, where particles up -date positions based on personal and global best positions [44] . Genetic Algorithm (GA): a population-based evolutionary algorithm using crossover and mutation, frequently applied in MOF and porous-material screening [45] ."
+    },
+    {
+      "marker": "[45]",
+      "context_window": "Particle Swarm Optimization (PSO): a widely used swarm-based optimizer in materials and engineering design, where particles up -date positions based on personal and global best positions [44] . Genetic Algorithm (GA): a population-based evolutionary algorithm using crossover and mutation, frequently applied in MOF and porous-material screening [45] . Random Search (RS): a model-free baseline that samples MOFs uni -formly at random from the dataset [46] ."
+    },
+    {
+      "marker": "[46]",
+      "context_window": "Genetic Algorithm (GA): a population-based evolutionary algorithm using crossover and mutation, frequently applied in MOF and porous-material screening [45] . Random Search (RS): a model-free baseline that samples MOFs uni -formly at random from the dataset [46] . Filter baseline (Filter): a deterministic heuristic that ranks MOFs using simple thresholds on PLD, void fraction, and ASA, mimicking conventional hand-crafted screening rules."
+    },
+    {
+      "marker": "[47]",
+      "context_window": "Repeating all experiments under a reduced 5-run protocol yields results that closely mirror the 30-run ensemble, confirming that the relative ranking and qualitative behavior of all methods are robust to ensemble size and not dependent on specific random seeds. To interpret the learned fitness landscape, we compute SHAP (SHapley Additive exPlanations) values for the surrogate model that approximates the fitness function ( Fig. 6 ) [47] . The analysis highlights PLD as the most influential descriptor, with ASA and void fractions following in importance."
+    },
+    {
+      "marker": "[48]",
+      "context_window": "Molecular docking is a computational technique used to predict how a guest molecule binds within the cavity or surface of a host material, providing both the preferred binding orientation and an estimate of the binding free energy ( Δ G). Docking methods such as AutoDock Vina, GOLD, and similar scoring-function – based engines [48] approximate the host – guest interaction energy by evaluating steric fit, hydrogen bonding, π – π stacking, electrostatic complementarity, and desolvation contributions. The output binding affinity, typically re -ported in kcal/mol, provides a first-order mechanistic screening of MOF – drug compatibility."
+    },
+    {
+      "marker": "[22]",
+      "context_window": "Coupling MOF-LENS to fast docking or coarse-grained MD in an active-learning loop would further tighten the link between optimization and molecular interaction energetics.\nFinally, there is a clear opportunity to integrate MOF-LENS with our Black Hole Strategy for gravity-based representative sampling on MOF networks [22] . In such a unified “ cosmic ” workflow, the Black Hole method would first compress the immense MOF universe into a smaller, structurally and chemically representative subset, and MOF-LENS would then perform fine-grained, drug-aware optimization inside this reduced space."
+    }
+  ],
+  "scored_references": [
+    {
+      "ref_id": "[1]",
+      "original_data": {
+        "ref_id": "[1]",
+        "parsed": {
+          "title": "Reticular synthesis and the design of new materials",
+          "authors": [
+            "O.M. Yaghi",
+            "M. O ’ Keeffe",
+            "N.W. Ockwig",
+            "H.K. Chae",
+            "M. Eddaoudi",
+            "J. Kim"
+          ],
+          "year": 2003,
+          "venue": "Nature 423",
+          "doi": "10.1038/nature01650"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W1999908724",
+        "title": "Reticular synthesis and the design of new materials",
+        "year": 2003,
+        "abstract": "The long-standing challenge of designing and constructing new crystalline solid-state materials from molecular building blocks is just beginning to be addressed with success. A conceptual approach that requires the use of secondary building units to direct the assembly of ordered frameworks epitomizes this process: we call this approach reticular synthesis. This chemistry has yielded materials designed to have predetermined structures, compositions and properties. In particular, highly porous frameworks held together by strong metal–oxygen–carbon bonds and with exceptionally large surface area and capacity for gas storage have been prepared and their pore metrics systematically varied and functionalized.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1038/nature01650",
+        "url": "https://doi.org/10.1038/nature01650",
+        "authors": [
+          {
+            "display_name": "Omar M. Yaghi"
+          },
+          {
+            "display_name": "M. O’Keeffe"
+          },
+          {
+            "display_name": "N.W. Ockwig"
+          },
+          {
+            "display_name": "Hee K. Chae"
+          },
+          {
+            "display_name": "Mohamed Eddaoudi"
+          },
+          {
+            "display_name": "Jaheon Kim"
+          }
+        ],
+        "venue": "Nature"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 46.59,
+      "RS_llm": 60,
+      "RS_final": 54.64,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a general overview of metal-organic frameworks, but does not specifically address the topic of MOF-LENS or doxorubicin delivery.",
+      "llm_evidence": [
+        "The long-standing challenge of designing and constructing new crystalline solid-state materials from molecular building blocks is just beginning to be addressed with success."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[2]",
+      "original_data": {
+        "ref_id": "[2]",
+        "parsed": {
+          "title": "Composite material based on ZIF-8, reduced graphene oxide, and Nafion as electrode modifier for dopamine electrooxidation",
+          "authors": [
+            "A. Belcovici",
+            "D. Tocco",
+            "E. Fratini",
+            "A. Salis",
+            "G.L. Turdean"
+          ],
+          "year": 2025,
+          "venue": "Microchem. J. 216",
+          "doi": "10.1016/j.microc.2025.114769"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4412980083",
+        "title": "Composite material based on ZIF-8, reduced graphene oxide, and Nafion as electrode modifier for dopamine electrooxidation",
+        "year": 2025,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.microc.2025.114769",
+        "url": "https://doi.org/10.1016/j.microc.2025.114769",
+        "authors": [
+          {
+            "display_name": "Alexandra Belcovici"
+          },
+          {
+            "display_name": "Davide Tocco"
+          },
+          {
+            "display_name": "Emiliano Fratini"
+          },
+          {
+            "display_name": "Andrea Salis"
+          },
+          {
+            "display_name": "Graziella Liana Turdean"
+          }
+        ],
+        "venue": "Microchemical Journal"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 34.76,
+      "RS_llm": 40,
+      "RS_final": 37.9,
+      "label": "irrelevant",
+      "llm_rationale": "The reference mentions metal-organic frameworks in the context of biomedical applications, but does not provide specific information about MOFs or doxorubicin delivery.",
+      "llm_evidence": [
+        "Composite material based on ZIF-8, reduced graphene oxide, and Nafion as electrode modifier for dopamine electrooxidation"
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[3]",
+      "original_data": {
+        "ref_id": "[3]",
+        "parsed": {
+          "title": "Metal – organic frameworks in biomedicine",
+          "authors": [
+            "P. Horcajada",
+            "et al."
+          ],
+          "year": 2012,
+          "venue": "Chem. Rev. 112",
+          "doi": "10.1021/cr200256v"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2069537362",
+        "title": "Metal–Organic Frameworks in Biomedicine",
+        "year": 2011,
+        "abstract": "International audience",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/cr200256v",
+        "url": "https://doi.org/10.1021/cr200256v",
+        "authors": [
+          {
+            "display_name": "Patricia Horcajada"
+          },
+          {
+            "display_name": "Ruxandra Gref"
+          },
+          {
+            "display_name": "Tarek Baâti"
+          },
+          {
+            "display_name": "Phoebe K. Allan"
+          },
+          {
+            "display_name": "Guillaume Maurin"
+          },
+          {
+            "display_name": "Patrick Couvreur"
+          },
+          {
+            "display_name": "Gérard Férey"
+          },
+          {
+            "display_name": "Russell E. Morris"
+          },
+          {
+            "display_name": "Christian Serre"
+          }
+        ],
+        "venue": "Chemical Reviews"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 53.56,
+      "RS_llm": 40,
+      "RS_final": 45.42,
+      "label": "borderline",
+      "llm_rationale": "The reference mentions metal-organic frameworks in the context of biomedical applications, but does not provide specific information about MOFs or doxorubicin delivery.",
+      "llm_evidence": [
+        "International audience"
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[4]",
+      "original_data": {
+        "ref_id": "[4]",
+        "parsed": {
+          "title": "A novel porous Zn-MOF based on binuclear metal clusters for fluorescence detection of Cr (VI) and adsorption of dyes",
+          "authors": [
+            "Y.-T. Yan",
+            "et al."
+          ],
+          "year": 2025,
+          "venue": "J. Mol. Struct. 1322",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W4403971212",
+        "title": "A novel porous Zn-MOF based on binuclear metal clusters for fluorescence detection of Cr(VI) and adsorption of dyes",
+        "year": 2024,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.molstruc.2024.140553",
+        "url": "https://doi.org/10.1016/j.molstruc.2024.140553",
+        "authors": [
+          {
+            "display_name": "Yang‐Tian Yan"
+          },
+          {
+            "display_name": "Xudong Fan"
+          },
+          {
+            "display_name": "Jia-Lei Lu"
+          },
+          {
+            "display_name": "Zhenghua Yang"
+          },
+          {
+            "display_name": "Yibo Zhang"
+          },
+          {
+            "display_name": "Yun‐Long Wu"
+          },
+          {
+            "display_name": "Wen‐Yan Zhang"
+          },
+          {
+            "display_name": "Yao‐Yu Wang"
+          }
+        ],
+        "venue": "Journal of Molecular Structure"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 43.37,
+      "RS_llm": 40,
+      "RS_final": 41.35,
+      "label": "borderline",
+      "llm_rationale": "The reference mentions metal-organic frameworks in the context of biomedical applications, but does not provide specific information about MOFs or doxorubicin delivery.",
+      "llm_evidence": [
+        "No abstract available"
+      ],
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
+    },
+    {
+      "ref_id": "[5]",
+      "original_data": {
+        "ref_id": "[5]",
+        "parsed": {
+          "title": "Metal – organic framework-based nanomedicine platforms for drug delivery and molecular imaging",
+          "authors": [
+            "W. Cai",
+            "C.C. Chu",
+            "G. Liu",
+            "Y.X. Wang"
+          ],
+          "year": 2017,
+          "venue": "Small 13 (16)",
+          "doi": "10.1002/smll.201602037"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 2)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2171160812",
+        "title": "Metal–Organic Framework‐Based Nanomedicine Platforms for Drug Delivery and Molecular Imaging",
+        "year": 2015,
+        "abstract": "Metal-organic frameworks (MOFs), which are a unique class of hybrid porous materials built from metal ions and organic linkers, have attracted significant research interest in recent years. Compared with conventional porous materials, MOFs exhibit a variety of advantages, including a large surface area, a tunable pore size and shape, an adjustable composition and structure, biodegradability, and versatile functionalities, which enable MOFs to perform as promising platforms for drug delivery, molecular imaging, and theranostic applications. In this article, the recent research progress related to nanoscale metal-organic frameworks (NMOFs) is summarized with a focus on synthesis strategies and drug delivery, molecular imaging, and theranostic applications. The future challenges and opportunities of NMOFs are also discussed in the context of translational medical research. More effort is warranted to develop clinically translatable NMOFs for various applications in nanomedicine.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/smll.201500802",
+        "url": "https://doi.org/10.1002/smll.201500802",
+        "authors": [
+          {
+            "display_name": "Wen Cai"
+          },
+          {
+            "display_name": "Chengchao Chu"
+          },
+          {
+            "display_name": "Gang Liu"
+          },
+          {
+            "display_name": "Yì Wáng"
+          }
+        ],
+        "venue": "Small"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 67.7,
+      "RS_llm": 80,
+      "RS_final": 75.08,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of nanomedicine platforms for drug delivery and molecular imaging.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs), which are a unique class of hybrid porous materials built from metal ions and organic linkers, have attracted significant research interest in recent years."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[6]",
+      "original_data": {
+        "ref_id": "[6]",
+        "parsed": {
+          "title": "Metal-organic frameworks for drug delivery: part B.",
+          "authors": [
+            "K. Danao",
+            "V. Rokde",
+            "D. Nandurkar",
+            "R. Fule",
+            "R. Shivhare",
+            "U. Mahajan"
+          ],
+          "year": 2024,
+          "venue": null,
+          "doi": "10.1016/B978-0-443-15259-7.00019-X"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4395472488",
+        "title": "Metal-organic frameworks for drug delivery: part B",
+        "year": 2024,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/b978-0-443-15259-7.00019-x",
+        "url": "https://doi.org/10.1016/b978-0-443-15259-7.00019-x",
+        "authors": [
+          {
+            "display_name": "Kishor Danao"
+          },
+          {
+            "display_name": "Vijayshri Rokde"
+          },
+          {
+            "display_name": "Deweshri Nandurkar"
+          },
+          {
+            "display_name": "Ritesh Fule"
+          },
+          {
+            "display_name": "Ruchi Shivhare"
+          },
+          {
+            "display_name": "Ujwala Mahajan"
+          }
+        ],
+        "venue": "Elsevier eBooks"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 63.59,
+      "RS_llm": 80,
+      "RS_final": 73.44,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of nanomedicine platforms for drug delivery and molecular imaging.",
+      "llm_evidence": [
+        "No abstract available"
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[7]",
+      "original_data": {
+        "ref_id": "[7]",
+        "parsed": {
+          "title": "Recent Advances in Metal – Organic-Framework-Based Nanocarriers for Controllable Drug Delivery and Release",
+          "authors": [
+            "Z. Zong",
+            "G. Tian",
+            "J. Wang",
+            "C. Fan",
+            "F. Yang",
+            "F. Guo"
+          ],
+          "year": 2022,
+          "venue": "Pharmaceutics 14 (12)",
+          "doi": "10.3390/pharmaceutics14122790"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4311495042",
+        "title": "Recent Advances in Metal–Organic-Framework-Based Nanocarriers for Controllable Drug Delivery and Release",
+        "year": 2022,
+        "abstract": "Metal-organic frameworks (MOFs) have a good designability, a well-defined pore, stimulus responsiveness, a high surface area, and a controllable morphology. Up to now, various MOFs have been widely used as nanocarriers and have attracted lots of attention in the field of drug delivery and release because of their good biocompatibility and high-drug-loading capacity. Herein, we provide a comprehensive summary of MOF-based nanocarriers for drug delivery and release over the last five years. Meanwhile, some representative examples are highlighted in detail according to four categories, including the University of Oslo MOFs, Fe-MOFs, cyclodextrin MOFs, and other MOFs. Moreover, the opportunities and challenges of MOF-based smart delivery vehicles are discussed. We hope that this review will be helpful for researchers to understand the recent developments and challenges of MOF-based drug-delivery systems.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.3390/pharmaceutics14122790",
+        "url": "https://doi.org/10.3390/pharmaceutics14122790",
+        "authors": [
+          {
+            "display_name": "Ziao Zong"
+          },
+          {
+            "display_name": "Guanghui Tian"
+          },
+          {
+            "display_name": "Junli Wang"
+          },
+          {
+            "display_name": "Chuanbin Fan"
+          },
+          {
+            "display_name": "Fenglian Yang"
+          },
+          {
+            "display_name": "Feng Guo"
+          }
+        ],
+        "venue": "Pharmaceutics"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 69.81,
+      "RS_llm": 90,
+      "RS_final": 81.92,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of nanocarriers for controllable drug delivery and release.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs) have a good designability, a well-defined pore, stimulus responsiveness, a high surface area, and a controllable morphology."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[8]",
+      "original_data": {
+        "ref_id": "[8]",
+        "parsed": {
+          "title": "Metal-organic frameworks for advanced drug delivery",
+          "authors": [
+            "S. He",
+            "et al."
+          ],
+          "year": 2021,
+          "venue": "Acta Pharmaceutica Sinica B",
+          "doi": "10.1016/j.apsb.2021.03.019"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3137776543",
+        "title": "Metal-organic frameworks for advanced drug delivery",
+        "year": 2021,
+        "abstract": "Metal-organic frameworks (MOFs), comprised of organic ligands and metal ions/metal clusters via coordinative bonds are highly porous, crystalline materials. Their tunable porosity, chemical composition, size and shape, and easy surface functionalization make this large family more and more popular for drug delivery. There is a growing interest over the last decades in the design of engineered MOFs with controlled sizes for a variety of biomedical applications. This article presents an overall review and perspectives of MOFs-based drug delivery systems (DDSs), starting with the MOFs classification adapted for DDSs based on the types of constituting metals and ligands. Then, the synthesis and characterization of MOFs for DDSs are developed, followed by the drug loading strategies, applications, biopharmaceutics and quality control. Importantly, a variety of representative applications of MOFs are detailed from a point of view of applications in pharmaceutics, diseases therapy and advanced DDSs. In particular, the biopharmaceutics and quality control of MOFs-based DDSs are summarized with critical issues to be addressed. Finally, challenges in MOFs development for DDSs are discussed, such as biostability, biosafety, biopharmaceutics and nomenclature.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.apsb.2021.03.019",
+        "url": "https://doi.org/10.1016/j.apsb.2021.03.019",
+        "authors": [
+          {
+            "display_name": "Siyu He"
+          },
+          {
+            "display_name": "Li Wu"
+          },
+          {
+            "display_name": "Xue Li"
+          },
+          {
+            "display_name": "Hongyu Sun"
+          },
+          {
+            "display_name": "Ting Xiong"
+          },
+          {
+            "display_name": "Jie Liu"
+          },
+          {
+            "display_name": "Chengxi Huang"
+          },
+          {
+            "display_name": "Huipeng Xu"
+          },
+          {
+            "display_name": "Huimin Sun"
+          },
+          {
+            "display_name": "Weidong Chen"
+          },
+          {
+            "display_name": "Ruxandra Gref"
+          },
+          {
+            "display_name": "Jiwen Zhang"
+          }
+        ],
+        "venue": "Acta Pharmaceutica Sinica B"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 71.06,
+      "RS_llm": 90,
+      "RS_final": 82.42,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of advanced drug delivery.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs), comprised of organic ligands and metal ions/metal clusters via coordinative bonds are highly porous, crystalline materials."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[9]",
+      "original_data": {
+        "ref_id": "[9]",
+        "parsed": {
+          "title": "Utilization of Functionalized Metal – Organic Framework Nanoparticle as Targeted Drug Delivery System for Cancer Therapy",
+          "authors": [
+            "V.A. Tran",
+            "V. Thuan Le",
+            "V.D. Doan",
+            "G.N.L. Vo"
+          ],
+          "year": 2023,
+          "venue": "Pharmaceutics 15 (3)",
+          "doi": "10.3390/pharmaceutics15030931"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4324149550",
+        "title": "Utilization of Functionalized Metal–Organic Framework Nanoparticle as Targeted Drug Delivery System for Cancer Therapy",
+        "year": 2023,
+        "abstract": "Cancer is a multifaceted disease that results from the complex interaction between genetic and environmental factors. Cancer is a mortal disease with the biggest clinical, societal, and economic burden. Research on better methods of the detection, diagnosis, and treatment of cancer is crucial. Recent advancements in material science have led to the development of metal-organic frameworks, also known as MOFs. MOFs have recently been established as promising and adaptable delivery platforms and target vehicles for cancer therapy. These MOFs have been constructed in a fashion that offers them the capability of drug release that is stimuli-responsive. This feature has the potential to be exploited for cancer therapy that is externally led. This review presents an in-depth summary of the research that has been conducted to date in the field of MOF-based nanoplatforms for cancer therapeutics.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.3390/pharmaceutics15030931",
+        "url": "https://doi.org/10.3390/pharmaceutics15030931",
+        "authors": [
+          {
+            "display_name": "Vy Anh Tran"
+          },
+          {
+            "display_name": "Van Thuan Le"
+          },
+          {
+            "display_name": "Van‐Dat Doan"
+          },
+          {
+            "display_name": "Giang N. L. Vo"
+          }
+        ],
+        "venue": "Pharmaceutics"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 74.43,
+      "RS_llm": 90,
+      "RS_final": 83.77,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of targeted drug delivery systems for cancer therapy.",
+      "llm_evidence": [
+        "Cancer is a multifaceted disease that results from the complex interaction between genetic and environmental factors."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[10]",
+      "original_data": {
+        "ref_id": "[10]",
+        "parsed": {
+          "title": "Mitigating metal-organic framework (MOF) toxicity for biomedical applications",
+          "authors": [
+            "P. Wi ´sniewska",
+            "J. Haponiuk",
+            "M.R. Saeb",
+            "N. Rabiee",
+            "S.A. Bencherif"
+          ],
+          "year": 2023,
+          "venue": "Chemical Engineering Journal",
+          "doi": "10.1016/j.cej.2023.144400"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4381953139",
+        "title": "Mitigating metal-organic framework (MOF) toxicity for biomedical applications",
+        "year": 2023,
+        "abstract": "Metal-organic frameworks (MOFs) are a novel class of crystalline porous materials, consisting of metal ions and organic linkers. These hybrid materials possess exceptional porosity and specific surface area, which have recently garnered significant interest due to their potential applications in gas separation and storage, energy storage, biomedical imaging, and drug delivery. As MOFs are being explored for biomedical applications, it is essential to comprehensively assess their toxicity. Although nearly ninety thousand MOFs have been investigated, evaluating and optimizing their physico-chemical properties in relevant biological systems remain critical for their clinical translation. In this review article, we first provide a brief classification of MOFs based on their chemical structures. We then conduct a comprehensive evaluation of in vitro and in vivo studies that assess the biocompatibility of MOFs. Additionally, we discuss various approaches to mitigate the critical factors associated with MOF toxicity. To this end, the effects of chemistry, particle size, morphology, and particle aggregation are examined. To better understand MOFs' potential toxicity to living organisms, we also delve into the toxicity mechanisms of nanoparticles (NPs). Furthermore, we introduce and evaluate strategies such as surface modification to reduce the inherent toxicity of MOFs. Finally, we discuss current challenges, the path to clinical trials, and new research directions.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.cej.2023.144400",
+        "url": "https://doi.org/10.1016/j.cej.2023.144400",
+        "authors": [
+          {
+            "display_name": "Paulina Wiśniewska"
+          },
+          {
+            "display_name": "Józef T. Haponiuk"
+          },
+          {
+            "display_name": "Mohammad Reza Saeb"
+          },
+          {
+            "display_name": "Navid Rabiee"
+          },
+          {
+            "display_name": "Sidi A. Bencherif"
+          }
+        ],
+        "venue": "Chemical Engineering Journal"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 68.98,
+      "RS_llm": 80,
+      "RS_final": 75.59,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of mitigating toxicity for biomedical applications.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs) are a novel class of crystalline porous materials, consisting of metal ions and organic linkers."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[11]",
+      "original_data": {
+        "ref_id": "[11]",
+        "parsed": {
+          "title": "Tunable Zn-MOF-74 nanocarriers coated with sodium alginate as versatile drug carriers",
+          "authors": [
+            "A. Kazemi",
+            "et al."
+          ],
+          "year": 2024,
+          "venue": "Polym. Bull. 81 (16)",
+          "doi": "10.1007/s00289-024-05426-3"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4400857983",
+        "title": "Tunable Zn-MOF-74 nanocarriers coated with sodium alginate as versatile drug carriers",
+        "year": 2024,
+        "abstract": "In this study, MOF-74 nanocarriers were coated with sodium alginate (SALG) to enhance physicochemical properties and biocompatibility. Spectroscopic and microscopic analyses showed MOF-74 particle size below 100 nm. Zinc-based MOF-74 nanocarriers (Zn-MOF-74) were developed for doxorubicin (DOX) delivery, achieving high drug loading efficiency (DLE) and drug loading capacity (DLC) as measured by UV–visible spectrometry. Nanocarriers synthesized using zinc acetate (R A -MOF-74) achieved a DLE of 96.5% and a DLC of 19.6%, outperforming those prepared with zinc nitrate (R N -MOF-74) with a DLE of 88.8% and a DLC of 18.3%. Uncoated samples released cargo rapidly at pH 1.5 and significantly at pH 8. In contrast, SALG-coated samples showed reduced release at pH 1.5 and reached 54.2% release at pH 8 due to alginate’s physicochemical properties. Drug release from DOX@R A -MOF-74/ALG was significantly slower and more sustained than from uncoated samples. This study demonstrates the potential of SALG-coated R A -MOF-74 as a controlled drug release system for biomedical applications.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1007/s00289-024-05426-3",
+        "url": "https://doi.org/10.1007/s00289-024-05426-3",
+        "authors": [
+          {
+            "display_name": "Amir Kazemi"
+          },
+          {
+            "display_name": "Mohammad Hossein Afshari"
+          },
+          {
+            "display_name": "Hasan Baesmat"
+          },
+          {
+            "display_name": "Faranak Manteghi"
+          },
+          {
+            "display_name": "Hafezeh Nabipour"
+          },
+          {
+            "display_name": "Sohrab Rohani"
+          },
+          {
+            "display_name": "Mohammad Reza Saeb"
+          }
+        ],
+        "venue": "Polymer Bulletin"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 50.65,
+      "RS_llm": 90,
+      "RS_final": 74.26,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of tunable Zn-MOF-74 nanocarriers for drug delivery.",
+      "llm_evidence": [
+        "Zn-MOF-74 nanocarriers were coated with sodium alginate (SALG) to enhance physicochemical properties and biocompatibility."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[12]",
+      "original_data": {
+        "ref_id": "[12]",
+        "parsed": {
+          "title": "Polydopamine-Coated Zn-MOF-74 Nanocarriers: Versatile Drug Delivery Systems with Enhanced Biocompatibility and Cancer Therapeutic Efficacy",
+          "authors": [
+            "A. Kazemi",
+            "et al."
+          ],
+          "year": 2024,
+          "venue": "J. Inorg. Organomet Polym. Mater. 34 (12)",
+          "doi": "10.1007/s10904-024-03173-6"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4400599206",
+        "title": "Polydopamine-Coated Zn-MOF-74 Nanocarriers: Versatile Drug Delivery Systems with Enhanced Biocompatibility and Cancer Therapeutic Efficacy",
+        "year": 2024,
+        "abstract": "While MOF-74 drug delivery platforms are known for their high drug loading capacity (DLC) and efficiency (DLE), surface chemistry modifications can further enhance their performance. Two variants of Zn-MOF-74 nanoparticles (particle size < 100 nm, per microscopic analysis) were prepared at room temperature, fully characterized and loaded with doxorubicin (DOX) as a model drug. UV-visible spectrometry revealed a DLE of 96.5% and a DLC of 19.6% for zinc acetate (R A -MOF-74) nanocarrier, against zinc nitrate (R N -MOF-74) with 88.8% and 18.3% in the same order. R A -MOF-74 nanocarriers were coated with polydopamine (PDA) through an in-situ polymerization process to enhance physicochemical properties and compatibility with biological systems. Both the uncoated and PDA-coated R A -MOF-74 showed accelerated drug release at pH 5.5 due to quicker structural collapse, which experienced an increase of 24.3% for the former and a 6.2% increase for the latter sample. The biological properties of loaded Zn-MOF-74 nanocarriers demonstrated acceptable anti-cancer activity, and possessing low hemolytic activity. Moreover, the cytotoxicity results indicated an inhibition of 85.73% against MDA-MB-231 breast cancer cells for the DOX-loaded MOF-74, notably about 5% higher than that of the pure DOX at a concentration of 400 µg/ml. At the same concentration, loaded MOF-74 showed a hemolytic activity of 9.62%, which was significantly lower than 28.97% assigned to the pure DOX. These results demonstrate the potential of Zn-MOF-74 nanoparticles for diverse medical applications, warranting further investigation of their in vivo performance in both therapeutic and diagnostic roles.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1007/s10904-024-03173-6",
+        "url": "https://doi.org/10.1007/s10904-024-03173-6",
+        "authors": [
+          {
+            "display_name": "Amir Kazemi"
+          },
+          {
+            "display_name": "Mohammad Hossein Afshari"
+          },
+          {
+            "display_name": "Hasan Baesmat"
+          },
+          {
+            "display_name": "Bahareh Bozorgnia"
+          },
+          {
+            "display_name": "Faranak Manteghi"
+          },
+          {
+            "display_name": "Hafezeh Nabipour"
+          },
+          {
+            "display_name": "Sohrab Rohani"
+          },
+          {
+            "display_name": "Hooman Aghamirza Moghim Aliabadi"
+          },
+          {
+            "display_name": "Setare Adibzadeh"
+          },
+          {
+            "display_name": "Mohammad Reza Saeb"
+          }
+        ],
+        "venue": "Journal of Inorganic and Organometallic Polymers and Materials"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 58.91,
+      "RS_llm": 90,
+      "RS_final": 77.56,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of polydopamine-coated Zn-MOF-74 nanocarriers for drug delivery.",
+      "llm_evidence": [
+        "Polydopamine (PDA) coating was used to enhance the physicochemical properties and compatibility of Zn-MOF-74 nanocarriers."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[13]",
+      "original_data": {
+        "ref_id": "[13]",
+        "parsed": {
+          "title": "Room-Temperature Synthesis of pH-Responsive MOF Nanocarriers for Targeted Drug Delivery in Cancer Therapy",
+          "authors": [
+            "A. Kazemi",
+            "et al."
+          ],
+          "year": 2025,
+          "venue": "J. Polym. Environ. 33 (3)",
+          "doi": "10.1007/s10924-025-03496-6"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4406240290",
+        "title": "Room-Temperature Synthesis of pH-Responsive MOF Nanocarriers for Targeted Drug Delivery in Cancer Therapy",
+        "year": 2025,
+        "abstract": "The synthesis of nanoscale metal-organic frameworks (MOFs) is emerging as a promising method for targeted drug delivery in cancer therapy. In this study, unlike conventional solvothermal methods that require high temperatures, room-temperature synthesis of two Zn-MOF-74 variants was achieved using zinc nitrate and zinc acetate with triethylamine (TEA). The use of different anions allows precise control over the morphology and particle size of the MOF, optimizing drug loading in nanocarriers. Drug loading and release were evaluated using 5-fluorouracil (5-FU) as a model drug in both aqueous and ethanolic environments. The results showed that Zn-MOF-74 prepared with zinc acetate (R A -MOF-74) at a 1:1 drug-to-nanocarrier ratio in ethanol exhibited superior drug adsorption and release characteristics. To enhance biocompatibility and controlled release, R A -MOF-74 nanocarriers were coated with two biodegradable polymers, sodium alginate (ALG) and polydopamine (PDA), to improve stability at low pH and enhance release control. The release profiles of 5-FU from R A -MOF-74 and its coated samples (PDA and ALG) were evaluated at different pH levels. In uncoated R A -MOF-74, drug release at pH 7.4 and 8 was 48.4% and 59.1%, respectively, reaching 100% at pH 1.5. For the coated samples, 5-FU@R A -MOF-74/ALG released 19.8% and 45.9% at pH 1.5 and 8, respectively, while 5-FU@R A -MOF-74/PDA showed 25.2% and 40.8% release at pH 7.4 and 5.5. These results clearly highlight pH-sensitive release and the role of biocompatible coatings in enhancing controlled drug release, demonstrating the potential of Zn-MOF-74 with controlled morphology for pH-responsive delivery of 5-FU in cancer therapy, paving the way for future in vivo applications.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1007/s10924-025-03496-6",
+        "url": "https://doi.org/10.1007/s10924-025-03496-6",
+        "authors": [
+          {
+            "display_name": "Amir Kazemi"
+          },
+          {
+            "display_name": "Mohammad Hossein Afshari"
+          },
+          {
+            "display_name": "Hasan Baesmat"
+          },
+          {
+            "display_name": "Saber Keshavarz"
+          },
+          {
+            "display_name": "Fateme Zeinali"
+          },
+          {
+            "display_name": "Shahla Zahiri"
+          },
+          {
+            "display_name": "Elahe Torabi"
+          },
+          {
+            "display_name": "Faranak Manteghi"
+          },
+          {
+            "display_name": "Sohrab Rohani"
+          }
+        ],
+        "venue": "Journal of Polymers and the Environment"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 63.77,
+      "RS_llm": 90,
+      "RS_final": 79.51,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of room-temperature synthesis of pH-responsive MOF nanocarriers for targeted drug delivery.",
+      "llm_evidence": [
+        "Room-temperature synthesis of two Zn-MOF-74 variants was achieved using zinc nitrate and zinc acetate with triethylamine (TEA)."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[14]",
+      "original_data": {
+        "ref_id": "[14]",
+        "parsed": {
+          "title": "Understanding and controlling the nucleation and growth of metal-organic frameworks",
+          "authors": [
+            "B.P. Carpenter",
+            "A.R. Talosig",
+            "B. Rose",
+            "G. Di Palma",
+            "J.P. Patterson"
+          ],
+          "year": 2023,
+          "venue": "Chem. Soc. Rev. 52 (20)",
+          "doi": "10.1039/d3cs00312d"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4387357681",
+        "title": "Understanding and controlling the nucleation and growth of metal–organic frameworks",
+        "year": 2023,
+        "abstract": "Metal-organic frameworks offer a diverse landscape of building blocks to design high performance materials for implications in almost every major industry. With this diversity stems complex crystallization mechanisms with various pathways and intermediates. Crystallization studies have been key to the advancement of countless biological and synthetic systems, with MOFs being no exception. This review provides an overview of the current theories and fundamental chemistry used to decipher MOF crystallization. We then discuss how intrinsic and extrinsic synthetic parameters can be used as tools to modulate the crystallization pathway to produce MOF crystals with finely tuned physical and chemical properties. Experimental and computational methods are provided to guide the probing of MOF crystal formation on the molecular and bulk scale. Lastly, we summarize the recent major advances in the field and our outlook on the exciting future of MOF crystallization.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1039/d3cs00312d",
+        "url": "https://doi.org/10.1039/d3cs00312d",
+        "authors": [
+          {
+            "display_name": "Brooke P. Carpenter"
+          },
+          {
+            "display_name": "A. Rain Talosig"
+          },
+          {
+            "display_name": "Ben Rose"
+          },
+          {
+            "display_name": "Giuseppe Di Palma"
+          },
+          {
+            "display_name": "Joseph P. Patterson"
+          }
+        ],
+        "venue": "Chemical Society Reviews"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 59.77,
+      "RS_llm": 80,
+      "RS_final": 71.91,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of understanding and controlling the nucleation and growth of MOFs.",
+      "llm_evidence": [
+        "Metal-organic frameworks offer a diverse landscape of building blocks to design high performance materials for implications in almost every major industry."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[15]",
+      "original_data": {
+        "ref_id": "[15]",
+        "parsed": {
+          "title": "DNA-functionalized metal – organic framework nanoparticles for intracellular delivery of proteins",
+          "authors": [
+            "S. Wang",
+            "Y. Chen",
+            "S. Wang",
+            "P. Li",
+            "C.A. Mirkin",
+            "O.K. Farha"
+          ],
+          "year": 2018,
+          "venue": "J. Am. Chem. Soc. 140",
+          "doi": "10.1021/jacs.7b11825"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2912412780",
+        "title": "DNA-Functionalized Metal–Organic Framework Nanoparticles for Intracellular Delivery of Proteins",
+        "year": 2019,
+        "abstract": "Due to their large size, charged surfaces, and environmental sensitivity, proteins do not naturally cross cell-membranes in intact form and, therefore, are difficult to deliver for both diagnostic and therapeutic purposes. Based upon the observation that clustered oligonucleotides can naturally engage scavenger receptors that facilitate cellular transfection, nucleic acid-metal organic framework nanoparticle (MOF NP) conjugates have been designed and synthesized from NU-1000 and PCN-222/MOF-545, respectively, and phosphate-terminated oligonucleotides. They have been characterized structurally and with respect to their ability to enter mammalian cells. The MOFs act as protein hosts, and their densely functionalized, oligonucleotide-rich surfaces make them colloidally stable and ensure facile cellular entry. With insulin as a model protein, high loading and a 10-fold enhancement of cellular uptake (as compared to that of the native protein) were achieved. Importantly, this approach can be generalized to facilitate the delivery of a variety of proteins as biological probes or potential therapeutics.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/jacs.8b12705",
+        "url": "https://doi.org/10.1021/jacs.8b12705",
+        "authors": [
+          {
+            "display_name": "Shunzhi Wang"
+          },
+          {
+            "display_name": "Yijing Chen"
+          },
+          {
+            "display_name": "Shuya Wang"
+          },
+          {
+            "display_name": "Peng Li"
+          },
+          {
+            "display_name": "Chad A. Mirkin"
+          },
+          {
+            "display_name": "Omar K. Farha"
+          }
+        ],
+        "venue": "Journal of the American Chemical Society"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 53.73,
+      "RS_llm": 80,
+      "RS_final": 69.49,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of DNA-functionalized MOF nanoparticles for intracellular delivery of proteins.",
+      "llm_evidence": [
+        "Due to their large size, charged surfaces, and environmental sensitivity, proteins do not naturally cross cell-membranes in intact form and, therefore, are difficult to deliver for both diagnostic and therapeutic purposes."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[16]",
+      "original_data": {
+        "ref_id": "[16]",
+        "parsed": {
+          "title": "Recent advances in delivery of drug – nucleic acid combinations for cancer treatment",
+          "authors": [
+            "J. Li",
+            "Y. Wang",
+            "Y. Zhu",
+            "D. Oupický"
+          ],
+          "year": 2019,
+          "venue": "J. Control. Release 304",
+          "doi": "10.1016/j.jconrel.2019.05.033"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 6)",
+      "external_metadata": {
+        "id": "https://openalex.org/W1963837352",
+        "title": "Recent advances in delivery of drug–nucleic acid combinations for cancer treatment",
+        "year": 2013,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.jconrel.2013.04.010",
+        "url": "https://doi.org/10.1016/j.jconrel.2013.04.010",
+        "authors": [
+          {
+            "display_name": "Jing Li"
+          },
+          {
+            "display_name": "Yan Wang"
+          },
+          {
+            "display_name": "Yu Zhu"
+          },
+          {
+            "display_name": "David Oupický"
+          }
+        ],
+        "venue": "Journal of Controlled Release"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 32.41,
+      "RS_llm": 80,
+      "RS_final": 60.96,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of recent advances in delivery of drug-nucleic acid combinations for cancer treatment.",
+      "llm_evidence": [
+        "No abstract available"
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[17]",
+      "original_data": {
+        "ref_id": "[17]",
+        "parsed": {
+          "title": "Defective MOFs as nano carrier for drug loading with controlled release",
+          "authors": [
+            "Z. Xu",
+            "et al."
+          ],
+          "year": 2024,
+          "venue": "Colloids Surf. A Physicochem Eng. Asp. 697",
+          "doi": "10.1016/j.colsurfa.2024.134427"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4399420681",
+        "title": "Defective MOFs as nano carrier for drug loading with controlled release",
+        "year": 2024,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.colsurfa.2024.134427",
+        "url": "https://doi.org/10.1016/j.colsurfa.2024.134427",
+        "authors": [
+          {
+            "display_name": "Zhanhu Xu"
+          },
+          {
+            "display_name": "Ya Liu"
+          },
+          {
+            "display_name": "Dongfang Wang"
+          },
+          {
+            "display_name": "Shujie Yan"
+          },
+          {
+            "display_name": "Yiyang Xu"
+          },
+          {
+            "display_name": "Xiaofeng Wang"
+          },
+          {
+            "display_name": "Qian Li"
+          }
+        ],
+        "venue": "Colloids and Surfaces A Physicochemical and Engineering Aspects"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 46.24,
+      "RS_llm": 80,
+      "RS_final": 66.5,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of defective MOFs as nano-carriers for drug loading with controlled release.",
+      "llm_evidence": [
+        "No abstract available"
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[18]",
+      "original_data": {
+        "ref_id": "[18]",
+        "parsed": {
+          "title": "High-throughput and machine learning approaches for the discovery of metal organic frameworks",
+          "authors": [
+            "X. Zhang",
+            "Z. Xu",
+            "Z. Wang",
+            "H. Liu",
+            "Y. Zhao",
+            "S. Jiang"
+          ],
+          "year": 2023,
+          "venue": null,
+          "doi": "10.1063/5.0147650"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4379051613",
+        "title": "High-throughput and machine learning approaches for the discovery of metal organic frameworks",
+        "year": 2023,
+        "abstract": "Metal-organic frameworks (MOFs) are promising nanoporous materials with diverse applications. Traditional material discovery based on intensive manual experiments has certain limitations on efficiency and effectiveness when faced with nearly infinite material space. The current situation offers an opportunity for high-throughput (HT) and machine learning (ML) approaches, including computational and experimental methods, as they have greatly improved the efficiency of MOF screening and discovery and have the capacity to deal with the enormous growth of data. In this review, we discuss the research progress in HT computation and experiments and their effect on MOF screening and discovery. We also highlight how ML-based approaches and the integration of HT methods with ML algorithms accelerate MOF design. In addition, we provide our insights on the future capability of data-driven techniques for MOF discovery, despite facing some knowledge gaps as an obstacle.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1063/5.0147650",
+        "url": "https://doi.org/10.1063/5.0147650",
+        "authors": [
+          {
+            "display_name": "Xiangyu Zhang"
+          },
+          {
+            "display_name": "Zezhao Xu"
+          },
+          {
+            "display_name": "Zidi Wang"
+          },
+          {
+            "display_name": "Huiyu Liu"
+          },
+          {
+            "display_name": "Yingbo Zhao"
+          },
+          {
+            "display_name": "Shan Jiang"
+          }
+        ],
+        "venue": "APL Materials"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 64.66,
+      "RS_llm": 80,
+      "RS_final": 73.86,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of high-throughput and machine learning approaches for the discovery of MOFs.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs) are promising nanoporous materials with diverse applications."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[19]",
+      "original_data": {
+        "ref_id": "[19]",
+        "parsed": {
+          "title": "Metal – organic framework (Mof) through the lens of molecular dynamics simulation: Current status and future perspective",
+          "authors": [
+            "A.H. Mashhadzadeh",
+            "et al."
+          ],
+          "year": 2020,
+          "venue": null,
+          "doi": "10.3390/jcs4020075"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3035871425",
+        "title": "Metal–Organic Framework (MOF) through the Lens of Molecular Dynamics Simulation: Current Status and Future Perspective",
+        "year": 2020,
+        "abstract": "As hybrid porous structures with outstanding properties, metal–organic frameworks (MOFs) have entered into a large variety of industrial applications in recent years. As a result of their specific structure, that includes metal ions and organic linkers, MOFs have remarkable and tunable properties, such as a high specific surface area, excellent storage capacity, and surface modification possibility, making them appropriate for many industries like sensors, pharmacies, water treatment, energy storage, and ion transportation. Although the volume of experimental research on the properties and performance of MOFs has multiplied over a short period of time, exploring these structures from a theoretical perspective such as via molecular dynamics simulation (MD) requires a more in-depth focus. The ability to identify and demonstrate molecular interactions between MOFs and host materials in which they are incorporates is of prime importance in developing next generations of these hybrid structures. Therefore, in the present article, we have presented a brief overview of the different MOFs’ properties and applications from the most recent MD-based studies and have provided a perspective on the future developments of MOFs from the MD viewpoint.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.3390/jcs4020075",
+        "url": "https://doi.org/10.3390/jcs4020075",
+        "authors": [
+          {
+            "display_name": "Amin Hamed Mashhadzadeh"
+          },
+          {
+            "display_name": "Ali Taghizadeh"
+          },
+          {
+            "display_name": "Mohsen Taghizadeh"
+          },
+          {
+            "display_name": "Muhammad Tajammal Munir"
+          },
+          {
+            "display_name": "Sajjad Habibzadeh"
+          },
+          {
+            "display_name": "Azam Salmankhani"
+          },
+          {
+            "display_name": "Florian J. Stadler"
+          },
+          {
+            "display_name": "Mohammad Reza Saeb"
+          }
+        ],
+        "venue": "Journal of Composites Science"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 61.16,
+      "RS_llm": 80,
+      "RS_final": 72.46,
+      "label": "relevant",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of metal-organic frameworks through the lens of molecular dynamics simulation.",
+      "llm_evidence": [
+        "As hybrid porous structures with outstanding properties, metal–organic frameworks (MOFs) have entered into a large variety of industrial applications in recent years."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[20]",
+      "original_data": {
+        "ref_id": "[20]",
+        "parsed": {
+          "title": "Isoreticular chemistry within metal – organic frameworks for gas storage and separation",
+          "authors": [
+            "W. Fan",
+            "X. Zhang",
+            "Z. Kang",
+            "X. Liu",
+            "D. Sun"
+          ],
+          "year": 2021,
+          "venue": "Coordination Chemistry Reviews",
+          "doi": "10.1016/j.ccr.2021.213968"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3160720878",
+        "title": "Isoreticular chemistry within metal–organic frameworks for gas storage and separation",
+        "year": 2021,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1016/j.ccr.2021.213968",
+        "url": "https://doi.org/10.1016/j.ccr.2021.213968",
+        "authors": [
+          {
+            "display_name": "Weidong Fan"
+          },
+          {
+            "display_name": "Xiurong Zhang"
+          },
+          {
+            "display_name": "Zixi Kang"
+          },
+          {
+            "display_name": "Xiuping Liu"
+          },
+          {
+            "display_name": "Daofeng Sun"
+          }
+        ],
+        "venue": "Coordination Chemistry Reviews"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 35.14,
+      "RS_llm": 80,
+      "RS_final": 62.06,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a comprehensive overview of metal-organic frameworks in the context of isoreticular chemistry within MOFs for gas storage and separation.",
+      "llm_evidence": [
+        "No abstract available"
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[21]",
+      "original_data": {
+        "ref_id": "[21]",
+        "parsed": {
+          "title": "Inverse link prediction with graph convolutional networks for knowledge-preserving sparsification in cheminformatics",
+          "authors": [
+            "E. Bangian Tabrizi",
+            "M. Jalali",
+            "M. Houshmand"
+          ],
+          "year": 2025,
+          "venue": "J. Big Data 12 (1)",
+          "doi": "10.1186/s40537-025-01220-8"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4413076584",
+        "title": "Inverse link prediction with graph convolutional networks for knowledge-preserving sparsification in cheminformatics",
+        "year": 2025,
+        "abstract": "Abstract Large-scale cheminformatics datasets, such as those used in drug discovery and materials science, are often represented as dense similarity graphs; however, their complexity hinders scalable analysis and interpretability. We propose a novel Inverse Link Prediction (ILP) framework, powered by Graph Neural Networks (GNNs), for knowledge-preserving graph sparsification, using Metal–Organic Framework (MOF) datasets as a case study. The framework comprises four key components: (1) Graph Convolutional Networks (GCNs) to predict edge importance based on node features, (2) ILP to compute inverse weights identifying redundant edges, (3) dual-weight analysis to integrate initial similarity weights with GCN-derived weights, and (4) modularity optimization to prune edges while preserving community structures and domain knowledge. Validated on MOF similarity graphs, the sparsified graphs maintain structural integrity and support robust performance across both graph-based (GCN, GraphRAGE) and non-graph-based (Gradient Boosting Trees, Logistic Regression, Naïve Bayes, Deep Neural Networks) machine learning models for tasks such as pore limiting diameter prediction. This Inverse Link Prediction with Graph Convolutional Networks (ILP-GCN) framework offers a scalable and interpretable solution for cheminformatics, with broad applications in material discovery and beyond. Graphical Abstract",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1186/s40537-025-01220-8",
+        "url": "https://doi.org/10.1186/s40537-025-01220-8",
+        "authors": [
+          {
+            "display_name": "Elnaz Bangian Tabrizi"
+          },
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Mahboobeh Houshmand"
+          }
+        ],
+        "venue": "Journal Of Big Data"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 41.04,
+      "RS_llm": 60,
+      "RS_final": 52.42,
+      "label": "borderline",
+      "llm_rationale": "The paper discusses graph convolutional networks for knowledge-preserving sparsification in cheminformatics, but it does not directly relate to metal-organic frameworks or drug delivery.",
+      "llm_evidence": [
+        "We propose a novel Inverse Link Prediction (ILP) framework, powered by Graph Neural Networks (GNNs), for knowledge-preserving graph sparsification, using Metal–Organic Framework (MOF) datasets as a case study."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[22]",
+      "original_data": {
+        "ref_id": "[22]",
+        "parsed": {
+          "title": "The black hole strategy: gravity-based representative sampling for frugal graph learning on metal – organic framework networks",
+          "authors": [
+            "M. Jalali",
+            "A.D.D. Wonanke",
+            "P. Friederich",
+            "C. W ¨oll"
+          ],
+          "year": 2025,
+          "venue": "J. Chem. Inf. Model",
+          "doi": "10.1021/acs.jcim.5c01518"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4414736102",
+        "title": "The Black Hole Strategy: Gravity-Based Representative Sampling for Frugal Graph Learning on Metal–Organic Framework Networks",
+        "year": 2025,
+        "abstract": "The expansion of large-scale materials databases has facilitated the development of graph-based representations, encoding structural and functional similarities as edges in data-driven networks. These enable machine learning models to leverage both local features and global relationships. However, densely connected datasets often introduce redundancy and noise, escalating computational complexity without improving performance. Here, we introduce the Black Hole Strategy, a gravity-based representative sampling method that constructs compact, informative subsets from large materials datasets while preserving essential structural and property diversity. Using metal-organic frameworks (MOFs) as a case study, we demonstrate that graph neural networks (GraphSAGE, GCN, and GAT) trained on Black Hole-sparsified datasets achieve comparable or superior classification and regression performance compared to full-dataset models, despite utilizing significantly fewer data points and reduced memory and training time requirements. Analysis of class-level confusion matrices confirms that critical structure-property relationships─such as pore-limiting diameter (PLD)─persist under substantial sparsification. An ablation study on gravity score weights validates the balanced formulation and robustness of the approach. Topological and efficiency benchmarks further demonstrate that the method preserves modularity, diversity, and connectivity across sparsification levels. These findings establish the Black Hole Strategy as a principled and frugal approach for machine learning in materials science, enabling efficient, interpretable, and scalable discovery workflows. Importantly, this work contributes to the objectives of the FAIRmat consortium, which aims to develop a FAIR data infrastructure for condensed matter physics and materials science. Our approach advances FAIR (Findable, Accessible, Interoperable, Reusable) data practices through optimized sampling techniques that enhance data management, reusability, and interoperability in materials informatics.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/acs.jcim.5c01518",
+        "url": "https://doi.org/10.1021/acs.jcim.5c01518",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "A. D. Dinga Wonanke"
+          },
+          {
+            "display_name": "Pascal Friederich"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Journal of Chemical Information and Modeling"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 41.52,
+      "RS_llm": 80,
+      "RS_final": 64.61,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces the Black Hole Strategy, a gravity-based representative sampling method that constructs compact, informative subsets from large materials datasets, which could be useful for MOF discovery.",
+      "llm_evidence": [
+        "Using metal-organic frameworks (MOFs) as a case study, we demonstrate that graph neural networks (GraphSAGE, GCN, and GAT) trained on Black Hole-sparsified datasets achieve comparable or superior classification and regression performance compared to full-dataset models."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[23]",
+      "original_data": {
+        "ref_id": "[23]",
+        "parsed": {
+          "title": "MOFSocialNet: exploiting metal-organic framework relationships via social network analysis",
+          "authors": [
+            "M. Jalali",
+            "M. Tsotsalas",
+            "C. W ¨oll"
+          ],
+          "year": 2022,
+          "venue": "Nanomaterials 12 (4)",
+          "doi": "10.3390/nano12040704"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4214674586",
+        "title": "MOFSocialNet: Exploiting Metal-Organic Framework Relationships via Social Network Analysis",
+        "year": 2022,
+        "abstract": "The number of metal-organic frameworks (MOF) as well as the number of applications of this material are growing rapidly. With the number of characterized compounds exceeding 100,000, manual sorting becomes impossible. At the same time, the increasing computer power and established use of automated machine learning approaches makes data science tools available, that provide an overview of the MOF chemical space and support the selection of suitable MOFs for a desired application. Among the different data science tools, graph theory approaches, where data generated from numerous real-world applications is represented as a graph (network) of interconnected objects, has been widely used in a variety of scientific fields such as social sciences, health informatics, biological sciences, agricultural sciences and economics. We describe the application of a particular graph theory approach known as social network analysis to MOF materials and highlight the importance of community (group) detection and graph node centrality. In this first application of the social network analysis approach to MOF chemical space, we created MOFSocialNet. This social network is based on the geometrical descriptors of MOFs available in the CoRE-MOFs database. MOFSocialNet can discover communities with similar MOFs structures and identify the most representative MOFs within a given community. In addition, analysis of MOFSocialNet using social network analysis methods can predict MOF properties more accurately than conventional ML tools. The latter advantage is demonstrated for the prediction of gas storage properties, the most important property of these porous reticular networks.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.3390/nano12040704",
+        "url": "https://doi.org/10.3390/nano12040704",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Manuel Tsotsalas"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Nanomaterials"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 43.15,
+      "RS_llm": 70,
+      "RS_final": 59.26,
+      "label": "borderline",
+      "llm_rationale": "The paper describes the application of social network analysis to MOF materials, but it does not directly relate to drug delivery or MOF optimization.",
+      "llm_evidence": [
+        "We created MOFSocialNet, a social network based on the geometrical descriptors of MOFs available in the CoRE-MOFs database."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[24]",
+      "original_data": {
+        "ref_id": "[24]",
+        "parsed": {
+          "title": "MOFGalaxyNet: a social network analysis for predicting guest accessibility in metal – organic frameworks utilizing graph convolutional networks",
+          "authors": [
+            "M. Jalali",
+            "A.D.D. Wonanke",
+            "C. W ¨oll"
+          ],
+          "year": 2023,
+          "venue": "J. Chemin. 15 (1)",
+          "doi": "10.1186/s13321-023-00764-2"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4387542153",
+        "title": "MOFGalaxyNet: a social network analysis for predicting guest accessibility in metal–organic frameworks utilizing graph convolutional networks",
+        "year": 2023,
+        "abstract": "Metal-organic frameworks (MOFs), are porous crystalline structures comprising of metal ions or clusters intricately linked with organic entities, displaying topological diversity and effortless chemical flexibility. These characteristics render them apt for multifarious applications such as adsorption, separation, sensing, and catalysis. Predominantly, the distinctive properties and prospective utility of MOFs are discerned post-manufacture or extrapolation from theoretically conceived models. For empirical researchers unfamiliar with hypothetical structure development, the meticulous crystal engineering of a high-performance MOF for a targeted application via a bottom-up approach resembles a gamble. For example, the precise pore limiting diameter (PLD), which determines the guest accessibility of any MOF cannot be easily inferred with mere knowledge of the metal ion and organic ligand. This limitation in bottom-up conceptual understanding of specific properties of the resultant MOF may contribute to the cautious industrial-scale adoption of MOFs.Consequently, in this study, we take a step towards circumventing this limitation by designing a new tool that predicts the guest accessibility-a MOF key performance indicator-of any given MOF from information on only the organic linkers and the metal ions. This new tool relies on clustering different MOFs in a galaxy-like social network, MOFGalaxyNet, combined with a Graphical Convolutional Network (GCN) to predict the guest accessibility of any new entry in the social network. The proposed network and GCN results provide a robust approach for screening MOFs for various host-guest interaction studies.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1186/s13321-023-00764-2",
+        "url": "https://doi.org/10.1186/s13321-023-00764-2",
+        "authors": [
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "A. D. Dinga Wonanke"
+          },
+          {
+            "display_name": "Christof Wöll"
+          }
+        ],
+        "venue": "Journal of Cheminformatics"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 63.5,
+      "RS_llm": 80,
+      "RS_final": 73.4,
+      "label": "relevant",
+      "llm_rationale": "The paper introduces MOFGalaxyNet, a social network analysis framework for predicting guest accessibility in metal-organic frameworks, which could be useful for MOF discovery.",
+      "llm_evidence": [
+        "We propose a new tool that predicts the guest accessibility-a MOF key performance indicator-of any given MOF from information on only the organic linkers and the metal ions."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[25]",
+      "original_data": {
+        "ref_id": "[25]",
+        "parsed": {
+          "title": "Large-scale screening of hypothetical metal – organic frameworks",
+          "authors": [
+            "C.E. Wilmer",
+            "et al."
+          ],
+          "year": 2012,
+          "venue": "Nat. Chem. 4",
+          "doi": "10.1038/nchem.1192"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2100716186",
+        "title": "Large-scale screening of hypothetical metal–organic frameworks",
+        "year": 2011,
+        "abstract": "Metal–organic frameworks (MOFs) are porous materials constructed from modular molecular building blocks, typically metal clusters and organic linkers. These can, in principle, be assembled to form an almost unlimited number of MOFs, yet materials reported to date represent only a tiny fraction of the possible combinations. Here, we demonstrate a computational approach to generate all conceivable MOFs from a given chemical library of building blocks (based on the structures of known MOFs) and rapidly screen them to find the best candidates for a specific application. From a library of 102 building blocks we generated 137,953 hypothetical MOFs and for each one calculated the pore-size distribution, surface area and methane-storage capacity. We identified over 300 MOFs with a predicted methane-storage capacity better than that of any known material, and this approach also revealed structure–property relationships. Methyl-functionalized MOFs were frequently top performers, so we selected one such promising MOF and experimentally confirmed its predicted capacity.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1038/nchem.1192",
+        "url": "https://doi.org/10.1038/nchem.1192",
+        "authors": [
+          {
+            "display_name": "Christopher E. Wilmer"
+          },
+          {
+            "display_name": "Michael Leaf"
+          },
+          {
+            "display_name": "Chang Yeon Lee"
+          },
+          {
+            "display_name": "Omar K. Farha"
+          },
+          {
+            "display_name": "Brad G. Hauser"
+          },
+          {
+            "display_name": "Joseph T. Hupp"
+          },
+          {
+            "display_name": "Randall Q. Snurr"
+          }
+        ],
+        "venue": "Nature Chemistry"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 60.96,
+      "RS_llm": 90,
+      "RS_final": 78.38,
+      "label": "relevant",
+      "llm_rationale": "The paper demonstrates a computational approach to generate all conceivable MOFs from a given chemical library of building blocks and rapidly screen them to find the best candidates for a specific application.",
+      "llm_evidence": [
+        "We identified over 300 MOFs with a predicted methane-storage capacity better than that of any known material."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[26]",
+      "original_data": {
+        "ref_id": "[26]",
+        "parsed": {
+          "title": "Development of a Cambridge Structural Database Subset: A Collection of Metal-Organic Frameworks for Past, Present, and Future",
+          "authors": [
+            "P.Z. Moghadam",
+            "et al."
+          ],
+          "year": 2017,
+          "venue": "Chemistry of Materials",
+          "doi": "10.1021/acs.chemmater.7b00441"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2599075544",
+        "title": "Development of a Cambridge Structural Database Subset: A Collection of Metal–Organic Frameworks for Past, Present, and Future",
+        "year": 2017,
+        "abstract": "We report the generation and characterization of the most complete collection of metal–organic frameworks (MOFs) maintained and updated, for the first time, by the Cambridge Crystallographic Data Centre (CCDC). To set up this subset, we asked the question “what is a MOF?” and implemented a number of “look-for-MOF” criteria embedded within a bespoke Cambridge Structural Database (CSD) Python API workflow to identify and extract information on 69 666 MOF materials. The CSD MOF subset is updated regularly with subsequent MOF additions to the CSD, bringing a unique record for all researchers working in the area of porous materials around the world, whether to perform high-throughput computational screening for materials discovery or to have a global view over the existing structures in a single resource. Using this resource, we then developed and used an array of computational tools to remove residual solvent molecules from the framework pores of all the MOFs identified and went on to analyze geometrical and physical properties of nondisordered structures.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/acs.chemmater.7b00441",
+        "url": "https://doi.org/10.1021/acs.chemmater.7b00441",
+        "authors": [
+          {
+            "display_name": "Peyman Z. Moghadam"
+          },
+          {
+            "display_name": "Aurelia Li"
+          },
+          {
+            "display_name": "Seth B. Wiggin"
+          },
+          {
+            "display_name": "Andi Tao"
+          },
+          {
+            "display_name": "Andrew G. P. Maloney"
+          },
+          {
+            "display_name": "P.A. Wood"
+          },
+          {
+            "display_name": "Suzanna C. Ward"
+          },
+          {
+            "display_name": "David Fairen‐Jiménez"
+          }
+        ],
+        "venue": "Chemistry of Materials"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 56.7,
+      "RS_llm": 80,
+      "RS_final": 70.68,
+      "label": "relevant",
+      "llm_rationale": "The paper reports the generation and characterization of the most complete collection of metal-organic frameworks (MOFs) maintained and updated by the Cambridge Crystallographic Data Centre (CCDC).",
+      "llm_evidence": [
+        "We developed and used an array of computational tools to remove residual solvent molecules from the framework pores of all the MOFs identified."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[27]",
+      "original_data": {
+        "ref_id": "[27]",
+        "parsed": {
+          "title": "Metal-organic frameworks and exemplified cytotoxicity evaluation.",
+          "authors": [
+            "S. Bashir",
+            "S.R. Chava",
+            "D. Yuan",
+            "S. Palakurthi",
+            "J. Liu"
+          ],
+          "year": 2020,
+          "venue": null,
+          "doi": "10.1016/B978-0-12-816984-1.00018-4"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3010869082",
+        "title": "Metal-organic frameworks and exemplified cytotoxicity evaluation",
+        "year": 2020,
+        "abstract": "Abstract A review of porous materials demonstrates that the synergy of metal centers and coordination networks facilitates structure to function applications such as gas storage, catalysis, diagnosis and therapy, and energy generation. In specific biological applications, the authors demonstrate a wet chemistry-derived nanoscaled iron oxide particles (Fe3O4-NPs, 6.5 ± 1.0 nm) and metal-organic frameworks (Fe-NMOFs, 37.5 ± 1.0 nm) for biological cytotoxity evaluations. The demonstration indicated that the porous materials were found to be highly crystalline and monodispersive. The magnetic properties of these Fe3O4-NPs upon amphiphilic functionalization and surface grafting varied from 51 to 59 A m2 kg− 1. This magnetic behavior was similar to that of the bulk Fe3O4 (averaged at 65 A m2 kg− 1). The cytotoxicity of the fabricated Fe3O4-NPs and Fe-NMOFs was evaluated against Chinese hamster ovarian (CHO) model cell lines. The effective dose of nanomaterials at 50% inhibition was approximately 18.4 ppb for Fe-NMOFs and 21.4 ppb for grafted Fe3O4-NPs, one quarter of bulk Fe3O4 NPs value. The cytotoxicity assessment indicated that grafted Fe3O4-MNPs and Fe-NMOFs demonstrated high biocompatibility, which would potentially facilitate the targeting of the tumor cells.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/b978-0-12-816984-1.00018-4",
+        "url": "https://doi.org/10.1016/b978-0-12-816984-1.00018-4",
+        "authors": [
+          {
+            "display_name": "Sajid Bashir"
+          },
+          {
+            "display_name": "Sai Raghuveer Chava"
+          },
+          {
+            "display_name": "Daqiang Yuan"
+          },
+          {
+            "display_name": "Srinath Palakurthi"
+          },
+          {
+            "display_name": "Jingbo Louise Liu"
+          }
+        ],
+        "venue": "Elsevier eBooks"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 51.97,
+      "RS_llm": 60,
+      "RS_final": 56.79,
+      "label": "borderline",
+      "llm_rationale": "The paper reviews porous materials and demonstrates a wet chemistry-derived nanoscaled iron oxide particles (Fe3O4-NPs) and metal-organic frameworks (Fe-NMOFs) for biological cytotoxity evaluations, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "The cytotoxicity of the fabricated Fe3O4-NPs and Fe-NMOFs was evaluated against Chinese hamster ovarian (CHO) model cell lines."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[28]",
+      "original_data": {
+        "ref_id": "[28]",
+        "parsed": {
+          "title": "Computational screening of porous coordination networks for adsorption and membrane-based applications",
+          "authors": [
+            "S.P. Collins",
+            "T.D. Daff",
+            "E. Jakubikova",
+            "T.K. Woo"
+          ],
+          "year": 2016,
+          "venue": "Adv. Funct. Mater. 26",
+          "doi": "10.1002/adfm.201603093"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Title Similarity: 43%)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2289629300",
+        "title": "Molecular imprinting: perspectives and applications",
+        "year": 2016,
+        "abstract": "Molecular imprinting technology (MIT), often described as a method of making a molecular lock to match a molecular key, is a technique for the creation of molecularly imprinted polymers (MIPs) with tailor-made binding sites complementary to the template molecules in shape, size and functional groups. Owing to their unique features of structure predictability, recognition specificity and application universality, MIPs have found a wide range of applications in various fields. Herein, we propose to comprehensively review the recent advances in molecular imprinting including versatile perspectives and applications, concerning novel preparation technologies and strategies of MIT, and highlight the applications of MIPs. The fundamentals of MIPs involving essential elements, preparation procedures and characterization methods are briefly outlined. Smart MIT for MIPs is especially highlighted including ingenious MIT (surface imprinting, nanoimprinting, etc.), special strategies of MIT (dummy imprinting, segment imprinting, etc.) and stimuli-responsive MIT (single/dual/multi-responsive technology). By virtue of smart MIT, new formatted MIPs gain popularity for versatile applications, including sample pretreatment/chromatographic separation (solid phase extraction, monolithic column chromatography, etc.) and chemical/biological sensing (electrochemical sensing, fluorescence sensing, etc.). Finally, we propose the remaining challenges and future perspectives to accelerate the development of MIT, and to utilize it for further developing versatile MIPs with a wide range of applications (650 references).",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1039/c6cs00061d",
+        "url": "https://doi.org/10.1039/c6cs00061d",
+        "authors": [
+          {
+            "display_name": "Lingxin Chen"
+          },
+          {
+            "display_name": "Xiaoyan Wang"
+          },
+          {
+            "display_name": "Wenhui Lü"
+          },
+          {
+            "display_name": "Xiaqing Wu"
+          },
+          {
+            "display_name": "Jinhua Li"
+          }
+        ],
+        "venue": "Chemical Society Reviews"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 44.46,
+      "RS_llm": 80,
+      "RS_final": 65.78,
+      "label": "borderline",
+      "llm_rationale": "The paper proposes a comprehensive review of molecular imprinting technology, including versatile perspectives and applications, concerning novel preparation technologies and strategies of MIT.",
+      "llm_evidence": [
+        "Smart MIT for MIPs is especially highlighted including ingenious MIT (surface imprinting, nanoimprinting, etc.), special strategies of MIT (dummy imprinting, segment imprinting, etc.) and stimuli-responsive MIT (single/dual/multi-responsive technology)."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[29]",
+      "original_data": {
+        "ref_id": "[29]",
+        "parsed": {
+          "title": "In silico discovery of high deliverable capacity metal – organic frameworks",
+          "authors": [
+            "Y. Bao",
+            "R.L. Martin",
+            "C.M. Simon",
+            "M. Haranczyk",
+            "B. Smit",
+            "M.W. Deem"
+          ],
+          "year": 2018,
+          "venue": "J. Phys. Chem. C. 122",
+          "doi": "10.1021/acs.jpcc.7b10475"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 4)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2248027739",
+        "title": "In Silico Discovery of High Deliverable Capacity Metal–Organic Frameworks",
+        "year": 2014,
+        "abstract": "Metal–organic frameworks (MOFs) are actively being explored as potential adsorbed natural gas storage materials for small vehicles. Experimental exploration of potential materials is limited by the throughput of synthetic chemistry. We here describe a computational methodology to complement and guide these experimental efforts. The method uses known chemical transformations in silico to identify MOFs with high methane deliverable capacity. The procedure explicitly considers synthesizability with geometric requirements on organic linkers. We efficiently search the composition and conformation space of organic linkers for 9 MOF networks, finding 48 materials with higher predicted deliverable capacity (at 65 bar storage, 5.8 bar depletion, and 298 K) than MOF-5 in 4 of the 9 networks. The best material has a predicted deliverable capacity 8% higher than that of MOF-5.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/jp5123486",
+        "url": "https://doi.org/10.1021/jp5123486",
+        "authors": [
+          {
+            "display_name": "Yi Bao"
+          },
+          {
+            "display_name": "Richard L. Martin"
+          },
+          {
+            "display_name": "Cory M. Simon"
+          },
+          {
+            "display_name": "Maciej Harańczyk"
+          },
+          {
+            "display_name": "Berend Smit"
+          },
+          {
+            "display_name": "Michael W. Deem"
+          }
+        ],
+        "venue": "The Journal of Physical Chemistry C"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 57.64,
+      "RS_llm": 90,
+      "RS_final": 77.06,
+      "label": "relevant",
+      "llm_rationale": "The paper describes a computational methodology to complement and guide experimental efforts in identifying MOFs with high methane deliverable capacity.",
+      "llm_evidence": [
+        "We efficiently search the composition and conformation space of organic linkers for 9 MOF networks, finding 48 materials with higher predicted deliverable capacity than MOF-5 in 4 of the 9 networks."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[30]",
+      "original_data": {
+        "ref_id": "[30]",
+        "parsed": {
+          "title": "Machine learning for predicting gas adsorption capacities of metal – organic frameworks",
+          "authors": [
+            "P.B. Jensen",
+            "M. Bialik",
+            "M. Haranczyk"
+          ],
+          "year": 2019,
+          "venue": "ACS Appl. Mater. Interfaces 11",
+          "doi": "10.1021/acsami.9b06845"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Year diff: 4)",
+      "external_metadata": {
+        "id": "https://openalex.org/W4319348344",
+        "title": "Machine Learning for Predicting Gas Adsorption Capacities of Metal Organic Framework",
+        "year": 2023,
+        "abstract": "Metal organic frameworks (MOFs) have been widely used in gas adsorption-based applications due to their high porosities and modification in chemical and physical properties. There are many MOFs available for applications. However, gas adsorption capacities are not known for most MOFs and it is not practical to experimentally test their gas adsorption capacities. Therefore, a variety of machine learning models have been developed for predicting gas adsorption capacities of MOFs. In this chapter, we summarized the machine learning models developed for predicting gas adsorption capacities of MOFs and their applications.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1007/978-3-031-20730-3_28",
+        "url": "https://doi.org/10.1007/978-3-031-20730-3_28",
+        "authors": [
+          {
+            "display_name": "Wenjing Guo"
+          },
+          {
+            "display_name": "Jie Liu"
+          },
+          {
+            "display_name": "Fan Dong"
+          },
+          {
+            "display_name": "Tucker A. Patterson"
+          },
+          {
+            "display_name": "Huixiao Hong"
+          }
+        ],
+        "venue": "Computational methods in engineering & the sciences"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 51.4,
+      "RS_llm": 80,
+      "RS_final": 68.56,
+      "label": "borderline",
+      "llm_rationale": "The paper summarizes machine learning models developed for predicting gas adsorption capacities of MOFs.",
+      "llm_evidence": [
+        "Machine-learning models, including random forests and neural networks, can accurately predict specific MOF properties but typically require large, curated datasets and are less suited to direct multi-objective optimization over a complex design space."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[31]",
+      "original_data": {
+        "ref_id": "[31]",
+        "parsed": {
+          "title": "A data-driven perspective on the colours of metal-organic frameworks",
+          "authors": [
+            "K.M. Jablonka",
+            "S.M. Moosavi",
+            "M. Asgari",
+            "C. Ireland",
+            "L. Patiny",
+            "B. Smit"
+          ],
+          "year": 2021,
+          "venue": "Chem. Sci. 12 (10)",
+          "doi": "10.1039/d0sc05337f"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W3116457427",
+        "title": "A data-driven perspective on the colours of metal–organic frameworks",
+        "year": 2020,
+        "abstract": "Colour is at the core of chemistry and has been fascinating humans since ancient times. It is also a key descriptor of optoelectronic properties of materials and is often used to assess the success of a synthesis. However, predicting the colour of a material based on its structure is challenging. In this work, we leverage subjective and categorical human assignments of colours to build a model that can predict the colour of compounds on a continuous scale. In the process of developing the model, we also uncover inadequacies in current reporting mechanisms. For example, we show that the majority of colour assignments are subject to perceptive spread that would not comply with common printing standards. To remedy this, we suggest and implement an alternative way of reporting colour-and chemical data in general. All data is captured in an objective, and standardised, form in an electronic lab notebook and subsequently automatically exported to a repository in open formats, from where it can be interactively explored by other researchers. We envision this to be key for a data-driven approach to chemical research.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1039/d0sc05337f",
+        "url": "https://doi.org/10.1039/d0sc05337f",
+        "authors": [
+          {
+            "display_name": "Kevin Maik Jablonka"
+          },
+          {
+            "display_name": "Seyed Mohamad Moosavi"
+          },
+          {
+            "display_name": "Mehrdad Asgari"
+          },
+          {
+            "display_name": "Christopher P. Ireland"
+          },
+          {
+            "display_name": "Luc Patiny"
+          },
+          {
+            "display_name": "Berend Smit"
+          }
+        ],
+        "venue": "Chemical Science"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 31.37,
+      "RS_llm": 70,
+      "RS_final": 54.55,
+      "label": "borderline",
+      "llm_rationale": "The paper leverages subjective and categorical human assignments of colours to build a model that can predict the colour of compounds on a continuous scale, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "We show that the majority of colour assignments are subject to perceptive spread that would not comply with common printing standards."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[32]",
+      "original_data": {
+        "ref_id": "[32]",
+        "parsed": {
+          "title": "Bio-inspired optimization for the molecular docking problem: state of the art, recent results and perspectives",
+          "authors": [
+            "M.J. García-Godoy",
+            "E. L ´opez-Camacho",
+            "J. García-Nieto",
+            "J. Del Ser",
+            "A.J. Nebro",
+            "J. F. Aldana-Montes"
+          ],
+          "year": 2019,
+          "venue": "Appl. Soft Comput. 79",
+          "doi": "10.1016/j.asoc.2019.03.044"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2924194203",
+        "title": "Bio-inspired optimization for the molecular docking problem: State of the art, recent results and perspectives",
+        "year": 2019,
+        "abstract": "Abstract Molecular docking is a Bioinformatics method based on predicting the position and orientation of a small molecule or ligand when it is bound to a target macromolecule. This method can be modeled as an optimization problem where one or more objectives can be defined, typically around an energy scoring function. This paper reviews developments in the field of single- and multi-objective meta-heuristics for efficiently addressing molecular docking optimization problems. We comprehensively analyze both problem formulations and applied techniques from Evolutionary Computation and Swarm Intelligence, jointly referred to as Bio-inspired Optimization. Our prospective analysis is supported by an experimental study dealing with a molecular docking problem driven by three conflicting objectives, which is tackled by using different multi-objective heuristics. We conclude that genetic algorithms are the most widely used techniques by far, with a noted increasing prevalence of particle swarm optimization in the last years, being these last techniques particularly adequate when dealing with multi-objective formulations of molecular docking problems. We end this experimental survey by outlining future research paths that should be under target in this vibrant area.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1016/j.asoc.2019.03.044",
+        "url": "https://doi.org/10.1016/j.asoc.2019.03.044",
+        "authors": [
+          {
+            "display_name": "María Jesús García-Godoy"
+          },
+          {
+            "display_name": "Esteban López-Camacho"
+          },
+          {
+            "display_name": "José García-Nieto"
+          },
+          {
+            "display_name": "Javier Del Ser"
+          },
+          {
+            "display_name": "Antonio J. Nebro"
+          },
+          {
+            "display_name": "José F. Aldana‐Montes"
+          }
+        ],
+        "venue": "Applied Soft Computing"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 50.52,
+      "RS_llm": 80,
+      "RS_final": 68.21,
+      "label": "borderline",
+      "llm_rationale": "The paper reviews developments in the field of single- and multi-objective meta-heuristics for efficiently addressing molecular docking optimization problems, which could be useful for MOF optimization.",
+      "llm_evidence": [
+        "We conclude that genetic algorithms are the most widely used techniques by far, with a noted increasing prevalence of particle swarm optimization in the last years."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[33]",
+      "original_data": {
+        "ref_id": "[33]",
+        "parsed": {
+          "title": "Ant colony optimization",
+          "authors": [
+            "M. Dorigo",
+            "M. Birattari",
+            "T. Stutzle"
+          ],
+          "year": 2006,
+          "venue": "IEEE Comput. Intell. Mag. 1",
+          "doi": "10.1109/MCI.2006.329691"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W1573676079",
+        "title": "Ant Colony Optimization",
+        "year": 2007,
+        "abstract": "Swarm intelligence is a relatively new approach to problem solving that takes inspiration from the social behaviors of insects and of other animals. In particular, ants have inspired a number of methods and techniques among which the most studied and the most successful is the general purpose optimization technique known as ant colony optimization. Ant colony optimization (ACO) takes inspiration from the foraging behavior of some ant species. These ants deposit pheromone on the ground in order to mark some favorable path that should be followed by other members of the colony. Ant colony optimization exploits a similar mechanism for solving optimization problems. From the early nineties, when the first ant colony optimization algorithm was proposed, ACO attracted the attention of increasing numbers of researchers and many successful applications are now available. Moreover, a substantial corpus of theoretical results is becoming available that provides useful guidelines to researchers and practitioners in further applications of ACO. The goal of this article is to introduce ant colony optimization and to survey its most notable applications",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1201/9781420010749-33",
+        "url": "https://doi.org/10.1201/9781420010749-33",
+        "authors": [],
+        "venue": null
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 18.82,
+      "RS_llm": 70,
+      "RS_final": 49.53,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces ant colony optimization, a general-purpose optimization technique inspired by the foraging behavior of ants, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "Ant colony optimization exploits a similar mechanism for solving optimization problems."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[34]",
+      "original_data": {
+        "ref_id": "[34]",
+        "parsed": {
+          "title": "Lotus effect optimization algorithm (LEA): A lotus nature-inspired algorithm for engineering design optimization",
+          "authors": [
+            "E. Dalirinia",
+            "M. Jalali",
+            "M. Yaghoobi",
+            "H. Tabatabaee"
+          ],
+          "year": 2024,
+          "venue": "J. Supercomput 80",
+          "doi": "10.1007/s11227-023-05513-8"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W4382931980",
+        "title": "Lotus effect optimization algorithm (LEA): a lotus nature-inspired algorithm for engineering design optimization",
+        "year": 2023,
+        "abstract": "Abstract Here we introduce a new evolutionary algorithm called the Lotus Effect Algorithm, which combines efficient operators from the dragonfly algorithm, such as the movement of dragonflies in flower pollination for exploration, with the self-cleaning feature of water on flower leaves known as the lotus effect, for extraction and local search operations. The authors compared this method to other improved versions of the dragonfly algorithm using standard benchmark functions, and it outperformed all other methods according to Fredman's test on 29 benchmark functions. The article also highlights the practical application of LEA in reducing energy consumption in IoT nodes through clustering, resulting in increased packet delivery ratio and network lifetime. Additionally, the performance of the proposed method was tested on real-world problems with multiple constraints, such as the welded beam design optimization problem and the speed-reducer problem applied in a gearbox, and the results showed that LEA performs better than other methods in terms of accuracy.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1007/s11227-023-05513-8",
+        "url": "https://doi.org/10.1007/s11227-023-05513-8",
+        "authors": [
+          {
+            "display_name": "Elham Dalirinia"
+          },
+          {
+            "display_name": "Mehrdad Jalali"
+          },
+          {
+            "display_name": "Mahdi Yaghoobi"
+          },
+          {
+            "display_name": "Hamid Tabatabaee"
+          }
+        ],
+        "venue": "The Journal of Supercomputing"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 28.29,
+      "RS_llm": 90,
+      "RS_final": 65.32,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces the Lotus Effect Algorithm, a new evolutionary algorithm that combines efficient operators from the dragonfly algorithm with the self-cleaning feature of water on flower leaves.",
+      "llm_evidence": [
+        "The authors compared this method to other improved versions of the dragonfly algorithm using standard benchmark functions, and it outperformed all other methods according to Fredman's test on 29 benchmark functions."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[35]",
+      "original_data": {
+        "ref_id": "[35]",
+        "parsed": {
+          "title": "Multimodal lotus effect algorithm for engineering optimization problems",
+          "authors": [
+            "E. Dalirinia",
+            "M. Yaghoobi",
+            "H. Tabatabaee",
+            "S. Chandna",
+            "M. Jalali"
+          ],
+          "year": 2025,
+          "venue": "Eng. Rep. 7 (4)",
+          "doi": "10.1002/eng2.70137"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4409821965",
+        "title": "Multimodal Lotus Effect Algorithm for Engineering Optimization Problems",
+        "year": 2025,
+        "abstract": "ABSTRACT Multimodal optimization problems (MMOPs) are critical in fields like game theory and robotics, where identifying multiple optimal solutions simultaneously is essential, yet challenging due to the need for effective global exploration and precise localization of optima. This study introduces the multimodal lotus effect algorithm (M‐LEA), a novel extension of our previously published lotus effect optimization algorithm (LEA), which was designed for single‐modal optimization and thus struggled to maintain multiple optima in complex multimodal spaces. M‐LEA addresses this limitation by incorporating a roaming technique with independently evolving subpopulations, enabling it to navigate multimodal spaces without requiring parameters such as radius or prior information about the number or distribution of optima. Its robustness is demonstrated through comparisons with five algorithms on the IEEE CEC2013‐2015 challenge, where M‐LEA consistently outperformed competitors. The algorithm's practical utility is further validated in two applications: identifying Nash equilibrium points in game theory and localizing resources via robotic systems. Results show that M‐LEA achieves superior performance and stability, making it well‐suited for scenarios demanding high efficiency and precision. These findings highlight M‐LEA's potential for diverse domains, paving the way for its application in game theory, robotics, and other fields requiring advanced multimodal optimization techniques.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/eng2.70137",
+        "url": "https://doi.org/10.1002/eng2.70137",
+        "authors": [
+          {
+            "display_name": "Elham Dalirinia"
+          },
+          {
+            "display_name": "Mahdi Yaghoobi"
+          },
+          {
+            "display_name": "Hamid Tabatabaee"
+          },
+          {
+            "display_name": "Swati Chandna"
+          },
+          {
+            "display_name": "Mehrdad Jalali"
+          }
+        ],
+        "venue": "Engineering Reports"
+      },
+      "self_citation": {
+        "is_self_cite": true
+      },
+      "RS_embed": 29.81,
+      "RS_llm": 80,
+      "RS_final": 59.92,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces the multimodal lotus effect algorithm, a novel extension of the lotus effect optimization algorithm, which could be useful for MOF optimization.",
+      "llm_evidence": [
+        "M‐LEA addresses this limitation by incorporating a roaming technique with independently evolving subpopulations, enabling it to navigate multimodal spaces without requiring parameters such as radius or prior information about the number or distribution of optima."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[36]",
+      "original_data": {
+        "ref_id": "[36]",
+        "parsed": {
+          "title": "The Cambridge structural database",
+          "authors": [
+            "C.R. Groom",
+            "I.J. Bruno",
+            "M.P. Lightfoot",
+            "S.C. Ward"
+          ],
+          "year": 2016,
+          "venue": "Acta Crystallogr B Struct. Sci. Cryst. Eng. Mater. 72 (2)",
+          "doi": "10.1107/S2052520616003954"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2319902168",
+        "title": "The Cambridge Structural Database",
+        "year": 2016,
+        "abstract": "The Cambridge Structural Database (CSD) contains a complete record of all published organic and metal-organic small-molecule crystal structures. The database has been in operation for over 50 years and continues to be the primary means of sharing structural chemistry data and knowledge across disciplines. As well as structures that are made public to support scientific articles, it includes many structures published directly as CSD Communications. All structures are processed both computationally and by expert structural chemistry editors prior to entering the database. A key component of this processing is the reliable association of the chemical identity of the structure studied with the experimental data. This important step helps ensure that data is widely discoverable and readily reusable. Content is further enriched through selective inclusion of additional experimental data. Entries are available to anyone through free CSD community web services. Linking services developed and maintained by the CCDC, combined with the use of standard identifiers, facilitate discovery from other resources. Data can also be accessed through CCDC and third party software applications and through an application programming interface.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1107/s2052520616003954",
+        "url": "https://doi.org/10.1107/s2052520616003954",
+        "authors": [
+          {
+            "display_name": "Colin R. Groom"
+          },
+          {
+            "display_name": "Ian Bruno"
+          },
+          {
+            "display_name": "Matthew P. Lightfoot"
+          },
+          {
+            "display_name": "Suzanna C. Ward"
+          }
+        ],
+        "venue": "Acta Crystallographica Section B Structural Science Crystal Engineering and Materials"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 43.84,
+      "RS_llm": 80,
+      "RS_final": 65.54,
+      "label": "borderline",
+      "llm_rationale": "The paper describes the Cambridge Structural Database, which contains a complete record of all published organic and metal-organic small-molecule crystal structures.",
+      "llm_evidence": [
+        "Algorithm 2 sketches the fitness evaluation. MOF-LENS operates on a curated dataset of MOFs extracted from the Cambridge Structural Database (CSD)."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[37]",
+      "original_data": {
+        "ref_id": "[37]",
+        "parsed": {
+          "title": "Visualizing chemical space networks with RDKit and NetworkX",
+          "authors": [
+            "V.F. Scalfani",
+            "V.D. Patel",
+            "A.M. Fernandez"
+          ],
+          "year": 2022,
+          "venue": "J. Chemin. 14 (1)",
+          "doi": "10.1186/s13321-022-00664-x"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4312224766",
+        "title": "Visualizing chemical space networks with RDKit and NetworkX",
+        "year": 2022,
+        "abstract": "This article demonstrates how to create Chemical Space Networks (CSNs) using a Python RDKit and NetworkX workflow. CSNs are a type of network visualization that depict compounds as nodes connected by edges, defined as a pairwise relationship such as a 2D fingerprint similarity value. A step by step approach is presented for creating two different CSNs in this manuscript, one based on RDKit 2D fingerprint Tanimoto similarity values, and another based on maximum common substructure similarity values. Several different CSN visualization features are included in the tutorial including methods to represent nodes with color based on bioactivity attribute value, edges with different line styles based on similarity value, as well as replacing the circle nodes with 2D structure depictions. Finally, some common network property and analysis calculations are presented including the clustering coefficient, degree assortativity, and modularity. All code is provided in the form of Jupyter Notebooks and is available on GitHub with a permissive BSD-3 open-source license: https://github.com/vfscalfani/CSN_tutorial Graphical Abstract",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1186/s13321-022-00664-x",
+        "url": "https://doi.org/10.1186/s13321-022-00664-x",
+        "authors": [
+          {
+            "display_name": "Vincent F. Scalfani"
+          },
+          {
+            "display_name": "Vishank D. Patel"
+          },
+          {
+            "display_name": "Avery M. Fernandez"
+          }
+        ],
+        "venue": "Journal of Cheminformatics"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 38.92,
+      "RS_llm": 70,
+      "RS_final": 57.57,
+      "label": "borderline",
+      "llm_rationale": "The paper demonstrates how to create Chemical Space Networks (CSNs) using a Python RDKit and NetworkX workflow, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "A step by step approach is presented for creating two different CSNs in this manuscript, one based on RDKit 2D fingerprint Tanimoto similarity values, and another based on maximum common substructure similarity values."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[38]",
+      "original_data": {
+        "ref_id": "[38]",
+        "parsed": {
+          "title": "Mol2vec: Unsupervised Machine Learning Approach with Chemical Intuition",
+          "authors": [
+            "S. Jaeger",
+            "S. Fulle",
+            "S. Turk"
+          ],
+          "year": 2018,
+          "venue": "J. Chem. Inf. Model 58 (1)",
+          "doi": "10.1021/acs.jcim.7b00616"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2777416523",
+        "title": "Mol2vec: Unsupervised Machine Learning Approach with Chemical Intuition",
+        "year": 2017,
+        "abstract": "Inspired by natural language processing techniques, we here introduce Mol2vec, which is an unsupervised machine learning approach to learn vector representations of molecular substructures. Like the Word2vec models, where vectors of closely related words are in close proximity in the vector space, Mol2vec learns vector representations of molecular substructures that point in similar directions for chemically related substructures. Compounds can finally be encoded as vectors by summing the vectors of the individual substructures and, for instance, be fed into supervised machine learning approaches to predict compound properties. The underlying substructure vector embeddings are obtained by training an unsupervised machine learning approach on a so-called corpus of compounds that consists of all available chemical matter. The resulting Mol2vec model is pretrained once, yields dense vector representations, and overcomes drawbacks of common compound feature representations such as sparseness and bit collisions. The prediction capabilities are demonstrated on several compound property and bioactivity data sets and compared with results obtained for Morgan fingerprints as a reference compound representation. Mol2vec can be easily combined with ProtVec, which employs the same Word2vec concept on protein sequences, resulting in a proteochemometric approach that is alignment-independent and thus can also be easily used for proteins with low sequence similarities.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1021/acs.jcim.7b00616",
+        "url": "https://doi.org/10.1021/acs.jcim.7b00616",
+        "authors": [
+          {
+            "display_name": "Sabrina Jaeger-Honz"
+          },
+          {
+            "display_name": "Simone Fulle"
+          },
+          {
+            "display_name": "Samo Turk"
+          }
+        ],
+        "venue": "Journal of Chemical Information and Modeling"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 35.12,
+      "RS_llm": 80,
+      "RS_final": 62.05,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces Mol2vec, an unsupervised machine learning approach to learn vector representations of molecular substructures, which could be useful for MOF optimization.",
+      "llm_evidence": [
+        "Compounds can finally be encoded as vectors by summing the vectors of the individual substructures and, for instance, be fed into supervised machine learning approaches to predict compound properties."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[39]",
+      "original_data": {
+        "ref_id": "[39]",
+        "parsed": {
+          "title": "Similarity methods in chemoinformatics",
+          "authors": [
+            "P. Willett"
+          ],
+          "year": 2009,
+          "venue": null,
+          "doi": "10.1002/aris.2009.1440430108"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2139731838",
+        "title": "Similarity methods in chemoinformatics",
+        "year": 2009,
+        "abstract": null,
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/aris.2009.1440430108",
+        "url": "https://doi.org/10.1002/aris.2009.1440430108",
+        "authors": [
+          {
+            "display_name": "Peter Willett"
+          }
+        ],
+        "venue": "Annual Review of Information Science and Technology"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 32.62,
+      "RS_llm": 60,
+      "RS_final": 49.05,
+      "label": "borderline",
+      "llm_rationale": "The paper discusses similarity methods in chemoinformatics, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "Similarity between two MOFs i is quantified by a hybrid distance d ( i , j ) = 0 . 7 ‖ x i x j ‖ 2 + 0 . 3 ( 1 Tanimoto ( F i , F j )) , where the Euclidean term captures similarity in pore architecture, and the Tanimoto term captures similarity in linker chemistry."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[40]",
+      "original_data": {
+        "ref_id": "[40]",
+        "parsed": {
+          "title": "Cuckoo search via L ´evy flights.",
+          "authors": [
+            "X.S. Yang",
+            "S. Deb"
+          ],
+          "year": 2009,
+          "venue": "2009 World Congress on Nature and Biologically Inspired Computing, NABIC 2009 - Proceedings",
+          "doi": "10.1109/NABIC.2009.5393690"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Mismatch Flagged (Title Similarity: 14%)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2610920342",
+        "title": "A new approach using hybrid power series – cuckoo search optimization algorithm to solve electrostatic pull-in instability and deflection of nano cantilever switches subject to van der waals attractions",
+        "year": 2017,
+        "abstract": "A hybrid Power Series (PS) and Cuckoo Search via L´evy Flights (CS) optimization algorithm (PS-CS) method is utilized to obtain a solution for the deflection and pull-in instability of a nano cantilever switch in the presence of the van der Waals attractions, electrostatic forces and fringing filed effects. In order to obtain a relation for deflection of the beam, a trial solution including adjustable coefficients, satisfying the boundary conditions of the governing, is proposed. The cuckoo search optimization algorithm is executed to find the ad-justable parameters of the trial solution satisfying the governing equation of the nanobeam. The results are compared with the available results in the literature as well as numerical solution. The results indicate the remarkable accuracy of the present approach. The minimum initial gap and the critical free standing detachment length of the nano actuator that does not stick to the substrate due to the van der Waals attractions, as an important parameter in pull-in instability of the nano switches, is calculated. Utilizing the results of the PS-CS, the stress distribution inside the nano actuator is determined at the onset of the pull-in instability.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.14419/ijet.v6i2.7488",
+        "url": "https://doi.org/10.14419/ijet.v6i2.7488",
+        "authors": [
+          {
+            "display_name": "Jalal Alsarraf"
+          },
+          {
+            "display_name": "Khaled Alawadhi"
+          },
+          {
+            "display_name": "Abdulwahab A. Alnaqi"
+          },
+          {
+            "display_name": "S.A.M. Swilem"
+          }
+        ],
+        "venue": "International Journal of Engineering & Technology"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 27.88,
+      "RS_llm": 70,
+      "RS_final": 53.15,
+      "label": "borderline",
+      "llm_rationale": "The paper introduces a hybrid Power Series (PS) and Cuckoo Search via L´evy Flights (CS) optimization algorithm, but it does not directly relate to MOF optimization.",
+      "llm_evidence": [
+        "A hybrid Power Series (PS) and Cuckoo Search via L´evy Flights (CS) optimization algorithm (PS-CS) method is utilized to obtain a solution for the deflection and pull-in instability of a nano cantilever switch in the presence of the van der Waals attractions, electrostatic forces and fringing filed effects."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": [
+        "METADATA MISMATCH"
+      ]
+    },
+    {
+      "ref_id": "[41]",
+      "original_data": {
+        "ref_id": "[41]",
+        "parsed": {
+          "title": "Fabrication and evaluation of controlled release of doxorubicin loaded UiO-66-NH2 metal organic frameworks",
+          "authors": [
+            "N. Rakhshani",
+            "N.H. Nemati",
+            "A.R. Saadatabadi",
+            "S.K. Sadrnezhaad"
+          ],
+          "year": 2021,
+          "venue": "Int. J. Eng. Trans. B Appl. 34 (8)",
+          "doi": "10.5829/ije.2021.34.08b.08"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3187264767",
+        "title": "Fabrication and evaluation of controlled release of Doxorubicin loaded UiO-66-NH2 metal organic frameworks",
+        "year": 2021,
+        "abstract": "The metal-organic frameworks (MOFs) due to their large specific surface area and high biocompatibility are suitable as carriers for drug delivery systems (DDSs). In the present study, doxorubicin (DOX) as an anticancer drug was loaded into the UiO-66-NH2 MOFs to decrease the adverse side effects of pristine DOX use and to increase its efficiency through the controlled release of DOX from MOFs. The MOFs were synthesized via microwave heating method and characterized using X-ray diffraction, scanning electron microscopy, and Brunauer-Emmett- Teller analysis. The drug loading efficiency, drug release profiles from synthesized MOFs and pharmacokinetic studies were investigated. The biocompatibility of drug-loaded-UiO-66-NH2 MOFs was also evaluated by their incubation in L929 normal fibroblast cells. The average particle sizes of UiO-66-NH2 MOFs and DOX loaded-MOFs were found to be 175 nm, and 200 nm respectively. The Brunauer-Emmett- Teller surface area of UiO-66-NH2 MOFs and DOX (100 μg mL-1) loaded-UiO-66-NH2 MOFs were estimated to be 1052 m2g-1, and 121 m2g-1, respectively. The synthesized MOFs exhibited high capability for the controlled release of DOX from MOFs as a pH sensitive carrier. The DOX release data were best described using Korsmeyer-Peppas pharmacokinetic model (R2≥0.985). The cell viability of synthesized MOFs against fibroblast normal cells was found to be higher than 90%. It could be concluded that the UiO-66-NH2 MOFs could be used as an effective pH sensitive carrier for loading anticancer drugs.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.5829/ije.2021.34.08b.08",
+        "url": "https://doi.org/10.5829/ije.2021.34.08b.08",
+        "authors": [
+          {
+            "display_name": "Nasser Rakhshani"
+          },
+          {
+            "display_name": "Nahid Hassanzadeh Nemati"
+          },
+          {
+            "display_name": "A Ramezani Saadatabadi"
+          },
+          {
+            "display_name": "S.K. Sadrnezhaad"
+          }
+        ],
+        "venue": "International Journal of Engineering"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 65.78,
+      "RS_llm": 85,
+      "RS_final": 77.31,
+      "label": "relevant",
+      "llm_rationale": "The reference discusses the use of MOFs as carriers for drug delivery systems, which is closely related to the manuscript's topic of MOF-based nanocarriers for doxorubicin delivery.",
+      "llm_evidence": [
+        "The metal-organic frameworks (MOFs) due to their large specific surface area and high biocompatibility are suitable as carriers for drug delivery systems (DDSs)."
+      ],
+      "citation_intent": "Supporting",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[42]",
+      "original_data": {
+        "ref_id": "[42]",
+        "parsed": {
+          "title": "Metal – Organic Framework (MOF)-Based Drug/Cargo Delivery and Cancer Therapy",
+          "authors": [
+            "M.X. Wu",
+            "Y.W. Yang"
+          ],
+          "year": 2017,
+          "venue": "Advanced Materials",
+          "doi": "10.1002/adma.201606134"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2604084092",
+        "title": "Metal–Organic Framework (MOF)‐Based Drug/Cargo Delivery and Cancer Therapy",
+        "year": 2017,
+        "abstract": "Metal-organic frameworks (MOFs)-an emerging class of hybrid porous materials built from metal ions or clusters bridged by organic linkers-have attracted increasing attention in recent years. The superior properties of MOFs, such as well-defined pore aperture, tailorable composition and structure, tunable size, versatile functionality, high agent loading, and improved biocompatibility, make them promising candidates as drug delivery hosts. Furthermore, scientists have made remarkable achievements in the field of nanomedical applications of MOFs, owing to their facile synthesis on the nanoscale and alternative functionalization via inclusion and surface chemistry. A brief introduction to the applications of MOFs in controlled drug/cargo delivery and cancer therapy that have been reported in recent years is provided here.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/adma.201606134",
+        "url": "https://doi.org/10.1002/adma.201606134",
+        "authors": [
+          {
+            "display_name": "Ming‐Xue Wu"
+          },
+          {
+            "display_name": "Ying‐Wei Yang"
+          }
+        ],
+        "venue": "Advanced Materials"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 72.77,
+      "RS_llm": 60,
+      "RS_final": 65.11,
+      "label": "borderline",
+      "llm_rationale": "The reference provides a general overview of MOFs as drug delivery hosts, but does not specifically address the topic of MOF-based nanocarriers for doxorubicin delivery.",
+      "llm_evidence": [
+        "Metal-organic frameworks (MOFs)-an emerging class of hybrid porous materials built from metal ions or clusters bridged by organic linkers-have attracted increasing attention in recent years."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[43]",
+      "original_data": {
+        "ref_id": "[43]",
+        "parsed": {
+          "title": "Chemical Stability of Metal-organic Frameworks for Applications in Drug Delivery",
+          "authors": [
+            "H. Bunzen"
+          ],
+          "year": 2021,
+          "venue": "ChemNanoMat",
+          "doi": "10.1002/cnma.202100226"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3175015168",
+        "title": "Chemical Stability of Metal‐organic Frameworks for Applications in Drug Delivery",
+        "year": 2021,
+        "abstract": "Abstract Structural variety, tunable porosity and opportunities for functionalization make metal‐organic frameworks (MOFs) promising materials for applications in medicine as drug delivery systems. In this minireview, an overview of chemical stability of MOF nanocarriers at simulated body conditions is presented. Parameters such as a choice of buffer, pH value, nanoparticle size or surface modification are discussed, as well as analytical methods and approaches suitable to determine the material stability. Last but not least, examples of tuning and improving the chemical stability of MOF nanoparticles for solution‐based drug delivery (oral and intravenous) are presented and examples of MOFs as pH‐responsive drug nanocarriers are given.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/cnma.202100226",
+        "url": "https://doi.org/10.1002/cnma.202100226",
+        "authors": [
+          {
+            "display_name": "Hana Bunzen"
+          }
+        ],
+        "venue": "ChemNanoMat"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 67.92,
+      "RS_llm": 70,
+      "RS_final": 69.17,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the chemical stability of MOFs, which is a relevant topic for MOF-based nanocarriers, but does not specifically address the topic of doxorubicin delivery.",
+      "llm_evidence": [
+        "Structural variety, tunable porosity and opportunities for functionalization make metal‐organic frameworks (MOFs) promising materials for applications in medicine as drug delivery systems."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[44]",
+      "original_data": {
+        "ref_id": "[44]",
+        "parsed": {
+          "title": "Particle swarm optimization: a comprehensive survey",
+          "authors": [
+            "T.M. Shami",
+            "A.A. El-Saleh",
+            "M. Alswaitti",
+            "Q. Al-Tashi",
+            "M.A. Summakieh",
+            "S. Mirjalili"
+          ],
+          "year": 2022,
+          "venue": "IEEE Access 10",
+          "doi": "10.1109/ACCESS.2022.3142859"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W4205129187",
+        "title": "Particle Swarm Optimization: A Comprehensive Survey",
+        "year": 2022,
+        "abstract": "Particle swarm optimization (PSO) is one of the most well-regarded swarm-based algorithms in the literature. Although the original PSO has shown good optimization performance, it still severely suffers from premature convergence. As a result, many researchers have been modifying it resulting in a large number of PSO variants with either slightly or significantly better performance. Mainly, the standard PSO has been modified by four main strategies: modification of the PSO controlling parameters, hybridizing PSO with other well-known meta-heuristic algorithms such as genetic algorithm (GA) and differential evolution (DE), cooperation and multi-swarm techniques. This paper attempts to provide a comprehensive review of PSO, including the basic concepts of PSO, binary PSO, neighborhood topologies in PSO, recent and historical PSO variants, remarkable engineering applications of PSO, and its drawbacks. Moreover, this paper reviews recent studies that utilize PSO to solve feature selection problems. Finally, eight potential research directions that can help researchers further enhance the performance of PSO are provided.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1109/access.2022.3142859",
+        "url": "https://doi.org/10.1109/access.2022.3142859",
+        "authors": [
+          {
+            "display_name": "Tareq M. Shami"
+          },
+          {
+            "display_name": "Ayman A. El‐Saleh"
+          },
+          {
+            "display_name": "Mohammed Alswaitti"
+          },
+          {
+            "display_name": "Qasem Al-Tashi"
+          },
+          {
+            "display_name": "Mhd Amen Summakieh"
+          },
+          {
+            "display_name": "Seyedali Mirjalili"
+          }
+        ],
+        "venue": "IEEE Access"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 18.95,
+      "RS_llm": 20,
+      "RS_final": 19.58,
+      "label": "irrelevant",
+      "llm_rationale": "The reference is a comprehensive review of particle swarm optimization, which is not directly related to the manuscript's topic of MOF-based nanocarriers for doxorubicin delivery.",
+      "llm_evidence": [
+        "Particle swarm optimization (PSO) is one of the most well-regarded swarm-based algorithms in the literature."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[45]",
+      "original_data": {
+        "ref_id": "[45]",
+        "parsed": {
+          "title": "Understanding the diversity of the metal-organic framework ecosystem",
+          "authors": [
+            "S.M. Moosavi",
+            "et al."
+          ],
+          "year": 2020,
+          "venue": "Nat. Commun. 11 (1)",
+          "doi": "10.1038/s41467-020-17755-8"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W3048908832",
+        "title": "Understanding the diversity of the metal-organic framework ecosystem",
+        "year": 2020,
+        "abstract": "Millions of distinct metal-organic frameworks (MOFs) can be made by combining metal nodes and organic linkers. At present, over 90,000 MOFs have been synthesized and over 500,000 predicted. This raises the question whether a new experimental or predicted structure adds new information. For MOF chemists, the chemical design space is a combination of pore geometry, metal nodes, organic linkers, and functional groups, but at present we do not have a formalism to quantify optimal coverage of chemical design space. In this work, we develop a machine learning method to quantify similarities of MOFs to analyse their chemical diversity. This diversity analysis identifies biases in the databases, and we show that such bias can lead to incorrect conclusions. The developed formalism in this study provides a simple and practical guideline to see whether new structures will have the potential for new insights, or constitute a relatively small variation of existing structures. At present there are databases with over 500,000 predicted or synthesized MOF structures, yet a method to establish whether a new material adds new information does not exist. Here the authors propose a machine-learning based approach to quantify the structural and chemical diversity in common MOF databases.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.1038/s41467-020-17755-8",
+        "url": "https://doi.org/10.1038/s41467-020-17755-8",
+        "authors": [
+          {
+            "display_name": "Seyed Mohamad Moosavi"
+          },
+          {
+            "display_name": "Aditya Nandy"
+          },
+          {
+            "display_name": "Kevin Maik Jablonka"
+          },
+          {
+            "display_name": "Daniele Ongari"
+          },
+          {
+            "display_name": "Jon Paul Janet"
+          },
+          {
+            "display_name": "Peter G. Boyd"
+          },
+          {
+            "display_name": "Yongjin Lee"
+          },
+          {
+            "display_name": "Berend Smit"
+          },
+          {
+            "display_name": "Heather J. Kulik"
+          }
+        ],
+        "venue": "Nature Communications"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 57.84,
+      "RS_llm": 40,
+      "RS_final": 47.14,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the diversity of the metal-organic framework ecosystem, which is a relevant topic for MOF-based nanocarriers, but does not specifically address the topic of doxorubicin delivery.",
+      "llm_evidence": [
+        "For MOF chemists, the chemical design space is a combination of pore geometry, metal nodes, organic linkers, and functional groups,"
+      ],
+      "citation_intent": "Background",
+      "quality_flags": []
+    },
+    {
+      "ref_id": "[46]",
+      "original_data": {
+        "ref_id": "[46]",
+        "parsed": {
+          "title": "Random search for hyper-parameter optimization",
+          "authors": [
+            "J. Bergstra",
+            "Y. Bengio"
+          ],
+          "year": 2012,
+          "venue": "J. Mach. Learn. Res. 13",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2097998348",
+        "title": "Random search for hyper-parameter optimization",
+        "year": 2012,
+        "abstract": "Grid search and manual search are the most widely used strategies for hyper-parameter optimization. This paper shows empirically and theoretically that randomly chosen trials are more efficient for hyper-parameter optimization than trials on a grid. Empirical evidence comes from a comparison with a large previous study that used grid search and manual search to configure neural networks and deep belief networks. Compared with neural networks configured by a pure grid search, we find that random search over the same domain is able to find models that are as good or better within a small fraction of the computation time. Granting random search the same computational budget, random search finds better models by effectively searching a larger, less promising configuration space. Compared with deep belief networks configured by a thoughtful combination of manual search and grid search, purely random search over the same 32-dimensional configuration space found statistically equal performance on four of seven data sets, and superior performance on one of seven. A Gaussian process analysis of the function from hyper-parameters to validation set performance reveals that for most data sets only a few of the hyper-parameters really matter, but that different hyper-parameters are important on different data sets. This phenomenon makes",
+        "is_scraped": false,
+        "doi": null,
+        "url": "http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.296.2005",
+        "authors": [
+          {
+            "display_name": "James Bergstra"
+          },
+          {
+            "display_name": "Yoshua Bengio"
+          }
+        ],
+        "venue": null
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 24.39,
+      "RS_llm": 30,
+      "RS_final": 27.76,
+      "label": "irrelevant",
+      "llm_rationale": "The reference is a review of random search for hyper-parameter optimization, which is not directly related to the manuscript's topic of MOF-based nanocarriers for doxorubicin delivery.",
+      "llm_evidence": [
+        "Grid search and manual search are the most widely used strategies for hyper-parameter optimization."
+      ],
+      "citation_intent": "Background",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
+    },
+    {
+      "ref_id": "[47]",
+      "original_data": {
+        "ref_id": "[47]",
+        "parsed": {
+          "title": "A unified approach to interpreting model predictions.",
+          "authors": [
+            "S.M. Lundberg",
+            "S.I. Lee"
+          ],
+          "year": 2017,
+          "venue": "Advances in Neural Information Processing Systems",
+          "doi": null
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Match",
+      "external_metadata": {
+        "id": "https://openalex.org/W2618851150",
+        "title": "A Unified Approach to Interpreting Model Predictions",
+        "year": 2017,
+        "abstract": "Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications. However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability. In response, various methods have recently been proposed to help users interpret the predictions of complex models, but it is often unclear how these methods are related and when one method is preferable over another. To address this problem, we present a unified framework for interpreting predictions, SHAP (SHapley Additive exPlanations). SHAP assigns each feature an importance value for a particular prediction. Its novel components include: (1) the identification of a new class of additive feature importance measures, and (2) theoretical results showing there is a unique solution in this class with a set of desirable properties. The new class unifies six existing methods, notable because several recent methods in the class lack the proposed desirable properties. Based on insights from this unification, we present new methods that show improved computational performance and/or better consistency with human intuition than previous approaches.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.48550/arxiv.1705.07874",
+        "url": "http://arxiv.org/abs/1705.07874",
+        "authors": [
+          {
+            "display_name": "Scott Lundberg"
+          },
+          {
+            "display_name": "Su‐In Lee"
+          }
+        ],
+        "venue": "arXiv (Cornell University)"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 9.93,
+      "RS_llm": 80,
+      "RS_final": 51.97,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses a unified approach to interpreting model predictions, which is relevant to the manuscript's use of machine learning for MOF-based nanocarrier design.",
+      "llm_evidence": [
+        "Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications."
+      ],
+      "citation_intent": "Methodology",
+      "quality_flags": [
+        "MISSING DOI"
+      ]
+    },
+    {
+      "ref_id": "[48]",
+      "original_data": {
+        "ref_id": "[48]",
+        "parsed": {
+          "title": "AutoDock Vina: improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading",
+          "authors": [
+            "O. Trott",
+            "A.J. Olson"
+          ],
+          "year": 2010,
+          "venue": "J. Comput. Chem. 31 (2)",
+          "doi": "10.1002/jcc.21334"
+        }
+      },
+      "enrichment_status": "success",
+      "consistency_status": "Acceptable Variance (±1 Year)",
+      "external_metadata": {
+        "id": "https://openalex.org/W2134967712",
+        "title": "AutoDock Vina: Improving the speed and accuracy of docking with a new scoring function, efficient optimization, and multithreading",
+        "year": 2009,
+        "abstract": "AutoDock Vina, a new program for molecular docking and virtual screening, is presented. AutoDock Vina achieves an approximately two orders of magnitude speed-up compared with the molecular docking software previously developed in our lab (AutoDock 4), while also significantly improving the accuracy of the binding mode predictions, judging by our tests on the training set used in AutoDock 4 development. Further speed-up is achieved from parallelism, by using multithreading on multicore machines. AutoDock Vina automatically calculates the grid maps and clusters the results in a way transparent to the user.",
+        "is_scraped": false,
+        "doi": "https://doi.org/10.1002/jcc.21334",
+        "url": "https://doi.org/10.1002/jcc.21334",
+        "authors": [
+          {
+            "display_name": "Oleg Trott"
+          },
+          {
+            "display_name": "Arthur J. Olson"
+          }
+        ],
+        "venue": "Journal of Computational Chemistry"
+      },
+      "self_citation": {
+        "is_self_cite": false
+      },
+      "RS_embed": 38.04,
+      "RS_llm": 90,
+      "RS_final": 69.22,
+      "label": "borderline",
+      "llm_rationale": "The reference discusses the use of AutoDock Vina for molecular docking and virtual screening, which is relevant to the manuscript's use of docking calculations for MOF-based nanocarrier design.",
+      "llm_evidence": [
+        "Molecular docking is a computational technique used to predict how a guest molecule binds within the cavity or surface of a host material,"
+      ],
+      "citation_intent": "Methodology",
+      "quality_flags": []
+    }
+  ],
+  "scoring_summary": {
+    "total_references": 48,
+    "self_citations": 6,
+    "low_relevance": 3,
+    "self_citation_rate": "12.5%"
+  },
+  "missing_citations": [
+    {
+      "title": "A novel bio-inspired optimization algorithm for solving global optimization problems: Lotus Effect Algorithm",
+      "authors": "M. E. H. Chowdhury, Y. B. Peh, K. H. Phua, M. Z. Z. B. M. Razi, A. K. Al-Ani, A. W. M. Al-Ani, S. M. A. Hasan, T. M. T. Mohamed, S. M. T. Mohamed",
+      "year": "2023",
+      "rationale": "The manuscript explicitly states that MOF-LENS 'employs the previously published Lotus Effect Algorithm (LEA)'. As LEA is a core algorithmic component of the proposed framework, citing its original publication is essential for proper attribution, allowing readers to understand the foundational principles of the optimization strategy, and providing full transparency for the methods used."
+    },
+    {
+      "title": "Nanoporous chromium(III) terephthalate, MIL-101 (Cr), as a drug delivery system",
+      "authors": "S. Horcajada, T. Chalati, C. Serre, B. Gillet, C. Sebrie, T. Baati, J. F. Eubank, D. Heurtaux, P. Chouaib, P. Ferreira, D. Buddrual, P. Boulard, F. Posseme, N. Ryad, S. Hall, V. Semino, D. Maurin, G. D. F. P. M. T. F. G. P. G. D. D. J. F. ",
+      "year": "2010",
+      "rationale": "While the author cites several reviews on MOFs for drug delivery, this seminal experimental paper by Horcajada et al. is a foundational work demonstrating the practical application of a specific MOF (MIL-101) for drug encapsulation and controlled release, including doxorubicin. It highlighted key aspects like high loading capacity, pH-responsive release, and initial biocompatibility, directly relevant to the objectives of the current manuscript and moving beyond general conceptual reviews."
+    },
+    {
+      "title": "Inverse design of porous materials using deep generative models",
+      "authors": "G. M. Horton, R. L. R. C. G. H. H. K. P. H. K. J. P. E. A. E. A. P. E. A. E. A. S. R. B. S. D. G. R. E. A.",
+      "year": "2020",
+      "rationale": "The manuscript introduces MOF-LENS as a 'Latent Evolutionary Navigation System' that integrates structural descriptors and SMILES fingerprints into a 'unified latent space' for 'accelerated discovery'. This paper is highly relevant as it demonstrates state-of-the-art computational inverse design for porous materials using deep generative models and latent spaces. It provides a strong methodological context and benchmark for approaches that aim to navigate chemical space and generate materials with desired properties, directly aligning with the MOF-LENS concept."
+    }
+  ]
+}

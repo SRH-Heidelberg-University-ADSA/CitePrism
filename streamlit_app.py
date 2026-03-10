@@ -57,12 +57,15 @@ def init_session_state():
     """Initialize session state variables."""
     if 'db_manager' not in st.session_state:
         st.session_state.db_manager = DatabaseManager()
+        
     if 'config' not in st.session_state:
         st.session_state.config = Config()
+        
     if 'pipeline' not in st.session_state:
         st.session_state.pipeline = PipelineOrchestrator(
             st.session_state.db_manager, st.session_state.config
         )
+        
     if 'current_document_id' not in st.session_state:
         st.session_state.current_document_id = None
         
@@ -71,6 +74,10 @@ def init_session_state():
         
     if 'active_tab' not in st.session_state:
         st.session_state.active_tab = "📤 Upload & Process"
+
+    # --- NEW: Shared Relevance Threshold for Tab Sync ---
+    if 'relevance_threshold' not in st.session_state:
+        st.session_state.relevance_threshold = 50
 
 def render_welcome_page():
     """Renders the initial landing page with a 3-column layout."""

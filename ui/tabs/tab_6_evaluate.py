@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 import os
+import numpy as np # Added for dynamic label detection
 from sklearn.metrics import cohen_kappa_score, confusion_matrix, classification_report
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -119,9 +120,14 @@ def render_evaluation_tab():
         # --- VISUALIZATIONS ---
         col1, col2 = st.columns([1.2, 1])
 
+        # NEW LOGIC: Detect which labels are present to avoid classification_report crashes
+        unique_present_labels = np.unique(np.concatenate([y_human, y_ai]))
+        all_possible_names = {0: 'Flagged (0)', 1: 'Clean (1)'}
+        target_names_for_report = [all_possible_names[label] for label in unique_present_labels]
+
         with col1:
             st.markdown("#### 📊 Confusion Matrix")
-            cm = confusion_matrix(y_human, y_ai)
+            cm = confusion_matrix(y_human, y_ai, labels=[0, 1]) # Fixed labels for consistent size
             
             # Create the Seaborn Plot
             fig, ax = plt.subplots(figsize=(6, 5))
@@ -137,11 +143,30 @@ def render_evaluation_tab():
 
         with col2:
             st.markdown("#### 📈 Classification Report")
-            report_dict = classification_report(y_human, y_ai, target_names=['Flagged (0)', 'Clean (1)'], output_dict=True)
-            report_df = pd.DataFrame(report_dict).transpose()
             
-            # Display as a beautiful dataframe
-            st.dataframe(
-                report_df.style.format(precision=3).background_gradient(cmap='Blues', subset=['f1-score']), 
-                use_container_width=True
-            )
+            # FIX: Only run if we have labels, and use target_names that match unique labels
+            if len(unique_present_labels) > 0:
+                try:
+                    report_dict = classification_report(
+                        y_human, 
+                        y_ai, 
+                        labels=unique_present_labels,
+                        target_names=target_names_for_report, 
+                        output_dict=True
+                    )
+                    report_df = pd.DataFrame(report_dict).transpose()
+                    
+                    # Display as a beautiful dataframe
+                    st.dataframe(
+                        report_df.style.format(precision=3).background_gradient(cmap='Blues', subset=['f1-score']), 
+                        use_container_width=True
+                    )
+                except Exception as e:
+                    st.error(f"Could not generate report: {e}")
+                    st.info("This usually happens when there is no variation in the labels. Try adjusting the slider.")
+            else:
+                st.info("No data available to generate classification report.")
+
+        # Summary of metrics for the user
+        if len(unique_present_labels) < 2:
+            st.warning("⚠️ **Note:** The current threshold results in only one classification category. For full statistical validation, adjust the slider until both 'Flagged' and 'Clean' references appear.")

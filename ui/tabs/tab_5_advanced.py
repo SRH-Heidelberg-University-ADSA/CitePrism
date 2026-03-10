@@ -654,13 +654,23 @@ def render_advanced_features():
     st.subheader("📥 Audit Export & Reporting")
     st.markdown("Compile all core checks and advanced bibliometric insights into a formal review package.")
     
-    tau = st.slider("Select Tolerance Threshold (τ) for Exported Report:", 0, 100, 50, 1)
+    # --- UPDATED: Syncing threshold slider with session state ---
+    tau = st.slider(
+        "Select Tolerance Threshold (τ) for Exported Report:", 
+        min_value=0, 
+        max_value=100, 
+        key="relevance_threshold", 
+        step=1
+    )
     
     flagged_refs_raw = [r for r in scored_refs if r.get('RS_final', 0) < tau]
     kpis = {
         'total': len(scored_refs),
         'flagged': len(flagged_refs_raw),
-        'self_cites': sum(1 for r in scored_refs if r.get('self_citation', {}).get('is_self_cite'))
+        'self_cites': sum(1 for r in scored_refs if r.get('self_citation', {}).get('is_self_cite')),
+        # Adding missing abstracts and issues for the summary table
+        'missing_abstracts': sum(1 for r in scored_refs if not bool(r.get('external_metadata', {}).get('abstract'))),
+        'issues': sum(1 for r in scored_refs if bool(r.get('quality_flags')))
     }
     
     col_html, col_pdf, col_empty = st.columns([1, 1, 3])

@@ -213,7 +213,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2165644552",
@@ -253,7 +253,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2963285844",
@@ -338,7 +338,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2913004909",
@@ -381,7 +381,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Mismatch Flagged (Year diff: 2)",
       "external_metadata": {
         "id": "https://openalex.org/W2760746183",
@@ -456,7 +456,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W3088538132",
@@ -542,7 +542,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W3087549734",
@@ -576,7 +576,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W4281902949",
@@ -617,7 +617,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Mismatch Flagged (Title Similarity: 58%)",
       "external_metadata": {
         "id": "https://openalex.org/W3021613070",
@@ -694,7 +694,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2777138330",
@@ -734,7 +734,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W4378464681",
@@ -776,7 +776,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W4320853781",
@@ -821,7 +821,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W3119212112",
@@ -858,7 +858,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2809090039",
@@ -898,7 +898,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W4320461355",
@@ -938,7 +938,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2804096263",
@@ -1023,7 +1023,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2953256123",
@@ -1101,7 +1101,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1999352252",
@@ -1136,7 +1136,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2123872146",
@@ -1182,31 +1182,37 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
-      "consistency_status": "Mismatch Flagged (Title Similarity: 25%)",
+      "enrichment_status": "success",
+      "consistency_status": "Match",
       "external_metadata": {
-        "id": "https://openalex.org/W3129999094",
-        "title": "Double-Descent Curves in Neural Networks: A New Perspective Using Gaussian Processes",
-        "year": 2024,
-        "abstract": "Double-descent curves in neural networks describe the phenomenon that the generalisation error initially descends with increasing parameters, then grows after reaching an optimal number of parameters which is less than the number of data points, but then descends again in the overparameterized regime. In this paper, we use techniques from random matrix theory to characterize the spectral distribution of the empirical feature covariance matrix as a width-dependent perturbation of the spectrum of the neural network Gaussian process (NNGP) kernel, thus establishing a novel connection between the NNGP literature and the random matrix theory literature in the context of neural networks. Our analytical expressions allow us to explore the generalisation behavior of the corresponding kernel and GP regression. Furthermore, they offer a new interpretation of double-descent in terms of the discrepancy between the width-dependent empirical kernel and the width-independent NNGP kernel.",
-        "is_scraped": false,
-        "doi": "https://doi.org/10.1609/aaai.v38i10.29071",
-        "url": "http://dx.doi.org/10.1609/aaai.v38i10.29071",
+        "id": "https://openalex.org/W7133219013",
+        "title": "Benign, Tempered, Or Catastrophic: Toward a Refined Taxonomy of Overfitting",
+        "year": 2022,
+        "abstract": "The world's premier source for conference proceedings, offering Print-on-Demand, DOI, and Content Hosting services.",
+        "is_scraped": true,
+        "doi": "https://doi.org/10.52202/068431-0087",
+        "url": "https://doi.org/10.52202/068431-0087",
         "authors": [
           {
-            "display_name": "Ouns El Harzli"
+            "display_name": "Amirhesam Abedsoltan"
           },
           {
-            "display_name": "Bernardo Cuenca Grau"
+            "display_name": "Misha Belkin"
           },
           {
-            "display_name": "Guillermo Valle-Pérez"
+            "display_name": "Neil Mallinar"
           },
           {
-            "display_name": "Ard A. Louis"
+            "display_name": "Preetum Nakkiran"
+          },
+          {
+            "display_name": "Parthe Pandit"
+          },
+          {
+            "display_name": "James Simon"
           }
         ],
-        "venue": "Proceedings of the AAAI Conference on Artificial Intelligence"
+        "venue": null
       }
     },
     {
@@ -1223,7 +1229,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2156267734",
@@ -1256,7 +1262,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W2115003579",
@@ -1294,16 +1300,16 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
-        "id": "https://openalex.org/W7117152926",
+        "id": "https://openalex.org/W7117174672",
         "title": "On the Koopman-Based Generalization Bounds for Multi-Task Deep Learning",
         "year": 2025,
         "abstract": "The paper establishes generalization bounds for multitask deep neural networks using operator-theoretic techniques. The authors propose a tighter bound than those derived from conventional norm based methods by leveraging small condition numbers in the weight matrices and introducing a tailored Sobolev space as an expanded hypothesis space. This enhanced bound remains valid even in single output settings, outperforming existing Koopman based bounds. The resulting framework maintains key advantages such as flexibility and independence from network width, offering a more precise theoretical understanding of multitask deep learning in the context of kernel methods.",
         "is_scraped": false,
-        "doi": "https://doi.org/10.48550/arxiv.2512.19199",
-        "url": "https://doi.org/10.48550/arxiv.2512.19199",
+        "doi": null,
+        "url": "http://arxiv.org/abs/2512.19199",
         "authors": [
           {
             "display_name": "Mahdi Mohammadigohari"
@@ -1318,7 +1324,7 @@
             "display_name": "Pãnos M. Pardalos"
           }
         ],
-        "venue": "arXiv (Cornell University)"
+        "venue": "ArXiv.org"
       }
     },
     {
@@ -1337,7 +1343,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Mismatch Flagged (Year diff: 6)",
       "external_metadata": {
         "id": "https://openalex.org/W2540093921",
@@ -1367,7 +1373,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2962857907",
@@ -1446,7 +1452,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1565096114",
@@ -1563,7 +1569,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Acceptable Variance (±1 Year)",
       "external_metadata": {
         "id": "https://openalex.org/W1823924931",
@@ -1694,7 +1700,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2157988812",
@@ -1816,7 +1822,7 @@
           "doi": null
         }
       },
-      "enrichment_status": "success (cached)",
+      "enrichment_status": "success",
       "consistency_status": "Match",
       "external_metadata": {
         "id": "https://openalex.org/W2122176428",

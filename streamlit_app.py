@@ -135,7 +135,7 @@ def render_welcome_page():
             '</div>'
             '<div style="margin-top: 35px;">'
             '<p style="font-size: 1.15rem; color: #555; margin-bottom: 8px;"><b>Under the Supervision of:</b></p>'
-            '<p style="font-size: 1.1rem; color: #222; margin: 0; font-weight: 500;">Prof. Dr. Melded Jalali</p>'
+            '<p style="font-size: 1.1rem; color: #222; margin: 0; font-weight: 500;">Prof. Dr. Mehrdad Jalali</p>'
             '</div>'
             '</div>'
         )

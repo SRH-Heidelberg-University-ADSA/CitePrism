@@ -1,0 +1,1086 @@
+
+
+<<<PAGE 1 START>>>
+Materials Today Communications 40 (2024) 109764
+ContentslistsavailableatScienceDirect
+Materials Today Communications
+journalhomepage:www.elsevier.com/locate/mtcomm
+Novel base predictive model of resilient modulus of compacted subgrade
+soils by using interpretable approaches with graphical user interface
+Loai Alkhattabia, Kiran Arifb,c,*
+aDepartmentofCivilandEnvironmentalEngineering,CollegeofEngineering,UniversityofJeddah,Jeddah23890,SaudiArabia
+bDepartmentofComputerScience,COMSATSUniversityIslamabad,WahCampus,Islamabad47040,Pakistan
+cWesternCaspianUniversity,Baku,Azerbaijan
+A R T I C L E I N F O A B S T R A C T
+Keywords: Theflexiblepavementsystemconsistsoflayersthataremadeupofablendofaggregatesandbitumen.Todesign
+Resilientmodulus flexiblepavementsystemsthatarebothsafeandenvironmentallysustainable,itisessentialtohaveanaccurate
+Subgrade understandingoftheresilientmodulus(Mr)ofthecompactedsubgradesoil.Mrreferstotheabilityofthesoilto
+Graphicaluserinterface
+resist deformationunderrepeated loads.Thus,acriticalparameter affectstheperformanceandlongevityof
+Machinelearning
+pavement systems. This study employs machine learning (ML) algorithms such as individual and ensemble
+Statisticalmeasures
+learnersusinganextensivedatabaseof2813datapoints.Theseincludedryunitweight,weightedplasticity
+index,confiningstress,deviatorstress,moisturecontent,andthenumberoffreeze-thawcycles(FT).Theindi-
+vidualorweaklearnerswereincorporatedtocreatestrongandrobustensemblelearnersbyemployingtech-
+niquessuchasbagging,adaptiveboosting,andrandomforest(RF).Ensemblelearningmethodswereusedto
+improvetheperformanceofindividuallearners,suchassupportvectormachine(SVM)anddecisiontree(DT),
+bycombiningtheirpredictions.ToachievethehighestR2value,atotaloftwentybaggingandboostingsub-
+models were trained and optimized. The validation of the test data was carried out through K-Fold cross-
+validation,utilizingmetricssuchasR2,MAE,andRMSE.Thedevelopedmodelswererigorouslytestedusing
+statisticalindices(MAE,MSE,RMSE,andRMLSE)toverifytheirpredictiveaccuracy,reliability,andtrustwor-
+thiness.Thefindingsindicatethattheintegrationofbaggingandboostingtechniquesimprovestheefficiencyof
+individualmachinelearning(ML)models.ThecombinationofRFandDTutilizingbaggingresultedinthemost
+reliableperformance,achievinganR2valueof0.9anddemonstratingminimumerrors.Ingeneral,theimple-
+mentationoftheensemblealgorithminMLimprovedtheoverallpredictionaccuracyofthemodel.Sensitivity
+analysisrevealsthatthepredictionoftheresilientmodulus(Mr)ofthesubgradeisprimarilyinfluencedbydry
+density,confiningstress,anddeviatorstress.Moreover,agraphicaluserinterface(GUI)isdevelopedforpractical
+implantation.
+1. Introduction combinations is considered as the fundamental base of the pavement
+structure,andisresponsiblefortransferringappliedloadstotheground
+The pavement system consists of several layers having different [9].Thus,resilientmodulus(Mr)servesasavitalparameterforassessing
+material properties. These layers typically include the surface, base, subgrade material’s behaviour under various environmental and load
+subbase,andsubgrade[1–3].Thestrengthandstiffnessoftheselayers conditions [10–13]. Additionally, it explains the material’s inelastic
+play an important role in designing the pavement system [4–6]. The response to traffic loads. As pavement layers endure repetitive traffic
+subgradelayeriscalledthefoundationofthepavementsystem[7].It loads, the subgrade soil undergoes both reversible and irreversible
+transfers applied loads to the ground. However, seasonal fluctuations strains with each load cycle [12]. With an increasing number of load
+andcyclicordynamicloadsonpavementlayerscausestressesinthese repetitions,theextentofplasticdeformationdiminishesuntilitbecomes
+layers[8].Moreover,theprimarysupportforallpavementsisduetothe recoverable.Therefore,Mrisdefinedastheratiooftheapplieddeviator
+underlyingsubgradelayer.Thislayertypicallyconsistsofvaryingsoil stresstotherecoverablestrain.Thisratioservesasadescriptorforthe
+* Correspondingauthor.
+E-mailaddresses:laalkhattabi@uj.edu.sa(L.Alkhattabi),kiranarif12345@gmail.com(K.Arif).
+https://doi.org/10.1016/j.mtcomm.2024.109764
+Received27April2024;Receivedinrevisedform18June2024;Accepted4July2024
+Available online 9 July 2024
+2352-4928/© 2024 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies.
+<<<PAGE 1 END>>>
+
+
+
+<<<PAGE 2 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Table1 thatpreciselyaffectMr.Asaresult,manystudieshavebeenconducted
+Equations for predicting resilient modulus (Mr) of soils through generalized thatledtotheproposalofseveralconstitutivemodelsthatestimateMrof
+regression. soilproperties,appliedloads,andstressstates.Typically,thesemodels
+References Soil Equation aredevelopedusingregressionanalysis,asdemonstratedinTable1.It
+[ ] providesacollectionofequationsthatareusedfortheestimationofthe
+Kim[34] A A - - 4 7– a 6 n s d o A ils -6soils M M Pa r R = = k k 1 1 .P P a a τ [ . 2 o ( σ c 9 t o 2 P ct a ) ( k2 3 ( 1 σ d + σ σ 3 2 d ) ) ] k2 s s M t t a a r t t o T e e f s s h , s e v o s s a u e i r l c s y e h . q a u a m a s o t σ i n o 2 g n a s s n o r d i e l l σ s y a 3 o m , n w pl k h e e i s c y h in v v a t a r h i r e a y b la a le b c s r o o i r n s a s fl to u s r o e y i n l a c s n e a d d m p b p l y l a e y d s i . a ff T e c h r r e u e s n c e i t a s s l t t r r r o e e s s le s s
+Universalmodel[34,35] Alltypesofsoils
+MR = k1 .Pa
+P
+θ
+a
+k2 τ
+P
+o
+a
+ct+1
+k3
+inthedeterminationoftheupdatedMrvalueforeachsoilsample.The
+PezoandHudson[36] Finegrain MR = k1 σk
+3
+2σk
+d
+3 valuesofk1,k2,andk3areobtainedbyfittingthepredictionmodelto
+materials thelaboratory-generatedMrtestdata,usingeitherlinearornonlinear
+Mr =resilientmodulus; τ oct =octahedralshearstress regressionanalyses.Itisimportanttonotethatk1cannotbenegative,as
+σ P k1 o a ct = = = r a e o tm g c r t o a e s h s p s e i h d o e r n r a e c l o n p e o r f e r fi m s c su i a e l r n e s t ; t s ress σ k θ 2 d = & = k b 3 d u e lk v = i s a t t r r o e e r g ss r s e tr s e si s o s ncoefficients M po r s c it a i n v n e, ot a h s a a v n en in e c g r a e t a iv s e e v i a n lu t e h s e .O co n n t fi h n e i o n t g he s r tr h e a ss nd t , y k p 2 ic s a h l o ly ul r d es a u lw lts ay i s n b a e
+stiffeningeffectonthematerial.ThiswillleadtoahighervalueforMr.
+Conversely, k3 must be negative, as an increase in deviator or shear
+material’s behaviour, providing insights into its deformation and re- stressresultsinasofteningeffectonthematerial.Finally,asecondsetof
+coverycharacteristicsunderstress.TheMrofthesoilhasadirectrela- regressionanalysesisconductedtoestablishtherelationshipbetween
+tionshipwithbothfatiguecrackingandpermanentdeformation.Hence, thesek-coefficientsandvarioussoilphysicalproperties,suchasmois-
+consideredanessentialpropertyforunderstandingpavementbehaviour ture content, dry density, plasticity index, liquid limit, coefficient of
+anditsdesign[14–17]. curvature, uniformity coefficient, and percent passing #200 sieve
+TheMrofcompactedpavementsubgradesoilsdependsuponmul- [37–39].Thedetailsonhowthesemodelsareobtainedcanbefoundin
+tiple factors. These factors encompass a range of characteristics and previously published literature. Moreover, it is clear that the afore-
+conditions that affect the soil’s ability to withstand and recover from mentionedanalysismethodiscomplex,andthereareotherdrawbacks
+applied loads [12]. Some key factors include the soil’s composition, to using regression analysis. Although the model developed through
+density,moisturecontent,stresshistory,temperature,andloadingfre- regression,analysisperformswellonselecteddatasets.Therefore,its
+quency[18–20].Eachofthesefactorscontributestotheoverallresilient effectiveness is limited to the range of datasets used in the analysis.
+modulusofthesubgradesoilsandplaysasignificantroleindetermining Additionally, existing models lack validation andtesting on newdata
+theirresponsetotrafficloadingandsubsequentpavementperformance [40–42]. Given the shortcomings of these models and the intricate
+[21].Moreover,theseasonalenvironmentaleffectsarealsoimportantin behaviour of Mr,there is a need to developmore effective prediction
+regionswithseasonalfreezing.Typically,subgradesoilsarecompacted models for estimating Mr in pavement subgrade soils. Several re-
+attheirmaximumdryunitweightandoptimalmoisturecontent.The searchershaveusedtraditionallinearandnonlinearequationsbasedon
+moisturecontentcanvaryseasonallyduetoenvironmentalfactors,such statisticalanalysistoprovidepredictionmeasuresofresilientmodulus.
+as precipitation, surface infiltration, plant transpiration, evaporation, However,accuratepredictionisdifficult,andmoreresearchisrequired
+temperature fluctuation, and groundwater table variation [22–24]. In to overcome these challenges. In recent years, neural-based ML tech-
+regionswhereseasonalfreezingoccurs,FTcyclescancausesubstantial niqueshavebeenusedtoovercomechallengesandimprovetheaccu-
+harm to pavements. Thus, resulting in pavement surface spalling and racyofpredictionsinvariousapplications.[43–52].
+cracking [25]. This can also lead to severe settlement caused by the TheuseofMLtechniquesisbecomingincreasinglypopularincivil
+influx of water during the spring thaw. These issues stem from the engineering,particularlyinthepredictionofmechanicalpropertiesof
+declineinsubgradesoilstrengthandstiffness,aswellasanincreasein materials like concrete, asphalt, and resilient modulus (Mr) value
+watercontentcausedbyFT.TheMrandstrengthofpavementmaterials [53–60].Thesemethodsrelyheavilyonextensivedatasetstobuildac-
+degrade during FT processes. This results in a significant increase in curatemodels.Thesuccessofthesemodelsiscontingentuponboththe
+tensile strain onthe surfacelayer of thepavement whensubjected to quality and quantity of the data used during the model development
+trafficloading[26].Moreover,theincreaseintensilestraincancause process[61–63].Inotherwords,havingasubstantialandhigh-quality
+fatigue cracks to form on the pavement surface, which can lead to dataset is crucial for the effectiveness of these ML methods [64–68].
+furtherdamageifleftunaddressed.Thus,permanentdeformationcan Javedetal.[47]utilizedgeneexpressionprogramming(GEP)toforecast
+develop,resultinginruttingofthepavement. the compressive strength (CS) of sugarcane bagasse ash (SCBA) con-
+Furthermore, when pavement materials experience desiccation crete.Likewise,Aslametal.[46]usedtheGEPapproachtopredictthe
+(drying out)and thermalshrinkage(reductioninvolume dueto tem- strength of high-strength concrete (HSC). Their findings indicated a
+peraturechanges),longitudinalandtransversecracksmayappear.The strong correlation between the predicted values and target values. In
+Mrreferstoameasureoftheelasticmodulus(EM)thatdefinesthenon- addition,researchershaveemployedartificialneuralnetworks(ANNs)
+linearstress-strainpropertiesofsubgradematerials.Thisisanimportant toforecastthestrengthofconcretemadeofwasteandrecycledmate-
+factorinthestructuralresponseofpavements[27–30].Mrconsidersthe rials, and their finding reveals that ANNs have shown a strong rela-
+effectsofvariousstressstates,includingtrafficloading,confiningstress, tionship with fewer errors [69]. Zamanet al. [70] conducted a study
+cyclic stress, and deviator stress. In addition, Mr can be determined exploringtheconstructionofdifferentANNs.Thegoalwastoestablisha
+through various laboratory testing methods, which include in-situ relationship between Mr and standard subgrade soil characteristics,
+testing, cyclic tri-axial load testing, resonant column testing, and alongwithstressstatesencounteredinpavementdesign.Similarly,Zou
+torsional shear testing [31–33]. Despite their effectiveness, these etal.[71]employedGEPandANNsfortheestimationofcompressed
+methodsareexpensiveandcomplex.Nevertheless,incorporatingMrin subgradesoilsandreportedrobustresults.DeswalandPal[72]evalu-
+thedesignandstructuralanalysisofmulti-layerpavementsystemshas atedtheperformanceoftwomachine-basedextremelearningregression
+beenrecommendedbyvariouscodes,includingMEPDG,AASHTO,and modelsforcalculatingtheresilientmodulus(Mr)ofcohesivesoils.The
+NCHRP.Moreover,itisimperativetoconsidermultiplepropertiesofthe authorcomparedtheirresultswiththoseobtainedfromSVMmethods
+materialsintheunboundlayersfordescribingtheresilientbehaviourof anddemonstratedarobustperformancebythesemodels.Inaddition,
+pavement,includingseveralsoilhydrologicalandphysicalcharacteris- Sadrossadatetal.[73]usedaneuro-fuzzyadaptiveinterfacesystemto
+tics.Thus,itiscriticaltogainanaccurateunderstandingofthefactors forecast the behaviour of subgrade soils in flexible pavements. ML
+2
+<<<PAGE 2 END>>>
+
+
+
+<<<PAGE 3 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.1. MLABibliometricAnalysis.
+Fig.2. Comparisonbetweenapproaches.
+3
+<<<PAGE 3 END>>>
+
+
+
+<<<PAGE 4 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Anaconda Spyder and Jupyter Notebook. The model parameters
+included weighted plasticity index, confining stress, dry unit weight,
+deviatorstress,moisturecontent,andthenumberofFTcycles,withMr
+astheoutputparameter.Contourgraphsweregeneratedtodemonstrate
+the correlation between input and output parameters. Moreover, this
+studyhasmadeanotablecontributiontotheadvancementofanovel
+and efficient methodology for predicting the resilient modulus. By
+introducingapotentialpathwayintheformofagraphicaluserinterface
+(GUI), integrated strategies within the field of transportation can be
+effectively utilized. Additionally, Shapley analysis was employed to
+determine the effectiveness of each variable in achieving the desired
+output. Furthermore, statistical metrics were employed to assess the
+accuracyofthemodel.
+2. Datadescription
+Data description is an important step in the process of building
+machine-learningmodels[79].Itinvolvesthoroughlyunderstandingthe
+datasetanditscharacteristicsbeforedelvingintothemodellingphase.
+Fig.3. Heatmapcorrelation.
+Thus,theMrofcompactedsubgradesoilhasbeenmodelledusingdata
+obtained from previously published research (Supplementary file).
+algorithmsareversatiletoolsthatcanbeutilizedtopredictarangeof
+Furthermore,instances(datapoints)usedformodellingwillhavehigher
+responses in various engineering or data science fields, beyond the
+reliabilityandaccuracyofthemodel.Thedatabaseconsistedofatotalof
+compressiveortensilenatureofconcrete.Theseexampleshighlightthe
+2813 experimental test results with resilient modulus as the response
+promisingpotentialofMLalgorithmsinvariousdomains.Moreover,the
+parameterandsixexplanatoryvariablesnamelyastheweightedplas-
+significanceofMLAsincivilengineeringdomainisillustrateinFig.1.
+Recently, there has been an increasing inclination towards the
+ticityindex(wPI),deviatorstress(σ dinkPa),moisturecontent(win%),
+adoptionofensemblemodellingmethodstoimprovetheoveralleffec- dry unit weight (γ d in kN/m3), the number of FT cycles (NFT), and
+tivenessofmodels.Thisisachievedbycombiningindividualorweak
+confiningstress(σ cinkPa).
+learnerstobuildmuchstrongerpredictivelearners[74].Fengetal.[75]
+2.1. Databasepresentation
+used ensemble learning techniques to predict the properties of rein-
+forced concrete (RC) structural elements and observed a strong and
+PythonprogrammingbasedonAnacondaversion3.7wasemployed
+robustperformanceofthemodels.Buietal.[76]alsousedamodified
+to represent the database and the relation of input parameters to its
+fireflyalgorithmincombinationwithanANNtoforecastthebehaviour
+outputmodel.Fig.3representstheheatmapcorrelationsbetweenthe
+ofhigh-performanceconcrete(HPC).Theresultsindicatethatthehybrid
+resilientmodulusandtheinputvariables.Itcanbeseenthatγ shows
+model performed better and gave a strong performance. Similarly, d
+Salamietal.[77]utilizedtheRFapproachandachievedagoodaccuracy
+directandpositiverelationtoMr.Ahigherdryunitweightindicatesa
+ofR2=0.9867.Caietal.[78]predictedthepenetrationofchloridein denser and more compacted subgrade, which tends to exhibit higher
+stiffnessandload-bearingcapacity.However,moisturecontentandthe
+RCstructureslocatedinmarineenvironmentusingseveralsupervised
+numberofFTcycleshaveadverseeffects.Thisisbecauseexcessmois-
+machineensemblealgorithms.
+ture softens the subgrade, reduces cohesion, and induces swelling or
+Haliletal.[58]appliedthreeensemblemodellingtechniques,using
+shrinkage, while FT cycles cause frost heave, thaw weakening, and
+adecisiontree(DT)asthebaselearner.Thehybridmodeldemonstrated
+crackingasillustratedinFig.3.Moreover,Fig.4depictsthedistribution
+superior predictive performance for HPC strength compared to other
+models,resultinginarobustR2valueof0.9368.Inastudyconductedby ofinputparametersandtheircorrespondingoutputs,illustratingtheir
+relationship.
+Kermanietal.[59],theefficiencyoffivesoftcomputingbaselearners
+The contour graphs depict the density of each input parameter
+wassystematicallyassessedwiththeaimofpredictingconcretecorro-
+sion in sewer systems. The study incorporated both tree-based and
+concerning Mr, with darker regions indicating a higher concentration
+linked to concrete strength in the database. The weighted plasticity
+network-basedlearners.Thenotableoutcomewasthesuperiorperfor-
+indexrangesfrom5.82to31.08,withmeanandmedianvaluesaround
+manceofRandomForest(RF)ensemblelearnerscomparedtotheother
+models under consideration, demonstrating a substantial R2 value of 13.88 and 382.50, respectively. Confining concentrations vary from
+0KPato41.4KPa,representingextremesinthedataset.Analyzingthe
+0.872.Thissuggeststhatensemblemodellingapproaches,suchasRF,
+distributionofexplanatoryvariablesaidsinconstructingageneralized
+demonstrated enhanced impact and robust performance in predicting
+model [40]. The dataset’s highest and lowest values illustrate its ex-
+concretecorrosion.Thestudyindicatesthatensemblelearningmodels,
+tremes, while mean, median, and mode serve as indicators of central
+whichcombinemultiplemodels,exhibitmoredesirablecharacteristics
+tendencies. Standard deviation (SD) measures data variability, with a
+andyieldsuperiorresultscomparedtoindividuallearningmodels.This
+smallerSDindicatingamoreconcentrateddistributionandalargerSD
+isfurtherillustratedinFig.2,highlightingthedistinctionbetweenin-
+suggesting a broader and potentially more diverse distribution. This
+dividualandensemblemodels.
+statisticalmetricprovidesinsightsintothespreadordispersionofdata
+Complex real-world challenges often necessitate the presence of
+points, aiding in the understanding of the data’s overall distribution
+intelligentsystemsthatexhibithuman-likeexpertisewithinaparticular
+pattern.Skewnessandkurtosisevaluatenormalprobabilitydistribution
+domain. These systems should also possess the capability to adapt to
+regularity and profile [61]. Skewness is a statistical metric used to
+dynamic environments and provide explanations regarding their
+evaluate the asymmetry within a probability distribution, with zero
+decision-makingprocessesandactions.Theobjectiveofthisstudyisto
+suggestingperfectsymmetry,positivevaluesindicatingalongerright
+evaluatetheaccuracyofpredictingresilientmodulus(Mr)ofcompacted
+tail,andnegativevaluesalongerlefttail.
+subgradeby employingdifferenttechniques, includingindividualand
+Kurtosis serves as a statistical metric characterizing the form of a
+ensembleapproaches.Toaccomplishthis,datapointsfromtheliterature
+probabilitydistributionortheextentof"tailedness"inthedistribution
+were utilized. The programming tools used for modelling were
+curve of a dataset. Positive kurtosis (leptokurtic) and zero kurtosis
+4
+<<<PAGE 4 END>>>
+
+
+
+<<<PAGE 5 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.4. Relationofparameterstoresilientmodulus;(a)weightedplasticityindex;(b)dryunitweight;(c)confiningstress;(d)deviatorstress;(e)moisturecontent;(f)
+numberofFTcycles.
+Table2
+DataStatisticsforModelDevelopment.
+wPI γ d (kN/m3) σ c (kPa) σ d (kPa) w NFT
+(%)
+count 2813.00 2813.00 2813.00 2813.00 2813.00 2813.00
+mean 13.88 17.73 27.17 45.64 18.36 4.13
+std 6.43 1.56 11.85 17.34 4.52 3.93
+min 5.82 15.50 0.00 13.80 12.30 0.00
+25% 8.28 16.16 13.80 27.60 13.90 1.00
+50% 13.16 17.77 27.60 41.40 17.30 3.00
+75% 19.58 19.15 41.40 55.20 23.10 6.00
+Standarderror 0.12 0.029 0.22 0.32 0.08 0.07
+SampleVariance 41.40 2.42 140.4 300.6 20.4 15.4
+Kurtosis 0.00 -1.5 -1.19 -1.11 -0.99 1.9
+Skewness 0.71 0.08 -0.14 -0.13 0.35 1.20
+Range 25.26 4.9 41.4 55.1 29.2 20
+max 31.08 20.40 41.40 68.90 41.54 20.00
+Table3
+PearsonCorrelationMatrixforUtilizedDatainModels.
+wPI γ d(kN/m3) σ c(kPa) σ d(kPa) W(%) NFT Mr(MPa)
+wPI 1
+γ d(kN/m3) -0.37589 1
+σ c(kPa) -0.04884 -0.08613 1
+σ d(kPa) -0.07923 0.03045 0.01414 1
+W(%) 0.51245 -0.90425 0.05001 -0.03178 1
+NFT 0.02234 0.02995 -0.01262 6.72759E-4 0.00606 1
+Mr(MPa) -0.02486 0.26998 0.03292 -0.11429 -0.35437 -0.32427 1
+(mesokurtic)arecharacteristicsassociatedwithanormaldistribution, data curve, indicating a distribution with lighter tails compared to a
+signifyingacertainlevelofpeakednessinthedistributioncurve.Posi- normaldistribution[62].Understandingkurtosisprovidesvaluablein-
+tive kurtosis (leptokurtic) suggests a more peaked curve, indicating sightsintotheshapeandtailsofaprobabilitydistribution,contributing
+heaviertailsandadistributionwithmoreextremevaluesthananormal toacomprehensiveanalysisofthedata’scharacteristics.Table2shows
+distribution.Incontrast,negativekurtosis(platykurtic)suggestsaflatter that selected inputs and outputs align with suggested skewness and
+5
+<<<PAGE 5 END>>>
+
+
+
+<<<PAGE 6 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.5. Researchflowchartwithdetailsusedinmakingmodels.
+kurtosis ranges, enhancing data distribution. Table 3 represents the DTapproachhasabilitytomodelnon-linearrelationshipandinterpret
+Pearsoncorrelationcoefficient(r),animportantstatisticinthecontext interaction.Similarly,RFimprovespredictionaccuracybyaggregating
+of artificial intelligence (AI) modeling. This coefficient quantifies the multipledecisiontrees,andSVRcapturingintricatenon-linearpatterns
+correlationbetweeninputandoutputvariables,sheddinglightonthe usingkernelfunctions,makingitadaptabletothediversecomplexna-
+strengthoftheirassociation.Rangingfrom(cid:0) 1–1,avalueof0indicates ture.Theadditionofensemblebenefitsthemodelsbyvariancereduc-
+no correlation, while (cid:0) 1 and +1 signify strong negative and positive tion, model stability, predicative accuracy, effective handling of non-
+correlations, respectively. The correlation matrices in Table 3 show a linearrelationship,androbustandadaptability.Thus,theiruseproves
+strongconnection,withouttheissueofmulti-collinearity.It’scrucialto accuracy in predicting results in similar studies, and recognized effi-
+notethatinthisstudy,AImethodssuccessfullyhandlemulti-collinearity ciency.Moreover,anensemblelearningtechnique(ELT)isimplemented
+when modeling Mr. Python programming, along with Seaborn, is toforecastthestrengthofMr.Theensemblelearningmethodcombines
+employedtoimplementMLalgorithmsandgenerategraphs.Itprovides thepredictionsfrommultipleMLmodelstoenhanceoverallprediction
+a clearer understanding of how changes in input variables relate to performance[88].Fig.5depictsthecomprehensiveflowdiagramofthe
+changes in output strength, which ultimately helps in making pre- MLalgorithmprocessthatisusedinourresearch.
+dictionsaboutthemechanicalbehaviorofasystem.
+4. Machinelearning(ML)methods
+3. Methodology
+4.1. MLUsingSVRalgorithm
+Currently,numerousindustriesutilizesmachine-learningalgorithms
+(MLAs)tounderstandandestimatematerialbehaviour[80–84].Inthis Thesupportvectorregression(SVR)techniquewasfirstintroduced
+research, various ML-based approaches, namely support vector ma- byVapnikin1995[89].Sincethen,ithasgainedwidespreadusefor
+chines (SVM), decision trees (DT), and random forests (RF), are performing classification, prediction, and regression tasks. Numerous
+employed to assess the resilient modules (Mr) of subgrade. These studieshavedemonstratedthehighlearningcapacityofSVMsincivil
+particulartechniqueswerechosenduetotheirwidespreadapplication and structural engineering [90–92]. The approach utilizes labelled
+[85–87].Moreover,therationalebehindinselectingtheseapproaches trainingdatatogeneratesupportvectormachines(SVMs).SVMscanbe
+wasdrivenbytheirdistinctiveadvantagesinhandlingthecomplexities. utilized for either binary classification, where there are two possible
+6
+<<<PAGE 6 END>>>
+
+
+
+<<<PAGE 7 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Table4
+Hyperparametersandtheirvaluesusedinconstructingmodels.
+Algorithmsused Hyperparameters
+Title Valuesconsidered Optimal
+DecisionTree minsamples 2–5 4
+split
+maxdepth none,1–5 None
+minsamples 1–5 3
+leaf
+maxfeatures auto,sqrt auto
+SupportVector Gamma 0.5,0.1,0.01 0.5
+Regression
+Kernel Linear,rbf,poly, rbf
+sigmoid
+Fig.6. SVMrepresentation. C 1–2500 2250
+RandomForest minsamples 1–5 1
+leaf
+minsamples 2–5 2
+split
+maxdepth none,1–5 None
+nestimators 20–200 60
+maxfeatures auto,sqrt Auto
+Bootstrap true,false True
+denotethelinearfunctionwithinthistransformedspace.
+∑n
+f(x,w)= wjgj (x)+b (1)
+j=1
+In SVM regression, the function "gj(x)" is employed to express the
+transformationsofthenonlinearinputspace,thebiasterm"b,"andthe
+weightvector"w".Theprimaryaimistoacquireoptimalvaluesforthese
+parametersbymaximizingtheregularizedriskfunction.Thisfunction
+considers the delicate balance between model accuracy and decision
+boundarycomplexity,makingitacrucialaspectofachievinganeffec-
+tive and well-balanced model. The estimate’s quality can also be
+Fig.7. DTschematicdiagram.
+measuredusingthelossfunctionL,whichcanbeexpressedasfollows.
+Lε =Lε (y,f (x,w))={ |y(cid:0) f 0 (x,w)| if|y(cid:0) ot f h ( e x r , w w i ) s ≤ e ε (2)
+SVMregressionisuniqueinitsabilitytoaccommodateavarietyof
+lossfunctions,whichenablesthecreationofalinearregressionfunction
+with an extensive feature set while simultaneously reducing model
+complexitybyminimizing|(|w|)|2.Thisfeatureprovidesdatascientists
+with a double benefit. The function uses nonnegative slack variables,
+denotedbyξi+ξi^*,whereI=1,…,nrepresentsthesamplespresentin
+theπ-insensitivearea.Thissimplifiesthefunctionasfollows,leadingto
+theconstructionofSVMregression:
+min 1 ||w||2+C
+∑n
+(ξ +ξ∗) (3)
+2 i i
+i=1
+⎧
+⎪⎪⎨ yi (cid:0) f(xi ,w)≤ε+ξ∗
+i
+subjectto ⎪⎪⎩ξ f
+,
+(
+ξ
+x
+∗
+i ,
+≥
+w)
+0
+(cid:0)
+,
+y
+i
+i ≤
+=
+ε
+1,
++
+…
+ξ
+,
+∗ i
+n
+(4)
+i i
+Theoptimizationproblemcanberephrasedasadualproblem,andit
+canbeaddressedutilizingthefollowingfunction.
+Fig.8. RFalgorithmschematicdiagram.
+∑nsv (cid:0) )
+outcomes(0and1),orforregressiontasks,wherethegoalistopredicta f(x)= α i +α∗ i K(x,xi )subjectto0≤α∗ i ≤C,0≤α i ≤C (5)
+i=1
+continuousactualvalue.Givenitsproficiencyineffectivelyaddressing
+nonlinearregressionchallenges,theSVMregressionmodelisfrequently where nSV represents the number of support vectors. The kernel
+employedininput-outputanalysis.ThefirststepinSVMregressionin- functionisexpressedasfollows:
+volvesmappingthedatatoann-dimensionalfunctionspaceinafixed ∑m
+manner. Nonlinear activation functions are subsequently applied to K(x,xi )= (gi (x)+gi (xi )) (6)
+transformtheinputdataintoamorepowerfulspace,creatingaclear i=1
+distinctionfromtheinitialspace.Theexpressionf(x,w)isemployedto
+7
+<<<PAGE 7 END>>>
+
+
+
+<<<PAGE 8 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.9. Modeloutcomeswithbaggingandboosting;(a)DT-baggingapproach;(b)DT-boostingapproach;(c)ModifiedRFapproach;(d)SVR-baggingapproach;(e)
+SVR-boostingapproach.
+Various mathematical functions, including linear, radial basis, 4.2. Decisiontree
+polynomial,orsigmoidfunctions,areemployedduringthetrainingof
+SVMtodetectsupportvectorsonthefunctionsurface.Theselectionof AsupervisedlearningtechniqueusedinML,thatconstructsatree-
+thekernelfunctionplaysacrucialroleindeterminingthecomplexity likemodeltomakedecisionsbasedonasetofinputvariables[94].It
+andflexibilityofthedecisionboundarycreatedbytheSVMmodel[93]. iscommonlyusedforclassificationandregressiontasksandhasgained
+Each kernel function has unique properties and is appropriate for widespread popularity. In this method the data structure resembles a
+differenttypesofdata,dependingonthedataset’sspecificcharacter- tree,havinginnernodesandleaves.The"innernodes"aretheonesthat
+isticsandthemodellingtask’srequirements.Moreover,Fig.6depicts haveoneormorebranchesleadingtoothernodes.Similarly,"leaves"are
+thestandardizedSVMforthepredictionoftheproperties. thenodeslocatedattheendofaparticularbranchofthetree,andthey
+do not have any outgoing branches. During the training phase of a
+8
+<<<PAGE 8 END>>>
+
+
+
+<<<PAGE 9 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+4.3. Randomforestregression
+Researchers have taken an interest in the RF model because of its
+classificationandregressionmethodologythatisusedforpredictingthe
+mechanicalpropertiesofmaterials[96].Shaqadanetal.[97]utilized
+the RF regression model to predict the compressive strength (CS) of
+concreteandnoticedareliableperformance.UnlikeDT,whichproduces
+onlyonetree,RFgrowsmultipletreestoformaforestwheredifferent
+datasubsetsarerandomlyselectedanddistributedacrosseachtreeas
+demonstratedinFig.8[97].Everytreeconsistsofdataarrangedinrows
+andcolumnswithvariabledimensionsthatcanbedefined.Thedevel-
+opmentofeverytreeinvolvesthefollowingphases:
+1. Foreachtree,adataframeisgeneratedbyselectingarandomsubset,
+constituting two-thirds of the entire dataset, through a technique
+called bagging. Predictor variables are then randomly chosen and
+used to split the nodes of the tree in the most precise manner
+possible.
+2. Theremainingdatathatwasnotselectedisreferredtoas"out-of-bag"
+(OOB)data,whichisusedtoevaluatetheperformanceofeachtree,
+whichisknownastheout-of-bagerror.Followingtheestimationof
+the out-of-bag error for each tree, the errors from all trees are
+aggregated to determine the overall out-of-bag error rate. This is
+achievedbysumminguptheindividualerrorsofeverytreewithin
+therandomforestmodel.
+3. After each tree in the random forest algorithm generates its own
+regression model, the model selects a subset of trees based on the
+Fig.10. ModelValidationbyK-foldcross-validationalgorithm. numberofcorrectpredictions,whicharecountedas1,whileincor-
+rectpredictionsarecountedas0.Thetreeswiththehighestnumber
+decisiontree,eachinputvariableisgivenauniqueimportance,andan ofvotesarethenchosenforthefinalmodel.Thepredictionsmadeby
+"innernode"inthetreesplitstheinputdataintomultipleclassesusinga theseselectedtreesarecombinedtoobtaintheoverallpredictionfor
+function that is determined at this time. The decision tree algorithm the random forest model. This approach of combining predictions
+generatesthetreebyminimizingafitnessfunctiononagivendataset, frommultiplemodelshelpstoimprovetheaccuracyandrobustness
+identifyingtheoptimaltreeasillustratedinFig.7[43].Intheabsenceof ofthefinalprediction.
+classes within the dataset, the algorithm adjusts by constructing a
+regression model for the dependent variable, taking into account 4.4. Hyperparametertuning
+differentfactors.Ateachdivisionpointinthetree,thealgorithmeval-
+uatesthedisparitybetweenexpectedandactualfitnessfunctionvalues, Choosingtherighthyperparameters isvitalforobtainingoptimal
+distributing multiple points to each variable in the dataset. When all performance when building ML models [54]. In this study, multiple
+variablesexhibitequalerrorsatthesplitpoint,thealgorithmselectsthe parameterconfigurationsforeachalgorithmareusedbasedonprevious
+variable with the lowest fitness function values as the decisive split literature[98–101],asshowninTable4.Thisisdonetoimprovethe
+point.Iteratingthroughthisprocess,thealgorithmsystematicallycon- predictiveaccuracyofthemodels.Moreover,choosingthecorrectpa-
+structstheoptimaltree,ensuringacomprehensiveevaluationoffactors rametersiscrucialwhendevelopingnon-linearmodels,andevaluating
+andminimizingerrorsinthemodel’spredictivecapabilities[95]. different combinations to find the optimal configuration for accurate
+andreliableperformancecanbeatime-consumingprocess.
+Table5
+Statisticalmeasures.
+Equationofstatisticalindicator Acceptablerange Reference
+∑
+R2 = ∑ n i=1 (Yi (cid:0) Xi )2 Closeto1 [102]
+n i√=1̅ ( ̅̅Y̅̅̅i̅̅̅̅ (cid:0) ̅̅̅̅̅̅X̅̅̅i̅ ) ̅̅ 2 ̅̅̅̅̅̅̅̅̅̅
+RMSE= ∑ n i=1 (Pi (cid:0) Ei )2 MAE<RMSE [103]
+N
+∑
+MAE=1 n ∑ n i=1 |Ei (cid:0) Pi | [104]
+NSE=1(cid:0) ∑ n i=1 (Ei (cid:0) Pi )2 Higherthan0.65forverygoodmodel
+√̅̅̅̅ n i̅=̅̅1̅̅̅ ( ̅E̅̅̅i̅̅̅ (cid:0) ̅̅̅̅̅̅E̅̅i̅ ) ̅̅ 2 ̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+RMSLE ∑ = 1 n ∑ n i=1 [log(Pi +1)(cid:0) log(Ei +1)]2 Approaches0foragoodmodel [102]
+RSE=∑ n i=1 (Ei (cid:0) Pi )2
+n i=1 (E(cid:0) √P̅i̅ ) ̅̅ 2 ̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+RRMSE(%)= 1
+∑
+n i=1 (Ei (cid:0) Pi )2 x100
+Forexcellentmodel(0–10)%;goodmodel(11–20)%
+[104]
+|e| n
+n=datapoints,Ei =Experimentaldata,Pi =predicteddata,Ei=averageexperimentvalues,Pi=averagepredictedvalues
+9
+<<<PAGE 9 END>>>
+
+
+
+<<<PAGE 10 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.11. DToutcomes;(a)traindata;(b)traindatadiscrepancies.
+base models (or "learners") in the ensemble, the learning rate (which
+controlshowquicklythemodeladaptstonewdata),andothersignifi-
+cantfeaturesthathaveasubstantialimpactontheperformanceofin-
+dividualbasemodelswithintheensemble. Inthis study,baggingand
+boosting ensemble models with varying numbers of component sub-
+models(rangingfrom1to20)werebuiltforeachlearner.Correlation
+coefficients were employed to determine the best structures for each
+model. The findings revealed that the ensemble model with boosting
+demonstrated a higher correlation coefficient for prediction accuracy
+compared to the individual models, as shown in Fig. 9. Furthermore,
+Fig.9(a)andFig.9(b)presenttheoutcomesofDT.Inaddition,Fig.9(c)
+Fig.12. DToutcomes;(a)testset;(b)testsetdiscrepancies.
+displaystheresultsofthemodifiedRFapproach.Moreover,Fig. 9(d)
+and Figure (e) represents SVM models in the context of ensemble
+5. Ensembletechniquesusingbaggingandbossing
+models,while
+Ensemble algorithm is an effective way to improve the prediction
+6. K-foldcross-validationapproach
+accuracyofMLmodels.Thetechniqueofcombiningweakerprediction
+models or component sub-models is known as ensemble learning. It
+Thek-foldcross-validationtechniqueisoftenemployedtoovercome
+involvesusingmultiplemodelstomakepredictionsonagivendataset.
+the bias of random sampling in training data. According to Kohavi’s
+Althoughtheseindividualmodelsmaybelessaccuratewhenusedalone.
+research, ten-fold validation tests provide both reliable variance and
+Thus,combiningthemcanhelpminimizeover-fittingissuesassociated
+reasonablecomputationtimeforvalidationofthemodels.Inthisstudy,
+with the training data. By aggregating the predictions of multiple
+the effectiveness of a classification model aimed at categorizing a
+models,theensemblecanbenefitfromthestrengthsofeachmodeland
+specifiednumberofdatasamplesintotendistinctsubgroupswasthor-
+produceamorereliableandaccurateoverallprediction.Oneofthemost
+oughlyassessedusingstratifiedten-foldcross-validation.Thisrigorous
+widely usedensemblealgorithmsis known asbagging, whichutilizes
+evaluation involved dividing the dataset into ten subsets, ensuring a
+the bootstrap resampling and aggregation procedures. In bagging,
+balancedrepresentationofeachsubgroupinbothtrainingandtesting
+componentmodelsreplacetheoriginaltrainingset,andbootstraptests
+phases. During each of the ten iterations of model development and
+areconducteduptothesizeofthetrainingset.Thisintroducesalevelof
+assessment, a fresh data subset was exclusively employed for testing,
+randomness,allowingcertaindatapointstobeutilizedmultipletimesin
+while the remaining subsets were utilized for training the model. As
+thefinalmodels.Theinsightsdrawnfrombagginginvolveaveragingthe
+showninFig.10,themodelwasvalidatedusingthetestsubset,andthe
+results obtained from all individual models, providing a robust and
+meanprecisionvalueobtainedbytenmodelsacrosstenvalidationit-
+aggregated prediction. Boosting, on the other hand, is an alternative
+erationswascalculatedtoassesstheaccuracyofthemethod.
+methodthatassemblesacumulativemodelsimilartobagging.Itfacil-
+itates the creation of a larger number of components, achieving
+6.1. StatisticalanalysisforevaluatingMLmodels
+enhanced accuracy compared to a single model. In this method the
+weighted averages of dependent sub-models are incorporated to opti-
+Furthermore,statisticalmeasurementsareemployedtoanalyzethe
+mize their contribution to the overall model, offering a sophisticated
+performance,accuracy,anddependabilityofmodels.Therefore,atotal
+approachtoimprovepredictiveperformance.Therefore,thisstudyuti-
+ofeightstatisticalgaugeswereemployedtoevaluatetheperformanceof
+lizes SVM, DT, and RF regression to forecast the resilient modulus of
+thefinalizedmodels.TheseindicatorsincludeRootMeanSquaredError
+subgrade, and various hyper-parameter configurations were incorpo-
+ratedtoimprovethemodels’accuracy. (RMSE),Nash-SutcliffeEfficiency(NSE),RootMeanSquareLogarithmic
+Error(RMSLE),RootSquaredError(RSE),MeanAbsoluteError(MAE),
+PerformanceIndex(PI),PercentageofRelativeRootMeanSquareError
+5.1. Fine-tuningparametersforensemblelearners (RRMSE%),andDeterminationCoefficient(R2).TheNash-SutcliffeEf-
+ficiencyor,NSE,isastatisticalmetricthatspansarangefromnegative
+The parameters that need to be tuned may include the number of infinitytoone.Avalueof1signifiesacompletealignmentbetweenthe
+10
+<<<PAGE 10 END>>>
+
+
+
+<<<PAGE 11 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.13. DTensemble;(a)baggingresult;(b)baggingerrorresults;(c)boostingresults;(d)boostingsetdiscrepancies.
+modelandthedata.AcorrelationisdeemedtobestrongwhentheNash- approach. DT can capturenon-linearrelationships betweeninput fea-
+Sutcliffe Efficiency (NSE) surpasses 0.65,and the coefficient of deter- turesandthetargetvariable.Theycanlearncomplexdecisionbound-
+mination (R2) should reach 0.8. Typically, a smaller Mean Absolute ariesbysplittingthedataintodifferentregionsbasedonfeaturevalues.
+Error (MAE) is considered more favorable than a higher Root Mean TocapturetheresultsoftheDTapproach,themodelwastrainedand
+SquareError(RMSE),sinceitindicatesastrongerpredictivecapability evaluated using available data. The training process involved using
+of the models. Furthermore, as the Root Mean Squared Logarithmic 80%oftheavailabledata.Hence,resultinginanimpressiveR2valueof
+Error(RMSLE)approacheszero,itsignifiesahighlevelofproficiency 0.98(Fig.11(a)).TheR2valueisameasureofhowwellthemodelfits
+exhibitedbythemodel.Toguaranteeoptimalmodelperformance,itis the data. This indicates a stronger correlation with higher values.
+advised to maintain the proportional-integral (PI) value below 0.2. Moreover, the evaluation of a model is done by using its error distri-
+Furthermore,theRootRelativeMeanSquaredError(RRMSE)isutilized butionisillustratedinFig.11(b).Thus,providesvaluableinsightsinto
+as a metric to evaluate the performance of a model. A RRMSE value themodel’spredictiveperformanceandthequalityofitspredictions.It
+rangingfrom0%to10%isconsideredindicativeofexceptionaland wasobservedthatthemodelexhibitedasmallamountoferror,witha
+exceptional model performance. In order to classify a model as satis- maximum value of 55.20MPa. The majority of the training data
+factory, it is necessary for the Root Relative Mean Squared Error (99.15%)haderrorsoflessthan10MPa.Thisindicatesagoodagree-
+(RRMSE%) to fall within the range of 10–20%. Table 5 presents the mentbetweenthepredictedandactualvalues.Additionally,0.66%of
+permissibleintervalsforthemathematicalequationspertainingtothe thedataexhibitederrorsintherangeof10–15MPa,while0.17%had
+statisticalassessmentmeasures. errorssurpassing15MPa,asillustratedinFig.11(b).
+In the training phase, the model learns to recognize patterns and
+7. Results relationshipswithinthetrainingdata.Itadjustsitsinternalparameters
+tooptimizeitsabilitytomakeaccuratepredictions.Testingthemodel
+7.1. DTensembles-baggingandboosting aftertrainingisavitalstageinevaluatingitsperformance.Thetraining
+phaseinvolvesthemodellearningfromlabelleddata,whilethetesting
+The outcomes of applying nonlinear regression to the dataset of phaseassessesthemodel’sabilitytomakeaccuratepredictionsonnew,
+resilientmodulusareshowninFig.11.TheDTmodelpredictionsyield unseen data. The testing phase is crucial for determining the model’s
+moreaccurateandeffectiveresultsbyusingensemblealgorithmslike generalizationcapabilitiesandoverallperformance.TheresultoftheDT
+bagging and boosting (AdaBoost) as compared to the individual model (without ensemble techniques) using the test data (20%) is
+11
+<<<PAGE 11 END>>>
+
+
+
+<<<PAGE 12 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.14. RFmodel;(a)baggingresult;(b)baggingerrorresults;(c)boostingresults;(d)boostingsetdiscrepancies.
+Fig.15. RFmodelwithnthestimators;(a)nthRFresult;(b)nthRFerrorresults.
+displayedinFig.12(a).Thegraphindicatesastrongcorrelationtothe indicatingahighlevelofagreementbetweenthepredictedvaluesand
+output with an R2 value of 0.944. Upon assessing the test set after the actual values. A small proportion of the data (0.71%) had errors
+trainingthemodel,itwasfoundthatthemodeldemonstratedalowlevel fallingbetween10and15MPa.Furthermore,amere1.24%ofthedata
+oferror,withthemaximumerrorreaching78.96MPa.Themajorityof exhibitederrorsexceeding15MPaasillustratedinFig.12(b).
+thetestingdata(98.04%)exhibitederrorssmallerthan10MPa.Thus, These findings demonstrate the effectiveness of the individual DT
+12
+<<<PAGE 12 END>>>
+
+
+
+<<<PAGE 13 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.16. SVMoutcomes;(a)trainset;(b)trainsetdiscrepancies;(c)testset;(d)testsetdiscrepancies.
+modelinaccuratelypredictingtheoutputvariable.ThehighR2valueon Fig.13(c)withitsresidualerrorsasshowninFig.13(d).DTadaboost
+the testdatasuggeststhat the DT model generalizedwellbeyond the exhibitedhigheraccuracythanDTbaggingduetoitstrainingprocess
+trainingdata.Therefore,indicatingitsrobustnessandabilitytocapture witheachsubsequentmodelaimingtocorrectthemistakesmadebythe
+the underlying patterns in the dataset. Similarly, individual models previousmodelswithR2=0.99.Moreover,theresultsshowthat99.19%
+show bias, variance, and overfitting within the model. These can be of test data errors were less than 10MPa. While, only 0.71% has an
+reduced by ensemble approaches as they help in the mitigation of error distribution in the range of 10 and 15MPa, and 0.17% has an
+overfittingandothererrorsbypredictionsfrommultiplemodels.This errorvaluesgreaterthenbetween15MPaasdepictedinFig.13(d).
+collectivelyprovidesamorebalancedandrobustestimateofthetarget
+variable. The individual DT method is ensemble with the bagging 7.2. Randomforestoutcome
+methodasdepictedinFig.13.
+Theensemblenatureofalgorithmsmakesitlesssensitivetooutliers Randomforests(RFs)areapowerfultypeofEMLAsthatcombines
+in the data, if it exist in the model. Outliers that may heavily have a theprinciplesofbaggingandrandomfeatureselection.Thiscombina-
+significantimpactonthepredictionsofthemodelarelikelytohaveless tion results in prediction models that are highly effective in terms of
+influence.Asaresult,theoverallpredictionstendtobemorerobustand accuracyandgeneralization.Whilealsobeinguser-friendlyandeasyto
+lessinfluencedbyextremedatapoints.Fig.13(a)illustratesthebenefits interpret.Thecombinationofbaggingandrandomfeatureselectionin
+ofusingensembletechniquessuchasbagging,whichresultedinmore RFsyieldsseveraladvantages.First,ithelpstoreducethevarianceofthe
+accuratepredictionsanderrordistribution(Fig.13(b)).Theutilizingof model and prevent overfitting. By training multiple DTs on different
+the bagging as an ensemble technique yielded a highly favourable subsets of data and averaging their predictions, RFs achieve better
+outcomewithalowtestingdataerror,andasubstantialR2valueof0.97
+generalizationandarelesspronetooverfittingcomparedtoindividual
+asdepictedinFig.13(a).Similarly,residualerrordistributionindicates DTs. Similarly, to aforementioned models, the RFs model undergoes
+that98.40%ofthedatasethasanerrordistributionrangingfrom0to trainingonthedatatooptimizeitsperformanceasillustratedinFig.14.
+10MPa. Whereas, 1.06% has an error between 10 and 15MPa, and Trainingiscrucialforthemodeltogenerateaccuratepredictionsonnew
+another 0.53% has an error values greater then between 15MPa. and unseen data. During training, the model learns the patterns and
+Similarly,utilizationofadaboostonDTharvestsprominentoutcomeas relationshipspresentinthedata.Thus,enablingittomakepredictions
+depictedinFig.13(c).TheDTmodelcombinedwithadaboosttechnique fromthesepatterns.Italsoallowsfortheidentificationandcorrectionof
+exhibited a strong correlation in prediction. This is attributed to the anyerrorsorbiaseswithinthemodel.ItcanbeseeninFig.14(a)thata
+impact of strong learners on the prediction component, as shown in significantrelationshipwithavalueofapproximately0.93isobserved.
+13
+<<<PAGE 13 END>>>
+
+
+
+<<<PAGE 14 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.17. RFmodel;(a)baggingresult;(b)baggingerrorresults;(c)boostingresults;(d)boostingsetdiscrepancies.
+Table6
+Statisticalanalysisofthemodels.
+Statisticalmeasures DT DT-bagging DT-boosting RF RF-Nth SVM SVM-bagging SVM-bagging
+Train Test Test Test Train Test Test Train Test Test Test
+R2 0.99 0.97 0.97 0.99 0.93 0.95 0.99 0.87 0.89 0.93 0.93
+R 0.99 0.98 0.99 1.00 0.96 0.98 1.00 0.93 0.94 0.96 0.97
+NSE 0.99 0.97 0.97 0.99 0.93 0.95 0.99 0.87 0.89 0.93 0.93
+MAE 1.71 2.58 2.30 1.52 4.05 3.01 1.30 6.47 7.10 5.48 3.45
+RMSE 2.85 5.09 4.59 2.45 6.43 3.61 2.23 8.53 9.43 7.53 4.15
+RMSLE 0.09 0.13 0.12 0.09 0.22 0.13 0.07 0.30 0.32 0.34 0.15
+RSE 0.11 0.18 0.16 0.09 0.27 0.22 0.08 0.36 0.34 0.27 0.26
+RRMSE% 8.47 14.81 13.36 7.15 20.12 10.52 6.49 28.05 27.43 21.89 12.09
+PI 0.04 0.08 0.07 0.04 0.10 0.05 0.03 0.15 0.15 0.11 0.06
+Thisindicatesastrongcorrelationbetweenthemodel’spredictionsand configurationofthetestsetrevealsimportantinsightsaboutthemodel’s
+thetrainingdata.However,itisimportanttonotethatastrongcorre- performance.Anaverageerrorofapproximately3.01MPaisobserved.
+lationinthetrainingdatadoesnotguaranteegoodperformanceontest Thisindicatesatypicaldeviationbetweenthemodel’sforecastvalues
+data.Whenthemodelisoverlycomplex,itmayoverfitthetrainingdata. andtheexperimentalvaluesinthetestset.Additionally,themaximum
+Thisleadstopoorgeneralization.Therefore,itisrecommendedtoassess error of 7.34MPa signifies the largest discrepancy between the pre-
+themodel’sgeneralizationabilitybytestingitonunseendata,asillus- dictedandactualvaluesasthemodel’spredictiondeviatessignificantly
+tratedinFig.14(c).Thetestdatahelpsevaluatewhetherthemodelis fromthetruevalueinthetestset.Ontheotherhand,theminimumerror
+overfittingorunderfittingthetrainingdata.Itprovidesinsightsintothe of0.0093MParepresentsthesmallestdeviationobserved,indicatinga
+model’sactualperformance.Agoodmodelshouldexhibitsimilarper- casewherethemodel’spredictionalignscloselywiththeactualvalue.
+formanceonboththetrainingandtestdata,withaminimaldifferencein Moreover,100%oferrorvalueslieintherangeof0–10MPaasillus-
+theirperformancemetrics.Therefore,Fig.14(c)showsastrongermodel tratedinFig.14(d).
+relationshipwithanR2valueofapproximately0.95,whichiscloseto The parameter "n_estimators" in random forest regression (RFR)
+the relationship observed in the training set. This indicates that the specifiesthenumberofdecisiontreesincludedintheensemblemodel.
+modelperformswellonthetestdata.Theresidualerrorofthetrainand Increasingthenumberoftreesenhancesthemodel’scapacitytoaccu-
+test set is illustrated in Fig. 14(b) and Fig. 14(d). The residual error rately represent the data. Thus, a total of (nth= 20 sub-models) were
+14
+<<<PAGE 14 END>>>
+
+
+
+<<<PAGE 15 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.18. Radardiagram;(a)Trainset;(b)Testset;(c)Ensemblemodel.
+created,andisassessedbytheircorrelationcoefficients.Allsub-models boostingmodelisdepicted,showcasinganaverageerrorof3.45MPa,a
+exhibitedacorrelationcoefficientexceedingR2=0.84.Thesefindings maximumerrorof8.98MPa,andaminimumerrorof0.009MPa.
+revealarobustcorrelationbetweenthepredictedandmeasuredresults
+foreachsub-model.Notably,thesub-modelconstructedwith(nth=16th
+7.4. Modelvalidationusingstatisticalanalysis
+sub-models)achievedthehighestR2valueof0.99,asdepictedinFig.15
+(a). The ensemble model shows more accuracy in predicating the
+ModelevaluationisadirestepinMLforassessingtheperformanceof
+outcome variables with a strong and stable relationship between the
+themodels.Thus,K-foldandstatisticalapproacheswereemployedfor
+predictedandtargetedvalues,asindicatedbyitsR2valueof0.99,anda
+the evaluation of the models. The statistical assessment of all ML
+meanerrordistributionof1.29MPa.Moreover,99.46%oferrorvalues
+methodsbasedisdisplayedinTable6.Therefore,clearlyshowsthatthe
+lie in the range of 0–10MPa, 0% in the range of 10–15, and 0.53%
+ensemble methods outperformed the individual approaches, with a
+greaterthan15MPaasdemonstratedinFig.15(b).
+significant reduction in error distribution values for all models. In
+addition,Fig.18depictsthevisualdemonstrationofallmodelsbyradar
+7.3. Supportvectorregressoralgorithmwithensemblelearner diagram.
+TheresultsobtainedfromusingtheSVMmodelaloneandincom- 8. K-foldcross-validationtestresults
+bination with the ensemble approach are presented in Fig. 16. The
+trainingoutcomeoftheSVRwithR2valueof0.87isshowninFig.16(a), Toassesstheaccuracyofpredictionmodels,itisessentialtoconduct
+anditserrordistributionisdemonstratedinFig.16(b).TheSVMmodel athoroughevaluation.Validationplaysapivotalroleinthisassessment,
+in the test set exhibits a stronger correlation with the target results, determining the model’s accuracy. One effective technique for this
+achievinganR2valueof0.88.Thisisevidentbyitsaverageerrorvalue purpose is the K-fold validation test, which involves rearranging and
+of7.09MPa,asillustratedinFig.16(c)andFig.16(d). analysingexperimentaldataindistinctpartstoevaluatereliability.In
+InordertoimprovetheefficiencyoftheSVMmodel,itwascombined thismethodthedatasamplesaredividedintotenequalsubgroups,using
+withsupervisedhybridalgorithms,includingbaggingandboosting.The onesubgroupforvalidationandtheremainingfortraining.The10-fold
+baggingmodelsofSVMshowarobustcorrelationbydemonstratingan cross-validation process repeats this cycle ten times, calculating the
+R2valueof0.93asindicatedinFig.17(a).Similarly,Fig.17(b)displays averageprecisiontominimizetheimpactofinherentbiasfromrandom
+theerrordistributionvalues,withamaximum,minimumandaverage dataselection.Thisensuresanaccuraterepresentationofthemodel’s
+values of approximately 57.56MPa, 0.02MPa,and 5.47MPa, respec- generalizabilityandreliability.Modelaccuracyisthenmeasuredusing
+tively. The SVM model with boosting also demonstrates a strong cor- three metrics: mean absolute error (MAE), root mean squared error
+relationbetweeninputandoutputvariablesbydisplayinganR2valueof (RMSE),and(R2)values.Fig.19(a-i)presentsananalysisofthecross-
+0.937asshowninFig.17(c).InFig.17(d),theerrordistributionofthe validation data using the MAE, RMSE and R2 values, which shows
+15
+<<<PAGE 15 END>>>
+
+
+
+<<<PAGE 16 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.19. ValidationofMLmodels;(a)DTapproachwithMAE;(b)DTbaggingapproachwithRMSE;(c)DTboostingapproachwithR2;(d)RFmethodwithMAE;(e)
+RFmethodwithRMSE;(f)RFmethodwithR2;(g)SVMapproachwithMAE;(h)SVMbaggingapproachwithRMSE;(i)SVMboostingapproachwithR2.
+moderate to substantial correlation of the nonlinear and ensemble
+models. It demonstrates that despite some variations, a high level of
+precisionisachievedinpredictingresults.Forinstance,theR2valuesof
+allmodelsrangefrom0.5to0.6fortheirlowestscores,whilethehighest
+valuesarefoundbetween0.80and0.99.Similarly,theMAEandRMSE
+values indicate minimal errors for ensemble models as compared to
+individualmodels.
+9. Importanceofpermutationvariable
+Asensitivityanalysisisconductedtoassesstheindividualimpactof
+independentvariablesontheoutcomesasillustratedinFig.20.Itcanbe
+seen that γ d , σ c, and σ d have major contribution of about 20.48%,
+19.28%,and17.83toresilientmodulus.Thus,anincreaseindryunit
+weight lead to a higher resilient modulus due to denser and more
+compactedmaterialresultinginincreasestiffness.Similarly,confining
+anddeviatorstressdemonstratesmaterialsabilitytoresistdeformation
+and material responds to external loads. This densification typically
+Fig.20. ParametercontributiontoMr. resultsinanincreaseinstiffness,leadingtoahigherresilientmodulus.
+16
+<<<PAGE 16 END>>>
+
+
+
+<<<PAGE 17 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Fig.21. GUIofMr.
+Denser soils can better resist deformation under repeated loading, the models’ applicability to subgrades with significantly different
+contributingtoamorerobustandresilientmaterial. characteristicsorcomingfromdifferentregionssincethedatasetmight
+not include all possible soil types and environmental conditions.
+10. Graphicaluserinterface(GUI) Furthermore,themodelsdependgreatlyonsomeinputparametersand
+may not reflect fully the actual loading conditions and the long-term
+Inrecenttimes,theswiftadvancementofAItechnologyhasexpe- environmentalvariations.
+ditedtheintegrationofintelligenceandinformatizationintraditional To enhance the effectiveness and applicability of the models, it is
+industries,includingthefieldofconcrete.ThissurgeinAIdevelopment suggestedthatfutureworksshouldincludemoredatasetsfromvarious
+providesamplemotivationfortheapplicationofAItechniquesinthe locations and types of subgrade materials. Moreover, including time-
+concrete industry.As depicted inFig.21, thegraphical user interface dependent data on the subgrade performance under varying climatic
+(GUI) enhances model flexibility and functions as a user-accessible conditionsmayhelp usbetterunderstandthenatureofsubgrade ma-
+gateway,simplifyingoperationalcomplexities.Consequently,itproves terialsandincreasethereliabilityofourmodels.Extendingthehybrid
+highlybeneficialforbothacademicresearchandindustrialapplications. modellingtechniquesthatincorporatethestrengthsofSVM,DT,andRF
+Thisuser-friendlyinterfaceenablesuserstoseamlesslyinteractwiththe with other machine learning techniques including neural networks or
+model, inputting the necessary parameters effortlessly. Such ease of gradient boosting could enhance the predictive performance. Inte-
+interaction facilitates the generation of desired results, making it a gratingmoreenvironmentalfactorsandrealistictrafficloadingpatterns
+practicalandversatiletoolforutilizingthemodel’scapabilitiesacrossa wouldimprovetherobustnessofthemodels.Thisproject’sGUIhastobe
+diverserangeofscenarios. testedandvalidatedinreal-lifescenarios.Thefeedbackfromtheprac-
+titionerswillbeusedtorefinethetoolandmakeitmoreuser-friendly.
+11. Limitationandfuturework Through the combination of the graphical user interface (GUI) and
+GeographicalInformationSystems(GIS),theuserswillbeabletousethe
+Thisresearchworkdeliversarobustmethodologyforestimatingthe spatial analysis feature to provide a graphical representation and a
+Mr of subgrade using three models namely as SVR, DR, and RF with forecast of the robust modulus in different geographical locations.
+2813dataset.Nevertheless,theremightbesomelimitationsregarding FuturestudiesmayexploreforemployingAItechniquestoimprovethe
+17
+<<<PAGE 17 END>>>
+
+
+
+<<<PAGE 18 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+transparencyofcomplexalgorithmssothatpractitionerscanunderstand Build.Mater.216(2019)84–92,https://doi.org/10.1016/j.
+andtrusttheoutcomes. conbuildmat.2019.04.262.
+[3] W.Zhang,K.N.Ahmad,Z.Tong,Z.Hu,H.Wang,M.Wu,K.Zhao,S.Yang,
+H.Farooq,L.N.Mohammad,In-TimeDensityMonitoringofIn-PlaceAsphalt
+12. Conclusions LayerConstructionviaIntelligentCompactionTechnology,J.Mater.Civ.Eng.35
+(2023),https://doi.org/10.1061/(asce)mt.1943-5533.0004558.
+[4] G.Bilgen,O.F.Altuntas,Sustainablere-useofwasteglass,cementandlime
+Theprimarygoalofthisstudywastoevaluatetheeffectivenessof treateddredgedmaterialaspavementmaterial,CaseStud.Constr.Mater.18
+bothensembleandindividuallearningapproachesinpredictingtheMr (2023)e01815,https://doi.org/10.1016/j.cscm.2022.e01815.
+[5] H.F.Afridi,M.J.Khattak,Self-HealingCharacteristicsofPolyvinylAlcohol-Fiber-
+of the subgrade. Robust models were constructed using ensemble
+ReinforcedHotMixAsphaltforEnhancedPavementDurability,Transp.Res.Rec.
+methods such as bagging and boosting, along with individual models (2024),https://doi.org/10.1177/03611981241231969.
+like decision trees (DT), random forests (RF), and support vector ma- [6] X.Xie,Y.Gao,F.Hou,T.Cheng,A.Hao,H.Qin,FluidInverseVolumetric
+ModelingandApplicationsfromSurfaceMotion,IEEETrans.Vis.Comput.Graph.
+chines (SVM). The reliability of these models was assessed through
+(2024),https://doi.org/10.1109/TVCG.2024.3370551.
+predictive capacity and sensitivity analysis, leading to the following [7] D.Sarker,J.X.Wang,Moistureinfluenceonstructuralresponsesofpavementon
+conclusions: expansivesoils,Transp.Geotech.35(2022)100773,https://doi.org/10.1016/j.
+trgeo.2022.100773.
+[8] Y.Luo,H.Wu,W.Song,J.Yin,Y.Zhan,J.Yu,S.AbubakarWada,Thermal
+1. Ensemblelearningalgorithms,utilizingbaggingandboostingtech- fatigueandcrackingbehaviorsofasphaltmixturesunderdifferenttemperature
+niques,yieldedefficientresultsandshowcasedsuperiorperformance variations,Constr.Build.Mater.369(2023)130623,https://doi.org/10.1016/j.
+comparedtoindividuallearningmethods.Bothofthesetechniques conbuildmat.2023.130623.
+exhibited R2 values exceeding 0.90. Specifically, employing the [9] Z.Zimar,D.Robert,A.Zhou,F.Giustozzi,S.Setunge,J.Kodikara,Applicationof
+coalflyashinpavementsubgradestabilisation:Areview,J.Environ.Manag.312
+boostingapproachwithdecisiontrees(DT)andrandomforests(RF) (2022)114926,https://doi.org/10.1016/j.jenvman.2022.114926.
+ledtoasignificantimprovementintheoutcomes. [10] A.R.Gabr,B.Roy,M.R.Kaloop,D.Kumar,A.Arisha,M.Shiha,S.Shwally,J.
+W.Hu,S.M.El-Badawy,Anovelapproachforresilientmoduluspredictionusing
+2. Twenty different models with varying n-estimators in ensemble
+extremelearningmachine-equilibriumoptimisertechniques,Int.J.Pavement
+methods(baggingandboosting)wereemployed.TheRFandDTwith Eng.23(2022)3346–3356,https://doi.org/10.1080/10298436.2021.1892109.
+boostingachievedanotableR2scoreof0.99.Thus,demonstratinga [11] S.Hao,T.Pabst,PredictionofCBRandresilientmodulusofcrushedwasterocks
+usingmachinelearningmodels,ActaGeotech.17(2022)1383–1402,https://doi.
+superiorandreliableperformancecomparedtobaggingandstand-
+org/10.1007/s11440-022-01472-1.
+aloneapproaches. [12] R.SarkhaniBenemaran,M.Esmaeili-Falak,A.Javadi,Predictingresilient
+3. Exceptional alignment between predicted and observed outcomes modulusofflexiblepavementfoundationusingextremegradientboostingbased
+optimisedmodels,Int.J.PavementEng.(2022),https://doi.org/10.1080/
+was accomplished by implementing a modified bagging technique
+10298436.2022.2095385.
+witharandomforest.Thissuccessiscreditedtotheincorporationof [13] D.Hu,Y.Li,X.Yang,X.Liang,K.Zhang,X.Liang,ExperimentandApplicationof
+a specific machine-based learner within the random forest, high- NATMTunnelDeformationMonitoringBasedon3DLaserScanning,Struct.
+lightingthesignificantR2valueof0.99. ControlHeal.Monit.2023(2023),https://doi.org/10.1155/2023/3341788.
+[14] A.Fouad,R.Hassan,A.Mahmood,DevelopingResilientModulusPrediction
+4. Furthermore,toassessthepredictiveaccuracyofthemodel,aK-Fold ModelsBasedonExperimentalResultsofCrushedHornfelsMixeswithDifferent
+cross-validation process was conducted. In this procedure, various GradationsandPlasticity,Int.J.PavementRes.Technol.15(2022)124–137,
+statistical indicators were employed, including the coefficient of https://doi.org/10.1007/s42947-021-00005-5.
+correlation(R2),meanabsoluteerrors(MAE),androotmeansquare [15] B.Ghorbani,E.Yaghoubi,P.L.P.Wasantha,R.vanStaden,M.Guerrieri,
+S.Fragomeni,Machinelearning-basedpredictionofresilientmodulusforblends
+error (RMSE). The analysis of these statistical indicators revealed oftire-derivedaggregatesanddemolitionwastes,Road.Mater.PavementDes.
+verygoodandpromisingresults.AllthemodelsexhibitedlowerMAE (2023),https://doi.org/10.1080/14680629.2023.2222176.
+andRMSEerrorswhilemaintainingahighR2correlation. [16] L.Sadik,DevelopingPredictionEquationsforSoilResilientModulusUsing
+EvolutionaryMachineLearning,Transp.Infrastruct.Geotechnol.(2023),https://
+5. Permutationanalysisindicatedthatdrydensity,confiningstress,and doi.org/10.1007/s40515-023-00342-x.
+deviator stress played pivotal roles in the parametric results for [17] W.Zhen,Z.Wang,Q.Wang,W.Sun,R.Wang,W.Zhang,Y.Zhang,W.Qin,B.Li,
+Q.Wang,B.Hong,Y.Yang,J.Xu,S.Ma,M.Da,L.Feng,X.Zang,X.Mo,X.Sun,
+resilientmodulus.
+M.Wu,J.Xu,J.Xu,Y.Huang,H.Zhang,Cardiovasculardiseasetherapeuticsvia
+6. GUI is developed that can be used for practical implementation. engineeredoralmicrobiota:Applicationsandperspective,IMeta(2024),https://
+Thus,utilizationwillsafecostandtime. doi.org/10.1002/imt2.197.
+[18] T.Lin,T.Ishikawa,J.Yang,T.Tokoro,Evaluationofclimateeffectonresilient
+modulusofgranularsubgradematerial,ColdReg.Sci.Technol.194(2022),
+https://doi.org/10.1016/j.coldregions.2021.103452.
+DeclarationofCompetingInterest [19] S.Y.Kim,D.J.Kim,J.S.Lee,T.H.K.Kang,Y.H.Byun,Resilientmodulusestimation
+usingin-situmodulusdetector:performanceandfactors,Int.J.PavementEng.
+(2022),https://doi.org/10.1080/10298436.2022.2096883.
+The authors declare that they have no known competing financial
+[20] C.C.Ikeagwuani,D.C.Nwonu,C.C.Nweke,Resilientmodulusdescriptiveanalysis
+interestsorpersonalrelationshipsthatcouldhaveappearedtoinfluence andestimationforfine-grainedsoilsusingmultivariateandmachinelearning
+theworkreportedinthispaper. methods,Int.J.PavementEng.23(2022)3409–3424,https://doi.org/10.1080/
+10298436.2021.1895993.
+[21] X.Liu,X.Zhang,H.Wang,B.Jiang,Laboratorytestingandanalysisofdynamic
+DataAvailability andstaticresilientmodulusofsubgradesoilundervariousinfluencingfactors,
+Constr.Build.Mater.195(2019)178–186,https://doi.org/10.1016/j.
+conbuildmat.2018.11.061.
+Datawillbemadeavailableonrequest.
+[22] J.Peng,J.Zhang,J.Li,Y.Yao,A.Zhang,Modelinghumidityandstress-
+dependentsubgradesoilsinflexiblepavements,Comput.Geotech.120(2020),
+AppendixA. Supportinginformation https://doi.org/10.1016/j.compgeo.2019.103413.
+[23] J.Zhang,J.Peng,L.Zeng,J.Li,F.Li,Rapidestimationofresilientmodulusof
+subgradesoilsusingperformance-relatedsoilproperties,Int.J.PavementEng.22
+Supplementarydataassociatedwiththisarticlecanbefoundinthe (2021)732–739,https://doi.org/10.1080/10298436.2019.1643022.
+onlineversionatdoi:10.1016/j.mtcomm.2024.109764. [24] J.Zhang,A.Zhang,C.Huang,H.Yu,C.Zhou,Characterisingtheresilient
+behaviourofpavementsubgradewithconstructionanddemolitionwasteunder
+Freeze–Thawcycles,J.Clean.Prod.300(2021),https://doi.org/10.1016/j.
+References jclepro.2021.126702.
+[25] T.Ishikawa,T.Lin,S.Kawabata,S.Kameyama,T.Tokoro,Effectevaluationof
+freeze-thawonresilientmodulusofunsaturatedgranularbasecoursematerialin
+[1] X.Chu,I.Campos-Guereta,A.Dawson,N.Thom,Sustainablepavementdrainage
+pavement,Transp.Geotech.21(2019),https://doi.org/10.1016/j.
+systems:Subgrademoisture,subsurfacedrainagemethodsanddrainage
+trgeo.2019.100284.
+effectiveness,Constr.Build.Mater.364(2023)129950,https://doi.org/
+[26] A.M.Al-Mahbashi,M.Al-Shamrani,Long-termandimmediateeffectsof
+10.1016/j.conbuildmat.2022.129950. freeze–thawcyclesontheresilientmodulusoftreatedexpansivesubgrades,Road.
+[2] A.Hayat,A.Hussain,H.F.Afridi,Determinationofin-fieldtemperature
+variationsinfreshHMAandcorrespondingcompactiontemperatures,Constr.
+18
+<<<PAGE 18 END>>>
+
+
+
+<<<PAGE 19 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+Mater.PavementDes.24(2023)2411–2424,https://doi.org/10.1080/ [51] M.N.Amin,K.Khan,A.M.AbuArab,F.Farooq,S.M.Eldin,M.F.Javed,Prediction
+14680629.2022.2146603. ofsustainableconcreteutilizingricehuskash(RHA)assupplementary
+[27] A.J.Puppala,L.R.Hoyos,A.K.Potturi,ResilientModuliResponseofModerately cementitiousmaterial(SCM):Optimizationandhyper-tuning,J.Mater.Res.
+Cement-TreatedReclaimedAsphaltPavementAggregates,J.Mater.Civ.Eng.23 Technol.25(2023)1495–1536,https://doi.org/10.1016/j.jmrt.2023.06.006.
+(2011)990–998,https://doi.org/10.1061/(asce)mt.1943-5533.0000268. [52] C.Chen,D.Han,C.C.Chang,MPCCT:Multimodalvision-languagelearning
+[28] X.Hu,T.Tang,L.Tan,H.Zhang,FaultDetectionforPointMachines:AReview, paradigmwithcontext-basedcompactTransformer,PatternRecognit.147
+Challenges,andPerspectives,Vol.12,Page391.12,Actuators2023(2023)391, (2024),https://doi.org/10.1016/j.patcog.2023.110084.
+https://doi.org/10.3390/ACT12100391. [53] H.Jiao,Y.Wang,L.Li,K.Arif,F.Farooq,A.Alaskar,Anovelapproachin
+[29] J.Cao,S.-T.Quek,H.Xiong,Z.Yang,ComparisonofConstrainedUnscentedand forecastingcompressivestrengthofconcretewithcarbonnanotubesas
+CubatureKalmanFiltersforNonlinearSystemParameterIdentification,J.Eng. nanomaterials,Mater.TodayCommun.35(2023)106335,https://doi.org/
+Mech.149(2023),https://doi.org/10.1061/jenmdt.emeng-7091. 10.1016/j.mtcomm.2023.106335.
+[30] U.Asif,M.F.Javed,M.Abuhussain,M.Ali,W.A.Khan,A.Mohamed,Predicting [54] G.Xu,G.Zhou,F.Althoey,H.M.Hadidi,A.Alaskar,A.M.Hassan,F.Farooq,
+themechanicalpropertiesofplasticconcrete:Anoptimizationmethodbyusing Evaluationofpropertiesofbio-compositewithinterpretablemachinelearning
+geneticprogrammingandensemblelearners,CaseStud.Constr.Mater.20(2024) approaches:optimizationandhypertuning,J.Mater.Res.Technol.25(2023)
+e03135,https://doi.org/10.1016/j.cscm.2024.e03135. 1421–1446,https://doi.org/10.1016/j.jmrt.2023.06.007.
+[31] S.Q.Yang,J.Z.Tang,S.S.Wang,D.SenYang,W.T.Zheng,AnExperimentaland [55] Y.Hu,A.A.Alaskar,F.Althoey,M.A.Abuhussain,G.Alfalah,F.Farooq,Strength
+ModelingInvestigationonCreepMechanicalBehaviorofGraniteUnderTriaxial evaluationsustainableconcretewithwasteingredientsatelevatedtemperature
+CyclicLoadingandUnloading,Rock.Mech.Rock.Eng.55(2022)5577–5597, byemployinginterpretablealgorithms:Optimizationandhypertuning,Mater.
+https://doi.org/10.1007/s00603-022-02920-w. TodayCommun.36(2023)106467,https://doi.org/10.1016/j.
+[32] Y.Wang,T.Mao,Y.Xia,X.Li,X.Yi,Macro-mesofatiguefailureofbimrockswith mtcomm.2023.106467.
+variousblockcontentsubjectedtomultistagefatiguetriaxialloads,Int.J.Fatigue [56] A.Zaman,R.U.D.Nassar,M.Alyami,S.Shah,M.F.Rehman,I.Y.Hakeem,
+163(2022),https://doi.org/10.1016/j.ijfatigue.2022.107014. F.Farooq,Forecastingthestrengthofmicro/nanosilicaincementitiousmatrixby
+[33] K.M.Islam,S.L.Gassman,EffectoftheField-StressStateontheSubgrade machinelearningapproaches,Mater.TodayCommun.37(2023)107066,
+ResilientModulusforPavementRuttingandIRI,Geotechnics3(2023)360–374, https://doi.org/10.1016/j.mtcomm.2023.107066.
+https://doi.org/10.3390/geotechnics3020021. [57] Z.Liu,X.Gu,H.Ren,Ruttingpredictionofasphaltpavementwithsemi-rigid
+[34] M.Dong-GyouKim,DEVELOPMENTOFACONSTITUTIVEMODELFOR base:Numericalmodelingonlaboratorytoacceleratedpavementtesting,Constr.
+RESILIENTMODULUS,2004.〈https://search.proquest.com/openview/2ab4e5c1 Build.Mater.375(2023),https://doi.org/10.1016/j.conbuildmat.2023.130903.
+2c5e4375da7d320542623efe/1?pq-origsite=gscholar&cbl=18750&diss=y〉 [58] Y.Zhang,M.Ling,F.Kaseer,E.Arambula,R.L.Lytton,A.E.Martin,Prediction
+(accessedOctober25,2023). andevaluationofruttingandmoisturesusceptibilityinrejuvenatedasphalt
+[35] A.L.Smart,D.N.Humphrey,DeterminationofresilientmodulusforMaine mixtures,J.Clean.Prod.333(2022),https://doi.org/10.1016/j.
+roadwaysoils,(1999).〈https://trid.trb.org/view/647964〉(accessedOctober25, jclepro.2021.129980.
+2023). [59] C.Chen,D.Han,X.Shen,CLVIN:Completelanguage-visioninteractionnetwork
+[36] R.Pezo,W.R.Hudson,Predictionmodelsofresilientmodulusfornongranular forvisualquestionanswering,Knowl.-BasedSyst.275(2023),https://doi.org/
+materials,Geotech.Test.J.17(1994),https://doi.org/10.1520/gtj10109j. 10.1016/j.knosys.2023.110706.
+[37] Z.Han,S.K.Vanapalli,J.pingRen,W.lieZou,Characterizingcyclicandstatic [60] R.Fei,Y.Guo,J.Li,B.Hu,L.Yang,AnImprovedBPNNMethodBasedon
+moduliandstrengthofcompactedpavementsubgradesoilsconsideringmoisture ProbabilityDensityforIndoorLocation,IEICETrans.Inf.Syst.E106.D(2023)
+variation,SoilsFound.58(2018)1187–1199,https://doi.org/10.1016/j. 773–785,https://doi.org/10.1587/transinf.2022DLP0073.
+sandf.2018.06.003. [61] Y.Zhao,J.Wang,G.Cao,Y.Yuan,X.Yao,L.Qi,IntelligentControlof
+[38] H.Huang,Y.Yuan,W.Zhang,M.Li,Seismicbehaviorofareplaceableartificial MultileggedRobotSmoothMotion:AReview,IEEEAccess11(2023)
+controllableplastichingeforprecastconcretebeam-columnjoint,Eng.Struct. 86645–86685,https://doi.org/10.1109/ACCESS.2023.3304992.
+245(2021),https://doi.org/10.1016/j.engstruct.2021.112848. [62] D.L.Chen,J.W.Zhao,S.R.Qin,SVMstrategyandanalysisofathree-phasequasi-
+[39] Y.Su,J.Wang,D.Li,X.Wang,L.Hu,Y.Yao,Y.Kang,End-to-enddeeplearning Z-sourceinverterwithhighvoltagetransmissionratio,Sci.ChinaTechnol.Sci.66
+modelforundergroundutilitieslocalizationusingGPR,Autom.Constr.149 (2023)2996–3010,https://doi.org/10.1007/s11431-022-2394-4.
+(2023),https://doi.org/10.1016/j.autcon.2023.104776. [63] S.Meng,F.Meng,H.Chi,H.Chen,A.Pang,Arobustobserverbasedonthe
+[40] M.Alzara,M.F.Rehman,F.Farooq,M.Ali,A.A.A.Beshr,A.M.Yosri,S.B.AEl nonlineardescriptorsystemsapplicationtoestimatethestateofchargeof
+Sayed,Predictionofbuildingenergyperformanceusingmathematicalgene- lithium-ionbatteries,J.Frankl.Inst.360(2023)11397–11413,https://doi.org/
+expressionprogrammingforaselectedregionofdry-summerclimate,Eng.Appl. 10.1016/j.jfranklin.2023.08.037.
+Artif.Intell.126(2023)106958,https://doi.org/10.1016/j. [64] M.Shi,W.Hu,M.Li,J.Zhang,X.Song,W.Sun,Ensembleregressionbasedon
+engappai.2023.106958. polynomialregression-baseddecisiontreeanditsapplicationinthein-situdataof
+[41] H.Huang,M.Guo,W.Zhang,M.Huang,SeismicBehaviorofStrengthenedRC tunnelboringmachine,Mech.Syst.SignalProcess.188(2023),https://doi.org/
+ColumnsunderCombinedLoadings,J.Bridg.Eng.27(2022)05022005,https:// 10.1016/j.ymssp.2022.110022.
+doi.org/10.1061/(asce)be.1943-5592.0001871. [65] X.Zhou,D.Lu,Y.Zhang,X.Du,T.Rabczuk,Anopen-sourceunconstrainedstress
+[42] D.Lu,J.Liang,X.Du,C.Ma,Z.Gao,Fractionalelastoplasticconstitutivemodel updatingalgorithmforthemodifiedCam-claymodel,Comput.MethodsAppl.
+forsoilsbasedonanovel3Dfractionalplasticflowrule,Comput.Geotech.105 Mech.Eng.390(2022),https://doi.org/10.1016/j.cma.2021.114356.
+(2019)277–290,https://doi.org/10.1016/j.compgeo.2018.10.004. [66] D.Lu,X.Zhou,X.Du,G.Wang,3DDynamicElastoplasticConstitutiveModelof
+[43] M.A.Khan,F.Farooq,M.F.Javed,A.Zafar,K.A.Ostrowski,F.Aslam, ConcretewithintheFrameworkofRate-DependentConsistencyCondition,
+S.Malazdrewicz,M.Ma´slak,Simulationofdepthofwearofeco-friendlyconcrete J.Eng.Mech.146(2020),https://doi.org/10.1061/(asce)em.1943-
+usingmachinelearningbasedcomputationalapproaches,Mater.(Basel)15 7889.0001854.
+(2022)58,https://doi.org/10.3390/ma15010058. [67] S.Shi,D.Han,M.Cui,Amultimodalhybridparallelnetworkintrusiondetection
+[44] F.Farooq,S.K.U.Rahman,A.Akbar,R.A.Khushnood,M.F.Javed,R.alyousef, model,Conn.Sci.35(2023),https://doi.org/10.1080/09540091.2023.2227780.
+H.Alabduljabbar,F.aslam,Acomparativestudyonperformanceevaluationof [68] J.Hong,L.Gui,J.Cao,AnalysisandExperimentalVerificationoftheTangential
+hybridGNPs/CNTsinconventionalandself-compactingmortar,Alex.Eng.J.59 ForceEffectonElectromagneticVibrationofPMMotor,IEEETrans.Energy
+(2020)369–379,https://doi.org/10.1016/j.aej.2019.12.048. Convers.38(2023)1893–1902,https://doi.org/10.1109/TEC.2023.3241082.
+[45] J.Xin,W.Xu,B.Cao,T.Wang,S.Zhang,Adeep-learning-basedMACfor [69] D.VanDao,H.-B.B.Ly,H.-L.L.T.Vu,T.-T.T.Le,B.T.Pham,Investigationand
+integratingchannelaccess,rateadaptationandchannelswitch,(2024).htt optimizationoftheC-ANNstructureinpredictingthecompressivestrengthof
+p://arxiv.org/abs/2406.02291(accessedJuly13,2024). foamedconcrete,Mater.(Basel)13(2020)1072,https://doi.org/10.3390/
+[46] F.Aslam,F.Farooq,M.N.Amin,K.Khan,A.Waheed,A.Akbar,M.F.Javed, ma13051072.
+R.Alyousef,H.Alabdulijabbar,ApplicationsofGeneExpressionProgrammingfor [70] M.Zaman,P.Solanki,A.Ebrahimi,L.White,NeuralNetworkModelingof
+EstimatingCompressiveStrengthofHigh-StrengthConcrete,Adv.Civ.Eng.2020 ResilientModulusUsingRoutineSubgradeSoilProperties,Int.J.Geomech.10
+(2020)1–23,https://doi.org/10.1155/2020/8850535. (2010)1–12,https://doi.org/10.1061/(asce)1532-3641(2010)10:1(1).
+[47] M.F.Javed,M.N.Amin,M.I.Shah,K.Khan,B.Iftikhar,F.Farooq,F.Aslam, [71] W.lieZou,Z.Han,L.qiangDing,X.qunWang,Predictingresilientmodulusof
+R.Alyousef,H.Alabduljabbar,Applicationsofgeneexpressionprogrammingand compactedsubgradesoilsunderinfluencesoffreeze–thawcyclesandmoisture
+regressiontechniquesforestimatingcompressivestrengthofbagasseashbased usinggeneexpressionprogrammingandartificialneuralnetworkapproaches,
+concrete,Crystals10(2020)737,https://doi.org/10.3390/cryst10090737. Transp.Geotech.28(2021)100520,https://doi.org/10.1016/j.
+[48] F.Abbassi,F.Ahmad,Behavioranalysisofconcretewithrecycledtirerubberas trgeo.2021.100520.
+aggregateusing3D-digitalimagecorrelation,J.Clean.Prod.274(2020)123074, [72] M.Pal,S.Deswal,ExtremeLearningMachineBasedModelingofResilient
+https://doi.org/10.1016/j.jclepro.2020.123074. ModulusofSubgradeSoils,Geotech.Geol.Eng.32(2014)287–296,https://doi.
+[49] F.Farooq,S.Czarnecki,P.Niewiadomski,F.Aslam,H.Alabduljabbar,K. org/10.1007/s10706-013-9710-y.
+´
+A.Ostrowski,K.Sliwa-Wieczorek,T.Nowobilski,S.Malazdrewicz,Acomparative [73] E.Sadrossadat,A.Heidaripanah,S.Osouli,Predictionoftheresilientmodulusof
+studyforthepredictionofthecompressivestrengthofself-compactingconcrete flexiblepavementsubgradesoilsusingadaptiveneuro-fuzzyinferencesystems,
+modifiedwithflyash,Mater.(Basel)14(2021)4934,https://doi.org/10.3390/ Constr.Build.Mater.123(2016)235–247,https://doi.org/10.1016/j.
+ma14174934. conbuildmat.2016.07.008.
+[50] M.A.Khan,S.A.Memon,F.Farooq,M.F.Javed,F.Aslam,R.Alyousef, [74] N.Kardani,M.Aminpour,M.NoumanAmjadRaja,G.Kumar,A.Bardhan,
+CompressiveStrengthofFly-Ash-BasedGeopolymerConcretebyGeneExpression M.Nazem,Predictionoftheresilientmodulusofcompactedsubgradesoilsusing
+ProgrammingandRandomForest,Adv.Civ.Eng.2021(2021),https://doi.org/ ensemblemachinelearningmethods,Transp.Geotech.36(2022),https://doi.
+10.1155/2021/6618407. org/10.1016/j.trgeo.2022.100827.
+19
+<<<PAGE 19 END>>>
+
+
+
+<<<PAGE 20 START>>>
+L.AlkhattabiandK.Arif Materials Today Communications 40 (2024) 109764
+[75] D.C.Feng,Z.T.Liu,X.D.Wang,Z.M.Jiang,S.X.Liang,Failuremodeclassification rubberizedconcrete,J.Clean.Prod.273(2020)122960,https://doi.org/
+andbearingcapacitypredictionforreinforcedconcretecolumnsbasedon 10.1016/j.jclepro.2020.122960.
+ensemblemachinelearningalgorithm,Adv.Eng.Inform.45(2020)101126, [90] A.S.Ahmad,M.Y.Hassan,M.P.Abdullah,H.A.Rahman,F.Hussin,H.Abdullah,
+https://doi.org/10.1016/j.aei.2020.101126. R.Saidur,AreviewonapplicationsofANNandSVMforbuildingelectrical
+[76] D.K.Bui,T.Nguyen,J.S.Chou,H.Nguyen-Xuan,T.D.Ngo,Amodifiedfirefly energyconsumptionforecasting,Renew.Sustain.EnergyRev.33(2014)
+algorithm-artificialneuralnetworkexpertsystemforpredictingcompressiveand 102–109,https://doi.org/10.1016/J.RSER.2014.01.069.
+tensilestrengthofhigh-performanceconcrete,Constr.Build.Mater.180(2018) [91] A.Seifi,M.Ehteram,V.P.Singh,A.Mosavi,Modelinganduncertaintyanalysisof
+320–333,https://doi.org/10.1016/j.conbuildmat.2018.05.201. groundwaterlevelusingsixevolutionaryoptimizationalgorithmshybridized
+[77] B.A.Salami,S.M.Rahman,T.A.Oyehan,M.Maslehuddin,S.U.AlDulaijan, withANFIS,SVM,andANN,Sustain12(2020)4023,https://doi.org/10.3390/
+Ensemblemachinelearningmodelforcorrosioninitiationtimeestimationof SU12104023.
+embeddedsteelreinforcedself-compactingconcrete,Meas.J.Int.Meas.Confed. [92] M.Azimi-Pour,H.Eskandari-Naddaf,A.Pakzad,Linearandnon-linearSVM
+165(2020)108141,https://doi.org/10.1016/j.measurement.2020.108141. predictionforfreshpropertiesandcompressivestrengthofhighvolumeflyash
+[78] R.Cai,T.Han,W.Liao,J.Huang,D.Li,A.Kumar,H.Ma,Predictionofsurface self-compactingconcrete,Constr.Build.Mater.230(2020)117021,https://doi.
+chlorideconcentrationofmarineconcreteusingensemblemachinelearning, org/10.1016/j.conbuildmat.2019.117021.
+Cem.Concr.Res.136(2020)106164,https://doi.org/10.1016/j. [93] J.Zeng,P.C.Roussis,A.S.Mohammed,C.Maraveas,S.A.Fatemi,D.J.Armaghani,
+cemconres.2020.106164. P.G.Asteris,Predictionofpeakparticlevelocitycausedbyblastingthroughthe
+[79] J.S.Chou,C.F.Tsai,A.D.Pham,Y.H.Lu,Machinelearninginconcretestrength combinationsofboosted-chaidandsvmmodelswithvariouskernels,Appl.Sci.
+simulations:Multi-nationdataanalytics,Constr.Build.Mater.73(2014) 11(2021)3705,https://doi.org/10.3390/app11083705.
+771–780,https://doi.org/10.1016/j.conbuildmat.2014.09.054. [94] N.Dahiya,B.Saini,H.D.Chalak,Gradientboosting-basedregressionmodelling
+[80] A.Upadhya,M.S.Thakur,P.Sihag,R.Kumar,S.Kumar,A.Afeeza,A.Afzal, forestimatingthetimeperiodoftheirregularprecastconcretestructuralsystem
+C.AhamedSaleel,Modellingandpredictionofbindercontentusinglatest withcrossbracing,J.KingSaud.Univ.-Eng.Sci.(2021),https://doi.org/
+intelligentmachinelearningalgorithmsincarbonfiberreinforcedasphalt 10.1016/j.jksues.2021.08.004.
+concrete,Alex.Eng.J.65(2023)131–149,https://doi.org/10.1016/j. [95] T.Han,A.Siddique,K.Khayat,J.Huang,A.Kumar,Anensemblemachine
+aej.2022.09.055. learningapproachforpredictionandoptimizationofmodulusofelasticityof
+[81] X.Wang,P.Pan,J.Li,Real-timemeasurementondynamictemperaturevariation recycledaggregateconcrete,Constr.Build.Mater.244(2020)118271,https://
+ofasphaltpavementusingmachinelearning,Meas.J.Int.Meas.Confed.207 doi.org/10.1016/j.conbuildmat.2020.118271.
+(2023),https://doi.org/10.1016/j.measurement.2022.112413. [96] S.S.Rizvon,K.Jayakumar,Strengthpredictionmodelsforrecycledaggregate
+[82] Q.A.T.Bui,D.D.Nguyen,M.Iqbal,F.E.Jalal,I.Prakash,B.T.Pham,Predictionof concreteusingRandomForests,ANNandLASSO,J.Build.Pathol.Rehabil.7
+InterfaceShearStiffnessModulusofAsphaltPavementusingBaggingEnsemble- (2022),https://doi.org/10.1007/s41024-021-00145-y.
+basedHybridMachineLearningModel,Arab.J.Sci.Eng.(2023),https://doi.org/ [97] A.Shaqadan,Predictionofconcretemixstrengthusingrandomforestmodel,
+10.1007/s13369-023-08014-1. 2016.〈http://www.ripublication.com〉(accessedJuly2,2020).
+[83] J.Zhao,H.Wang,Machinelearningbasedpavementperformancepredictionfor [98] M.Subramanian,K.Shanmugavadivel,P.S.Nandhini,Onfine-tuningdeep
+data-drivendecisionofasphaltpavementoverlay,Struct.Infrastruct.Eng.(2023), learningmodelsusingtransferlearningandhyper-parametersoptimizationfor
+https://doi.org/10.1080/15732479.2023.2258498. diseaseidentificationinmaizeleaves,NeuralComput.Appl.34(2022)
+[84] J.Zhao,H.Wang,P.Lu,Machinelearninganalysisofoverweighttrafficimpact 13951–13968,https://doi.org/10.1007/s00521-022-07246-w.
+onsurvivallifeofasphaltpavement,Struct.Infrastruct.Eng.19(2023)606–616, [99] D.Kolar,D.Lisjak,M.Pajak?,M.Gudlin,Intelligentfaultdiagnosisofrotary
+https://doi.org/10.1080/15732479.2021.1961827. machinerybyconvolutionalneuralnetworkwithautomatichyper-parameters
+[85] B.Kalpana,A.K.Reshmy,S.SenthilPandi,S.Dhanasekaran,OESV-KRF:Optimal tuningusingbayesianoptimization,Sensors21(2021)2411,https://doi.org/
+ensemblesupportvectorkernelrandomforestbasedearlydetectionand 10.3390/s21072411.
+classificationofskindiseases,Biomed.SignalProcess.Control.85(2023)104779, [100] T.D.Nguyen,T.H.Tran,N.D.Hoang,Predictionofinterfaceyieldstressand
+https://doi.org/10.1016/j.bspc.2023.104779. plasticviscosityoffreshconcreteusingahybridmachinelearningapproach,Adv.
+[86] J.Tu,L.Hu,K.J.Mohammed,B.N.Le,P.Chen,E.Ali,H.E.Ali,L.Sun, Eng.Inform.44(2020)101057,https://doi.org/10.1016/j.aei.2020.101057.
+Applicationoflogisticregression,supportvectormachineandrandomforeston [101] F.Bagherzadeh,T.Shafighfard,EnsembleMachineLearningapproachfor
+theeffectsoftitaniumdioxidenanoparticlesusingmacroalgaeintreatmentof evaluatingthematerialcharacterizationofcarbonnanotube-reinforced
+certainriskfactorsassociatedwithkidneyinjuries,Environ.Res.220(2023) cementitiouscomposites,CaseStud.Constr.Mater.17(2022)e01537,https://
+115167,https://doi.org/10.1016/j.envres.2022.115167. doi.org/10.1016/j.cscm.2022.e01537.
+[87] A.Hoła,S.Czarnecki,Randomforestalgorithmandsupportvectormachinefor [102] W.Dong,Y.Huang,B.Lehane,G.Ma,Multi-objectivedesignoptimizationfor
+nondestructiveassessmentofmassmoisturecontentofbrickwallsinhistoric graphite-basednanomaterialsreinforcedcementitiouscomposites:Adata-driven
+buildings,Autom.Constr.149(2023)104793,https://doi.org/10.1016/j. methodwithmachinelearningandNSGA-II,Constr.Build.Mater.331(2022)
+autcon.2023.104793. 127198https://doi.org/10.1016/j.conbuildmat.2022.127198.
+[88] A.Ahmad,F.Farooq,P.Niewiadomski,K.Ostrowski,A.Akbar,F.Aslam, [103] M.F.Iqbal,M.F.Javed,M.Rauf,I.Azim,M.Ashraf,J.Yang,Q.fengLiu,
+R.Alyousef,A.A.Hk,materialsPredictionofCompressiveStrengthofFlyAsh Sustainableutilizationoffoundrywaste:Forecastingmechanicalpropertiesof
+BasedConcreteUsingIndividualandEnsembleAlgorithmPredictionof foundrysandbasedconcreteusingmulti-expressionprogramming,Sci.Total
+CompressiveStrengthofFlyAshBasedConcreteUsingIndividualandEnsemble Environ.780(2021)146524,https://doi.org/10.1016/j.scitotenv.2021.146524.
+Algorithm,Mdpi.Com.(2021),https://doi.org/10.3390/ma14040794. [104] D.N.Moriasi,J.G.Arnold,M.W.VanLiew,R.L.Bingner,R.D.Harmel,T.L.Veith,
+[89] M.Jalal,P.Arabali,Z.Grasley,J.W.Bullard,H.Jalal,Behaviorassessment, Modelevaluationguidelinesforsystematicquantificationofaccuracyin
+regressionanalysisandsupportvectormachine(SVM)modelingofwastetire watershedsimulations,Trans.ASABE.50(2007)885–900.〈https://elibrary.as
+abe.org/abstract.asp?aid=23153〉(accessedOctober9,2023).
+20
+<<<PAGE 20 END>>>

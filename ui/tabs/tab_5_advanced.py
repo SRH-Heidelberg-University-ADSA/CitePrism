@@ -457,7 +457,7 @@ def render_advanced_features():
     st.markdown("Extended exploratory features mapping the semantic, temporal, and social landscape of the author's bibliography.")
 
     # 2A. CITATION INTENT
-    st.markdown("#### Citation Intent & Sentiment Analysis")
+    st.markdown("#### Citation Intent & Semantic Analysis")
     st.markdown("Analyzes the semantic context of *why* the author cited these papers (e.g., building on past work vs. arguing against it).")
     
     intents = [r.get('citation_intent', 'Background') for r in scored_refs]
